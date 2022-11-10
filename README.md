@@ -3,7 +3,7 @@
 <br><br>
 `React`를 기반으로 프론트 작업, `Python`을 통한 백엔드 작업 및 머신 러닝 작업으로 프로젝트 진행
 <br><br>
-`Heroku`를 통한 `Deploy`와 `ClearDB`를 통한 `Heroku`와의 데이터베이스 연동 작업 진행
+<!-- `Heroku`를 통한 `Deploy`와 `ClearDB`를 통한 `Heroku`와의 데이터베이스 연동 작업 진행 -->
 
 ## 1. Collaborator
 - 한형진 (팀장)
