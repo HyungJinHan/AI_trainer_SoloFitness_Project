@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Register from './components/Register';
+import { Routes, Route } from "react-router-dom";
+import ModelSelect from "./components/AI/ModelSelect";
 
 const App = () => {
   const [message, setMessage] = useState('');
@@ -29,7 +31,10 @@ const App = () => {
 
   return (
     <div>
-      <Register />
+      <Routes>
+        <Route path="/" element={<Register />} />
+        <Route path="/video" element={<ModelSelect />} />
+      </Routes>
     </div>
   );
 }
