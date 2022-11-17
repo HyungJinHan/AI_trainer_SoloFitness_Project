@@ -16,7 +16,7 @@ from exercise_types import TypeOfExercise
 # args = vars(ap.parse_args())
 # args = vars(ap.parse_args())
 
-ex_test = 1
+ex_test = 0
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
@@ -47,12 +47,12 @@ def get_stream_video():
             try:
                 landmarks = results.pose_landmarks.landmark
                 counter, status = TypeOfExercise(landmarks).calculate_exercise(
-                    'pull-up', counter, status)
+                    'curl', counter, status)
 
             except:
                 pass
 
-            frame = score_table('pull-up', frame, counter, status)
+            frame = score_table('curl', frame, counter, status)
 
             mp_drawing.draw_landmarks(frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
                                     mp_drawing.DrawingSpec(color=(255, 255, 255), thickness=2, circle_radius=2))
