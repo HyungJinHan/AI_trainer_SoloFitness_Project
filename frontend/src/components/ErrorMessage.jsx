@@ -2,7 +2,7 @@ import React from 'react';
 
 function ErrorMessage(props) {
   return (
-    <p className="has-text-weight-bold has-text-dager">{props.message}</p>
+    <p className="has-text-weight-bold has-text-danger">{props.message}</p>
   );
 }
 

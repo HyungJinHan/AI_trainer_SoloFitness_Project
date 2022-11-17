@@ -7,7 +7,6 @@ import services as _services, schemas as _schemas
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
 
-# fastAPI 객체 생성
 app = _fastapi.FastAPI()
 
 origins = {
@@ -16,12 +15,13 @@ origins = {
 }
 
 app.add_middleware(
-   CORSMiddleware,
-    allow_origins = origins,
-    allow_credentials =True,
-    allow_methods = ["*"],
-    allow_headers= ["*"],
+  CORSMiddleware,
+  allow_origins = origins,
+  allow_credentials = True,
+  allow_methods = ["*"],
+  allow_headers= ["*"],
 )
+
 @app.post('/api/users')
 async def create_user(user: _schemas.UserCreate, db: _orm.Session = _fastapi.Depends(_services.get_db)):
   db_user = await _services.get_user_by_email(user.email, db)

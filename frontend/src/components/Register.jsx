@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
 import { UserContext } from './UserContext';
 
@@ -10,17 +11,19 @@ function Register(props) {
   const [chkPassword, setChkPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [, setToken] = useContext(UserContext);
+  const navigate = useNavigate();
 
   const submitRegistration = async () => {
     const requestOptions = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
+        "Accept": "application/json"
       },
       body: JSON.stringify({ email: email, hashed_password: password })
     };
 
-    const response = await fetch('/api/users', requestOptions);
+    const response = await fetch('http://localhost:8000/api/users', requestOptions);
     const data = await response.json();
 
     if (!response.ok) {
@@ -39,6 +42,10 @@ function Register(props) {
     } else if (password !== chkPassword) {
       setErrorMessage('Incorrect Password and Password Check');
     }
+  }
+
+  const goToVideo = () => {
+    navigate('/video');
   }
 
   return (
@@ -73,7 +80,6 @@ function Register(props) {
               }}
               className='input'
               required
-              autoComplete='off'
             />
           </div>
         </div>
@@ -89,7 +95,6 @@ function Register(props) {
               }}
               className='input'
               required
-              autoComplete='off'
             />
           </div>
         </div>
@@ -97,6 +102,12 @@ function Register(props) {
         <br />
         <button className="button is-primaty" type='submit'>
           Register
+        </button>
+        <button
+          className="button is-primaty"
+          onClick={goToVideo}
+        >
+          KCJ Video
         </button>
       </form>
     </div>

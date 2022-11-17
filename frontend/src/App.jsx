@@ -9,9 +9,10 @@ const App = () => {
 
   const getWelcomeMessage = async () => {
     const requestOptions = {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
+        "Accept": "application/json"
       }
     };
 
