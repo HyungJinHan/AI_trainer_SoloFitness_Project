@@ -5,7 +5,7 @@ import { useState } from "react";
 const ModelSelect = () => {
   return (
     <div>
-      <img src="http://localhost:8000/video" alt="Video" />
+      <img src="http://localhost:8008/video" alt="Video" />
     </div>
   );
 };

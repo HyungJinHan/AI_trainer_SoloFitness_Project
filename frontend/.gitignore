@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/FastAPI_test
 
 # testing
 /coverage

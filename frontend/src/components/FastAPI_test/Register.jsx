@@ -18,7 +18,6 @@ function Register(props) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
       },
       body: JSON.stringify({ email: email, hashed_password: password })
     };
@@ -100,11 +99,12 @@ function Register(props) {
         </div>
         <ErrorMessage message={errorMessage} />
         <br />
-        <button className="button is-primaty" type='submit'>
+        <button className="button is-primary" type='submit'>
           Register
         </button>
+        &nbsp;&nbsp;&nbsp;
         <button
-          className="button is-primaty"
+          className="button is-primary"
           onClick={goToVideo}
         >
           KCJ Video
