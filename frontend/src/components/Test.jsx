@@ -1,16 +1,16 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios";
-import { useEffect } from 'react';
 
 function Test(props) {
   const [test, setTest] = useState('');
 
   function getList() {
     axios
-      .post("http://localhost:8008/hi", { id: 10 })
+      .post("http://localhost:8008/hi")
       .then((res) => {
         setTest(res.data);
+        console.log(res.data);
       })
       .catch((e) => {
         console.error(e);
@@ -26,7 +26,7 @@ function Test(props) {
   return (
     <div>
       <h1>Hello, World!</h1>
-      <h3>{test}</h3>
+      {test}
     </div>
   );
 }
