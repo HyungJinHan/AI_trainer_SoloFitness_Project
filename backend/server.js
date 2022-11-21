@@ -1,13 +1,17 @@
 const express = require("express");
 const app = express();
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 const server = require('http').createServer(app);
+
 require("dotenv").config();
 
-const PORT = process.env.PORT || 8008
+let corsOptions = {
+  origin: "*",
+  credential: true,
+};
 
 let corsOptions = {
   origin: "*",
@@ -15,22 +19,25 @@ let corsOptions = {
 };
 
 app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors(corsOptions));
 
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
+  port: process.env.DB_PORT
 });
 
 app.post("/hi", (req, res) => {
-  var id = parseInt(req.body.id);
+  const sqlQuery =
+    "SELECT * FROM users WHERE id = 10;"
 
-  db.query("SELECT * FROM users WHERE id = ?;", [id], (err, result) => {
+  db.query(sqlQuery, (err, result) => {
     res.send(result);
+    console.log(result)
   });
 });
 
