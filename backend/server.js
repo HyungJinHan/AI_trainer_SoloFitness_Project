@@ -3,9 +3,9 @@ const app = express();
 const mysql = require("mysql2");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-// const path = require("path");
-// const server = require('http').createServer(app);
-const PORT = 8008
+const path = require("path");
+const server = require('http').createServer(app);
+
 require("dotenv").config();
 
 let corsOptions = {
@@ -13,9 +13,14 @@ let corsOptions = {
   credential: true,
 };
 
+let corsOptions = {
+  origin: "*",
+  credential: true,
+};
+
+app.use(cors());
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = mysql.createConnection({
