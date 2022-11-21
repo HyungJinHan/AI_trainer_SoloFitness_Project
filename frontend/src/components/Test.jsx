@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 
 function Test(props) {
-  const [test, setTest] = useState('');
+  const [test, setTest] = useState('hi');
 
   function getList() {
     axios
       .post("http://localhost:8008/hi")
       .then((res) => {
-        setTest(res.data);
-        console.log(res.data);
+        setTest(res.data[0].email);
+        // console.log(res.data);
       })
       .catch((e) => {
         console.error(e);
