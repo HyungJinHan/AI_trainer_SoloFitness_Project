@@ -2,8 +2,8 @@ import numpy as np
 from pose_results import *
 from body_part_angle import BodyPartAngle
 from main import *
+from exercise_c_f import countlist
 
-countlist = []
 def exercise_counter(counter):
     videocounter = counter
     print(videocounter)
@@ -24,6 +24,7 @@ class TypeOfExercise(BodyPartAngle):
             if avg_arm_angle < 70:
                 counter += 1
                 status = False
+                countlist.append(counter)
         else:
             if avg_arm_angle > 160:
                 status = True
@@ -56,6 +57,7 @@ class TypeOfExercise(BodyPartAngle):
             if avg_leg_angle < 70:
                 counter += 1
                 status = False
+                countlist.append(counter)
 
         else:
             if avg_leg_angle > 160:
@@ -69,6 +71,7 @@ class TypeOfExercise(BodyPartAngle):
             if abs_angle < 55:
                 counter += 1
                 status = False
+                countlist.append(counter)
         else:
             if abs_angle > 105:
                 status = True
@@ -82,6 +85,7 @@ class TypeOfExercise(BodyPartAngle):
             if avg_arm_angle < 30:
                 counter += 1
                 status = False
+                countlist.append(counter)
         else:
             if avg_arm_angle > 140:
                 status = True
