@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/AI/ModelSelect.css";
 import squatIMG from "../../static/images/kcj/squat1.jpg";
-import Loading_spinner from "../Loading/Loading_spinner";
+import Loading_spinner from "../Loading/LoadingSpinner";
 import VideoModel from "./VideoModel";
 
 const ModelSelect = () => {
