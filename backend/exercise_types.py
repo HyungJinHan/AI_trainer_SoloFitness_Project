@@ -2,7 +2,7 @@ import numpy as np
 from pose_results import *
 from body_part_angle import BodyPartAngle
 from main import *
-from exercise_c_f import countlist
+from exercise_c_f import countlist, sqautFeedbackList
 
 def exercise_counter(counter):
     videocounter = counter
@@ -52,16 +52,24 @@ class TypeOfExercise(BodyPartAngle):
         left_leg_angle = self.angle_of_the_left_leg()
         right_leg_angle = self.angle_of_the_right_leg()
         avg_leg_angle = (left_leg_angle + right_leg_angle) // 2
+        squatFeedback_flag = True
 
         if status:
             if avg_leg_angle < 70:
                 counter += 1
                 status = False
                 countlist.append(counter)
+                sqautFeedbackList.append('Great!')
+            if squatFeedback_flag:
+                if 71 < avg_leg_angle < 140:
+                    sqautFeedbackList.append('무릎을 더 굽히세요.')
+                    squatFeedback_flag = False
+                
 
         else:
             if avg_leg_angle > 160:
                 status = True
+                squatFeedback_flag = True
 
         return [counter, status]
 

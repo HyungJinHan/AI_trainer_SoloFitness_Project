@@ -4,7 +4,7 @@ import fastapi as fastapi
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import WebSocket
 import cv2
-from exercise_c_f import countlist
+from exercise_c_f import countlist,sqautFeedbackList
 
 app = fastapi.FastAPI()
 
@@ -38,8 +38,4 @@ def counterInitialization():
 
 @app.get('/videocount')
 def countchecker():
-    return countlist
-
-@app.get('/camoff')
-def camoff():
-    return 123
+    return {'count':countlist, 'squatFeedback':sqautFeedbackList}
