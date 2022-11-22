@@ -5,6 +5,7 @@ import Test from "./components/Test";
 import Chat from "./components/ChatComponents/Chat/Chat";
 import Join from "./components/ChatComponents/Join/Join";
 import Loading_spinner from "./components/Loading/Loading_spinner";
+import FitnessResult from "./components/AI/FitnessResult";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/chatjoin" element={<Join />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/load" element={<Loading_spinner />} />
+        <Route path="/fitnessresult" element={<FitnessResult />} />
       </Routes>
     </div>
   );

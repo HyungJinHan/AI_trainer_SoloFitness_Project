@@ -8,7 +8,7 @@ const http = require("http");
 const { Server } = require("socket.io");
 const PORT = 8008;
 
-const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
+const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
 require("dotenv").config();
 
@@ -36,48 +36,73 @@ const db = mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  port: process.env.DB_PORT
+  port: process.env.DB_PORT,
 });
 
-io.on('connect', (socket) => {
-  socket.on('join', ({ name, room }, callback) => {
+io.on("connect", (socket) => {
+  socket.on("join", ({ name, room }, callback) => {
     const { error, user } = addUser({ id: socket.id, name, room });
 
     if (error) return callback(error);
 
     socket.join(user.room);
 
-    socket.emit('message', { user: 'System', text: `${user.name}, welcome to room ${user.room}.` });
-    socket.broadcast.to(user.room).emit('message', { user: 'System', text: `${user.name} has joined!` });
+    socket.emit("message", {
+      user: "System",
+      text: `${user.name}, welcome to room ${user.room}.`,
+    });
+    socket.broadcast
+      .to(user.room)
+      .emit("message", { user: "System", text: `${user.name} has joined!` });
 
-    io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
+    io.to(user.room).emit("roomData", {
+      room: user.room,
+      users: getUsersInRoom(user.room),
+    });
 
     callback();
   });
 
-  socket.on('sendMessage', (message, callback) => {
+  socket.on("sendMessage", (message, callback) => {
     const user = getUser(socket.id);
 
-    io.to(user.room).emit('message', { user: user.name, text: message });
+    io.to(user.room).emit("message", { user: user.name, text: message });
 
     callback();
   });
 
-  socket.on('disconnect', () => {
+  socket.on("disconnect", () => {
     const user = removeUser(socket.id);
 
     if (user) {
-      io.to(user.room).emit('message', { user: 'System', text: `${user.name} has left.` });
-      io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
+      io.to(user.room).emit("message", {
+        user: "System",
+        text: `${user.name} has left.`,
+      });
+      io.to(user.room).emit("roomData", {
+        room: user.room,
+        users: getUsersInRoom(user.room),
+      });
     }
-  })
+  });
 });
 
 app.post("/hi", (req, res) => {
-  const sqlQuery =
-    "SELECT * FROM users WHERE id = 10;"
+  const sqlQuery = "SELECT * FROM users WHERE id = 10;";
 
   db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.post("/fitnessresult", (req, res) => {
+  var user = req.body.user;
+  var execName = req.body.execName;
+  var count = req.body.count;
+  const sqlQuery =
+    "INSERT INTO EXCERCISE_TABLE(EXCERCISE_USER,EXCERCISE_NAME,EXCERCISE_COUNT) VALUES (?,?,?);";
+
+  db.query(sqlQuery, [user, execName, count], (err, result) => {
     res.send(result);
   });
 });
