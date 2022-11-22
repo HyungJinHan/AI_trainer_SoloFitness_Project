@@ -8,9 +8,9 @@ import Input from '../Input/Input';
 import './Chat.css';
 import { useLocation } from 'react-router-dom';
 
-const ENDPOINT = 'http://localhost:8008/';
+// const ENDPOINT = 'http://localhost:8008/';
 
-let socket;
+let socket = io.connect('http://localhost:3001');
 
 const Chat = () => {
   const location = useLocation();
@@ -22,8 +22,6 @@ const Chat = () => {
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
-
-    socket = io(ENDPOINT);
 
     setRoom(room);
     setName(name)

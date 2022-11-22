@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/Loading/Loading_spinner.css";
 
-const Loading_spinner = () => {
+const LoadingSpinner = () => {
   return (
     <div className="loader_top_div">
       <div className="loader" id="loader"></div>
@@ -14,4 +14,4 @@ const Loading_spinner = () => {
   );
 };
 
-export default Loading_spinner;
+export default LoadingSpinner;

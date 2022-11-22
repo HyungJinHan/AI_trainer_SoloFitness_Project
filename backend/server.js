@@ -17,11 +17,6 @@ let corsOptions = {
   credential: true,
 };
 
-app.use(cors());
-app.use(cors(corsOptions));
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -30,6 +25,11 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
   },
 });
+
+app.use(cors());
+app.use(cors(corsOptions));
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -83,7 +83,7 @@ app.post("/hi", (req, res) => {
 });
 
 server.listen(3001, () => {
-  console.log("Server Running");
+  console.log("Server Running 3001");
 });
 
 app.listen(PORT, () => {
