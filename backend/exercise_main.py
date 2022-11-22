@@ -36,7 +36,7 @@ def get_stream_video():
         status = True
         while cap.isOpened():
             ret, frame = cap.read()
-            frame = cv2.resize(frame, (800, 480), interpolation=cv2.INTER_LANCZOS4)
+            frame = cv2.resize(frame, (800, 480), interpolation=cv2.INTER_LINEAR)
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             frame = cv2.flip(frame, 1)
             frame.flags.writeable = False

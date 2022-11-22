@@ -1,0 +1,18 @@
+.model {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.guide_img{
+    width: 50rem;
+    height: 30rem;
+}
+
+.feedback_div{
+    height: 1.875rem;
+}
+
+.counter_div{
+    height: 1.875rem;
+}
