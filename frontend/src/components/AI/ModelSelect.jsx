@@ -1,10 +1,11 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 const ModelSelect = () => {
   const [counter, setCounter] = useState(0)
+  
   useEffect(() => {
     axios
     .get('http://localhost:8000/initialization')
@@ -13,6 +14,7 @@ const ModelSelect = () => {
       console.log('initial:',counter)
     })
   },[])
+  
   setInterval(() => {
     axios
       .get("http://localhost:8000/videocount")
@@ -23,13 +25,18 @@ const ModelSelect = () => {
       .catch((e) => {
         console.error(e);
       });
-  },1000);
+  }, 500);
+
+  console.log(counter)
+  
   return (
     <div>
       <div>
       <img src="http://localhost:8000/video" alt="Video" />
       </div>
       {counter}
+      <br /><br /><br />
+      <a type="button" href='http://localhost:3000'>Back To Main</a>
     </div>
   );
 };
