@@ -6,12 +6,14 @@ import Messages from '../Messages/Messages';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
 import './Chat.css';
+import { useLocation } from 'react-router-dom';
 
 const ENDPOINT = 'http://localhost:8008/';
 
 let socket;
 
-const Chat = ({ location }) => {
+const Chat = () => {
+  const location = useLocation();
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
   const [users, setUsers] = useState('');
