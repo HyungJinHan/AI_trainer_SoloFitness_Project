@@ -4,6 +4,7 @@ from pose_results import *
 import mediapipe as mp
 from body_part_angle import BodyPartAngle
 from exercise_types import TypeOfExercise
+import time
 
 # argparse로 실행할때 쓰는 구문
 # ap = argparse.ArgumentParser()
@@ -22,7 +23,7 @@ mp_pose = mp.solutions.pose
 
 def get_stream_video():
     if ex_test == 1:
-        cap = cv2.VideoCapture('Validation/pull-up.mp4')
+        cap = cv2.VideoCapture('Validation/squat.mp4')
     else:
         cap = cv2.VideoCapture(0)
 
@@ -47,12 +48,12 @@ def get_stream_video():
             try:
                 landmarks = results.pose_landmarks.landmark
                 counter, status = TypeOfExercise(landmarks).calculate_exercise(
-                    'pull-up', counter, status)
+                    'squat', counter, status)
 
             except:
                 pass
 
-            frame = score_table('pull-up', frame, counter, status)
+            frame = score_table('squat', frame, counter, status)
 
             mp_drawing.draw_landmarks(frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
                                     mp_drawing.DrawingSpec(color=(255, 255, 255), thickness=2, circle_radius=2))
@@ -66,6 +67,5 @@ def get_stream_video():
             # if cv2.waitKey(10) & 0xFF == ord('q'):
             #     print(counter)
             #     break
-
         cap.release()
         cv2.destroyAllWindows()

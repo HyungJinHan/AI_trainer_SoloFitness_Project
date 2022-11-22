@@ -2,8 +2,9 @@ from fastapi.responses import StreamingResponse
 from exercise_main import get_stream_video
 import fastapi as fastapi
 from fastapi.middleware.cors import CORSMiddleware
-from exercise_types import countlist
 from fastapi import WebSocket
+import cv2
+from exercise_c_f import countlist
 
 app = fastapi.FastAPI()
 
@@ -30,8 +31,15 @@ def main1():
     # StringResponse함수를 return하고,
     # 인자로 OpenCV에서 가져온 "바이트"이미지와 type을 명시
     return StreamingResponse(video_streaming(), media_type="multipart/x-mixed-replace; boundary=frame")
+@app.get('/initialization')
+def counterInitialization():
+    countlist = []
+    return countlist
 
-@app.post('/videocount')
+@app.get('/videocount')
 def countchecker():
     return countlist
 
+@app.get('/camoff')
+def camoff():
+    return 123
