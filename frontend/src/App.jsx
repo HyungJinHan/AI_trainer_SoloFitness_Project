@@ -4,7 +4,7 @@ import ModelSelect from "./components/AI/ModelSelect";
 import Test from "./components/Test";
 import Chat from "./components/ChatComponents/Chat/Chat";
 import Join from "./components/ChatComponents/Join/Join";
-import LoadingSpinner from "./components/Loading/LoadingSpinner";
+import FitnessResult from "./components/AI/FitnessResult";
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
         <Route path="/video" element={<ModelSelect />} />
         <Route path="/chatjoin" element={<Join />} />
         <Route path="/chat" element={<Chat />} />
-        <Route path="/load" element={<LoadingSpinner />} />
+        <Route path="/fitnessresult" element={<FitnessResult />} />
       </Routes>
     </div>
   );
