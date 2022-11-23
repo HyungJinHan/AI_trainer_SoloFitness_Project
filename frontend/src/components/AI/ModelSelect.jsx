@@ -76,6 +76,8 @@ const ModelSelect = () => {
         Back To Main
       </a>
       <a href="/fitnessresult?id=kcj">결과봐라</a>
+      {/* <input type="button" onClick={goHome} value="집에가라" />
+      <input type="button" onClick={goResult} value="결과봐라" /> */}
     </div>
   );
 };

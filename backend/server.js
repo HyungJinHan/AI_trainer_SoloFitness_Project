@@ -31,7 +31,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const db = mysql.createConnection({
+const db = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -88,9 +88,11 @@ io.on("connect", (socket) => {
 });
 
 app.post("/hi", (req, res) => {
-  const sqlQuery = "SELECT * FROM users WHERE id = 10;";
+  const ADMIN_ID = req.body.ADMIN_ID;
 
-  db.query(sqlQuery, (err, result) => {
+  const sqlQuery = "SELECT * FROM ADMIN_TABLE WHERE ADMIN_ID = ?;";
+
+  db.query(sqlQuery, [ADMIN_ID], (err, result) => {
     res.send(result);
   });
 });

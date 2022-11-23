@@ -8,6 +8,7 @@ const FitnessResultNivo = () => {
   const [exerciseName, setExerciseName] = useState([]);
   const [exerciseCount, setExerciseCount] = useState([]);
   const [exerciseDate, setExerciseDate] = useState([]);
+
   useEffect(() => {
     axios.post("http://localhost:8008/fitnessresult").then((res) => {
       res.data.map((exerciseData) => {
