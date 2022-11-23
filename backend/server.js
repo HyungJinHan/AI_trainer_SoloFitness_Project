@@ -96,13 +96,10 @@ app.post("/hi", (req, res) => {
 });
 
 app.post("/fitnessresult", (req, res) => {
-  var user = req.body.user;
-  var execName = req.body.execName;
-  var count = req.body.count;
   const sqlQuery =
-    "INSERT INTO EXCERCISE_TABLE(EXCERCISE_USER,EXCERCISE_NAME,EXCERCISE_COUNT) VALUES (?,?,?);";
+    "SELECT * FROM EXCERCISE_TABLE ORDER BY EXCERCISE_DATE LIMIT 5;";
 
-  db.query(sqlQuery, [user, execName, count], (err, result) => {
+  db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
 });
