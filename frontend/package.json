@@ -8,6 +8,7 @@
     "@nivo/radial-bar": "^0.80.0",
     "axios": "^1.1.3",
     "bulma": "^0.9.4",
+    "immer": "^9.0.16",
     "momment": "^0.0.1",
     "query-string": "^7.1.1",
     "react": "^18.2.0",
