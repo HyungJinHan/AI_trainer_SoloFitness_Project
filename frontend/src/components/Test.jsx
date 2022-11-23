@@ -1,10 +1,10 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function Test(props) {
-  const [test, setTest] = useState('hi');
+  const [test, setTest] = useState("hi");
   const navigate = useNavigate();
 
   function getList() {
@@ -20,31 +20,41 @@ function Test(props) {
   }
 
   useEffect(() => {
-    getList()
-  }, [test])
+    getList();
+  }, [test]);
 
-  console.log(test)
+  console.log(test);
 
   return (
     <div>
       <h1>Hello, World!</h1>
       {test}
-      <br /><br /><br />
+      <br />
+      <br />
+      <br />
       <input
         type="button"
-        value='Go To Video'
+        value="Go To Video"
         onClick={() => {
-          navigate('/video');
+          navigate("/video");
         }}
       />
       &nbsp;&nbsp;
       <input
         type="button"
-        value='Go To Chat'
+        value="Go To Chat"
         onClick={() => {
-          navigate('/chatjoin');
+          navigate("/chatjoin");
         }}
       />
+      <a href="/video?exec=squat">스쿼트</a>
+      &nbsp;&nbsp;
+      <a href="/video?exec=pullup">풀업</a>
+      &nbsp;&nbsp;
+      <a href="/video?exec=pushup">푸쉬업</a>
+      &nbsp;&nbsp;
+      <a href="/video?exec=situp">싯업</a>
+      &nbsp;&nbsp;
     </div>
   );
 }

@@ -3,8 +3,9 @@ from exercise_main import get_stream_video
 import fastapi as fastapi
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import WebSocket
+from pydantic import BaseModel
 import cv2
-from exercise_c_f import countlist,sqautFeedbackList
+from exercise_c_f import countlist,sqautFeedbackList,execList
 
 app = fastapi.FastAPI()
 
@@ -21,6 +22,10 @@ app.add_middleware(
   allow_headers=["*"],
 )
 
+class exec_categories(BaseModel):
+    exec: str
+    
+
 # openCV에서 이미지,영상 불러오는 함수
 def video_streaming():
     return get_stream_video()
@@ -36,6 +41,12 @@ def counterInitialization():
     countlist = []
     return countlist
 
+@app.post('/execcategories')
+def exec_categories1(exec: exec_categories):
+    exec_category = exec.exec
+    execList.append(exec_category)
+    
+    
 @app.get('/videocount')
 def countchecker():
     return {'count':countlist, 'squatFeedback':sqautFeedbackList}

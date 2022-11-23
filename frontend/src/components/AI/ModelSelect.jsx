@@ -1,30 +1,39 @@
 import React, { Suspense } from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../../styles/AI/ModelSelect.css";
 import squatIMG from "../../static/images/kcj/squat1.jpg";
 import Loading_spinner from "../Loading/LoadingSpinner";
 import VideoModel from "./VideoModel";
+import queryString from "query-string";
 
 const ModelSelect = () => {
   const [counter, setCounter] = useState(0);
   const [squat, setSquat] = useState(null);
+  const location = useLocation().search;
+  const execiseCategories = queryString.parse(location).exec;
   /** 렌더링되는동안 로딩창 실행, 렌더링이 중첩되서 영상이 너무 느려짐 */
   // const VideoModel = React.lazy(() => import("./VideoModel"));
 
   let intervalFlag = true;
-  const navigator = useNavigate();
 
   /** 컴포넌트 접속 시 카운터 초기화 */
   useEffect(() => {
+    axios
+      .post("http://localhost:8000/execcategories", {
+        exec: execiseCategories,
+      })
+      .then((res) => {
+        console.log(res);
+      });
     axios.get("http://localhost:8000/initialization").then((res) => {
       setCounter(res.data);
       console.log("initial:", counter);
     });
   }, []);
   /** setInterval, clearInterval에 담기 위한 콜백 함수 */
-  const counterfunc = () => {
+  const counterfunc = async () => {
     axios
       .get("http://localhost:8000/videocount")
       .then((res) => {
@@ -48,16 +57,6 @@ const ModelSelect = () => {
     interval = clearInterval(interval);
   }
 
-  const goHome = () => {
-    navigator("/");
-    intervalFlag = false;
-  };
-
-  const goResult = () => {
-    navigator("/fitnessresult");
-    intervalFlag = false;
-  };
-
   return (
     <div className="model">
       <div className="guide_img_div">
@@ -73,14 +72,10 @@ const ModelSelect = () => {
       <br />
       <br />
       <br />
-      {/* <a type="button" href="http://localhost:3000">
+      <a type="button" href="http://localhost:3000">
         Back To Main
       </a>
-      <a type="button" href="http://localhost:3000/fitnessresult">
-        끝났냐?
-      </a> */}
-      <input type="button" onClick={goHome} value="집에가라" />
-      <input type="button" onClick={goResult} value="결과봐라" />
+      <a href="/fitnessresult?id=kcj">결과봐라</a>
     </div>
   );
 };
