@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function Test(props) {
   const [test, setTest] = useState('');
@@ -25,7 +24,6 @@ function Test(props) {
         console.error(e);
       });
   }
-
   console.log(yaDanya)
 
   return (
@@ -70,19 +68,27 @@ function Test(props) {
       <br />
       <input
         type="button"
-        value='Go To Video'
+        value="Go To Video"
         onClick={() => {
-          navigate('/video');
+          navigate("/video");
         }}
       />
       &nbsp;&nbsp;
       <input
         type="button"
-        value='Go To Chat'
+        value="Go To Chat"
         onClick={() => {
-          navigate('/chatjoin');
+          navigate("/chatjoin");
         }}
       />
+      <a href="/video?exec=squat">스쿼트</a>
+      &nbsp;&nbsp;
+      <a href="/video?exec=pullup">풀업</a>
+      &nbsp;&nbsp;
+      <a href="/video?exec=pushup">푸쉬업</a>
+      &nbsp;&nbsp;
+      <a href="/video?exec=situp">싯업</a>
+      &nbsp;&nbsp;
     </div>
   );
 }
