@@ -18,10 +18,11 @@ const ModelSelect = () => {
 
   /** 컴포넌트 접속 시 카운터 초기화 */
   useEffect(() => {
-    axios.get("http://localhost:8000/initialization").then((res) => {
-      setCounter(res.data);
-      console.log("initial:", counter);
-    });
+    axios
+      .get("http://localhost:8000/initialization").then((res) => {
+        setCounter(res.data);
+        console.log("initial:", counter);
+      });
   }, []);
   /** setInterval, clearInterval에 담기 위한 콜백 함수 */
   const counterfunc = () => {
@@ -73,14 +74,15 @@ const ModelSelect = () => {
       <br />
       <br />
       <br />
-      {/* <a type="button" href="http://localhost:3000">
+      <a type="button" href="http://localhost:3000">
         Back To Main
       </a>
+      &nbsp;&nbsp;&nbsp;
       <a type="button" href="http://localhost:3000/fitnessresult">
-        끝났냐?
-      </a> */}
-      <input type="button" onClick={goHome} value="집에가라" />
-      <input type="button" onClick={goResult} value="결과봐라" />
+        Go To Result
+      </a>
+      {/* <input type="button" onClick={goHome} value="집에가라" />
+      <input type="button" onClick={goResult} value="결과봐라" /> */}
     </div>
   );
 };

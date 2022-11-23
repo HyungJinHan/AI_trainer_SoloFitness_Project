@@ -65,7 +65,6 @@ class TypeOfExercise(BodyPartAngle):
                     sqautFeedbackList.append('무릎을 더 굽히세요.')
                     squatFeedback_flag = False
                 
-
         else:
             if avg_leg_angle > 160:
                 status = True
