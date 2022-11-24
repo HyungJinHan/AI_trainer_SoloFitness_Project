@@ -83,6 +83,14 @@ function Test(props) {
           navigate("/chatjoin");
         }}
       />
+      &nbsp;&nbsp;
+      <input
+        type="button"
+        value="회원가입"
+        onClick={() => {
+          navigate("/userjoin");
+        }}
+      />
       <br /><br /><br />
       <a href="/video?exec=squat">스쿼트</a>
       &nbsp;&nbsp;
