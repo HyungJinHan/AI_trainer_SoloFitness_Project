@@ -72,7 +72,7 @@ const ModelSelect = () => {
       <br />
       <br />
       <br />
-      <a type="button" href="http://localhost:3000">
+      <a href="http://localhost:3000">
         Back To Main
       </a>
       <a href="/fitnessresult?id=kcj">결과봐라</a>
