@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import WebSocket
 from pydantic import BaseModel
 import cv2
-from exercise_c_f import countlist,sqautFeedbackList,execList
+from exercise_c_f import *
 
 app = fastapi.FastAPI()
 
@@ -49,4 +49,4 @@ def exec_categories1(exec: exec_categories):
     
 @app.get('/videocount')
 def countchecker():
-    return {'count':countlist, 'squatFeedback':sqautFeedbackList}
+    return {'count':countlist, 'squatFeedback':sqautFeedbackList, 'pushUpFeedback':pushUpFeedbackList}
