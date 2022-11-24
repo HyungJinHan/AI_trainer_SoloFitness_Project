@@ -62,6 +62,8 @@ function Test(props) {
               PW : {test.ADMIN_PASSWORD}
               <br /><br />
               Nickname : {test.ADMIN_NICKNAME}
+              <br /><br />
+              <a href="/">Go To Main</a>
             </div>
           )
       }
@@ -81,6 +83,7 @@ function Test(props) {
           navigate("/chatjoin");
         }}
       />
+      <br /><br /><br />
       <a href="/video?exec=squat">스쿼트</a>
       &nbsp;&nbsp;
       <a href="/video?exec=pullup">풀업</a>

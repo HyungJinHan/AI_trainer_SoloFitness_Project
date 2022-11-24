@@ -20,7 +20,7 @@ from exercise_c_f import execList
 # args = vars(ap.parse_args())
 # args = vars(ap.parse_args())
 
-ex_test = 1
+ex_test = 0
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 

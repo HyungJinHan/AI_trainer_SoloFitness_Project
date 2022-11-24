@@ -24,7 +24,6 @@ app.add_middleware(
 
 class exec_categories(BaseModel):
     exec: str
-    
 
 # openCV에서 이미지,영상 불러오는 함수
 def video_streaming():
@@ -36,6 +35,7 @@ def main1():
     # StringResponse함수를 return하고,
     # 인자로 OpenCV에서 가져온 "바이트"이미지와 type을 명시
     return StreamingResponse(video_streaming(), media_type="multipart/x-mixed-replace; boundary=frame")
+
 @app.get('/initialization')
 def counterInitialization():
     countlist = []
@@ -45,7 +45,6 @@ def counterInitialization():
 def exec_categories1(exec: exec_categories):
     exec_category = exec.exec
     execList.append(exec_category)
-    
     
 @app.get('/videocount')
 def countchecker():
