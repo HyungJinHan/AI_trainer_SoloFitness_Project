@@ -2,7 +2,7 @@ import numpy as np
 from pose_results import *
 from body_part_angle import BodyPartAngle
 from main import *
-from exercise_c_f import countlist, sqautFeedbackList
+from exercise_c_f import countlist, sqautFeedbackList, pushUpFeedbackList
 
 def exercise_counter(counter):
     videocounter = counter
@@ -19,15 +19,22 @@ class TypeOfExercise(BodyPartAngle):
         left_arm_angle = self.angle_of_the_left_arm()
         right_arm_angle = self.angle_of_the_right_arm()
         avg_arm_angle = (left_arm_angle + right_arm_angle) // 2
+        pushupFeedback_flag = True
 
         if status:
-            if avg_arm_angle < 70:
+            if avg_arm_angle < 90:
                 counter += 1
                 status = False
                 countlist.append(counter)
+                pushUpFeedbackList.append('Great!')
+            if pushupFeedback_flag:
+                if 91 < avg_arm_angle < 140:
+                    pushUpFeedbackList.append('좀 더!')
+                    pushupFeedback_flag = False
         else:
             if avg_arm_angle > 160:
                 status = True
+                pushupFeedback_flag = True
 
         return [counter, status]
 
@@ -42,7 +49,6 @@ class TypeOfExercise(BodyPartAngle):
                 counter += 1
                 status = False
                 countlist.append(counter)
-
         else:
             if nose[1] < avg_shoulder_y:
                 status = True
@@ -100,16 +106,16 @@ class TypeOfExercise(BodyPartAngle):
         return [counter, status]
 
     def calculate_exercise(self, exercise_type, counter, status):
-        if exercise_type == 'push-up':
+        if exercise_type == 'pushup':
             counter, status = TypeOfExercise(
                 self.landmarks).push_up(counter, status)
-        elif exercise_type == 'pull-up':
+        elif exercise_type == 'pullup':
             counter, status = TypeOfExercise(
                 self.landmarks).pull_up(counter, status)
         elif exercise_type == 'squat':
             counter, status = TypeOfExercise(
                 self.landmarks).squat(counter, status)
-        elif exercise_type == 'sit-up':
+        elif exercise_type == 'situp':
             counter, status = TypeOfExercise(
                 self.landmarks).sit_up(counter, status)
         return [counter, status]

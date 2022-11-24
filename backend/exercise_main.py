@@ -32,7 +32,6 @@ def get_stream_video():
         cap = cv2.VideoCapture(0)
     cap.set(3, 800)  # width
     cap.set(4, 480)  # height
-    print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa','/Validation/{0}.mp4'.format(execList[-1]))
     # setup mediapipe
     with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
         counter = 0
@@ -51,7 +50,7 @@ def get_stream_video():
             try:
                 landmarks = results.pose_landmarks.landmark
                 counter, status = TypeOfExercise(landmarks).calculate_exercise(
-                    execList[0], counter, status)
+                    execList[-1], counter, status)
 
             except:
                 pass
@@ -67,8 +66,7 @@ def get_stream_video():
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(frame) + b'\r\n')
-            # if cv2.waitKey(10) & 0xFF == ord('q'):
-            #     print(counter)
-            #     break
+            if cv2.waitKey(10) & 0xFF == ord('q'):
+                break
         cap.release()
         cv2.destroyAllWindows()
