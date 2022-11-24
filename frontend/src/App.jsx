@@ -6,12 +6,15 @@ import Chat from "./components/Chat/Chat";
 import Join from "./components/Chat/Join";
 import FitnessResult from "./components/AI/FitnessResult";
 import FitnessResultNivo from "./components/AI/FitnessResultNivo";
+import Login from "./components/Login/Login";
 
 const App = () => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Test />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/join" element={<Join />} />
         <Route path="/video" element={<ModelSelect />} />
         <Route path="/chatjoin" element={<Join />} />
         <Route path="/chat" element={<Chat />} />
