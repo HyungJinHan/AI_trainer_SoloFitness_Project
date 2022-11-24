@@ -15,13 +15,14 @@ def calculate_angle(a,b,c):
   angle = np.abs(radians*180.0/np.pi)
 
   if angle > 180.0:
-    angle = 360 -angle
+    angle = 360 - angle
 
   return angle
 
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1300)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1000)
+
 with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
   while cap.isOpened():
     ret, frame = cap.read()
@@ -29,6 +30,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
     # Recolor image to RGB
     image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     image.flags.writeable = False
+    image = cv2.flip(image, 1)
 
     # Make Detection
     results = pose.process(image)
@@ -50,8 +52,8 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
       right_wrist = [landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_WRIST.value].y]
       right_index = [landmarks[mp_pose.PoseLandmark.RIGHT_INDEX.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_INDEX.value].y]
 
-      left_hip = [round(landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].x,2), round(landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y,2)]
-      right_hip = [round(landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x,2), round(landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y,2)]
+      left_hip = [round(landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,2), round(landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y,2)]
+      right_hip = [round(landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,2), round(landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y,2)]
 
       # Calculate angle
       left_angle = calculate_angle(left_elbow, left_wrist, left_index)
@@ -62,12 +64,13 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
     # Accuracy Feedback
     wrist_text = None
     elbow_text = None
-    if left_angle < 170: # 180도여야 하지만 오차 10도 정도는 허용
-      wrist_text = "Don't bend your left wrist" # 한글로 하면 깨짐
-    if right_angle < 170:
-      wrist_text = "Don't bend your right wrist"
-    if left_angle < 170 and right_angle < 170:
-      wrist_text = "Don't bend your wrist!"
+    
+    # if left_angle < 170: # 180도여야 하지만 오차 10도 정도는 허용
+    #   wrist_text = "Don't bend your left wrist" # 한글로 하면 깨짐
+    # if right_angle < 170:
+    #   wrist_text = "Don't bend your right wrist"
+    # if left_angle < 170 and right_angle < 170:
+    #   wrist_text = "Don't bend your wrist!"
 
     if np.abs(left_elbow[0] - left_hip[0]) > 0.07 or np.abs(left_elbow[1] - left_hip[1]) > 0.5:
       elbow_text = "Fix your left elbow"

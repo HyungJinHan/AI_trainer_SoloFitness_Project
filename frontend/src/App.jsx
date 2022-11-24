@@ -2,8 +2,8 @@ import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import ModelSelect from "./components/AI/ModelSelect";
 import Test from "./components/Test";
-import Chat from "./components/ChatComponents/Chat/Chat";
-import Join from "./components/ChatComponents/Join/Join";
+import Chat from "./components/Chat/Chat";
+import Join from "./components/Chat/Join";
 import FitnessResult from "./components/AI/FitnessResult";
 import FitnessResultNivo from "./components/AI/FitnessResultNivo";
 
