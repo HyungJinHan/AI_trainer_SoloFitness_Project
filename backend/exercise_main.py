@@ -25,7 +25,8 @@ import numpy
 ex_test = 0
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
-dumbellModel = torch.hub.load('ultralytics/yolov5','custom', path='./volov5_dumbbell_estimation/weights/best.pt',force_reload=True)
+# 실시간 덤벨 측정 (사용 안할 시 주석 처리 바람)
+# dumbellModel = torch.hub.load('ultralytics/yolov5','custom', path='./volov5_dumbbell_estimation/weights/best.pt',force_reload=True)
 
 def get_stream_video():
     if ex_test == 1:
@@ -68,8 +69,11 @@ def get_stream_video():
                                     mp_drawing.DrawingSpec(color=(175, 139, 45), thickness=2, circle_radius=2))
             # cv2.imshow('Video', frame)
 
+            # 실시간 덤벨 측정 (사용 안할 시 주석 처리 바람)
             # modelFrame = dumbellModel(frame)
+            # 실시간 덤벨 측정 (사용 안할 시 주석 처리 바람)
             # modelLabel = np.squeeze(modelFrame.render())
+            
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(frame) + b'\r\n')
