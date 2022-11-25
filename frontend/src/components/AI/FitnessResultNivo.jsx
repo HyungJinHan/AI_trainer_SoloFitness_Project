@@ -3,33 +3,41 @@ import { ResponsiveBar } from "@nivo/bar";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import produce from "immer";
+import queryString from "query-string";
+import { useLocation } from "react-router-dom";
 
 const FitnessResultNivo = () => {
   const [exerciseName, setExerciseName] = useState([]);
   const [exerciseCount, setExerciseCount] = useState([]);
   const [exerciseDate, setExerciseDate] = useState([]);
 
+  /** modelSelect에서 보낸 exec=운동정보 를 그대로 받아옴 */
+  const location = useLocation().search;
+  const execiseCategories = queryString.parse(location).exec;
+
   useEffect(() => {
-    axios.post("http://localhost:8008/fitnessresult").then((res) => {
-      res.data.map((exerciseData) => {
-        /** 불변성 유지를 위해 immer 라이브러리 사용 */
-        setExerciseName(
-          produce((draft) => {
-            draft.push(exerciseData.EXCERCISE_NAME);
-          })
-        );
-        setExerciseCount(
-          produce((draft) => {
-            draft.push(exerciseData.EXCERCISE_COUNT);
-          })
-        );
-        setExerciseDate(
-          produce((draft) => {
-            draft.push(exerciseData.EXCERCISE_DATE);
-          })
-        );
+    axios
+      .post("http://localhost:8008/fitnessresult", { execiseCategories })
+      .then((res) => {
+        res.data.map((exerciseData) => {
+          /** 불변성 유지를 위해 immer 라이브러리 사용 */
+          setExerciseName(
+            produce((draft) => {
+              draft.push(exerciseData.EXCERCISE_NAME);
+            })
+          );
+          setExerciseCount(
+            produce((draft) => {
+              draft.push(exerciseData.EXCERCISE_COUNT);
+            })
+          );
+          setExerciseDate(
+            produce((draft) => {
+              draft.push(exerciseData.EXCERCISE_DATE);
+            })
+          );
+        });
       });
-    });
   }, []);
   return (
     // chart height이 100%이기 때문이 chart를 덮는 마크업 요소에 height 설정

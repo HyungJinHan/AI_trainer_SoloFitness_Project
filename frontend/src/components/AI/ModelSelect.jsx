@@ -56,17 +56,18 @@ const ModelSelect = () => {
 
   const feedbackClass = () => {
     if (execiseCategories === "squat") {
-      return squat
+      return squat;
     } else if (execiseCategories === "pushup") {
-      return pushup
-    };
+      return pushup;
+    }
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'q') {
-      navigate('/fitnessresult?id=kcj');
+    if (e.key === "q") {
+      navigate("/fitnessresult?id=kcj");
     }
-  }
+  };
+  const url = `/fitnessresult?exec=${execiseCategories}`;
 
   return (
     <div className="model" onKeyDown={handleKeyDown}>
@@ -78,9 +79,7 @@ const ModelSelect = () => {
           alt="undefined"
         />
       </div>
-      <div className="counter_div">
-        {counter}
-      </div>
+      <div className="counter_div">{counter}</div>
       <div className="feedback_div">
         <p>{feedbackClass()}</p>
       </div>
@@ -89,7 +88,7 @@ const ModelSelect = () => {
       <br />
       <br />
       <a href="http://localhost:3000">Back To Main</a>
-      <a href="/fitnessresult?id=kcj">결과봐라</a>
+      <a href={url}>결과봐라</a>
       {/* <input type="button" onClick={goHome} value="집에가라" />
       <input type="button" onClick={goResult} value="결과봐라" /> */}
     </div>
