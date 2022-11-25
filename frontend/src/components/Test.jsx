@@ -70,14 +70,6 @@ function Test(props) {
       <br />
       <input
         type="button"
-        value="Go To Video"
-        onClick={() => {
-          navigate("/video");
-        }}
-      />
-      &nbsp;&nbsp;
-      <input
-        type="button"
         value="Go To Chat"
         onClick={() => {
           navigate("/chatjoin");
