@@ -7,8 +7,6 @@ import queryString from "query-string";
 const FitnessResult = () => {
   const location = useLocation();
   const test = queryString.parse(location.search);
-  console.log(location.search);
-  console.log(test.id);
 
   return (
     <div className="fitness_result_top_div">

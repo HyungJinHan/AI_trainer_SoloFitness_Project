@@ -108,10 +108,11 @@ app.post("/", (req, res) => {
 });
 
 app.post("/fitnessresult", (req, res) => {
+  const execurl = req.body.execiseCategories;
   const sqlQuery =
-    "SELECT * FROM EXCERCISE_TABLE ORDER BY EXCERCISE_DATE LIMIT 5;";
+    "SELECT * FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = ? ORDER BY EXCERCISE_DATE LIMIT 5";
 
-  db.query(sqlQuery, (err, result) => {
+  db.query(sqlQuery, [execurl], (err, result) => {
     res.send(result);
   });
 });
