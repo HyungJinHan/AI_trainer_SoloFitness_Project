@@ -87,16 +87,6 @@ io.on("connect", (socket) => {
   });
 });
 
-app.post("/hi", (req, res) => {
-  const ADMIN_ID = req.body.ADMIN_ID
-
-  const sqlQuery = "SELECT * FROM ADMIN_TABLE WHERE ADMIN_ID = ?;";
-
-  db.query(sqlQuery, [ADMIN_ID], (err, result) => {
-    res.send(result);
-  });
-});
-
 app.post("/", (req, res) => {
   const sqlQuery =
     "SELECT user_id,user_pw,user_name,user_nickname,user_email FROM USER_TABLE WHERE user_id = 'TEST1';";
@@ -104,6 +94,16 @@ app.post("/", (req, res) => {
   db.query(sqlQuery, (err, result) => {
     res.send(result);
     console.log("/hi(res) ->", result);
+  });
+});
+
+app.post("/hi", (req, res) => {
+  const ADMIN_ID = req.body.ADMIN_ID
+
+  const sqlQuery = "SELECT * FROM ADMIN_TABLE WHERE ADMIN_ID = ?;";
+
+  db.query(sqlQuery, [ADMIN_ID], (err, result) => {
+    res.send(result);
   });
 });
 
