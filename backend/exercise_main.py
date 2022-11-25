@@ -22,7 +22,7 @@ import numpy
 # args = vars(ap.parse_args())
 # args = vars(ap.parse_args())
 
-ex_test = 1
+ex_test = 0
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 dumbellModel = torch.hub.load('ultralytics/yolov5','custom', path='./volov5_dumbbell_estimation/weights/best.pt',force_reload=True)
@@ -73,6 +73,7 @@ def get_stream_video():
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(frame) + b'\r\n')
+            # if cv2.waitKey(10) & 0xFF == ord('q'):
             if cv2.waitKey(10) & 0xFF == ord('q'):
                 break
         cap.release()

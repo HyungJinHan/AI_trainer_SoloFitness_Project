@@ -62,30 +62,23 @@ function Test(props) {
           }
         }}
       />
+      <br /><br />
+      {
+        (test === '') ?
+          yaDanya :
+          (
+            <div>
+              ID : {test.ADMIN_ID}
+              <br /><br />
+              PW : {test.ADMIN_PASSWORD}
+              <br /><br />
+              Nickname : {test.ADMIN_NICKNAME}
+              <br /><br />
+              <a href="/">Go To Main</a>
+            </div>
+          )
+      }
       <br />
-      <br />
-      {test === "" ? (
-        yaDanya
-      ) : (
-        <div>
-          ID : {test.ADMIN_ID}
-          <br />
-          <br />
-          PW : {test.ADMIN_PASSWORD}
-          <br />
-          <br />
-          Nickname : {test.ADMIN_NICKNAME}
-        </div>
-      )}
-      <br />
-      <input
-        type="button"
-        value="Go To Video"
-        onClick={() => {
-          navigate("/video");
-        }}
-      />
-      &nbsp;&nbsp;
       <input
         type="button"
         value="Go To Chat"
@@ -93,6 +86,15 @@ function Test(props) {
           navigate("/chatjoin");
         }}
       />
+      &nbsp;&nbsp;
+      <input
+        type="button"
+        value="회원가입"
+        onClick={() => {
+          navigate("/userjoin");
+        }}
+      />
+      <br /><br /><br />
       <a href="/video?exec=squat">스쿼트</a>
       &nbsp;&nbsp;
       <a href="/video?exec=pullup">풀업</a>
