@@ -13,6 +13,7 @@ const ModelSelect = () => {
   const [pullup, setPullup] = useState(null);
   const [situp, setSitup] = useState(null);
   const [curl, setCurl] = useState(null);
+  const [keyValue, setKeyValue] = useState('');
   const location = useLocation().search;
   const execiseCategories = queryString.parse(location).exec;
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const ModelSelect = () => {
 
   // useEffect(() => {
   //   goRef.current.focus();
-  // })
+  // }, [])
 
   /** setInterval, clearInterval에 담기 위한 콜백 함수 */
   const counterfunc = async () => {
@@ -52,7 +53,9 @@ const ModelSelect = () => {
   };
 
   /** 0.5초마다 카운트,스쿼트 계산 */
-  setInterval(counterfunc, 500);
+  const interval = setInterval(counterfunc, 500);
+
+  // setInterval(counterfunc, 500);
 
   const feedbackClass = () => {
     if (execiseCategories === "squat") {
@@ -62,16 +65,27 @@ const ModelSelect = () => {
     }
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "q") {
-      navigate("/fitnessresult?id=kcj");
-    }
-  };
   const url = `/fitnessresult?exec=${execiseCategories}`;
 
+  if (counter === 10) {
+    setKeyValue('q');
+    if (keyValue === "q") {
+      clearInterval(interval);
+      setCounter(0);
+      navigate(url);
+    }
+  };
+
+  // const handleKeyDown = (keyValue) => {
+  //   if (keyValue === "q") {
+  //     clearInterval(interval)
+  //     navigate(url);
+  //   }
+  // };
+
   return (
-    <div className="model" onKeyDown={handleKeyDown}>
-      {/* <input type="text" ref={goRef} /> */}
+    <div className="model">
+      <input type="text" ref={goRef} onChange={counter} />
       <div className="guide_img_div">
         <img
           src={require(`../../static/images/KCJ/${execiseCategories}1.jpg`)}
