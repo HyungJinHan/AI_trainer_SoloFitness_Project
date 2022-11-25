@@ -8,6 +8,7 @@ from exercise_types import TypeOfExercise
 from exercise_c_f import execList
 import torch
 import numpy
+import keyboard
 
 # from main import exec_categories as cats
 
@@ -67,6 +68,7 @@ def get_stream_video():
                                     mp_drawing.DrawingSpec(color=(255, 255, 255), thickness=2, circle_radius=2))
             mp_drawing.draw_landmarks(frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
                                     mp_drawing.DrawingSpec(color=(175, 139, 45), thickness=2, circle_radius=2))
+
             # cv2.imshow('Video', frame)
 
             # 실시간 덤벨 측정 (사용 안할 시 주석 처리 바람)
@@ -77,8 +79,8 @@ def get_stream_video():
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(frame) + b'\r\n')
-            # if cv2.waitKey(10) & 0xFF == ord('q'):
-            if cv2.waitKey(10) & 0xFF == ord('q'):
+            if keyboard.is_pressed("q"):
                 break
+
         cap.release()
-        cv2.destroyAllWindows()
+        # cv2.destroyAllWindows()
