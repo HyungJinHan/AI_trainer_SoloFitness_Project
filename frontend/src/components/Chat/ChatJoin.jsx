@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import '../../styles/Chat/Join.css';
 
-export default function SignIn() {
+export default function ChatJoin() {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
 

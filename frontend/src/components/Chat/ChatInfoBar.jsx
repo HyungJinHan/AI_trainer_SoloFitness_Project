@@ -5,7 +5,7 @@ import closeIcon from '../../static/images/HHJ/icons/closeIcon.png';
 
 import '../../styles/Chat/InfoBar.css';
 
-const InfoBar = ({ room }) => (
+const ChatInfoBar = ({ room }) => (
   <div className="infoBar">
     <div className="leftInnerContainer">
       <img className="onlineIcon" src={onlineIcon} alt="online icon" />
@@ -17,4 +17,4 @@ const InfoBar = ({ room }) => (
   </div>
 );
 
-export default InfoBar;
+export default ChatInfoBar;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../../styles/Chat/Input.css';
 
-const Input = ({ setMessage, sendMessage, message }) => (
+const ChatInput = ({ setMessage, sendMessage, message }) => (
   <form className="form">
     <input
       className="input"
@@ -16,4 +16,4 @@ const Input = ({ setMessage, sendMessage, message }) => (
   </form>
 )
 
-export default Input;
+export default ChatInput;

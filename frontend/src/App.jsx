@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import ModelSelect from "./components/AI/ModelSelect";
 import Test from "./components/Test";
 import Chat from "./components/Chat/Chat";
-import ChatJoin from "./components/Chat/Join";
+import ChatJoin from "./components/Chat/ChatJoin";
 import FitnessResult from "./components/AI/FitnessResult";
 import FitnessResultNivo from "./components/AI/FitnessResultNivo";
 import Login from "./components/Login/Login";

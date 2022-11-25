@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import queryString from 'query-string';
 import io from "socket.io-client";
-import TextContainer from './TextContainer';
+import ChatTextContainer from './ChatTextContainer';
 import Messages from './Messages/Messages';
-import InfoBar from './InfoBar';
-import Input from './Input';
+import ChatInfoBar from './ChatInfoBar';
+import ChatInput from './ChatInput';
 import '../../styles/Chat/Chat.css';
 import { useLocation } from 'react-router-dom';
 
@@ -56,11 +56,11 @@ const Chat = () => {
   return (
     <div className="outerContainer">
       <div className="container">
-        <InfoBar room={room} />
+        <ChatInfoBar room={room} />
         <Messages messages={messages} name={name} />
-        <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
+        <ChatInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
       </div>
-      <TextContainer users={users} />
+      <ChatTextContainer users={users} />
     </div>
   );
 }
