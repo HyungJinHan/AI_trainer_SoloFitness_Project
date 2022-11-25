@@ -94,6 +94,14 @@ function Test(props) {
           navigate("/userjoin");
         }}
       />
+      &nbsp;&nbsp;
+      <input
+        type='button'
+        value='search'
+        onClick={() => {
+          navigate('/Category')
+        }}
+      />
       <br /><br /><br />
       <a href="/video?exec=squat">스쿼트</a>
       &nbsp;&nbsp;
