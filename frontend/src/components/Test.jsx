@@ -31,8 +31,20 @@ function Test(props) {
   }
   console.log(yaDanya);
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'q') {
+      navigate('/fitnessresult?id=kcj');
+    } else if (e.key === 'c') {
+      navigate("/chatjoin");
+    }
+  }
+
   return (
     <div>
+      <input
+        onKeyPress={handleKeyPress}
+        placeholder='q : 결과창 / c : 채팅'
+      />
       <h1>외않되/. 아마따1</h1>
       <h3>{hello}</h3>
       <h1>않이 이개 머조/</h1>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -15,6 +15,8 @@ const ModelSelect = () => {
   const [curl, setCurl] = useState(null);
   const location = useLocation().search;
   const execiseCategories = queryString.parse(location).exec;
+  const navigate = useNavigate();
+  const goRef = useRef();
 
   /** 컴포넌트 접속 시 카운터 초기화 */
   useEffect(() => {
@@ -26,6 +28,10 @@ const ModelSelect = () => {
       console.log("initial:", counter);
     });
   }, []);
+
+  // useEffect(() => {
+  //   goRef.current.focus();
+  // })
 
   /** setInterval, clearInterval에 담기 위한 콜백 함수 */
   const counterfunc = async () => {
@@ -55,8 +61,16 @@ const ModelSelect = () => {
       return pushup
     };
   };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'q') {
+      navigate('/fitnessresult?id=kcj');
+    }
+  }
+
   return (
-    <div className="model">
+    <div className="model" onKeyDown={handleKeyDown}>
+      {/* <input type="text" ref={goRef} /> */}
       <div className="guide_img_div">
         <img
           src={require(`../../static/images/KCJ/${execiseCategories}1.jpg`)}
