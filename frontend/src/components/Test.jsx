@@ -1,8 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import styled from 'styled-components'
 
 function Test(props) {
+  const MainCenter = styled.div`
+    text-align: center;
+    padding-top: 3.125rem;
+  `
+
   const [test, setTest] = useState("");
   const [hello, setHello] = useState(
     <p style={{ color: "red" }}>
@@ -40,7 +46,7 @@ function Test(props) {
   }
 
   return (
-    <div>
+    <MainCenter>
       <input
         onKeyPress={handleKeyPress}
         placeholder='q : 결과창 / c : 채팅'
@@ -125,7 +131,7 @@ function Test(props) {
       &nbsp;&nbsp;
       <a href="/video?exec=curl">덤벨컬</a>
       &nbsp;&nbsp;
-    </div>
+    </MainCenter>
   );
 }
 
