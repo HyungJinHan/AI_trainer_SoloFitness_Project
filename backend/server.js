@@ -26,12 +26,12 @@ const io = new Server(server, {
   },
 });
 
-app.use(cors());
+// app.use(cors());
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const db = mysql.createPool({
+const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -87,13 +87,13 @@ io.on("connect", (socket) => {
   });
 });
 
-app.post("/hi", (req, res) => {
-  const ADMIN_ID = req.body.ADMIN_ID;
+app.post("/", (req, res) => {
+  const sqlQuery =
+    "SELECT user_id,user_pw,user_name,user_nickname,user_email FROM USER_TABLE WHERE user_id = 'TEST1';";
 
-  const sqlQuery = "SELECT * FROM ADMIN_TABLE WHERE ADMIN_ID = ?;";
-
-  db.query(sqlQuery, [ADMIN_ID], (err, result) => {
+  db.query(sqlQuery, (err, result) => {
     res.send(result);
+    console.log("/hi(res) ->", result);
   });
 });
 
@@ -103,6 +103,32 @@ app.post("/fitnessresult", (req, res) => {
 
   db.query(sqlQuery, (err, result) => {
     res.send(result);
+  });
+});
+
+// 검색 - 검색 결과와 그 개수
+app.post("/searchcount", (req, res) => {
+  const searchword = req.body.searchword;
+  console.log("searchcount/req ->", searchword);
+
+  const sqlQuery =
+    "SELECT count(*) as count FROM VIDEO_TABLE WHERE video_title LIKE ?;";
+
+  db.query(sqlQuery, ["%" + searchword + "%"], (err, result) => {
+    res.send(result);
+    console.log("searchcount/result ->", result);
+  });
+});
+
+app.post("/search", (req, res) => {
+  const searchword = req.body.searchword;
+  // console.log("search/req -> ",searchword);
+
+  const sqlQuery =
+    "SELECT video_num,video_title,video_writer,video_date,video_address,video_category FROM VIDEO_TABLE WHERE video_title LIKE ?;";
+  db.query(sqlQuery, ["%" + searchword + "%"], (err, result) => {
+    res.send(result);
+    console.log("search/result ->", result);
   });
 });
 
