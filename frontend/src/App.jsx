@@ -7,7 +7,8 @@ import ChatJoin from "./components/Chat/Join";
 import FitnessResult from "./components/AI/FitnessResult";
 import FitnessResultNivo from "./components/AI/FitnessResultNivo";
 import Login from "./components/Login/Login";
-import Join from "./components/Join/Join";
+// import Join from "./components/Join/Join";
+import RegisterMain from "./components/Register/RegisterMain";
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Test />} />
         <Route path="/userlogin" element={<Login />} />
-        <Route path="/userjoin" element={<Join />} />
+        <Route path="/userjoin" element={<RegisterMain />} />
         <Route path="/video" element={<ModelSelect />} />
         <Route path="/chatjoin" element={<ChatJoin />} />
         <Route path="/chat" element={<Chat />} />

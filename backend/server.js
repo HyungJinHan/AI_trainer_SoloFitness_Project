@@ -143,6 +143,39 @@ app.post("/search", (req, res) => {
   });
 });
 
+// 유저 로그인
+app.post("/userlogin", (req, res) => {
+  const USER_ID = req.body.USER_ID
+  const USER_PW = req.body.USER_PW
+
+  const sqlQuery = "SELECT USER_ID, USER_PW, count(*) as 'cnt' FROM USER_TABLE WHERE USER_ID = ? AND USER_PW = ?;";
+
+  db.query(sqlQuery, [USER_ID, USER_PW], (err, result) => {
+    res.send(result);
+  });
+});
+
+// 유저 회원가입
+app.post("/userjoin", (req, res) => {
+  var USER_ID = req.body.USER_ID;
+  var USER_PW = req.body.USER_PW;
+  var USER_NAME = req.body.USER_NAME;
+  var USER_NICKNAME = req.body.USER_NICKNAME;
+  var USER_EMAIL = req.body.USER_EMAIL;
+  var USER_ADDRESS = '주소';
+  var USER_TEL = req.body.USER_TEL;
+  var USER_SEX = req.body.USER_SEX;
+
+  const sqlQuery = "INSERT INTO USER_TABLE VALUES (?, ?, ?, ?, ?, ?, ?, null,?, null, null, null, null);";
+  db.query(
+    sqlQuery,
+    [USER_ID, USER_PW, USER_NAME, USER_NICKNAME, USER_EMAIL, USER_ADDRESS, USER_TEL, USER_SEX],
+    (err, result) => {
+      res.send(result);
+    }
+  );
+});
+
 server.listen(3001, () => {
   console.log("Server Running 3001");
 });
