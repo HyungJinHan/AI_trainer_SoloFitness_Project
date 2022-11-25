@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../../styles/AI/ModelSelect.css";
-import squatIMG from "../../static/images/KCJ/squat1.jpg";
-import LoadingSpinner from "../Loading/LoadingSpinner";
 import VideoModel from "./VideoModel";
 import queryString from "query-string";
 
@@ -44,7 +42,6 @@ const ModelSelect = () => {
         setSquat(squatFeedback[squatFeedback.length - 1]);
         var pushupFeedback = res.data.pushUpFeedback;
         setPushup(pushupFeedback[pushupFeedback.length - 1]);
-        console.log(pushup);
       })
       .catch((e) => {
         console.error(e);
@@ -60,6 +57,7 @@ const ModelSelect = () => {
   } else {
     interval = clearInterval(interval);
   }
+  /** 유저가 운동 종류를 선택하고 들어갔을때 종류에 따른 피드백 */
   const feedbackClass = () => {
     if (execiseCategories === "squat") return squat;
     else if (execiseCategories === "pushup") return pushup;
@@ -67,7 +65,11 @@ const ModelSelect = () => {
   return (
     <div className="model">
       <div className="guide_img_div">
-        <img src={squatIMG} className="guide_img" alt='undefined' />
+        <img
+          src={require(`../../static/images/KCJ/${execiseCategories}1.jpg`)}
+          className="guide_img"
+          alt="undefined"
+        />
       </div>
       <div className="counter_div">{counter}</div>
       <div className="feedback_div">
@@ -77,9 +79,7 @@ const ModelSelect = () => {
       <br />
       <br />
       <br />
-      <a href="http://localhost:3000">
-        Back To Main
-      </a>
+      <a href="http://localhost:3000">Back To Main</a>
       <a href="/fitnessresult?id=kcj">결과봐라</a>
       {/* <input type="button" onClick={goHome} value="집에가라" />
       <input type="button" onClick={goResult} value="결과봐라" /> */}

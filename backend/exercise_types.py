@@ -118,4 +118,7 @@ class TypeOfExercise(BodyPartAngle):
         elif exercise_type == 'situp':
             counter, status = TypeOfExercise(
                 self.landmarks).sit_up(counter, status)
+        elif exercise_type == 'curl':
+            counter, status = TypeOfExercise(
+                self.landmarks).curl(counter, status)
         return [counter, status]

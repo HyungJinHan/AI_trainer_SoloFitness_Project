@@ -6,6 +6,8 @@ import mediapipe as mp
 from body_part_angle import BodyPartAngle
 from exercise_types import TypeOfExercise
 from exercise_c_f import execList
+import torch
+import numpy
 
 # from main import exec_categories as cats
 
@@ -23,13 +25,16 @@ from exercise_c_f import execList
 ex_test = 1
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
+dumbellModel = torch.hub.load('ultralytics/yolov5','custom', path='./volov5_dumbbell_estimation/weights/best.pt',force_reload=True)
 
 def get_stream_video():
     if ex_test == 1:
         cap = cv2.VideoCapture('Validation/{0}.mp4'.format(execList[-1]))
         # cap = cv2.VideoCapture('Validation/squat.mp4')
-    else:
+    elif ex_test == 0:
         cap = cv2.VideoCapture(0)
+    else:
+        return False
     cap.set(3, 800)  # width
     cap.set(4, 480)  # height
     # setup mediapipe
@@ -61,8 +66,10 @@ def get_stream_video():
                                     mp_drawing.DrawingSpec(color=(255, 255, 255), thickness=2, circle_radius=2))
             mp_drawing.draw_landmarks(frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
                                     mp_drawing.DrawingSpec(color=(175, 139, 45), thickness=2, circle_radius=2))
-
             # cv2.imshow('Video', frame)
+
+            # modelFrame = dumbellModel(frame)
+            # modelLabel = np.squeeze(modelFrame.render())
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(frame) + b'\r\n')
