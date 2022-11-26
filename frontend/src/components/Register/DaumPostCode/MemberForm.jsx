@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import AddressPopup from "./StoreDaumAddress/DaumAddressPopup";
+import AddressPopup from "./DaumAddress/DaumAddressPopup";
 import DaumPostcode from "react-daum-postcode";
 import "./MemberForm.css";
 import Swal from "sweetalert2";

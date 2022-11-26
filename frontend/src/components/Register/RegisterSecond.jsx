@@ -49,7 +49,11 @@ const RegisterSecond = ({ setUserID, setUserPW, setMode, consoleAll }) => {
           autoComplete="off"
         />
       </div>
-      {hiddenKey === true ? <p color='red'>비밀번호가 맞지 않습니다.</p> : <> </>}
+      {
+        hiddenKey === true ?
+          <p>비밀번호가 맞지 않습니다.</p> :
+          <></>
+      }
       <div>
         <button
           onClick={

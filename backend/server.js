@@ -7,6 +7,7 @@ const path = require("path");
 const http = require("http");
 const { Server } = require("socket.io");
 const PORT = 8008;
+const SOCKET_PORT = 3001;
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
@@ -143,7 +144,7 @@ app.post("/search", (req, res) => {
   });
 });
 
-// 유저 로그인
+/** 유저 회원가입 */
 app.post("/userlogin", (req, res) => {
   const USER_ID = req.body.USER_ID
   const USER_PW = req.body.USER_PW
@@ -155,7 +156,19 @@ app.post("/userlogin", (req, res) => {
   });
 });
 
-// 유저 회원가입
+/** 센터 회원가입 */
+app.post("/centerlogin", (req, res) => {
+  const CENTER_ID = req.body.CENTER_ID
+  const CENTER_PW = req.body.CENTER_PW
+
+  const sqlQuery = "SELECT CENTER_ID, CENTER_PW, count(*) as 'cnt' FROM CENTER_TABLE WHERE CENTER_ID = ? AND CENTER_PW = ?;";
+
+  db.query(sqlQuery, [CENTER_ID, CENTER_PW], (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 유저 회원가입 */
 app.post("/userjoin", (req, res) => {
   var USER_ID = req.body.USER_ID;
   var USER_PW = req.body.USER_PW;
@@ -176,10 +189,30 @@ app.post("/userjoin", (req, res) => {
   );
 });
 
+/** 센터 회원가입 */
+app.post("/centerjoin", (req, res) => {
+  var CENTER_ID = req.body.CENTER_ID;
+  var CENTER_PW = req.body.CENTER_PW;
+  var CENTER_ADDRESS = req.body.CENTER_ADDRESS;
+  var CENTER_NAME = req.body.CENTER_NAME;
+  var CENTER_TEL = req.body.CENTER_TEL;
+  var CENTER_EMAIL = req.body.CENTER_EMAIL;
+  var CENTER_ACCESS_CODE = req.body.CENTER_ACCESS_CODE;
+
+  const sqlQuery = "INSERT INTO CENTER_TABLE VALUES (?, ?, ?, ?, ?, ?, ?);";
+  db.query(
+    sqlQuery,
+    [CENTER_ID, CENTER_PW, CENTER_ADDRESS, CENTER_NAME, CENTER_TEL, CENTER_EMAIL, CENTER_ACCESS_CODE],
+    (err, result) => {
+      res.send(result);
+    }
+  );
+});
+
 server.listen(3001, () => {
-  console.log("Server Running 3001");
+  console.log(`Socket Server Running PORT ${SOCKET_PORT}`);
 });
 
 app.listen(PORT, () => {
-  console.log(`Running on PORT ${PORT}`);
+  console.log(`Node.js Server Running PORT ${PORT}`);
 });

@@ -106,18 +106,42 @@ function Test(props) {
       />
       &nbsp;&nbsp;
       <input
-        type="button"
-        value="회원가입"
-        onClick={() => {
-          navigate("/userjoin");
-        }}
-      />
-      &nbsp;&nbsp;
-      <input
         type='button'
         value='search'
         onClick={() => {
           navigate('/Category')
+        }}
+      />
+      <br /><br /><br />
+      <input
+        type="button"
+        value="유저 로그인"
+        onClick={() => {
+          navigate("/userlogin");
+        }}
+      />
+      &nbsp;&nbsp;
+      <input
+        type="button"
+        value="유저 회원가입"
+        onClick={() => {
+          navigate("/userjoin");
+        }}
+      />
+      <br /><br /><br />
+      <input
+        type="button"
+        value="센터 로그인"
+        onClick={() => {
+          navigate("/centerlogin");
+        }}
+      />
+      &nbsp;&nbsp;
+      <input
+        type="button"
+        value="센터 회원가입"
+        onClick={() => {
+          navigate("/centerjoin");
         }}
       />
       <br /><br /><br />

@@ -5,7 +5,7 @@ import axios from 'axios';
 
 // 로그인 페이지
 
-function Login() {
+function UserLogin() {
   const idRef = useRef();
   const pwRef = useRef();
   const btnRef = useRef();
@@ -14,7 +14,7 @@ function Login() {
 
   const handleLogin = () => {
     if (idRef.current.value === "" || idRef.current.value === undefined) {
-      alert("이름를 입력하세요.");
+      alert("아이디를 입력하세요.");
       idRef.current.focus();
       return false;
     }
@@ -32,7 +32,7 @@ function Login() {
       .then((res) => {
         if (res.data[0].cnt === 1) {
           window.sessionStorage.clear();
-          window.sessionStorage.setItem("name", idRef.current.value);
+          window.sessionStorage.setItem("userID", idRef.current.value);
           navigate("/");
         } else {
           alert("로그인 실패");
@@ -85,13 +85,13 @@ function Login() {
         </button>
       </div>
       <div>
-        <a href='#'>처음이신가요?</a>
+        <a href='http://localhost:3000/userjoin'>처음이신가요?</a>
       </div>
       <div>
-        <a href='#'>지점 로그인</a>
+        <a href='http://localhost:3000/centerlogin'>센터 로그인</a>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default UserLogin;
