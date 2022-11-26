@@ -11,6 +11,7 @@ import UserLogin from "./components/UserLogin/UserLogin";
 import RegisterMain from "./components/Register/RegisterMain";
 import CenterRegisterMain from "./components/CenterRegister/CenterRegisterMain";
 import CenterLogin from "./components/CenterLogin/CenterLogin";
+import Category from './components/Search/CategoryNSearch';
 
 const App = () => {
   return (
@@ -32,6 +33,8 @@ const App = () => {
         {/** 운동 결과 */}
         <Route path="/fitnessresult" element={<FitnessResult />} />
         <Route path="/nivotest" element={<FitnessResultNivo />} />
+        {/* 검색 */}
+        <Route path="/Category" element={<Category />} />
       </Routes>
     </div>
   );

@@ -11,12 +11,12 @@ const Category = () => {
 
   const [SearchList, setSearchList] = useState({searchlist:[]})
   const [SearchArticle, setSearchArticle] = useState({
-    "video_num":0,
-    "video_title":"",
-    "video_writer":"",
-    "video_date":"",
-    "video_address":"",
-    "video_category":""
+    "VIDEO_NUM":0,
+    "VIDEO_TITLE":"",
+    "VIDEO_WRITER":"",
+    "VIDEO_DATE":"",
+    "VIDEO_ADDRESS":"",
+    "VIDEO_CATEGORY":"",
   })
   //0은 카테고리, 1은 검색결과
   const [mode, setMode] = useState(0);
@@ -33,7 +33,7 @@ const Category = () => {
         searchword: SearchwordRef.current.value
       }).then((res) => {
         console.log("handleSearch(count) ->", res);
-        setSearchCount(res.data[0].count);
+        setSearchCount(res.data[0].COUNT);
       }).catch((e) => {
       console.error(e);
       });
