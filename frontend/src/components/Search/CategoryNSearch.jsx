@@ -65,7 +65,7 @@ const Category = () => {
             onClick={handleSearch}
           />
         </div>
-        <div>카테고리1</div>
+        <div>카테고리</div>
       </div>
     )
   } else if (mode === 1) {
