@@ -39,6 +39,7 @@ def main1():
 @app.get('/initialization')
 def counterInitialization():
   countlist = []
+  countlist_c = []
   return countlist
 
 @app.post('/execcategories')
@@ -48,4 +49,4 @@ def exec_categories1(exec: exec_categories):
     
 @app.get('/videocount')
 def countchecker():
-  return {'count':countlist, 'squatFeedback':sqautFeedbackList, 'pushUpFeedback':pushUpFeedbackList}
+  return {'count':countlist, 'squatFeedback':sqautFeedbackList, 'pushUpFeedback':pushUpFeedbackList, 'count_c':countlist_c}

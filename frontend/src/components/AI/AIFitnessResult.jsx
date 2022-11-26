@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import "../../styles/AI/FitnessResult.css";
-import FitnessResultNivo from "./FitnessResultNivo";
+import "../../styles/AI/AIFitnessResult.css";
+import FitnessResultNivo from "./AIFitnessResultNivo";
 import queryString from "query-string";
 
 const FitnessResult = () => {

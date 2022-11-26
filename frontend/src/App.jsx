@@ -1,16 +1,17 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import ModelSelect from "./components/AI/ModelSelect";
+import ModelSelect from "./components/AI/AIModelSelect";
 import Test from "./components/Test";
 import Chat from "./components/Chat/Chat";
 import ChatJoin from "./components/Chat/ChatJoin";
-import FitnessResult from "./components/AI/FitnessResult";
-import FitnessResultNivo from "./components/AI/FitnessResultNivo";
+import FitnessResult from "./components/AI/AIFitnessResult";
+import FitnessResultNivo from "./components/AI/AIFitnessResultNivo";
 import UserLogin from "./components/UserLogin/UserLogin";
 // import Join from "./components/Join/Join";
 import RegisterMain from "./components/Register/RegisterMain";
 import CenterRegisterMain from "./components/CenterRegister/CenterRegisterMain";
 import CenterLogin from "./components/CenterLogin/CenterLogin";
+import AIModelSelect_C from "./components/AI/AIModelSelect_C";
 
 const App = () => {
   return (
@@ -32,6 +33,8 @@ const App = () => {
         {/** 운동 결과 */}
         <Route path="/fitnessresult" element={<FitnessResult />} />
         <Route path="/nivotest" element={<FitnessResultNivo />} />
+        {/**운동 모델 챌린지용 */}
+        <Route path="/videoc" element={<AIModelSelect_C />} />
       </Routes>
     </div>
   );

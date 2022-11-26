@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import "../../styles/AI/ModelSelect.css";
-import VideoModel from "./VideoModel";
+import "../../styles/AI/AIModelSelect.css";
+import VideoModel from "./AIVideoModel";
 import queryString from "query-string";
 
 const ModelSelect = () => {
@@ -13,7 +13,7 @@ const ModelSelect = () => {
   const [pullup, setPullup] = useState(null);
   const [situp, setSitup] = useState(null);
   const [curl, setCurl] = useState(null);
-  const [keyValue, setKeyValue] = useState('');
+  const [keyValue, setKeyValue] = useState("");
   const location = useLocation().search;
   const execiseCategories = queryString.parse(location).exec;
   const navigate = useNavigate();
@@ -68,13 +68,13 @@ const ModelSelect = () => {
   const url = `/fitnessresult?exec=${execiseCategories}`;
 
   if (counter === 10) {
-    setKeyValue('q');
+    setKeyValue("q");
     if (keyValue === "q") {
       clearInterval(interval);
       setCounter(0);
       navigate(url);
     }
-  };
+  }
 
   // const handleKeyDown = (keyValue) => {
   //   if (keyValue === "q") {
