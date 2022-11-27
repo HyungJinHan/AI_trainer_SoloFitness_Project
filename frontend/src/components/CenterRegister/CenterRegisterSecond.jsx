@@ -107,8 +107,8 @@ const CenterRegisterSecond = ({
 
   const checkOverlap = () => {
     axios
-      .post('http://localhost:8008/centernamecheck', {
-        CENTER_NAME: idRef.current.value
+      .post('http://localhost:8008/centeridcheck', {
+        CENTER_ID: idRef.current.value
       })
       .then((res => {
         if ((res.data[0].COUNT >= 1) && (idRef.current.value !== '')) {
