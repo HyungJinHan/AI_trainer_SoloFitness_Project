@@ -118,7 +118,7 @@ app.post("/fitnessresult", (req, res) => {
   });
 });
 
-// 검색 - 검색 결과와 그 개수
+/** 검색 - 검색 결과와 그 개수 */
 app.post("/searchcount", (req, res) => {
   const searchword = req.body.searchword;
   console.log("searchcount/req ->", searchword);
@@ -207,6 +207,34 @@ app.post("/centerjoin", (req, res) => {
       res.send(result);
     }
   );
+});
+
+/** 센터 이름 중복 체크 */
+app.post("/centernamecheck", (req, res) => {
+  const CENTER_NAME = req.body.CENTER_NAME;
+  console.log("CENTER_NAME ->", CENTER_NAME);
+
+  const sqlQuery =
+    "SELECT COUNT(*) as COUNT FROM CENTER_TABLE WHERE CENTER_NAME = ?;";
+
+  db.query(sqlQuery, [CENTER_NAME], (err, result) => {
+    res.send(result);
+    console.log("centernamecheck ->", result);
+  });
+});
+
+/** 사업자 등록번호 중복 체크 */
+app.post("/centeridcheck", (req, res) => {
+  const CENTER_ID = req.body.CENTER_ID;
+  console.log("CENTER_ID ->", CENTER_ID);
+
+  const sqlQuery =
+    "SELECT COUNT(*) as COUNT FROM CENTER_TABLE WHERE CENTER_ID = ?;";
+
+  db.query(sqlQuery, [CENTER_ID], (err, result) => {
+    res.send(result);
+    console.log("centeridcheck ->", result);
+  });
 });
 
 server.listen(3001, () => {
