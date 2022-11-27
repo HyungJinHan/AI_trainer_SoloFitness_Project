@@ -4,13 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 import axios from 'axios';
 
-/** 센터 로그인 페이지 */
-function CenterLogin() {
-  const ErrorDiv = styled.p`
+const ErrorDiv = styled.p`
     background-color: red;
     color: white;
   `
-
+/** 센터 로그인 페이지 */
+function CenterLogin() {
   /** 사업자 등록번호 인식 */
   const [hiddenIdKey, setHiddenIdKey] = useState(false);
   const [idMessage, setIdMessage] = useState('');

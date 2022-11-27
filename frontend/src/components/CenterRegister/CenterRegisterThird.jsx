@@ -1,8 +1,12 @@
 import React, { useRef, useState } from 'react';
 import DaumPostcode from "react-daum-postcode";
-import DaumAddressPopup from '../Register/DaumPostCode/DaumAddress/DaumAddressPopup';
+import DaumAddressPopup from '../CenterRegister/CenterDaumPostCode/DaumAddressPopup.jsx';
 import styled from 'styled-components';
 
+const ErrorDiv = styled.p`
+    background-color: red;
+    color: white;
+  `
 const CenterRegisterThird = ({
   setCenterAddress,
   setCenterTel,
@@ -11,11 +15,6 @@ const CenterRegisterThird = ({
   consoleAll,
   insertCenter
 }) => {
-  const ErrorDiv = styled.p`
-    background-color: red;
-    color: white;
-  `
-
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   /** 주소 인식 */
   const [hiddenAddressKey, setHiddenAddressKey] = useState(false);
