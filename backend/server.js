@@ -99,7 +99,7 @@ app.post("/", (req, res) => {
 });
 
 app.post("/hi", (req, res) => {
-  const ADMIN_ID = req.body.ADMIN_ID
+  const ADMIN_ID = req.body.ADMIN_ID;
 
   const sqlQuery = "SELECT * FROM ADMIN_TABLE WHERE ADMIN_ID = ?;";
 
@@ -124,7 +124,7 @@ app.post("/searchcount", (req, res) => {
   console.log("searchcount/req ->", searchword);
 
   const sqlQuery =
-    "SELECT count(*) as count FROM VIDEO_TABLE WHERE video_title LIKE ?;";
+    "SELECT COUNT(*) AS COUNT FROM VIDEO_TABLE WHERE VIDEO_TITLE LIKE ?;";
 
   db.query(sqlQuery, ["%" + searchword + "%"], (err, result) => {
     res.send(result);
@@ -137,7 +137,7 @@ app.post("/search", (req, res) => {
   // console.log("search/req -> ",searchword);
 
   const sqlQuery =
-    "SELECT video_num,video_title,video_writer,video_date,video_address,video_category FROM VIDEO_TABLE WHERE video_title LIKE ?;";
+    "SELECT VIDEO_NUM,VIDEO_TITLE,VIDEO_WRITER,VIDEO_DATE,VIDEO_ADDRESS,VIDEO_CATEGORY,VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_TITLE LIKE ?;";
   db.query(sqlQuery, ["%" + searchword + "%"], (err, result) => {
     res.send(result);
     console.log("search/result ->", result);
@@ -146,10 +146,11 @@ app.post("/search", (req, res) => {
 
 /** 유저 회원가입 */
 app.post("/userlogin", (req, res) => {
-  const USER_ID = req.body.USER_ID
-  const USER_PW = req.body.USER_PW
+  const USER_ID = req.body.USER_ID;
+  const USER_PW = req.body.USER_PW;
 
-  const sqlQuery = "SELECT USER_ID, USER_PW, count(*) as 'cnt' FROM USER_TABLE WHERE USER_ID = ? AND USER_PW = ?;";
+  const sqlQuery =
+    "SELECT USER_ID, USER_PW, count(*) as 'cnt' FROM USER_TABLE WHERE USER_ID = ? AND USER_PW = ?;";
 
   db.query(sqlQuery, [USER_ID, USER_PW], (err, result) => {
     res.send(result);
@@ -158,10 +159,11 @@ app.post("/userlogin", (req, res) => {
 
 /** 센터 회원가입 */
 app.post("/centerlogin", (req, res) => {
-  const CENTER_ID = req.body.CENTER_ID
-  const CENTER_PW = req.body.CENTER_PW
+  const CENTER_ID = req.body.CENTER_ID;
+  const CENTER_PW = req.body.CENTER_PW;
 
-  const sqlQuery = "SELECT CENTER_ID, CENTER_PW, count(*) as 'cnt' FROM CENTER_TABLE WHERE CENTER_ID = ? AND CENTER_PW = ?;";
+  const sqlQuery =
+    "SELECT CENTER_ID, CENTER_PW, count(*) as 'cnt' FROM CENTER_TABLE WHERE CENTER_ID = ? AND CENTER_PW = ?;";
 
   db.query(sqlQuery, [CENTER_ID, CENTER_PW], (err, result) => {
     res.send(result);
@@ -175,14 +177,24 @@ app.post("/userjoin", (req, res) => {
   var USER_NAME = req.body.USER_NAME;
   var USER_NICKNAME = req.body.USER_NICKNAME;
   var USER_EMAIL = req.body.USER_EMAIL;
-  var USER_ADDRESS = '주소';
+  var USER_ADDRESS = "주소";
   var USER_TEL = req.body.USER_TEL;
   var USER_SEX = req.body.USER_SEX;
 
-  const sqlQuery = "INSERT INTO USER_TABLE VALUES (?, ?, ?, ?, ?, ?, ?, null,?, null, null, null, null);";
+  const sqlQuery =
+    "INSERT INTO USER_TABLE VALUES (?, ?, ?, ?, ?, ?, ?, null,?, null, null, null, null);";
   db.query(
     sqlQuery,
-    [USER_ID, USER_PW, USER_NAME, USER_NICKNAME, USER_EMAIL, USER_ADDRESS, USER_TEL, USER_SEX],
+    [
+      USER_ID,
+      USER_PW,
+      USER_NAME,
+      USER_NICKNAME,
+      USER_EMAIL,
+      USER_ADDRESS,
+      USER_TEL,
+      USER_SEX,
+    ],
     (err, result) => {
       res.send(result);
     }
@@ -202,7 +214,15 @@ app.post("/centerjoin", (req, res) => {
   const sqlQuery = "INSERT INTO CENTER_TABLE VALUES (?, ?, ?, ?, ?, ?, ?);";
   db.query(
     sqlQuery,
-    [CENTER_ID, CENTER_PW, CENTER_ADDRESS, CENTER_NAME, CENTER_TEL, CENTER_EMAIL, CENTER_ACCESS_CODE],
+    [
+      CENTER_ID,
+      CENTER_PW,
+      CENTER_ADDRESS,
+      CENTER_NAME,
+      CENTER_TEL,
+      CENTER_EMAIL,
+      CENTER_ACCESS_CODE,
+    ],
     (err, result) => {
       res.send(result);
     }
