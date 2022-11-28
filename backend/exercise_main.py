@@ -5,7 +5,7 @@ from pose_results import *
 import mediapipe as mp
 from body_part_angle import BodyPartAngle
 from exercise_types import TypeOfExercise
-from exercise_c_f import execList
+from exercise_c_f import *
 import torch
 import numpy
 import keyboard
@@ -79,7 +79,8 @@ def get_stream_video():
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(frame) + b'\r\n')
-            if keyboard.is_pressed("q"):
+            if downCamera[-1] == countlist[-1]:
+                downCamera.append(0)
                 break
 
         cap.release()

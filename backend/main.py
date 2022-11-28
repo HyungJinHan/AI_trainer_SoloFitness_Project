@@ -54,9 +54,10 @@ def exec_categories1(exec: exec_categories):
 # 이새기 때문에 처음에 초기화 안됨
 @app.get('/videocount')
 def countchecker():
-  print('countlist',countlist)
   return {'count':countlist, 'squatFeedback':sqautFeedbackList, 'pushUpFeedback':pushUpFeedbackList, 'count_c':countlist_c}
 
 @app.post('/videoshutdown')
 def shutdown(count: count_class):
   print('shutdown count', count.count)
+  downCamera.append(count.count)
+  print(downCamera)
