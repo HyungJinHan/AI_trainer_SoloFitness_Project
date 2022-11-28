@@ -13,10 +13,12 @@ const ModelSelect = () => {
   const [pullup, setPullup] = useState(null);
   const [situp, setSitup] = useState(null);
   const [curl, setCurl] = useState(null);
-  const [keyValue, setKeyValue] = useState("");
-  const location = useLocation().search;
-  const execiseCategories = queryString.parse(location).exec;
+
+  const location = useLocation();
+  const execiseCategories = queryString.parse(location.search).exec;
+
   const navigate = useNavigate();
+
   const goRef = useRef();
 
   /** 컴포넌트 접속 시 카운터 초기화 */
@@ -67,13 +69,10 @@ const ModelSelect = () => {
 
   const url = `/fitnessresult?exec=${execiseCategories}`;
 
-  if (counter === 10) {
-    setKeyValue("q");
-    if (keyValue === "q") {
-      clearInterval(interval);
-      setCounter(0);
-      navigate(url);
-    }
+  if (counter === parseInt(location.state.inputCount)) {
+    clearInterval(interval);
+    setCounter(0);
+    navigate(url);
   }
 
   // const handleKeyDown = (keyValue) => {
@@ -82,6 +81,8 @@ const ModelSelect = () => {
   //     navigate(url);
   //   }
   // };
+
+  console.log(location.state.inputCount, execiseCategories)
 
   return (
     <div className="model">

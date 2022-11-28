@@ -90,21 +90,11 @@ io.on("connect", (socket) => {
 
 app.post("/", (req, res) => {
   const sqlQuery =
-    "SELECT user_id,user_pw,user_name,user_nickname,user_email FROM USER_TABLE WHERE user_id = 'TEST1';";
+    "SELECT user_id, user_pw, user_name, user_nickname, user_email FROM USER_TABLE WHERE user_id = 'TEST1';";
 
   db.query(sqlQuery, (err, result) => {
     res.send(result);
     console.log("/hi(res) ->", result);
-  });
-});
-
-app.post("/hi", (req, res) => {
-  const ADMIN_ID = req.body.ADMIN_ID;
-
-  const sqlQuery = "SELECT * FROM ADMIN_TABLE WHERE ADMIN_ID = ?;";
-
-  db.query(sqlQuery, [ADMIN_ID], (err, result) => {
-    res.send(result);
   });
 });
 
@@ -137,7 +127,7 @@ app.post("/search", (req, res) => {
   // console.log("search/req -> ",searchword);
 
   const sqlQuery =
-    "SELECT VIDEO_NUM,VIDEO_TITLE,VIDEO_WRITER,VIDEO_DATE,VIDEO_ADDRESS,VIDEO_CATEGORY,VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_TITLE LIKE ?;";
+    "SELECT VIDEO_NUM, VIDEO_TITLE, VIDEO_WRITER, VIDEO_DATE, VIDEO_ADDRESS, VIDEO_CATEGORY, VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_TITLE LIKE ?;";
   db.query(sqlQuery, ["%" + searchword + "%"], (err, result) => {
     res.send(result);
     console.log("search/result ->", result);
