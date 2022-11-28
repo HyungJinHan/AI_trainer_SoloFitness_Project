@@ -11,13 +11,17 @@ import UserLogin from "./components/UserLogin/UserLogin";
 import RegisterMain from "./components/Register/RegisterMain";
 import CenterRegisterMain from "./components/CenterRegister/CenterRegisterMain";
 import CenterLogin from "./components/CenterLogin/CenterLogin";
-import AIModelSelect_C from "./components/AI/AIModelSelect_C";
-import Category from './components/Search/CategoryNSearch';
+// import AIModelSelect_C from "./components/AI/AIModelSelect_C";
+import Category from "./components/Search/CategoryNSearch";
 // import Detail from "./components/Detail/Detail";
 import Pass from "./components/Detail/PassPage";
 import CenterMain from "./components/CenterPage/CenterMain";
 
 const App = () => {
+  const AIModelSelect_C = React.lazy(() =>
+    import("./components/AI/AIModelSelect_C")
+  );
+  
   return (
     <div>
       <Routes>
