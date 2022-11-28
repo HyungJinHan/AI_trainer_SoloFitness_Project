@@ -1,4 +1,4 @@
-import VideoModel from "./AIVideoModel";
+import VideoModelC from "./AIVideoModelC";
 import queryString from "query-string";
 import React, { Suspense, useRef } from "react";
 import { useState, useEffect } from "react";
@@ -11,8 +11,8 @@ import AIRenderTime from "./AIRenderTime";
 
 const AIModelSelect_C = () => {
   const [counter, setCounter] = useState(0);
-  const location = useLocation().search;
-  const execiseCategories_C = queryString.parse(location).exec;
+  const location = useLocation();
+  const execiseCategories_C = queryString.parse(location.search).exec;
 
   /** 컴포넌트 접속 시 카운터 초기화 */
   useEffect(() => {
@@ -20,7 +20,7 @@ const AIModelSelect_C = () => {
       exec: execiseCategories_C,
     });
     axios.get("http://localhost:8000/initialization").then((res) => {
-      setCounter(res.data);
+      setCounter(res.data.countlist_c[0]);
       console.log("initial:", counter);
     });
   }, []);
@@ -57,14 +57,12 @@ const AIModelSelect_C = () => {
           // colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
           colors="url(#testid)"
           colorsTime={[7, 5, 2, 0]}
-          onComplete={() => {
-            console.log("done");
-          }}
         >
           {AIRenderTime}
         </CountdownCircleTimer>
       </div>
-      <VideoModel />
+      <div>{counter}</div>
+      <VideoModelC />
     </div>
   );
 };

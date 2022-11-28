@@ -2,7 +2,7 @@ import numpy as np
 from pose_results import *
 from body_part_angle import BodyPartAngle
 from main import *
-from exercise_c_f import countlist, sqautFeedbackList, pushUpFeedbackList
+from exercise_c_f import *
 
 def exercise_counter(counter):
     videocounter = counter
@@ -26,6 +26,7 @@ class TypeOfExercise(BodyPartAngle):
                 counter += 1
                 status = False
                 countlist.append(counter)
+                countlist_c.append(counter)
                 pushUpFeedbackList.append('Great!')
             if pushupFeedback_flag:
                 if 91 < avg_arm_angle < 140:
@@ -49,6 +50,7 @@ class TypeOfExercise(BodyPartAngle):
                 counter += 1
                 status = False
                 countlist.append(counter)
+                countlist_c.append(counter)
         else:
             if nose[1] < avg_shoulder_y:
                 status = True
@@ -65,6 +67,7 @@ class TypeOfExercise(BodyPartAngle):
                 counter += 1
                 status = False
                 countlist.append(counter)
+                countlist_c.append(counter)
                 sqautFeedbackList.append('Great!')
             if squatFeedback_flag:
                 if 71 < avg_leg_angle < 140:
@@ -85,6 +88,7 @@ class TypeOfExercise(BodyPartAngle):
                 counter += 1
                 status = False
                 countlist.append(counter)
+                countlist_c.append(counter)
         else:
             if abs_angle > 105:
                 status = True
@@ -99,6 +103,7 @@ class TypeOfExercise(BodyPartAngle):
                 counter += 1
                 status = False
                 countlist.append(counter)
+                countlist_c.append(counter)
         else:
             if avg_arm_angle > 140:
                 status = True
