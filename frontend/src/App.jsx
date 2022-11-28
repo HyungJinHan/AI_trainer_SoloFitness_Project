@@ -13,6 +13,8 @@ import CenterRegisterMain from "./components/CenterRegister/CenterRegisterMain";
 import CenterLogin from "./components/CenterLogin/CenterLogin";
 import AIModelSelect_C from "./components/AI/AIModelSelect_C";
 import Category from './components/Search/CategoryNSearch';
+// import Detail from "./components/Detail/Detail";
+import Pass from "./components/Detail/PassPage";
 
 const App = () => {
   return (
@@ -38,6 +40,8 @@ const App = () => {
         <Route path="/videoc" element={<AIModelSelect_C />} />
         {/* 검색 */}
         <Route path="/Category" element={<Category />} />
+        {/* 운동 디테일 페이지 */}
+        <Route path="/detail" element={<Pass />} />
       </Routes>
     </div>
   );

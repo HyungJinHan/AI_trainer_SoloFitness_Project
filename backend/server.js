@@ -108,7 +108,7 @@ app.post("/fitnessresult", (req, res) => {
   });
 });
 
-/** 검색 - 검색 결과와 그 개수 */
+/** 검색 */
 app.post("/searchcount", (req, res) => {
   const searchword = req.body.searchword;
   console.log("searchcount/req ->", searchword);
@@ -124,7 +124,6 @@ app.post("/searchcount", (req, res) => {
 
 app.post("/search", (req, res) => {
   const searchword = req.body.searchword;
-  // console.log("search/req -> ",searchword);
 
   const sqlQuery =
     "SELECT VIDEO_NUM, VIDEO_TITLE, VIDEO_WRITER, VIDEO_DATE, VIDEO_ADDRESS, VIDEO_CATEGORY, VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_TITLE LIKE ?;";
