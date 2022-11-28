@@ -1,11 +1,13 @@
 import VideoModel from "./AIVideoModel";
 import queryString from "query-string";
-import React, { useRef } from "react";
+import React, { Suspense, useRef } from "react";
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../../styles/AI/AIRenderTime.css";
 import "../../styles/AI/AIModelSelect_C.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import AIRenderTime from "./AIRenderTime";
 
 const AIModelSelect_C = () => {
   const [counter, setCounter] = useState(0);
@@ -55,8 +57,11 @@ const AIModelSelect_C = () => {
           // colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
           colors="url(#testid)"
           colorsTime={[7, 5, 2, 0]}
+          onComplete={() => {
+            console.log("done");
+          }}
         >
-          {({ remainingTime }) => remainingTime}
+          {AIRenderTime}
         </CountdownCircleTimer>
       </div>
       <VideoModel />
