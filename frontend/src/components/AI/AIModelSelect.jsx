@@ -70,12 +70,12 @@ const ModelSelect = () => {
   const url = `/fitnessresult?exec=${execiseCategories}`;
 
   if (counter === parseInt(location.state.inputCount)) {
-    clearInterval(interval);
-    setCounter(0);
+    // clearInterval(interval);
+    // setCounter(0);
     navigate(url);
   }
 
-  console.log(location.state.inputCount, execiseCategories)
+  console.log(location.state.inputCount, execiseCategories);
 
   return (
     <div className="model">

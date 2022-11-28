@@ -19,3 +19,6 @@ curlFeedbackList = []
 
 # 운동 종류를 담기 위한 배열
 execList = []
+
+# 파이썬 카메라 끄기 위한 플래그 배열
+downCamera = []
