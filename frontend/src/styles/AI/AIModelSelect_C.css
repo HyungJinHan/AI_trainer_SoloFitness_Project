@@ -4,11 +4,6 @@
   text-align: center;
 }
 
-.timerWrapper {
-  display: flex;
-  justify-content: center;
-}
-
 .svgColor {
   width: 0;
   height: 0;

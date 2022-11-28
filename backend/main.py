@@ -36,17 +36,20 @@ def main1():
   # 인자로 OpenCV에서 가져온 "바이트"이미지와 type을 명시
   return StreamingResponse(video_streaming(), media_type="multipart/x-mixed-replace; boundary=frame")
 
+# 운동 시작시 리액트에서 카운트 초기화
 @app.get('/initialization')
 def counterInitialization():
-  countlist = []
-  countlist_c = []
-  return countlist
+  countlist.append(0)
+  countlist_c = [0]
+  return {'countlist':countlist, 'countlist_c':countlist_c}
 
 @app.post('/execcategories')
 def exec_categories1(exec: exec_categories):
   exec_category = exec.exec
   execList.append(exec_category)
-    
+
+# 이새기 때문에 처음에 초기화 안됨
 @app.get('/videocount')
 def countchecker():
+  print('qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq',countlist)
   return {'count':countlist, 'squatFeedback':sqautFeedbackList, 'pushUpFeedback':pushUpFeedbackList, 'count_c':countlist_c}
