@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useRef,useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchResult from './SearchResult';
+// const qs = require("qs");
 
 const Category = () => {
   const navigator = useNavigate();
@@ -60,9 +61,22 @@ const Category = () => {
                   thumb:"https://cdn-icons-png.flaticon.com/128/755/755295.png"},
                 {category: "기구운동",
                   thumb:"https://cdn-icons-png.flaticon.com/128/7126/7126790.png"},
-                {category:"맨몸운동",
+                {category:"하체",
                   thumb:"https://cdn-icons-png.flaticon.com/512/2983/2983018.png"}]
   
+  const categories = ["요가","스트레칭","기구운동","하체"]
+
+  // function handleCategory() {
+  //   axios.post("http://localhost:8008/category",{
+  //     params:{
+  //       category:categories
+  //     },
+  //     paramSerializer: params => {
+  //       return qs.stringify(params)
+  //     }
+  //   })
+  // }
+
   if (mode === 0) {
     return (
       <div>
@@ -82,15 +96,16 @@ const Category = () => {
           display:"grid",
           gridTemplateRows:"1fr",
           gridTemplateColumns:"1fr 1fr 1fr",
-        }}>
+        }}
+          onClick={handleCategory}
+        >
           {items.map((item) => {
-            return <div style={{margin:"20px 10px", backgroundColor:"lightblue",height:"120px",borderRadius:"50%"}}>
-            <div>
+            return (
+            <div style={{margin:"20px 10px", backgroundColor:"lightblue",height:"120px",borderRadius:"50%"}}>
               <img src={item.thumb} alt="카테고리 이미지"
                 style={{width:"100px",height:"100px"}}/>
-            </div>
-            <p style={{textAlign:"center"}}>{item.category}</p>
-            </div>
+              <p style={{textAlign:"center"}}>{item.category}</p>
+            </div>)
           })}
         </div>
       </div>
