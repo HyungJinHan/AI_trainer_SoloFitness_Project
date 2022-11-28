@@ -2,102 +2,62 @@ import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 
-const ErrorDiv = styled.p`
-    background-color: red;
-    color: white;
-  `
-
 const CenterRegisterSecond = ({
   setCenterID,
   setCenterPW,
   setMode,
   consoleAll
 }) => {
+
+  /** 중복체크 실행 여부 검사 */
+  const [errorKey, setErrorKey] = useState(true);
+
   /** 사업자 등록번호 인식 */
-  const [hiddenIdKey, setHiddenIdKey] = useState(false);
   const [idMessage, setIdMessage] = useState('');
   /** 비밀번호 인식 */
-  const [hiddenPwKey, setHiddenPwKey] = useState(false);
   const [pwMessage, setPwMessage] = useState('');
   /** 비밀번호 확인 인식 */
-  const [hiddenPwckKey, setHiddenPwckKey] = useState(false);
   const [pwckMessage, setPwckMessage] = useState('');
 
   const idRef = useRef();
   const pwRef = useRef();
   const pwckRef = useRef();
 
-  const doneJob = () => {
-    if (idRef.current.value === "" || idRef.current.value === undefined) {
-      setHiddenIdKey(true);
-      setIdMessage(
-        <p>사업자 등록번호를 입력하세요.</p>
-      )
-      idRef.current.focus();
-      return false;
-    }
-    if (idRef.current.value.length < 10) {
-      setHiddenIdKey(true);
-      setIdMessage(
-        <p>사업자 등록번호 길이를 확인하세요.</p>
-      );
-      idRef.current.focus();
-      return false;
-    }
-    else {
-      const str = idRef.current.value;
-      for (var i = 0; i < str.length; i++) {
-        const ch = str.substring(i, i + 1);
-        if (
-          !(ch >= "0" && ch <= "9") ||
-          (ch >= "a" && ch <= "z") ||
-          (ch >= "A" && ch <= "Z")
-        ) {
-          setHiddenIdKey(true);
-          setIdMessage(
-            <p>사업자 등록번호는 숫자로만 입력해주세요.</p>
-          )
-          idRef.current.focus();
-          return false;
-        }
-      }
+  const jobDone = () => {
+    if (errorKey === true) {
+      setIdMessage('센터 이름 중복 체크를 해주세요.');
+      return false
     }
 
-    setHiddenIdKey(false);
     setIdMessage('');
     pwRef.current.focus();
 
     if (pwRef.current.value === "" || pwRef.current.value === undefined) {
-      setHiddenPwKey(true);
       setPwMessage(
-        <p>비밀번호를 입력하세요.</p>
+        '비밀번호를 입력하세요.'
       )
       pwRef.current.focus();
       return false;
     }
-    else if (pwRef.current.value.length < 8 || pwRef.current.value.length > 15) {
-      setHiddenPwKey(true);
+    else if (pwRef.current.value.length < 1 || pwRef.current.value.length > 15) {
       setPwMessage(
-        <p>비밀번호를 길이를 확인하세요.</p>
+        '비밀번호를 길이를 확인하세요.'
       );
       pwRef.current.focus();
       return false;
     }
     else {
-      setHiddenPwKey(false);
       setPwMessage('');
       pwckRef.current.focus();
     }
 
     if (pwRef.current.value !== pwckRef.current.value) {
-      setHiddenPwckKey(true);
       setPwckMessage(
-        <p>비밀번호가 맞지 않습니다.</p>
+        '비밀번호가 맞지 않습니다.'
       );
       return false;
     }
     else if (pwRef.current.value === pwckRef.current.value) {
-      setHiddenPwckKey(false);
       setPwckMessage('');
     }
 
@@ -105,13 +65,13 @@ const CenterRegisterSecond = ({
     consoleAll();
   }
 
-  const checkOverlap = () => {
-    axios
+  async function checkOverlap() {
+    await axios
       .post('http://localhost:8008/centeridcheck', {
         CENTER_ID: idRef.current.value
       })
       .then((res => {
-        if (idRef.current.value === "" || idRef.current.value === undefined) {
+        if (idRef.current.value === '') {
           setHiddenIdKey(true);
           setIdMessage(
             <p>사업자 등록번호를 입력하세요.</p>
@@ -148,40 +108,46 @@ const CenterRegisterSecond = ({
         if ((res.data[0].COUNT >= 1)) {
           setHiddenIdKey(true);
           setIdMessage(
-            <p>사업자 등록번호가 중복됩니다.</p>
+            '사업자 등록번호를 입력해 주세요.'
           )
           idRef.current.value = '';
           idRef.current.focus();
           return false;
-        } else if (idRef.current.value === '') {
-          setHiddenIdKey(true);
+        }
+        if (idRef.current.value.length < 10) {
           setIdMessage(
-            <p>사업자 등록번호를 입력해 주세요.</p>
-          )
-          idRef.current.value = '';
+            '사업자 등록번호 길이를 확인하세요.'
+          );
           idRef.current.focus();
-        } else {
+          return false;
+        }
+        else {
           const str = idRef.current.value;
           for (var i = 0; i < str.length; i++) {
             const ch = str.substring(i, i + 1);
             if (
-              !(ch >= "0" && ch <= "9") ||
-              (ch >= "a" && ch <= "z") ||
-              (ch >= "A" && ch <= "Z")
+              !(ch >= "0" && ch <= "9")
             ) {
-              setHiddenIdKey(true);
               setIdMessage(
-                <p>사업자 등록번호는 숫자로만 입력해주세요.</p>
+                '사업자 등록번호는 숫자로만 입력해주세요.'
               )
               idRef.current.focus();
               return false;
             }
           }
+          if ((res.data[0].COUNT >= 1) && (idRef.current.value !== '')) {
+            setIdMessage(
+              '사업자 등록번호가 중복됩니다.'
+            )
+            idRef.current.value = '';
+            idRef.current.focus();
+            return false;
+          }
         }
         if (window.confirm(`사업자 등록번호가 중복되지 않습니다.
 사용하시겠습니까?`)) {
           setCenterID(idRef.current.value);
-          setHiddenIdKey(true);
+          setErrorKey(false);
           setIdMessage('')
         } else {
           alert('취소하셨습니다.');
@@ -206,12 +172,13 @@ const CenterRegisterSecond = ({
           maxLength="10"
           ref={idRef}
           onChange={(e) => {
-            setCenterID(e.target.value)
+            setCenterID(e.target.value);
+            setErrorKey(true);
           }}
           placeholder="센터 사업자 등록 번호 입력"
           onKeyPress={(e) => {
             if (e.key === "Enter") {
-              doneJob();
+              jobDone();
             }
           }}
         />
@@ -228,13 +195,11 @@ const CenterRegisterSecond = ({
           }}
         />
       </div>
-      <ErrorDiv>
-        {
-          setHiddenPwKey === true ?
-            <p>{idMessage}</p> :
-            <>{idMessage}</>
-        }
-      </ErrorDiv>
+      {/* <ErrorDiv> */}
+      <div>
+        {idMessage}
+      </div>
+      {/* </ErrorDiv> */}
       <div>
         <input
           type="password"
@@ -248,18 +213,16 @@ const CenterRegisterSecond = ({
           placeholder="센터 비밀번호 입력"
           onKeyPress={(e) => {
             if (e.key === "Enter") {
-              doneJob();
+              jobDone();
             }
           }}
         />
       </div>
-      <ErrorDiv>
-        {
-          setHiddenPwKey === true ?
-            <p>{pwMessage}</p> :
-            <>{pwMessage}</>
-        }
-      </ErrorDiv>
+      {/* <ErrorDiv> */}
+      <div>
+        {pwMessage}
+      </div>
+      {/* </ErrorDiv> */}
       <div>
         <input
           type="password"
@@ -270,22 +233,20 @@ const CenterRegisterSecond = ({
           placeholder="센터 비밀번호 확인"
           onKeyPress={(e) => {
             if (e.key === "Enter") {
-              doneJob();
+              jobDone();
             }
           }}
         />
       </div>
-      <ErrorDiv>
-        {
-          setHiddenPwckKey === true ?
-            <p>{pwckMessage}</p> :
-            <>{pwckMessage}</>
-        }
-      </ErrorDiv>
+      {/* <ErrorDiv> */}
+      <div>
+        {pwckMessage}
+      </div>
+      {/* </ErrorDiv> */}
       <div>
         <button
           onClick={
-            doneJob
+            jobDone
           }
         >
           다음
