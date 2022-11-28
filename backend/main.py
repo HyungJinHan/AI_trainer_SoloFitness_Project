@@ -25,6 +25,9 @@ app.add_middleware(
 class exec_categories(BaseModel):
   exec: str
 
+class count_class(BaseModel):
+  count: int
+
 # openCV에서 이미지,영상 불러오는 함수
 def video_streaming():
   return get_stream_video()
@@ -51,5 +54,9 @@ def exec_categories1(exec: exec_categories):
 # 이새기 때문에 처음에 초기화 안됨
 @app.get('/videocount')
 def countchecker():
-  print('qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq',countlist)
+  print('countlist',countlist)
   return {'count':countlist, 'squatFeedback':sqautFeedbackList, 'pushUpFeedback':pushUpFeedbackList, 'count_c':countlist_c}
+
+@app.post('/videoshutdown')
+def shutdown(count: count_class):
+  print('shutdown count', count.count)

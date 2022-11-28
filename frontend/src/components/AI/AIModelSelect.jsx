@@ -82,7 +82,7 @@ const ModelSelect = () => {
       {/* <input type="text" ref={goRef} onChange={counter} /> */}
       <div className="guide_img_div">
         <img
-          src={require(`../../static/images/kcj/${execiseCategories}1.jpg`)}
+          src={require(`../../static/images/KCJ/${execiseCategories}1.jpg`)}
           className="guide_img"
           alt="undefined"
         />

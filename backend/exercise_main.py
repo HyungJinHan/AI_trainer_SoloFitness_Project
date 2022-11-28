@@ -23,7 +23,7 @@ import keyboard
 # args = vars(ap.parse_args())
 # args = vars(ap.parse_args())
 
-ex_test = 1
+ex_test = 0
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 # 실시간 덤벨 측정 (사용 안할 시 주석 처리 바람)

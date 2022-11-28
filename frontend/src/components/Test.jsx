@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -76,6 +77,10 @@ function Test(props) {
         onChange={
           (e) => {
             setInputCount(e.target.value);
+            axios
+              .post('http://localhost:8000/videoshutdown', {
+                count: parseInt(e.target.value)
+              })
           }
         }
       />
@@ -105,7 +110,7 @@ function Test(props) {
               alert('운동 개수를 지정해주세요.');
               return false;
             } else {
-              navigate('/video?exec=squat', { state: { inputCount: inputCount } })
+              navigate('/video?exec=pullup', { state: { inputCount: inputCount } })
             }
           }
         }
@@ -120,7 +125,7 @@ function Test(props) {
               alert('운동 개수를 지정해주세요.');
               return false;
             } else {
-              navigate('/video?exec=squat', { state: { inputCount: inputCount } })
+              navigate('/video?exec=pushup', { state: { inputCount: inputCount } })
             }
           }
         }
@@ -135,7 +140,7 @@ function Test(props) {
               alert('운동 개수를 지정해주세요.');
               return false;
             } else {
-              navigate('/video?exec=squat', { state: { inputCount: inputCount } })
+              navigate('/video?exec=situp', { state: { inputCount: inputCount } })
             }
           }
         }
@@ -150,7 +155,7 @@ function Test(props) {
               alert('운동 개수를 지정해주세요.');
               return false;
             } else {
-              navigate('/video?exec=squat', { state: { inputCount: inputCount } })
+              navigate('/video?exec=curl', { state: { inputCount: inputCount } })
             }
           }
         }
