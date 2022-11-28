@@ -13,10 +13,26 @@ function Test(props) {
   const [inputCount, setInputCount] = useState(0);
   const navigate = useNavigate();
 
-  console.log(inputCount)
+  console.log(inputCount);
+
+  if (window.sessionStorage.userID === '' || window.sessionStorage.userID === undefined) {
+    alert(`로그인 후 이용 가능합니다.
+로그인 페이지로 이동합니다.`);
+    navigate('/');
+  }
 
   return (
     <MainCenter>
+      <input
+        type="button"
+        value="Logout"
+        onClick={() => {
+          window.sessionStorage.clear();
+          navigate("/");
+        }}
+      />
+      <br />
+      <br />
       <input
         type="button"
         value="Go To Chat"
@@ -32,43 +48,6 @@ function Test(props) {
           navigate("/Category");
         }}
       />
-      <br />
-      <br />
-      <br />
-      <input
-        type="button"
-        value="유저 로그인"
-        onClick={() => {
-          navigate("/userlogin");
-        }}
-      />
-      &nbsp;&nbsp;
-      <input
-        type="button"
-        value="유저 회원가입"
-        onClick={() => {
-          navigate("/userjoin");
-        }}
-      />
-      <br />
-      <br />
-      <br />
-      <input
-        type="button"
-        value="센터 로그인"
-        onClick={() => {
-          navigate("/centerlogin");
-        }}
-      />
-      &nbsp;&nbsp;
-      <input
-        type="button"
-        value="센터 회원가입"
-        onClick={() => {
-          navigate("/centerjoin");
-        }}
-      />
-      <br />
       <br />
       <br />
       <input

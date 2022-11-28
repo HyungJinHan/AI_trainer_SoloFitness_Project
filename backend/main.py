@@ -3,9 +3,7 @@ from exercise_main import get_stream_video
 from exercise_main_C import get_stream_video_C
 import fastapi as fastapi
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import WebSocket
 from pydantic import BaseModel
-import cv2
 from exercise_c_f import *
 
 app = fastapi.FastAPI()
