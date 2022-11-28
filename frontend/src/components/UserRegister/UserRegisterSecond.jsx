@@ -9,7 +9,6 @@ const RegisterSecond = ({
 }) => {
 
   const [errorMessage, setErrorMessage] = useState('');
-
   const [errorKey, setErrorKey] = useState(true);
 
   const idRef = useRef();
@@ -35,7 +34,6 @@ const RegisterSecond = ({
       return false;
     } else {
       setErrorMessage('');
-
     }
 
     setMode(2);
@@ -49,7 +47,6 @@ const RegisterSecond = ({
         USER_ID: idRef.current.value
       })
       .then((res => {
-        // TypeError발생하였으나 데이터 전달은 잘 됨 추후 수정
         if (idRef.current.value.length < 8
           || idRef.current.value.length > 15) {
           setErrorMessage('아이디 입력 형식을 지켜주세요.');

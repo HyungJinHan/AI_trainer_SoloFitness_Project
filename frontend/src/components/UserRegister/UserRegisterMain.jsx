@@ -16,7 +16,7 @@ const RegisterMain = () => {
   const [userTel, setUserTel] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userAddr, setUserAddr] = useState('');
-
+  const [centerCode, setCenterCode] = useState(null);
 
   const consoleAll = () => {
     console.log('mode =>', mode);
@@ -28,6 +28,7 @@ const RegisterMain = () => {
     console.log('userTel =>', userTel);
     console.log('userEmail =>', userEmail);
     console.log('userAddr =>', userAddr);
+    console.log('centerCode =>', centerCode);
   };
 
   const insertUser = () => {
@@ -99,6 +100,7 @@ const RegisterMain = () => {
           setMode={setMode}
           consoleAll={consoleAll}
           insertUser={insertUser}
+          setCenterCode={setCenterCode}
         />
       </div>
     )
