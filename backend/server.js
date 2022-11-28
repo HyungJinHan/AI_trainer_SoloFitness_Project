@@ -258,6 +258,11 @@ app.post("/detail", (req, res) => {
   });
 });
 
+/** 카테고리 */
+// app.post("/category", (req, res) => {
+//   console.log("category(req)->", req.body.params.category);
+// });
+
 server.listen(3001, () => {
   console.log(`Socket Server Running PORT ${SOCKET_PORT}`);
 });

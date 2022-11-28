@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Navigator from '../Navigator/Navigator';
 import SearchResult from './SearchResult';
+// const qs = require("qs");
 
 const Category = () => {
   const navigator = useNavigate();
