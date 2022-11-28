@@ -21,8 +21,8 @@ const RegisterSecond = ({
       setErrorMassege('아이디 중복 체크를 해주세요.');
       return false;
     }
-    if (pwRef.current.value.length > 12 ||
-      pwRef.current.value.length < 2) {
+    if (pwRef.current.value.length < 8 ||
+      pwRef.current.value.length > 15) {
       setErrorMassege('비밀번호 입력 형식을 지켜주세요.');
       pwRef.current.focus();
       return false;
@@ -50,8 +50,8 @@ const RegisterSecond = ({
       })
       .then((res => {
         // TypeError발생하였으나 데이터 전달은 잘 됨 추후 수정
-        if (idRef.current.value.length < 2
-          || idRef.current.value.length > 8) {
+        if (idRef.current.value.length > 8
+          || idRef.current.value.length < 15) {
           setErrorMassege('아이디 입력 형식을 지켜주세요.');
           idRef.current.focus();
           console.log("nicknameCheck =>", errorMassege);
@@ -84,20 +84,6 @@ const RegisterSecond = ({
       });
   }
 
-  const pwCheck = () => {
-    if (pwRef.current.value.length > 12 ||
-      pwRef.current.value.length < 2) {
-      setErrorMassege('비밀번호 입력 형식을 지켜주세요.');
-      pwRef.current.focus();
-      return false;
-    }
-    if (pwRef.current.value !== pwchRef.current.value) {
-      setErrorMassege('비밀번호가 확인란과 다릅니다.');
-      pwchRef.current.focus();
-      return false;
-    }
-  };
-
   return (
     <div>
       <div>
@@ -106,7 +92,7 @@ const RegisterSecond = ({
           name="name"
           ref={idRef}
           autoComplete="off"
-          placeholder='아이디는 6 ~ 14자까지 입력하세요.'
+          placeholder='아이디는 8 ~ 15자까지 입력하세요.'
           onChange={(e) => {
             setUserID(e.target.value);
             setErrorKey(true);
@@ -131,7 +117,7 @@ const RegisterSecond = ({
           name="pw"
           ref={pwRef}
           autoComplete="off"
-          placeholder='비밀번호는 6 ~ 14자까지 입력하세요.'
+          placeholder='비밀번호는 8 ~ 15자까지 입력하세요.'
           onChange={(e) => {
             setUserPW(e.target.value)
           }}

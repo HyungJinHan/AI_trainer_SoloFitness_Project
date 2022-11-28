@@ -1,12 +1,7 @@
 import React, { useRef, useState } from 'react';
 import DaumPostcode from "react-daum-postcode";
 import DaumAddressPopup from '../CenterRegister/CenterDaumPostCode/DaumAddressPopup.jsx';
-import styled from 'styled-components';
 
-// const ErrorDiv = styled.p`
-//     background-color: red;
-//     color: white;
-//   `
 const CenterRegisterThird = ({
   setCenterAddress,
   setCenterTel,

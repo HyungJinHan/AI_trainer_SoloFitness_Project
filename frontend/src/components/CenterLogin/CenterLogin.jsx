@@ -41,7 +41,7 @@ function CenterLogin() {
       idRef.current.focus();
       return false;
     }
-    if (idRef.current.value.length < 1) {
+    if (idRef.current.value.length < 10) {
       setHiddenIdKey(true);
       setIdMessage(
         <p>사업자 등록번호 길이를 확인하세요.</p>
@@ -80,7 +80,7 @@ function CenterLogin() {
       pwRef.current.focus();
       return false;
     }
-    else if (pwRef.current.value.length < 1 || pwRef.current.value.length > 15) {
+    else if (pwRef.current.value.length < 8 || pwRef.current.value.length > 15) {
       setHiddenPwKey(true);
       setPwMessage(
         <p>비밀번호를 길이를 확인하세요.</p>

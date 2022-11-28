@@ -39,7 +39,7 @@ const CenterRegisterSecond = ({
       pwRef.current.focus();
       return false;
     }
-    else if (pwRef.current.value.length < 1 || pwRef.current.value.length > 15) {
+    else if (pwRef.current.value.length < 8 || pwRef.current.value.length > 15) {
       setPwMessage(
         '비밀번호를 길이를 확인하세요.'
       );
@@ -72,17 +72,15 @@ const CenterRegisterSecond = ({
       })
       .then((res => {
         if (idRef.current.value === '') {
-          setHiddenIdKey(true);
           setIdMessage(
-            <p>사업자 등록번호를 입력하세요.</p>
+            `사업자 등록번호를 입력하세요.`
           )
           idRef.current.focus();
           return false;
         }
         if (idRef.current.value.length < 10) {
-          setHiddenIdKey(true);
           setIdMessage(
-            <p>사업자 등록번호 길이를 확인하세요.</p>
+            `사업자 등록번호 길이를 확인하세요.`
           );
           idRef.current.focus();
           return false;
@@ -96,9 +94,8 @@ const CenterRegisterSecond = ({
               (ch >= "a" && ch <= "z") ||
               (ch >= "A" && ch <= "Z")
             ) {
-              setHiddenIdKey(true);
               setIdMessage(
-                <p>사업자 등록번호는 숫자로만 입력해주세요.</p>
+                `사업자 등록번호는 숫자로만 입력해주세요.`
               )
               idRef.current.focus();
               return false;
@@ -106,7 +103,6 @@ const CenterRegisterSecond = ({
           }
         }
         if ((res.data[0].COUNT >= 1)) {
-          setHiddenIdKey(true);
           setIdMessage(
             '사업자 등록번호를 입력해 주세요.'
           )
