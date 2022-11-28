@@ -17,6 +17,7 @@ const Category = () => {
     "VIDEO_DATE":"",
     "VIDEO_ADDRESS":"",
     "VIDEO_CATEGORY":"",
+    "VIDEO_THUMBNAIL":""
   })
   //0은 카테고리, 1은 검색결과
   const [mode, setMode] = useState(0);
@@ -52,6 +53,15 @@ const Category = () => {
       console.error(e);
     });
   }
+
+  const items = [{category: "요가",
+                  thumb:"https://cdn-icons-png.flaticon.com/512/2043/2043775.png"},
+                {category: "스트레칭",
+                  thumb:"https://cdn-icons-png.flaticon.com/128/755/755295.png"},
+                {category: "기구운동",
+                  thumb:"https://cdn-icons-png.flaticon.com/128/7126/7126790.png"},
+                {category:"맨몸운동",
+                  thumb:"https://cdn-icons-png.flaticon.com/512/2983/2983018.png"}]
   
   if (mode === 0) {
     return (
@@ -65,7 +75,24 @@ const Category = () => {
             onClick={handleSearch}
           />
         </div>
-        <div>카테고리</div>
+        <div style={{
+          margin:"50px",
+          padding:"20px",
+          width:"480px",
+          display:"grid",
+          gridTemplateRows:"1fr",
+          gridTemplateColumns:"1fr 1fr 1fr",
+        }}>
+          {items.map((item) => {
+            return <div style={{margin:"20px 10px", backgroundColor:"lightblue",height:"120px",borderRadius:"50%"}}>
+            <div>
+              <img src={item.thumb} alt="카테고리 이미지"
+                style={{width:"100px",height:"100px"}}/>
+            </div>
+            <p style={{textAlign:"center"}}>{item.category}</p>
+            </div>
+          })}
+        </div>
       </div>
     )
   } else if (mode === 1) {
