@@ -13,17 +13,14 @@ const RegisterThird = ({
 }) => {
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  /** 이름코드 인식 */
-  const [nameMessage, setNameMessage] = useState('');
-  /** 주소 인식 */
-  const [addressMessage, setAddressMessage] = useState('');
-  /** 전화번호 인식 */
-  const [telMessage, setTelMessage] = useState('');
-  /** 이메일 확인 인식 */
-  const [emailMessage, setEmailMessage] = useState('');
+  const [maleToggle, setMaleToggle] = useState(false);
+  const [femaleToggle, setFemaleToggle] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState('');
 
   const nameRef = useRef();
-  const sexRef = useRef();
+  const maleRef = useRef();
+  const femaleRef = useRef();
   const addressRef = useRef();
   const telRef = useRef();
   const emailRef = useRef();
@@ -55,26 +52,24 @@ const RegisterThird = ({
     }
     addressRef.current.value = fullAddress;
     setUserAddr(fullAddress);
-    setAddressMessage('');
+    setErrorMessage('');
     closePostCode();
   };
 
   const doneJob = () => {
-    setUserSex(sexRef.current.value);
     if (nameRef.current.value === "" || nameRef.current.value === undefined) {
-      setNameMessage(
+      setErrorMessage(
         '이름을 입력하세요.'
       )
       addressRef.current.focus();
       return false;
     }
     else {
-      setNameMessage('');
-      sexRef.current.focus();
+      setErrorMessage('');
     }
 
     if (telRef.current.value === "" || telRef.current.value === undefined) {
-      setTelMessage(
+      setErrorMessage(
         '전화번호를 입력하세요.'
       )
       telRef.current.focus();
@@ -88,7 +83,7 @@ const RegisterThird = ({
           (ch >= "a" && ch <= "z") ||
           (ch >= "A" && ch <= "Z")
         ) {
-          setTelMessage(
+          setErrorMessage(
             '전화번호는 숫자로만 입력해주세요.'
           )
           telRef.current.focus();
@@ -97,39 +92,50 @@ const RegisterThird = ({
       }
     }
 
-    setTelMessage('');
+    setErrorMessage('');
     emailRef.current.focus();
 
     if (emailRef.current.value === "" || emailRef.current.value === undefined) {
-      setEmailMessage(
+      setErrorMessage(
         '이메일을 입력해주세요.'
       )
       emailRef.current.focus();
       return false;
     }
     else {
-      setEmailMessage('');
+      setErrorMessage('');
       addressRef.current.focus();
     }
     if (addressRef.current.value === "" || addressRef.current.value === undefined) {
-      setAddressMessage(
+      setErrorMessage(
         '주소를 입력하세요.'
       )
       addressRef.current.focus();
       return false;
     }
     else {
-      setAddressMessage('');
+      setErrorMessage('');
     }
-
+    if ((maleToggle === false) && (femaleToggle === false)) {
+      setErrorMessage(
+        '성별을 선택해주세요.'
+      )
+      return false;
+    }
     consoleAll();
     setMode(3);
   }
 
   return (
-    <div>
+    <div className='UserRegister_main'>
+      <div className='UserRegister_info'>
+        개인 정보를
+        <br />
+        입력해주세요.
+      </div>
       <div>
         <input
+          className='UserRegister_inputSolo'
           type="text"
           name="username"
           ref={nameRef}
@@ -140,26 +146,46 @@ const RegisterThird = ({
             setUserName(e.target.value);
           }}
         />
-        {/* <ErrorDiv> */}
-        <div>
-          {nameMessage}
-        </div>
-        {/* </ErrorDiv> */}
       </div>
-      <div>
+      <div className='UserRegister_genderDiv'>
         <input
-          type='radio'
+          value='남성'
+          type='button'
           name='gender'
-          value='male'
-          ref={sexRef}
-          checked
-        />남성
+          onClick={() => {
+            setUserSex(maleRef.current.value);
+            setMaleToggle(true);
+            setFemaleToggle(false);
+          }}
+          className={
+            maleToggle === true ?
+              'UserRegister_maleTrue' : 'UserRegister_maleFalse'
+          }
+        />
         <input
-          type='radio'
+          type="hidden"
+          defaultValue='male'
+          ref={maleRef}
+        />
+        <input
+          value='여성'
+          type='button'
           name='gender'
-          value='female'
-          ref={sexRef}
-        />여성
+          onClick={() => {
+            setMaleToggle(false);
+            setFemaleToggle(true);
+            setUserSex(femaleRef.current.value);
+          }}
+          className={
+            femaleToggle === true ?
+              'UserRegister_femaleTrue' : 'UserRegister_femaleFalse'
+          }
+        />
+        <input
+          type="hidden"
+          defaultValue='female'
+          ref={femaleRef}
+        />
       </div>
       <div>
         <input
@@ -178,11 +204,6 @@ const RegisterThird = ({
           }}
           placeholder='전화번호를 입력하세요.(- 제외)'
         />
-        {/* <ErrorDiv> */}
-        <div>
-          {telMessage}
-        </div>
-        {/* </ErrorDiv> */}
       </div>
       <div>
         <input
@@ -201,11 +222,6 @@ const RegisterThird = ({
           }}
           placeholder='센터 이메일을 입력하세요.'
         />
-        {/* <ErrorDiv> */}
-        <div>
-          {emailMessage}
-        </div>
-        {/* </ErrorDiv> */}
       </div>
       <div>
         <div className="div111" id="juso">
@@ -254,22 +270,10 @@ const RegisterThird = ({
           }}
           placeholder="우편번호 검색을 이용해주세요."
         />
-        {/* <ErrorDiv> */}
         <div>
-          {addressMessage}
+          {errorMessage}
         </div>
-        {/* </ErrorDiv> */}
       </div>
-      {/* <input
-        type="hidden"
-        name="address_data"
-        autoComplete="off"
-        placeholder='주소 들어오는 곳'
-        onChange={() => {
-          setCenterAddress(addressRef.current.value);
-          telRef.current.focus();
-        }}
-      /> */}
       <div>
         <button
           onClick={doneJob}

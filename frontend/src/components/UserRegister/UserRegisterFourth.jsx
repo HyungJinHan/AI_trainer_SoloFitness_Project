@@ -18,7 +18,7 @@ const RegisterFourth = ({
     consoleAll();
     insertUser();
   }
-
+  
   const checkOverlap = () => {
     console.log(inputValue, keyValue);
     axios
@@ -129,7 +129,6 @@ const RegisterFourth = ({
       </div>
     );
   }
-
 };
 
 export default RegisterFourth;
