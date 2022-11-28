@@ -246,6 +246,18 @@ app.post("/centeridcheck", (req, res) => {
   });
 });
 
+/** 운동 디테일 페이지 */
+app.post("/detail", (req, res) => {
+  const exec = req.body.detailExec;
+
+  const sqlQuery =
+    "SELECT VIDEO_CATEGORY,VIDEO_PREPARE,VIDEO_INFO,VIDEO_EFFECT FROM VIDEO_TABLE WHERE VIDEO_TITLE = ?;";
+  db.query(sqlQuery, [exec], (err, result) => {
+    res.send(result);
+    console.log("detail/result ->", result);
+  });
+});
+
 server.listen(3001, () => {
   console.log(`Socket Server Running PORT ${SOCKET_PORT}`);
 });

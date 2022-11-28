@@ -8,7 +8,7 @@ const SearchArticle = ({ article }) => {
   const navigate = useNavigate();
 
   return (
-    <tr onClick={() => navigate("/detail")}>
+    <tr onClick={() => navigate(`/detail?exec=${article.VIDEO_TITLE}`)}>
       <td>
         <img
           style={{ width: "90px", height: "110px" }}
