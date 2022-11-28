@@ -49,12 +49,11 @@ const RegisterSecond = ({
         USER_ID: idRef.current.value
       })
       .then((res => {
-        // TypeError발생하였으나 데이터 전달은 잘 됨 추후 수정
-        if (idRef.current.value.length > 8
-          || idRef.current.value.length < 15) {
+        if (idRef.current.value.length < 8
+          || idRef.current.value.length > 15) {
           setErrorMassege('아이디 입력 형식을 지켜주세요.');
           idRef.current.focus();
-          console.log("nicknameCheck =>", errorMassege);
+          console.log("idCheck =>", errorMassege);
           return false;
         }
         else if ((res.data[0].COUNT >= 1) && (idRef.current.value !== '')) {
@@ -113,7 +112,7 @@ const RegisterSecond = ({
       </div>
       <div>
         <input
-          type="text"
+          type="password"
           name="pw"
           ref={pwRef}
           autoComplete="off"
@@ -125,7 +124,7 @@ const RegisterSecond = ({
       </div>
       <div>
         <input
-          type="text"
+          type="password"
           name="pwch"
           ref={pwchRef}
           autoComplete="off"

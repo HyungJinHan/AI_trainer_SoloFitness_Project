@@ -218,6 +218,20 @@ app.post("/useridcheck", (req, res) => {
   });
 });
 
+/** 유저 센터 키 중복 체크 */
+app.post("/centerkeycheck", (req, res) => {
+  const CENTER_ID = req.body.USER_ID;
+  const CENTER_ACCESS_CODE = req.body.CENTER_ACCESS_CODE;
+
+  const sqlQuery =
+    "SELECT COUNT(*) as COUNT FROM CENTER_TABLE WHERE CENTER_ID = ? AND CENTER_ACCESS_CODE = ?;";
+
+  db.query(sqlQuery, [CENTER_ID, CENTER_ACCESS_CODE], (err, result) => {
+    res.send(result);
+    console.log("CENTER_ACCESS_CODE check ->", result);
+  });
+});
+
 /** 센터 회원가입 */
 app.post("/centerjoin", (req, res) => {
   var CENTER_ID = req.body.CENTER_ID;
