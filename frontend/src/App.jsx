@@ -12,6 +12,7 @@ import RegisterMain from "./components/Register/RegisterMain";
 import CenterRegisterMain from "./components/CenterRegister/CenterRegisterMain";
 import CenterLogin from "./components/CenterLogin/CenterLogin";
 import AIModelSelect_C from "./components/AI/AIModelSelect_C";
+import Category from './components/Search/CategoryNSearch';
 
 const App = () => {
   return (
@@ -35,6 +36,8 @@ const App = () => {
         <Route path="/nivotest" element={<FitnessResultNivo />} />
         {/**운동 모델 챌린지용 */}
         <Route path="/videoc" element={<AIModelSelect_C />} />
+        {/* 검색 */}
+        <Route path="/Category" element={<Category />} />
       </Routes>
     </div>
   );
