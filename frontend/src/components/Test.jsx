@@ -16,6 +16,14 @@ function Test(props) {
 
   console.log(inputCount)
 
+  const countCheck = () => {
+    if (inputCountRef.current.value === '' || inputCountRef.current.value === undefined) {
+      alert('운동 개수를 지정해주세요.');
+      navigate('/');
+      return false;
+    }
+  }
+
   return (
     <MainCenter>
       <input
@@ -73,7 +81,8 @@ function Test(props) {
       <br />
       <br />
       <input
-        placeholder="운동 갯수 지정"
+        placeholder="운동 개수 지정"
+        ref={inputCountRef}
         onChange={
           (e) => {
             setInputCount(e.target.value);
@@ -86,17 +95,41 @@ function Test(props) {
         <input
           type='button'
           value='스쿼트'
-          ref={inputCountRef}
+          onClick={countCheck}
         />
       </Link>
       &nbsp;&nbsp;
-      <a href="/video?exec=pullup">풀업</a>
+      <Link to={'/video?exec=pullup'} state={{ inputCount: inputCount }}>
+        <input
+          type='button'
+          value='풀업'
+          onClick={countCheck}
+        />
+      </Link>
       &nbsp;&nbsp;
-      <a href="/video?exec=pushup">푸쉬업</a>
+      <Link to={'/video?exec=pushup'} state={{ inputCount: inputCount }}>
+        <input
+          type='button'
+          value='푸쉬업'
+          onClick={countCheck}
+        />
+      </Link>
       &nbsp;&nbsp;
-      <a href="/video?exec=situp">싯업</a>
+      <Link to={'/video?exec=situp'} state={{ inputCount: inputCount }}>
+        <input
+          type='button'
+          value='싯업'
+          onClick={countCheck}
+        />
+      </Link>
       &nbsp;&nbsp;
-      <a href="/video?exec=curl">덤벨컬</a>
+      <Link to={'/video?exec=curl'} state={{ inputCount: inputCount }}>
+        <input
+          type='button'
+          value='덤벨컬'
+          onClick={countCheck}
+        />
+      </Link>
       &nbsp;&nbsp;
       <br />
       <br />

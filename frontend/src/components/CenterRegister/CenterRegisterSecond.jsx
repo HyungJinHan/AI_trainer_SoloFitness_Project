@@ -111,7 +111,41 @@ const CenterRegisterSecond = ({
         CENTER_ID: idRef.current.value
       })
       .then((res => {
-        if ((res.data[0].COUNT >= 1) && (idRef.current.value !== '')) {
+        if (idRef.current.value === "" || idRef.current.value === undefined) {
+          setHiddenIdKey(true);
+          setIdMessage(
+            <p>사업자 등록번호를 입력하세요.</p>
+          )
+          idRef.current.focus();
+          return false;
+        }
+        if (idRef.current.value.length < 10) {
+          setHiddenIdKey(true);
+          setIdMessage(
+            <p>사업자 등록번호 길이를 확인하세요.</p>
+          );
+          idRef.current.focus();
+          return false;
+        }
+        else {
+          const str = idRef.current.value;
+          for (var i = 0; i < str.length; i++) {
+            const ch = str.substring(i, i + 1);
+            if (
+              !(ch >= "0" && ch <= "9") ||
+              (ch >= "a" && ch <= "z") ||
+              (ch >= "A" && ch <= "Z")
+            ) {
+              setHiddenIdKey(true);
+              setIdMessage(
+                <p>사업자 등록번호는 숫자로만 입력해주세요.</p>
+              )
+              idRef.current.focus();
+              return false;
+            }
+          }
+        }
+        if ((res.data[0].COUNT >= 1)) {
           setHiddenIdKey(true);
           setIdMessage(
             <p>사업자 등록번호가 중복됩니다.</p>
