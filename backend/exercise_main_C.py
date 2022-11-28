@@ -29,7 +29,7 @@ mp_pose = mp.solutions.pose
 # 실시간 덤벨 측정 (사용 안할 시 주석 처리 바람)
 # dumbellModel = torch.hub.load('ultralytics/yolov5','custom', path='./volov5_dumbbell_estimation/weights/best.pt',force_reload=True)
 
-def get_stream_video():
+def get_stream_video_C():
     if ex_test == 1:
         cap = cv2.VideoCapture('Validation/{0}.mp4'.format(execList[-1]))
         # cap = cv2.VideoCapture('Validation/squat.mp4')
@@ -79,9 +79,9 @@ def get_stream_video():
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(frame) + b'\r\n')
-            if downCamera[-1] == countlist[-1]:
-                downCamera.append(0)
-                break
+            # if downCamera[-1] == countlist[-1]:
+            #     downCamera.append(0)
+            #     break
 
-        # cap.release()
+        cap.release()
         # cv2.destroyAllWindows()
