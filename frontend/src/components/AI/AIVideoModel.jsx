@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../../styles/AI/ModelSelect.css";
+import "../../styles/AI/AIModelSelect.css";
 
 const VideoModel = () => {
   return (

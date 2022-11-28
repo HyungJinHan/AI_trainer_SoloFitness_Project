@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 function Test(props) {
   const MainCenter = styled.div`
     text-align: center;
     padding-top: 3.125rem;
-  `
+  `;
 
   const [test, setTest] = useState("");
   const [hello, setHello] = useState(
@@ -38,19 +38,16 @@ function Test(props) {
   console.log(yaDanya);
 
   const handleKeyPress = (e) => {
-    if (e.key === 'q') {
-      navigate('/fitnessresult?id=kcj');
-    } else if (e.key === 'c') {
+    if (e.key === "q") {
+      navigate("/fitnessresult?id=kcj");
+    } else if (e.key === "c") {
       navigate("/chatjoin");
     }
-  }
+  };
 
   return (
     <MainCenter>
-      <input
-        onKeyPress={handleKeyPress}
-        placeholder='q : 결과창 / c : 채팅'
-      />
+      <input onKeyPress={handleKeyPress} placeholder="q : 결과창 / c : 채팅" />
       <h1>외않되/. 아마따1</h1>
       <h3>{hello}</h3>
       <h1>않이 이개 머조/</h1>
@@ -80,22 +77,24 @@ function Test(props) {
           }
         }}
       />
-      <br /><br />
-      {
-        (test === '') ?
-          yaDanya :
-          (
-            <div>
-              ID : {test.ADMIN_ID}
-              <br /><br />
-              PW : {test.ADMIN_PASSWORD}
-              <br /><br />
-              Nickname : {test.ADMIN_NICKNAME}
-              <br /><br />
-              <a href="/">Go To Main</a>
-            </div>
-          )
-      }
+      <br />
+      <br />
+      {test === "" ? (
+        yaDanya
+      ) : (
+        <div>
+          ID : {test.ADMIN_ID}
+          <br />
+          <br />
+          PW : {test.ADMIN_PASSWORD}
+          <br />
+          <br />
+          Nickname : {test.ADMIN_NICKNAME}
+          <br />
+          <br />
+          <a href="/">Go To Main</a>
+        </div>
+      )}
       <br />
       <input
         type="button"
@@ -106,13 +105,15 @@ function Test(props) {
       />
       &nbsp;&nbsp;
       <input
-        type='button'
-        value='search'
+        type="button"
+        value="search"
         onClick={() => {
-          navigate('/Category')
+          navigate("/Category");
         }}
       />
-      <br /><br /><br />
+      <br />
+      <br />
+      <br />
       <input
         type="button"
         value="유저 로그인"
@@ -128,7 +129,9 @@ function Test(props) {
           navigate("/userjoin");
         }}
       />
-      <br /><br /><br />
+      <br />
+      <br />
+      <br />
       <input
         type="button"
         value="센터 로그인"
@@ -144,7 +147,9 @@ function Test(props) {
           navigate("/centerjoin");
         }}
       />
-      <br /><br /><br />
+      <br />
+      <br />
+      <br />
       <a href="/video?exec=squat">스쿼트</a>
       &nbsp;&nbsp;
       <a href="/video?exec=pullup">풀업</a>
@@ -154,6 +159,19 @@ function Test(props) {
       <a href="/video?exec=situp">싯업</a>
       &nbsp;&nbsp;
       <a href="/video?exec=curl">덤벨컬</a>
+      &nbsp;&nbsp;
+      <br />
+      <br />
+      <br />
+      <a href="/videoc?exec=squat">스쿼트챌린지</a>
+      &nbsp;&nbsp;
+      <a href="/videoc?exec=pullup">풀업챌린지</a>
+      &nbsp;&nbsp;
+      <a href="/videoc?exec=pushup">푸쉬업챌린지</a>
+      &nbsp;&nbsp;
+      <a href="/videoc?exec=situp">싯업챌린지</a>
+      &nbsp;&nbsp;
+      <a href="/videoc?exec=curl">덤벨컬챌린지</a>
       &nbsp;&nbsp;
     </MainCenter>
   );
