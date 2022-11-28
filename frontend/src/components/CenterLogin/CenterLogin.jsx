@@ -3,11 +3,20 @@ import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 import axios from 'axios';
+import '../../styles/CenterLogin/CenterLogin.css'
+import MainLogo from '../../static/images/HHJ/icons/MainLogo.svg'
 
 const ErrorDiv = styled.p`
     background-color: red;
     color: white;
+    margin: 0;
   `
+
+const MainCenter = styled.div`
+    text-align: center;
+    padding-top: 3.125rem;
+  `;
+
 /** 센터 로그인 페이지 */
 function CenterLogin() {
   /** 사업자 등록번호 인식 */
@@ -93,9 +102,9 @@ function CenterLogin() {
         if (res.data[0].cnt === 1) {
           window.sessionStorage.clear();
           window.sessionStorage.setItem("centerID", idRef.current.value);
-          navigate("/");
+          navigate("/centermain");
         } else {
-          alert("로그인 실패");
+          alert("아이디 혹은 비밀번호가 틀렸습니다.");
           idRef.current.value = ''
           pwRef.current.value = ''
           navigate("/centerlogin");
@@ -107,12 +116,24 @@ function CenterLogin() {
   };
 
   return (
-    <div>
+    <MainCenter>
+      <br />
+      <br />
+      <br />
+      <img
+        src={MainLogo}
+        alt="undefind"
+        width='60%'
+      />
+      <br />
+      <br />
+      <br />
       <div>
         <input
+          className='CenterLogin_input'
           type="text"
           name="id"
-          placeholder="사업자 등록번호를 입력해주세요"
+          placeholder="임시 -> 1111111111"
           ref={idRef}
           autoComplete="off"
           maxLength="10"
@@ -132,9 +153,10 @@ function CenterLogin() {
       </div>
       <div>
         <input
+          className='CenterLogin_input'
           type="password"
           name="pw"
-          placeholder="비밀번호를 입력하세요."
+          placeholder="임시 -> 1111111111"
           ref={pwRef}
           autoComplete="off"
           onKeyPress={(e) => {
@@ -153,6 +175,7 @@ function CenterLogin() {
       </div>
       <div>
         <input
+          className='CenterLogin_button'
           type='button'
           value='로그인'
           ref={btnRef}
@@ -165,12 +188,12 @@ function CenterLogin() {
         />
       </div>
       <div>
-        <a href='http://localhost:3000/centerjoin'>처음이신가요?</a>
+        <a href='http://localhost:3000/centerjoin' className='CenterLogin_link'>처음이신가요?</a>
+        <br />
+        <br />
+        <a href='http://localhost:3000/' className='CenterLogin_link'>유저 로그인</a>
       </div>
-      <div>
-        <a href='http://localhost:3000/userlogin'>유저 로그인</a>
-      </div>
-    </div>
+    </MainCenter>
   );
 }
 

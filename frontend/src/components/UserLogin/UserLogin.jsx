@@ -2,9 +2,22 @@ import React from 'react';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
+import MainLogo from '../../static/images/HHJ/icons/MainLogo.svg'
+import '../../styles/UserLogin/UserLogin.css'
+
+const ErrorDiv = styled.p`
+    background-color: red;
+    color: white;
+    margin: 0;
+  `
+
+const MainCenter = styled.div`
+    text-align: center;
+    padding-top: 3.125rem;
+  `;
 
 // 로그인 페이지
-
 function UserLogin() {
   const idRef = useRef();
   const pwRef = useRef();
@@ -33,10 +46,12 @@ function UserLogin() {
         if (res.data[0].cnt === 1) {
           window.sessionStorage.clear();
           window.sessionStorage.setItem("userID", idRef.current.value);
-          navigate("/");
+          navigate("/usermain");
         } else {
-          alert("로그인 실패");
-          navigate("/userlogin");
+          alert("아이디 혹은 비밀번호가 틀렸습니다.");
+          idRef.current.value = ''
+          pwRef.current.value = ''
+          navigate("/");
         }
       })
       .catch((e) => {
@@ -44,13 +59,26 @@ function UserLogin() {
       });
   };
   return (
-    <div>
+    <MainCenter>
+      <br />
+      <br />
+      <br />
+      <img
+        src={MainLogo}
+        alt="undefind"
+        width='60%'
+      />
+      <br />
+      <br />
+      <br />
       <div>
         <input
+          className='UserLogin_input'
           type="text"
           name="id"
           ref={idRef}
           autoComplete="off"
+          placeholder='임시 -> zx'
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               pwRef.current.focus();
@@ -60,10 +88,12 @@ function UserLogin() {
       </div>
       <div>
         <input
+          className='UserLogin_input'
           type="password"
           name="pw"
           ref={pwRef}
           autoComplete="off"
+          placeholder='임시 -> zx'
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               btnRef.current.focus();
@@ -72,7 +102,10 @@ function UserLogin() {
         />
       </div>
       <div>
-        <button
+        <input
+          className='UserLogin_button'
+          value='로그인'
+          type='button'
           ref={btnRef}
           onKeyPress={(e) => {
             if (e.key === "Enter") {
@@ -80,17 +113,15 @@ function UserLogin() {
             }
           }}
           onClick={handleLogin}
-        >
-          로그인
-        </button>
+        />
       </div>
       <div>
-        <a href='http://localhost:3000/userjoin'>처음이신가요?</a>
+        <a href='http://localhost:3000/userjoin' className='UserLogin_link'>처음이신가요?</a>
+        <br />
+        <br />
+        <a href='http://localhost:3000/centerlogin' className='UserLogin_link'>센터 로그인</a>
       </div>
-      <div>
-        <a href='http://localhost:3000/centerlogin'>센터 로그인</a>
-      </div>
-    </div>
+    </MainCenter>
   );
 }
 
