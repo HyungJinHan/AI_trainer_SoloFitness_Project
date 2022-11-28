@@ -75,13 +75,6 @@ const ModelSelect = () => {
     navigate(url);
   }
 
-  // const handleKeyDown = (keyValue) => {
-  //   if (keyValue === "q") {
-  //     clearInterval(interval)
-  //     navigate(url);
-  //   }
-  // };
-
   console.log(location.state.inputCount, execiseCategories)
 
   return (

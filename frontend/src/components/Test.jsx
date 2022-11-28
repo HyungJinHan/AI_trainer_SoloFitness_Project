@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from "react";
-import axios from "axios";
+import { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -11,18 +10,9 @@ const MainCenter = styled.div`
 function Test(props) {
   const inputCountRef = useRef();
   const [inputCount, setInputCount] = useState(0);
-  const adminRef = useRef();
   const navigate = useNavigate();
 
   console.log(inputCount)
-
-  const countCheck = () => {
-    if (inputCountRef.current.value === '' || inputCountRef.current.value === undefined) {
-      alert('운동 개수를 지정해주세요.');
-      navigate('/');
-      return false;
-    }
-  }
 
   return (
     <MainCenter>
@@ -91,45 +81,80 @@ function Test(props) {
       />
       <br />
       <br />
-      <Link to={'/video?exec=squat'} state={{ inputCount: inputCount }}>
-        <input
-          type='button'
-          value='스쿼트'
-          onClick={countCheck}
-        />
-      </Link>
+      <input
+        type='button'
+        value='스쿼트'
+        onClick={
+          () => {
+            if (inputCountRef.current.value === '' || inputCountRef.current.value === undefined) {
+              alert('운동 개수를 지정해주세요.');
+              return false;
+            } else {
+              navigate('/video?exec=squat', { state: { inputCount: inputCount } })
+            }
+          }
+        }
+      />
       &nbsp;&nbsp;
-      <Link to={'/video?exec=pullup'} state={{ inputCount: inputCount }}>
-        <input
-          type='button'
-          value='풀업'
-          onClick={countCheck}
-        />
-      </Link>
+      <input
+        type='button'
+        value='풀업'
+        onClick={
+          () => {
+            if (inputCountRef.current.value === '' || inputCountRef.current.value === undefined) {
+              alert('운동 개수를 지정해주세요.');
+              return false;
+            } else {
+              navigate('/video?exec=squat', { state: { inputCount: inputCount } })
+            }
+          }
+        }
+      />
       &nbsp;&nbsp;
-      <Link to={'/video?exec=pushup'} state={{ inputCount: inputCount }}>
-        <input
-          type='button'
-          value='푸쉬업'
-          onClick={countCheck}
-        />
-      </Link>
+      <input
+        type='button'
+        value='푸쉬업'
+        onClick={
+          () => {
+            if (inputCountRef.current.value === '' || inputCountRef.current.value === undefined) {
+              alert('운동 개수를 지정해주세요.');
+              return false;
+            } else {
+              navigate('/video?exec=squat', { state: { inputCount: inputCount } })
+            }
+          }
+        }
+      />
       &nbsp;&nbsp;
-      <Link to={'/video?exec=situp'} state={{ inputCount: inputCount }}>
-        <input
-          type='button'
-          value='싯업'
-          onClick={countCheck}
-        />
-      </Link>
+      <input
+        type='button'
+        value='싯업'
+        onClick={
+          () => {
+            if (inputCountRef.current.value === '' || inputCountRef.current.value === undefined) {
+              alert('운동 개수를 지정해주세요.');
+              return false;
+            } else {
+              navigate('/video?exec=squat', { state: { inputCount: inputCount } })
+            }
+          }
+        }
+      />
       &nbsp;&nbsp;
-      <Link to={'/video?exec=curl'} state={{ inputCount: inputCount }}>
-        <input
-          type='button'
-          value='덤벨컬'
-          onClick={countCheck}
-        />
-      </Link>
+      <input
+        type='button'
+        value='덤벨컬'
+        onClick={
+          () => {
+            if (inputCountRef.current.value === '' || inputCountRef.current.value === undefined) {
+              alert('운동 개수를 지정해주세요.');
+              return false;
+            } else {
+              navigate('/video?exec=squat', { state: { inputCount: inputCount } })
+            }
+          }
+        }
+      />
       &nbsp;&nbsp;
       <br />
       <br />
