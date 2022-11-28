@@ -90,21 +90,11 @@ io.on("connect", (socket) => {
 
 app.post("/", (req, res) => {
   const sqlQuery =
-    "SELECT user_id,user_pw,user_name,user_nickname,user_email FROM USER_TABLE WHERE user_id = 'TEST1';";
+    "SELECT user_id, user_pw, user_name, user_nickname, user_email FROM USER_TABLE WHERE user_id = 'TEST1';";
 
   db.query(sqlQuery, (err, result) => {
     res.send(result);
     console.log("/hi(res) ->", result);
-  });
-});
-
-app.post("/hi", (req, res) => {
-  const ADMIN_ID = req.body.ADMIN_ID;
-
-  const sqlQuery = "SELECT * FROM ADMIN_TABLE WHERE ADMIN_ID = ?;";
-
-  db.query(sqlQuery, [ADMIN_ID], (err, result) => {
-    res.send(result);
   });
 });
 
@@ -118,7 +108,7 @@ app.post("/fitnessresult", (req, res) => {
   });
 });
 
-/** 검색 - 검색 결과와 그 개수 */
+/** 검색 */
 app.post("/searchcount", (req, res) => {
   const searchword = req.body.searchword;
   console.log("searchcount/req ->", searchword);
@@ -134,10 +124,9 @@ app.post("/searchcount", (req, res) => {
 
 app.post("/search", (req, res) => {
   const searchword = req.body.searchword;
-  // console.log("search/req -> ",searchword);
 
   const sqlQuery =
-    "SELECT VIDEO_NUM,VIDEO_TITLE,VIDEO_WRITER,VIDEO_DATE,VIDEO_ADDRESS,VIDEO_CATEGORY,VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_TITLE LIKE ?;";
+    "SELECT VIDEO_NUM, VIDEO_TITLE, VIDEO_WRITER, VIDEO_DATE, VIDEO_ADDRESS, VIDEO_CATEGORY, VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_TITLE LIKE ?;";
   db.query(sqlQuery, ["%" + searchword + "%"], (err, result) => {
     res.send(result);
     console.log("search/result ->", result);
@@ -284,6 +273,23 @@ app.post("/centeridcheck", (req, res) => {
     console.log("centeridcheck ->", result);
   });
 });
+
+/** 운동 디테일 페이지 */
+app.post("/detail", (req, res) => {
+  const exec = req.body.detailExec;
+
+  const sqlQuery =
+    "SELECT VIDEO_CATEGORY,VIDEO_PREPARE,VIDEO_INFO,VIDEO_EFFECT FROM VIDEO_TABLE WHERE VIDEO_TITLE = ?;";
+  db.query(sqlQuery, [exec], (err, result) => {
+    res.send(result);
+    console.log("detail/result ->", result);
+  });
+});
+
+/** 카테고리 */
+// app.post("/category", (req, res) => {
+//   console.log("category(req)->", req.body.params.category);
+// });
 
 server.listen(3001, () => {
   console.log(`Socket Server Running PORT ${SOCKET_PORT}`);

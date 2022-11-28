@@ -16,6 +16,7 @@
     "react-daum-postcode": "^3.1.1",
     "react-dom": "^18.2.0",
     "react-emoji": "^0.5.0",
+    "react-loading": "^2.0.3",
     "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1",
     "react-scroll-to-bottom": "^4.2.0",

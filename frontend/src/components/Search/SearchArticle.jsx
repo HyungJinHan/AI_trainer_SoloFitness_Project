@@ -1,10 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // SearchResult의 searchlist는 검색결과가 배열로 들어있고,
 // article은 그 배열 안의 결과 하나하나를 의미 -> props로 받아옴
 const SearchArticle = ({ article }) => {
+  const navigate = useNavigate();
+
   return (
-    <tr>
+    <tr onClick={() => navigate(`/detail?exec=${article.VIDEO_TITLE}`)}>
       <td>
         <img
           style={{ width: "90px", height: "110px" }}

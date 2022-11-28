@@ -13,10 +13,12 @@ const ModelSelect = () => {
   const [pullup, setPullup] = useState(null);
   const [situp, setSitup] = useState(null);
   const [curl, setCurl] = useState(null);
-  const [keyValue, setKeyValue] = useState("");
-  const location = useLocation().search;
-  const execiseCategories = queryString.parse(location).exec;
+
+  const location = useLocation();
+  const execiseCategories = queryString.parse(location.search).exec;
+
   const navigate = useNavigate();
+
   const goRef = useRef();
 
   /** 컴포넌트 접속 시 카운터 초기화 */
@@ -25,7 +27,7 @@ const ModelSelect = () => {
       exec: execiseCategories,
     });
     axios.get("http://localhost:8000/initialization").then((res) => {
-      setCounter(res.data);
+      setCounter(res.data.countlist[0]);
       console.log("initial:", counter);
     });
   }, []);
@@ -35,7 +37,7 @@ const ModelSelect = () => {
   // }, [])
 
   /** setInterval, clearInterval에 담기 위한 콜백 함수 */
-  const counterfunc = async () => {
+  const counterfunc = () => {
     /** 카운트 및 피드백을 파이썬에서 받아옴 */
     axios
       .get("http://localhost:8000/videocount")
@@ -67,25 +69,17 @@ const ModelSelect = () => {
 
   const url = `/fitnessresult?exec=${execiseCategories}`;
 
-  if (counter === 10) {
-    setKeyValue("q");
-    if (keyValue === "q") {
-      clearInterval(interval);
-      setCounter(0);
-      navigate(url);
-    }
+  if (counter === parseInt(location.state.inputCount)) {
+    // clearInterval(interval);
+    // setCounter(0);
+    navigate(url);
   }
 
-  // const handleKeyDown = (keyValue) => {
-  //   if (keyValue === "q") {
-  //     clearInterval(interval)
-  //     navigate(url);
-  //   }
-  // };
+  console.log(location.state.inputCount, execiseCategories);
 
   return (
     <div className="model">
-      <input type="text" ref={goRef} onChange={counter} />
+      {/* <input type="text" ref={goRef} onChange={counter} /> */}
       <div className="guide_img_div">
         <img
           src={require(`../../static/images/KCJ/${execiseCategories}1.jpg`)}
