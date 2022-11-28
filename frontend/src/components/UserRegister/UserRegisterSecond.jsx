@@ -8,7 +8,7 @@ const RegisterSecond = ({
   consoleAll
 }) => {
 
-  const [errorMassege, setErrorMassege] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const [errorKey, setErrorKey] = useState(true);
 
@@ -18,23 +18,23 @@ const RegisterSecond = ({
 
   const jobDone = () => {
     if (errorKey === true) {
-      setErrorMassege('아이디 중복 체크를 해주세요.');
+      setErrorMessage('아이디 중복 체크를 해주세요.');
       return false;
     }
     if (pwRef.current.value.length < 8 ||
       pwRef.current.value.length > 15) {
-      setErrorMassege('비밀번호 입력 형식을 지켜주세요.');
+      setErrorMessage('비밀번호 입력 형식을 지켜주세요.');
       pwRef.current.focus();
       return false;
     } else {
-      setErrorMassege('');
+      setErrorMessage('');
     }
     if (pwRef.current.value !== pwchRef.current.value) {
-      setErrorMassege('비밀번호가 확인란과 다릅니다.');
+      setErrorMessage('비밀번호가 확인란과 다릅니다.');
       pwchRef.current.focus();
       return false;
     } else {
-      setErrorMassege('');
+      setErrorMessage('');
 
     }
 
@@ -50,15 +50,15 @@ const RegisterSecond = ({
       })
       .then((res => {
         // TypeError발생하였으나 데이터 전달은 잘 됨 추후 수정
-        if (idRef.current.value.length > 8
-          || idRef.current.value.length < 15) {
-          setErrorMassege('아이디 입력 형식을 지켜주세요.');
+        if (idRef.current.value.length < 8
+          || idRef.current.value.length > 15) {
+          setErrorMessage('아이디 입력 형식을 지켜주세요.');
           idRef.current.focus();
-          console.log("nicknameCheck =>", errorMassege);
+          console.log("nicknameCheck =>", errorMessage);
           return false;
         }
         else if ((res.data[0].COUNT >= 1) && (idRef.current.value !== '')) {
-          setErrorMassege(
+          setErrorMessage(
             '아이디가 중복됩니다.'
           )
           idRef.current.value = '';
@@ -70,7 +70,7 @@ const RegisterSecond = ({
 사용하시겠습니까?`)) {
             setUserID(idRef.current.value);
             setErrorKey(false);
-            setErrorMassege('')
+            setErrorMessage('')
           } else {
             alert('취소하셨습니다.');
             idRef.current.value = '';
@@ -85,14 +85,20 @@ const RegisterSecond = ({
   }
 
   return (
-    <div>
-      <div>
+    <div className='UserRegister_main'>
+      <div className='UserRegister_info'>
+        아이디와 비밀번호를
+        <br />
+        입력해주세요.
+      </div>
+      <div className='UserRegister_inputDiv'>
         <input
           type="text"
           name="name"
           ref={idRef}
           autoComplete="off"
           placeholder='아이디는 8 ~ 15자까지 입력하세요.'
+          className='UserRegister_input'
           onChange={(e) => {
             setUserID(e.target.value);
             setErrorKey(true);
@@ -100,6 +106,7 @@ const RegisterSecond = ({
         />
         <input
           type='button'
+          className='UserRegister_overlap'
           value='중복 체크'
           onClick={
             idCheck
@@ -113,7 +120,8 @@ const RegisterSecond = ({
       </div>
       <div>
         <input
-          type="text"
+          className='UserRegister_inputSolo'
+          type="password"
           name="pw"
           ref={pwRef}
           autoComplete="off"
@@ -122,27 +130,25 @@ const RegisterSecond = ({
             setUserPW(e.target.value)
           }}
         />
-      </div>
-      <div>
         <input
-          type="text"
+          className='UserRegister_inputSolo'
+          type="password"
           name="pwch"
           ref={pwchRef}
           autoComplete="off"
         />
       </div>
-      <div>
-        {errorMassege}
+      <div className='UserRegister_error'>
+        {errorMessage}
       </div>
-      <div>
-        <button
-          onClick={
-            jobDone
-          }
-        >
-          다음
-        </button>
-      </div>
+      <input
+        className='UserRegister_button'
+        value='다음'
+        type='button'
+        onClick={
+          jobDone
+        }
+      />
     </div>
   );
 };

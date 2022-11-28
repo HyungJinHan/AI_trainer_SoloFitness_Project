@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import RegisterFirst from './RegisterFirst';
-import RegisterFourth from './RegisterFourth';
-import RegisterSecond from './RegisterSecond';
-import RegisterThird from './RegisterThird';
+import RegisterFirst from './UserRegisterFirst';
+import RegisterFourth from './UserRegisterFourth';
+import RegisterSecond from './UserRegisterSecond';
+import RegisterThird from './UserRegisterThird';
 
 const RegisterMain = () => {
   const [mode, setMode] = useState(0);

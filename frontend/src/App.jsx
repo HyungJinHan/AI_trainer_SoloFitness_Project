@@ -8,7 +8,7 @@ import FitnessResult from "./components/AI/AIFitnessResult";
 import FitnessResultNivo from "./components/AI/AIFitnessResultNivo";
 import UserLogin from "./components/UserLogin/UserLogin";
 // import Join from "./components/Join/Join";
-import RegisterMain from "./components/Register/RegisterMain";
+import RegisterMain from "./components/UserRegister/UserRegisterMain";
 import CenterRegisterMain from "./components/CenterRegister/CenterRegisterMain";
 import CenterLogin from "./components/CenterLogin/CenterLogin";
 // import AIModelSelect_C from "./components/AI/AIModelSelect_C";
