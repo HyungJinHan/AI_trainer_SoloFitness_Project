@@ -15,6 +15,7 @@ const RegisterMain = () => {
   const [userSex, setUserSex] = useState('');
   const [userTel, setUserTel] = useState('');
   const [userEmail, setUserEmail] = useState('');
+  const [userAddr, setUserAddr] = useState('');
 
 
   const consoleAll = () => {
@@ -26,6 +27,7 @@ const RegisterMain = () => {
     console.log('userSex =>', userSex);
     console.log('userTel =>', userTel);
     console.log('userEmail =>', userEmail);
+    console.log('userAddr =>', userAddr);
   };
 
   const insertUser = () => {
@@ -36,6 +38,7 @@ const RegisterMain = () => {
         USER_NAME: userName,
         USER_NICKNAME: nickname,
         USER_EMAIL: userEmail,
+        USER_ADDRESS: userAddr,
         USER_TEL: userTel,
         USER_SEX: userSex,
       })
@@ -82,6 +85,7 @@ const RegisterMain = () => {
           setUserSex={setUserSex}
           setUserTel={setUserTel}
           setUserEmail={setUserEmail}
+          setUserAddr={setUserAddr}
           setMode={setMode}
           consoleAll={consoleAll}
         />
