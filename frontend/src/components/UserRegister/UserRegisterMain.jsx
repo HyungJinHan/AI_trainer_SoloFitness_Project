@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import RegisterFirst from './RegisterFirst';
-import RegisterFourth from './RegisterFourth';
-import RegisterSecond from './RegisterSecond';
-import RegisterThird from './RegisterThird';
+import RegisterFirst from './UserRegisterFirst';
+import RegisterFourth from './UserRegisterFourth';
+import RegisterSecond from './UserRegisterSecond';
+import RegisterThird from './UserRegisterThird';
+import '../../styles/UserRegister/UserRegister.css'
 
 const RegisterMain = () => {
   const [mode, setMode] = useState(0);
@@ -15,7 +16,8 @@ const RegisterMain = () => {
   const [userSex, setUserSex] = useState('');
   const [userTel, setUserTel] = useState('');
   const [userEmail, setUserEmail] = useState('');
-
+  const [userAddr, setUserAddr] = useState('');
+  const [centerCode, setCenterCode] = useState(null);
 
   const consoleAll = () => {
     console.log('mode =>', mode);
@@ -26,6 +28,8 @@ const RegisterMain = () => {
     console.log('userSex =>', userSex);
     console.log('userTel =>', userTel);
     console.log('userEmail =>', userEmail);
+    console.log('userAddr =>', userAddr);
+    console.log('centerCode =>', centerCode);
   };
 
   const insertUser = () => {
@@ -36,6 +40,7 @@ const RegisterMain = () => {
         USER_NAME: userName,
         USER_NICKNAME: nickname,
         USER_EMAIL: userEmail,
+        USER_ADDRESS: userAddr,
         USER_TEL: userTel,
         USER_SEX: userSex,
       })
@@ -82,6 +87,7 @@ const RegisterMain = () => {
           setUserSex={setUserSex}
           setUserTel={setUserTel}
           setUserEmail={setUserEmail}
+          setUserAddr={setUserAddr}
           setMode={setMode}
           consoleAll={consoleAll}
         />
@@ -95,21 +101,26 @@ const RegisterMain = () => {
           setMode={setMode}
           consoleAll={consoleAll}
           insertUser={insertUser}
+          setCenterCode={setCenterCode}
         />
       </div>
     )
   }
   if (mode === 4) {
     return (
-      <div>
-        <div>
-          회원가입이 성공적으로 이뤄졌습니다!
+      <div className='UserRegister_main'>
+        <div className='UserRegister_info'>
+          회원가입이
+          <br />
+          성공적으로 이뤄졌습니다!
         </div>
         <div>
-          <Link to='/userlogin'>
-            <button>
-              로그인 하러 가기
-            </button>
+          <Link to='/'>
+            <input
+              className='UserRegister_button'
+              type='button'
+              value='로그인 하러 가기'
+            />
           </Link>
         </div>
       </div>

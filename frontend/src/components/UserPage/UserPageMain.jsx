@@ -1,14 +1,16 @@
 import axios from "axios";
 import { useState, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Navigator from "../Navigator/Navigator";
 
 const MainCenter = styled.div`
     text-align: center;
     padding-top: 3.125rem;
+    padding-bottom: 6.25rem;
   `;
 
-function Test(props) {
+function UserPageMain(props) {
   const inputCountRef = useRef();
   const [inputCount, setInputCount] = useState(0);
   const navigate = useNavigate();
@@ -19,6 +21,7 @@ function Test(props) {
     alert(`로그인 후 이용 가능합니다.
 로그인 페이지로 이동합니다.`);
     navigate('/');
+    return false;
   }
 
   return (
@@ -45,7 +48,7 @@ function Test(props) {
         type="button"
         value="search"
         onClick={() => {
-          navigate("/Category");
+          navigate("/category");
         }}
       />
       <br />
@@ -139,22 +142,10 @@ function Test(props) {
           }
         }
       />
-      &nbsp;&nbsp;
-      <br />
-      <br />
-      <br />
-      <a href="/videoc?exec=squat">스쿼트챌린지</a>
-      &nbsp;&nbsp;
-      <a href="/videoc?exec=pullup">풀업챌린지</a>
-      &nbsp;&nbsp;
-      <a href="/videoc?exec=pushup">푸쉬업챌린지</a>
-      &nbsp;&nbsp;
-      <a href="/videoc?exec=situp">싯업챌린지</a>
-      &nbsp;&nbsp;
-      <a href="/videoc?exec=curl">덤벨컬챌린지</a>
-      &nbsp;&nbsp;
+      <Navigator />
+      <Outlet />
     </MainCenter>
   );
 }
 
-export default Test;
+export default UserPageMain;

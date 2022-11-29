@@ -38,10 +38,3 @@
   letter-spacing: 0.2rem;
   color: #000000;
 }
-
-.UserLogin_error {
-  text-align: left;
-  padding-left: 4.375rem;
-  color: red;
-  font-size: .8125rem;
-}

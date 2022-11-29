@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import CenterRegisterFirst from './CenterRegisterFirst';
 import CenterRegisterSecond from './CenterRegisterSecond';
 import CenterRegisterThird from './CenterRegisterThird';
+import '../../styles/CenterRegister/CenterRegister.css'
 
 const CenterRegisterMain = () => {
   const [mode, setMode] = useState(0);
@@ -90,15 +91,19 @@ const CenterRegisterMain = () => {
   }
   if (mode === 3) {
     return (
-      <div>
-        <div>
-          회원가입이 성공적으로 이뤄졌습니다!
+      <div className='CenterRegister_main'>
+        <div className='CenterRegister_info'>
+          회원가입이
+          <br />
+          성공적으로 이뤄졌습니다!
         </div>
         <div>
-          <Link to='/centerlogin'>
-            <button>
-              로그인 하러 가기
-            </button>
+          <Link to='/'>
+            <input
+              className='CenterRegister_button'
+              type='button'
+              value='로그인 하러 가기'
+            />
           </Link>
         </div>
       </div>

@@ -1,12 +1,7 @@
 import React, { useRef, useState } from 'react';
 import DaumPostcode from "react-daum-postcode";
 import DaumAddressPopup from '../CenterRegister/CenterDaumPostCode/DaumAddressPopup.jsx';
-import styled from 'styled-components';
 
-const ErrorDiv = styled.p`
-    background-color: red;
-    color: white;
-  `
 const CenterRegisterThird = ({
   setCenterAddress,
   setCenterTel,
@@ -15,18 +10,15 @@ const CenterRegisterThird = ({
   consoleAll,
   insertCenter
 }) => {
+
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   /** 주소 인식 */
-  const [hiddenAddressKey, setHiddenAddressKey] = useState(false);
   const [addressMessage, setAddressMessage] = useState('');
   /** 전화번호 인식 */
-  const [hiddenTelKey, setHiddenTelKey] = useState(false);
   const [telMessage, setTelMessage] = useState('');
   /** 이메일 확인 인식 */
-  const [hiddenEmailkKey, setHiddenEmailkKey] = useState(false);
   const [emailMessage, setEmailMessage] = useState('');
   /** 인증코드 인식 */
-  const [hiddenCodeKey, setHiddenCodeKey] = useState(false);
   const [codeMessage, setCodeMessage] = useState('');
 
   const addressRef = useRef();
@@ -66,23 +58,20 @@ const CenterRegisterThird = ({
 
   const doneJob = () => {
     if (addressRef.current.value === "" || addressRef.current.value === undefined) {
-      setHiddenAddressKey(true);
       setAddressMessage(
-        <p>센터 주소를 입력하세요.</p>
+        '센터 주소를 입력하세요.'
       )
       addressRef.current.focus();
       return false;
     }
     else {
-      setHiddenAddressKey(false);
       setAddressMessage('');
       telRef.current.focus();
     }
 
     if (telRef.current.value === "" || telRef.current.value === undefined) {
-      setHiddenTelKey(true);
       setTelMessage(
-        <p>센터 전화번호를 입력하세요.</p>
+        '센터 전화번호를 입력하세요.'
       )
       telRef.current.focus();
       return false;
@@ -95,9 +84,8 @@ const CenterRegisterThird = ({
           (ch >= "a" && ch <= "z") ||
           (ch >= "A" && ch <= "Z")
         ) {
-          setHiddenTelKey(true);
           setTelMessage(
-            <p>전화번호는 숫자로만 입력해주세요.</p>
+            '전화번호는 숫자로만 입력해주세요.'
           )
           telRef.current.focus();
           return false;
@@ -105,28 +93,24 @@ const CenterRegisterThird = ({
       }
     }
 
-    setHiddenTelKey(false);
     setTelMessage('');
     emailRef.current.focus();
 
     if (emailRef.current.value === "" || emailRef.current.value === undefined) {
-      setHiddenEmailkKey(true);
       setEmailMessage(
-        <p>센터 이메일을 입력해주세요.</p>
+        '센터 이메일을 입력해주세요.'
       )
       emailRef.current.focus();
       return false;
     }
     else {
-      setHiddenEmailkKey(false);
       setEmailMessage('');
       codeRef.current.focus();
     }
 
     if (codeRef.current.value === "" || codeRef.current.value === undefined) {
-      setHiddenCodeKey(true);
       setCodeMessage(
-        <p>센터 승인 코드를 입력해주세요.</p>
+        '센터 승인 코드를 입력해주세요.'
       )
       codeRef.current.focus();
       return false;
@@ -135,8 +119,6 @@ const CenterRegisterThird = ({
     consoleAll();
     insertCenter();
   }
-
-  // console.log(addressRef.current.value);
 
   return (
     <div>
@@ -187,13 +169,11 @@ const CenterRegisterThird = ({
           }}
           placeholder="우편번호 검색을 이용해주세요."
         />
-        <ErrorDiv>
-          {
-            setHiddenAddressKey === true ?
-              <p>{addressMessage}</p> :
-              <>{addressMessage}</>
-          }
-        </ErrorDiv>
+        {/* <ErrorDiv> */}
+        <div>
+          {addressMessage}
+        </div>
+        {/* </ErrorDiv> */}
       </div>
       {/* <input
         type="hidden"
@@ -222,13 +202,11 @@ const CenterRegisterThird = ({
           }}
           placeholder='센터 전화번호를 입력하세요.'
         />
-        <ErrorDiv>
-          {
-            setHiddenTelKey === true ?
-              <p>{telMessage}</p> :
-              <>{telMessage}</>
-          }
-        </ErrorDiv>
+        {/* <ErrorDiv> */}
+        <div>
+          {telMessage}
+        </div>
+        {/* </ErrorDiv> */}
       </div>
       <div>
         <input
@@ -247,13 +225,11 @@ const CenterRegisterThird = ({
           }}
           placeholder='센터 이메일을 입력하세요.'
         />
-        <ErrorDiv>
-          {
-            setHiddenEmailkKey === true ?
-              <p>{emailMessage}</p> :
-              <>{emailMessage}</>
-          }
-        </ErrorDiv>
+        {/* <ErrorDiv> */}
+        <div>
+          {emailMessage}
+        </div>
+        {/* </ErrorDiv> */}
       </div>
       <div>
         <input
@@ -272,13 +248,11 @@ const CenterRegisterThird = ({
           }}
           placeholder='센터 인증 코드를 입력하세요.'
         />
-        <ErrorDiv>
-          {
-            setHiddenCodeKey === true ?
-              <p>{codeMessage}</p> :
-              <>{codeMessage}</>
-          }
-        </ErrorDiv>
+        {/* <ErrorDiv> */}
+        <div>
+          {codeMessage}
+        </div>
+        {/* </ErrorDiv> */}
       </div>
       <div>
         <button

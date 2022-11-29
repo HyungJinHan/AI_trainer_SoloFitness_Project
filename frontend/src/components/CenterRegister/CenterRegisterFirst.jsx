@@ -1,11 +1,6 @@
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
-import styled from 'styled-components';
 
-const ErrorDiv = styled.p`
-    background-color: red;
-    color: white;
-  `
 const CenterRegisterFirst = ({
   setCenterName,
   setMode,
@@ -13,24 +8,20 @@ const CenterRegisterFirst = ({
 }) => {
 
   /** 센터 이름 인식 */
-  const [hiddenNameKey, setHiddenNameKey] = useState(false);
   const [nameMessage, setNameMessage] = useState('');
+  /** 중복체크 실행 여부 검사 */
+  const [errorKey, setErrorKey] = useState(true);
 
   const nameRef = useRef();
 
   const doneJob = () => {
-    if (nameRef.current.value === "" || nameRef.current.value === undefined) {
-      setHiddenNameKey(true);
-      setNameMessage(
-        <p>센터 이름을 입력하세요.</p>
-      )
-      nameRef.current.focus();
-      return false;
+    if (errorKey === true) {
+      setNameMessage('센터 이름 중복 체크를 해주세요.');
+      return false
     }
-
     setMode(1);
     consoleAll();
-  }
+  };
 
   const checkOverlap = () => {
     axios
@@ -39,25 +30,23 @@ const CenterRegisterFirst = ({
       })
       .then((res => {
         if ((res.data[0].COUNT >= 1) && (nameRef.current.value !== '')) {
-          setHiddenNameKey(true);
           setNameMessage(
-            <p>센터 이름이 중복됩니다.</p>
+            '센터 이름이 중복됩니다.'
           )
           nameRef.current.value = '';
           nameRef.current.focus();
           return false;
         } else if (nameRef.current.value === '') {
-          setHiddenNameKey(true);
           setNameMessage(
-            <p>센터 이름을 입력하세요.</p>
-          )
+            '센터 이름을 입력하세요.'
+          );
           nameRef.current.focus();
           return false;
         } else {
           if (window.confirm(`센터 이름이 중복되지 않습니다.
 사용하시겠습니까?`)) {
             setCenterName(nameRef.current.value);
-            setHiddenNameKey(true);
+            setErrorKey(false);
             setNameMessage('')
           } else {
             alert('취소하셨습니다.');
@@ -70,6 +59,8 @@ const CenterRegisterFirst = ({
       .catch((e) => {
         console.error(e);
       });
+    console.log("checkOverlap errorKey", errorKey);
+
   }
 
   return (
@@ -82,7 +73,8 @@ const CenterRegisterFirst = ({
           defaultValue=''
           ref={nameRef}
           onChange={(e) => {
-            setCenterName(e.target.value)
+            setCenterName(e.target.value);
+            setErrorKey(true);
           }}
           placeholder="센터 이름 입력"
           onKeyPress={(e) => {
@@ -103,13 +95,7 @@ const CenterRegisterFirst = ({
             }
           }}
         />
-        <ErrorDiv>
-          {
-            setHiddenNameKey === true ?
-              <p>{nameMessage}</p> :
-              <>{nameMessage}</>
-          }
-        </ErrorDiv>
+        <div>{nameMessage}</div>
       </div>
       <div>
         <input

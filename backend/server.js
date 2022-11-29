@@ -134,7 +134,7 @@ app.post("/search", (req, res) => {
   });
 });
 
-/** 유저 회원가입 */
+/** 유저 로그인 */
 app.post("/userlogin", (req, res) => {
   const USER_ID = req.body.USER_ID;
   const USER_PW = req.body.USER_PW;
@@ -147,7 +147,7 @@ app.post("/userlogin", (req, res) => {
   });
 });
 
-/** 센터 회원가입 */
+/** 센터 로그인 */
 app.post("/centerlogin", (req, res) => {
   const CENTER_ID = req.body.CENTER_ID;
   const CENTER_PW = req.body.CENTER_PW;
@@ -167,7 +167,7 @@ app.post("/userjoin", (req, res) => {
   var USER_NAME = req.body.USER_NAME;
   var USER_NICKNAME = req.body.USER_NICKNAME;
   var USER_EMAIL = req.body.USER_EMAIL;
-  var USER_ADDRESS = "주소";
+  var USER_ADDRESS = req.body.USER_ADDRESS;
   var USER_TEL = req.body.USER_TEL;
   var USER_SEX = req.body.USER_SEX;
 
@@ -189,6 +189,48 @@ app.post("/userjoin", (req, res) => {
       res.send(result);
     }
   );
+});
+
+/** 유저 닉네임 중복 체크 */
+app.post("/usernicknamecheck", (req, res) => {
+  const USER_NICKNAME = req.body.USER_NICKNAME;
+  console.log("USER_NICKNAME ->", USER_NICKNAME);
+
+  const sqlQuery =
+    "SELECT COUNT(*) as COUNT FROM USER_TABLE WHERE USER_NICKNAME = ?;";
+
+  db.query(sqlQuery, [USER_NICKNAME], (err, result) => {
+    res.send(result);
+    console.log("USER_NICKNAME check ->", result);
+  });
+});
+
+/** 유저 아이디 중복 체크 */
+app.post("/useridcheck", (req, res) => {
+  const USER_ID = req.body.USER_ID;
+  console.log("USER_ID ->", USER_ID);
+
+  const sqlQuery =
+    "SELECT COUNT(*) as COUNT FROM USER_TABLE WHERE USER_ID = ?;";
+
+  db.query(sqlQuery, [USER_ID], (err, result) => {
+    res.send(result);
+    console.log("USER_ID check ->", result);
+  });
+});
+
+/** 유저 센터 키 중복 체크 */
+app.post("/centerkeycheck", (req, res) => {
+  const CENTER_NAME = req.body.CENTER_NAME;
+  const CENTER_ACCESS_CODE = req.body.CENTER_ACCESS_CODE;
+
+  const sqlQuery =
+    "SELECT COUNT(*) as COUNT FROM CENTER_TABLE WHERE CENTER_NAME = ? AND CENTER_ACCESS_CODE = ?;";
+
+  db.query(sqlQuery, [CENTER_NAME, CENTER_ACCESS_CODE], (err, result) => {
+    res.send(result);
+    console.log("CENTER_ACCESS_CODE check ->", result);
+  });
 });
 
 /** 센터 회원가입 */
@@ -283,6 +325,11 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
     (err, result) => {}
   );
 });
+
+/** 카테고리 */
+// app.post("/category", (req, res) => {
+//   console.log("category(req)->", req.body.params.category);
+// });
 
 server.listen(3001, () => {
   console.log(`Socket Server Running PORT ${SOCKET_PORT}`);

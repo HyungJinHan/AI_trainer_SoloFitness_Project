@@ -1,14 +1,14 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import ModelSelect from "./components/AI/AIModelSelect";
-import Test from "./components/UserMain/UserMain";
+import UserPageMain from "./components/UserPage/UserPageMain";
 import Chat from "./components/Chat/Chat";
 import ChatJoin from "./components/Chat/ChatJoin";
 import FitnessResult from "./components/AI/AIFitnessResult";
 import FitnessResultNivo from "./components/AI/AIFitnessResultNivo";
 import UserLogin from "./components/UserLogin/UserLogin";
 // import Join from "./components/Join/Join";
-import RegisterMain from "./components/Register/RegisterMain";
+import RegisterMain from "./components/UserRegister/UserRegisterMain";
 import CenterRegisterMain from "./components/CenterRegister/CenterRegisterMain";
 import CenterLogin from "./components/CenterLogin/CenterLogin";
 import AIModelSelect_C from "./components/AI/AIModelSelect_C";
@@ -17,13 +17,15 @@ import Category from "./components/Search/CategoryNSearch";
 import Pass from "./components/Detail/PassPage";
 import CenterMain from "./components/CenterPage/CenterMain";
 import LoadingSpinner from "./components/Loading/LoadingSpinner";
+import Navigator from "./components/Navigator/Navigator";
+import ChallengeMain from "./components/Challenge/ChallengeMain";
 
 const App = () => {
   return (
     <div>
       <Routes>
         {/** 메인 화면 */}
-        <Route path="/usermain" element={<Test />} />
+        <Route path="/usermain" element={<UserPageMain />} />
         {/** 유저 로그인, 회원가입 */}
         <Route path="/" element={<UserLogin />} />
         <Route path="/userjoin" element={<RegisterMain />} />
@@ -40,14 +42,18 @@ const App = () => {
         {/** 운동 결과 */}
         <Route path="/fitnessresult" element={<FitnessResult />} />
         <Route path="/nivotest" element={<FitnessResultNivo />} />
-        {/**운동 모델 챌린지용 */}
+        {/** 챌린지 페이지 */}
+        <Route path="/challenge" element={<ChallengeMain />} />
+        {/** 운동 모델 챌린지용 */}
         <Route path="/videoc" element={<AIModelSelect_C />} />
-        {/* 검색 */}
-        <Route path="/Category" element={<Category />} />
-        {/* 운동 디테일 페이지 */}
+        {/** 검색 */}
+        <Route path="/category" element={<Category />} />
+        {/** 운동 디테일 페이지 */}
         <Route path="/detail" element={<Pass />} />
         {/** 로딩창  */}
         <Route path="/loading" element={<LoadingSpinner />} />
+        {/** 네이게이션 바 */}
+        <Route path="/navigator" element={<Navigator />} />
       </Routes>
     </div>
   );
