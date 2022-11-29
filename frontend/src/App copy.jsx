@@ -7,16 +7,18 @@ import ChatJoin from "./components/Chat/ChatJoin";
 import FitnessResult from "./components/AI/AIFitnessResult";
 import FitnessResultNivo from "./components/AI/AIFitnessResultNivo";
 import UserLogin from "./components/UserLogin/UserLogin";
+// import Join from "./components/Join/Join";
 import RegisterMain from "./components/UserRegister/UserRegisterMain";
 import CenterRegisterMain from "./components/CenterRegister/CenterRegisterMain";
 import CenterLogin from "./components/CenterLogin/CenterLogin";
 import AIModelSelect_C from "./components/AI/AIModelSelect_C";
 import Category from "./components/Search/CategoryNSearch";
-import Detail from "./components/Detail/Detail";
+// import Detail from "./components/Detail/Detail";
+import Pass from "./components/Detail/PassPage";
 import CenterMain from "./components/CenterPage/CenterMain";
+import LoadingSpinner from "./components/Loading/LoadingSpinner";
 import Navigator from "./components/Navigator/Navigator";
 import ChallengeMain from "./components/Challenge/ChallengeMain";
-import CategoryList from "./components/Search/CategoryList";
 
 const App = () => {
   return (
@@ -47,11 +49,11 @@ const App = () => {
         {/** 검색 */}
         <Route path="/category" element={<Category />} />
         {/** 운동 디테일 페이지 */}
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail" element={<Pass />} />
+        {/** 로딩창  */}
+        <Route path="/loading" element={<LoadingSpinner />} />
         {/** 네이게이션 바 */}
         <Route path="/navigator" element={<Navigator />} />
-        {/** 카테고리 리스트 */}
-        <Route path="/categorylist" element={<CategoryList />} />
       </Routes>
     </div>
   );

@@ -109,7 +109,6 @@ app.post("/fitnessresult", (req, res) => {
     console.log("nodejs fitnessresult", result);
   });
 });
-
 /** 검색 */
 app.post("/searchcount", (req, res) => {
   const searchword = req.body.searchword;
@@ -323,33 +322,14 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
   db.query(
     sqlQuery,
     [userNickname, excerciseName, excerciseCount],
-    (err, result) => { }
+    (err, result) => {}
   );
 });
 
 /** 카테고리 */
-app.post("/category", (req, res) => {
-  const categories = req.body.categories;
-  // console.log("category(req)->", categories);
-
-  const datalist = [];
-  for (let i = 0; i < categories.length; i++) {
-    let category = req.body.categories[i]["category"];
-    console.log("category=", category);
-
-    const sqlQuery =
-      "SELECT VIDEO_TITLE,VIDEO_CATEGORY,VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_CATEGORY=?;";
-    db.query(sqlQuery, [category], (err, result) => {
-      datalist[i] = result;
-      // console.log(i, "번째 category/result->", datalist);
-
-      if (i == categories.length - 1) {
-        console.log(i, "번째 category/result->", datalist);
-        res.send(datalist);
-      }
-    });
-  }
-});
+// app.post("/category", (req, res) => {
+//   console.log("category(req)->", req.body.params.category);
+// });
 
 server.listen(3001, () => {
   console.log(`Socket Server Running PORT ${SOCKET_PORT}`);
