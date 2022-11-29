@@ -351,6 +351,18 @@ app.post("/category", (req, res) => {
   }
 });
 
+/** 마이페이지 조회 */
+app.post("/myInfo", (req, res) => {
+  const USER_ID = req.body.USER_ID;
+
+  const sqlQuery =
+    "SELECT * FROM USER_TABLE WHERE USER_ID = ?;";
+
+  db.query(sqlQuery, [USER_ID], (err, result) => {
+      res.send(result);
+  });
+});
+
 app.post('/legtheme', (req, res) => {
   const VIDEO_CATEGORY = req.body.VIDEO_CATEGORY;
 
