@@ -295,7 +295,7 @@ app.post("/detail", (req, res) => {
   const exec = req.body.detailExec;
 
   const sqlQuery =
-    "SELECT VIDEO_CATEGORY,VIDEO_PREPARE,VIDEO_INFO,VIDEO_EFFECT FROM VIDEO_TABLE WHERE VIDEO_TITLE = ?;";
+    "SELECT VIDEO_THUMBNAIL, VIDEO_CATEGORY, VIDEO_PREPARE, VIDEO_INFO, VIDEO_EFFECT FROM VIDEO_TABLE WHERE VIDEO_TITLE = ?;";
   db.query(sqlQuery, [exec], (err, result) => {
     res.send(result);
     console.log("detail/result ->", result);
@@ -338,7 +338,7 @@ app.post("/category", (req, res) => {
     console.log("category=", category);
 
     const sqlQuery =
-      "SELECT VIDEO_TITLE,VIDEO_CATEGORY,VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_CATEGORY=?;";
+      "SELECT VIDEO_TITLE,VIDEO_CATEGORY,VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_CATEGORY = ?;";
     db.query(sqlQuery, [category], (err, result) => {
       datalist[i] = result;
       // console.log(i, "번째 category/result->", datalist);
@@ -349,6 +349,29 @@ app.post("/category", (req, res) => {
       }
     });
   }
+});
+
+/** 마이페이지 조회 */
+app.post("/myInfo", (req, res) => {
+  const USER_ID = req.body.USER_ID;
+
+  const sqlQuery =
+    "SELECT * FROM USER_TABLE WHERE USER_ID = ?;";
+
+  db.query(sqlQuery, [USER_ID], (err, result) => {
+      res.send(result);
+  });
+});
+
+app.post('/legtheme', (req, res) => {
+  const VIDEO_CATEGORY = req.body.VIDEO_CATEGORY;
+
+  const sqlQuery =
+    'SELECT VIDEO_THUMBNAIL, VIDEO_TITLE FROM VIDEO_TABLE WHERE VIDEO_CATEGORY = ?;';
+
+  db.query(sqlQuery, [VIDEO_CATEGORY], (err, result) => {
+    res.send(result);
+  });
 });
 
 server.listen(3001, () => {

@@ -4,6 +4,8 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import SearchResult from './SearchResult';
 import CategoryList from './CategoryList';
 import Navigator from "../Navigator/Navigator";
+import "../../styles/CategoryNSearch/CategoryNSearch.css";
+import search1 from '../../static/images/LJJ/search.png';
 
 const Category = () => {
   const navigator = useNavigate();
@@ -93,36 +95,44 @@ const Category = () => {
     return (
       <div>
         <input type="button" onClick={() => { navigator("/usermain") }} value="메인으로 돌아가기" />
-        <div>
-          <input type="text" placeholder="검색어를 입력하세요" ref={SearchwordRef} />
-          <input
-            type="button"
-            value="검색"
-            onClick={handleSearch}
-          />
+        <div className="CNS_search_div">
+          <p>검색</p>
+          <form>
+            <input 
+              className="CNS_search_input"
+              type="text" 
+              // placeholder="검색어를 입력하세요" 
+              ref={SearchwordRef} 
+            />
+            {/* <input
+              type="button"
+              value="검색"
+              onClick={handleSearch}
+            /> */}
+            <button 
+              className="CNS_search_button"
+              onClick={handleSearch}
+            >
+              <img src={search1} alt="돋보기"/>
+            </button>
+          </form>
         </div>
-        <div style={{
-          // margin: "50px",
-          padding: "20px",
-          paddingBottom: '0px',
-          width: "30%",
-          display: "grid",
-          gridTemplateRows: "1fr",
-          gridTemplateColumns: "1fr 1fr 1fr",
-        }}
+        <div 
+          className="CNS_grid_div"
         // onClick={() => {
         //   handleCategory();
         //   setMode(2);
         // }}
         >
           {items.map((item) => {
-            return <div style={{ margin: "20px 10px", backgroundColor: "lightblue", height: "50%", borderRadius: "50%" }}>
-              <div>
-                <img src={item.thumb} alt="카테고리 이미지"
-                  style={{ width: "100px", height: "100px" }} />
+            return (
+            <div className="CNS_category_item">              
+              <div className="CNS_image">
+                <img src={item.thumb} alt="카테고리 이미지" />
               </div>
-              <p style={{ textAlign: "center" }}>{item.category}</p>
+              <p>{item.category}</p>
             </div>
+            )
           })}
         </div>
         <Navigator />
