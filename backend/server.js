@@ -100,15 +100,14 @@ app.post("/", (req, res) => {
 
 app.post("/fitnessresult", (req, res) => {
   const execurl = req.body.execiseCategories;
-  const userNickname = req.body.userNickname;
   const sqlQuery =
-    "SELECT EXCERCISE_NAME, EXCERCISE_COUNT, DATE_FORMAT(EXCERCISE_DATE, '%H시%i분%S초') AS EXCERCISE_DATE FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = ? AND EXCERCISE_USER = ? ORDER BY EXCERCISE_DATE DESC LIMIT 5;";
+    "SELECT * FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = ? ORDER BY EXCERCISE_DATE LIMIT 5";
 
-  db.query(sqlQuery, [execurl, userNickname], (err, result) => {
+  db.query(sqlQuery, [execurl], (err, result) => {
     res.send(result);
-    console.log("nodejs fitnessresult", result);
   });
 });
+
 /** 검색 */
 app.post("/searchcount", (req, res) => {
   const searchword = req.body.searchword;
@@ -221,13 +220,13 @@ app.post("/useridcheck", (req, res) => {
 
 /** 유저 센터 키 중복 체크 */
 app.post("/centerkeycheck", (req, res) => {
-  const CENTER_NAME = req.body.CENTER_NAME;
+  const CENTER_ID = req.body.USER_ID;
   const CENTER_ACCESS_CODE = req.body.CENTER_ACCESS_CODE;
 
   const sqlQuery =
-    "SELECT COUNT(*) as COUNT FROM CENTER_TABLE WHERE CENTER_NAME = ? AND CENTER_ACCESS_CODE = ?;";
+    "SELECT COUNT(*) as COUNT FROM CENTER_TABLE WHERE CENTER_ID = ? AND CENTER_ACCESS_CODE = ?;";
 
-  db.query(sqlQuery, [CENTER_NAME, CENTER_ACCESS_CODE], (err, result) => {
+  db.query(sqlQuery, [CENTER_ID, CENTER_ACCESS_CODE], (err, result) => {
     res.send(result);
     console.log("CENTER_ACCESS_CODE check ->", result);
   });
@@ -301,35 +300,29 @@ app.post("/detail", (req, res) => {
   });
 });
 
-/** 운동 후 유저 닉네임 알아내기 */
-app.post("/fitnessresultusernickname", (req, res) => {
-  var userNickname = req.body.userNickname;
-
-  const sqlQuery = "SELECT USER_NICKNAME FROM USER_TABLE WHERE USER_ID = ?;";
-  db.query(sqlQuery, [userNickname], (err, result) => {
-    res.send(result);
-  });
-});
-
-/** 운동정보 결과 INSERT(NIVO에 쓰기위함) */
-app.post("/fitnessresultinfoinsert", (req, res) => {
-  const userNickname = req.body.userNickname;
-  const excerciseName = req.body.excerciseName;
-  const excerciseCount = req.body.excerciseCount;
-
-  const sqlQuery =
-    "INSERT INTO EXCERCISE_TABLE(EXCERCISE_USER, EXCERCISE_NAME, EXCERCISE_COUNT) VALUES (?,?,?);";
-  db.query(
-    sqlQuery,
-    [userNickname, excerciseName, excerciseCount],
-    (err, result) => {}
-  );
-});
-
 /** 카테고리 */
-// app.post("/category", (req, res) => {
-//   console.log("category(req)->", req.body.params.category);
-// });
+app.post("/category", (req, res) => {
+  const categories = req.body.categories;
+  // console.log("category(req)->", categories);
+
+  const datalist = [];
+  for (let i = 0; i < categories.length; i++) {
+    let category = req.body.categories[i]["category"];
+    console.log("category=", category);
+
+    const sqlQuery =
+      "SELECT VIDEO_TITLE,VIDEO_CATEGORY,VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_CATEGORY=?;";
+    db.query(sqlQuery, [category], (err, result) => {
+      datalist[i] = result;
+      // console.log(i, "번째 category/result->", datalist);
+
+      if (i == categories.length - 1) {
+        console.log(i, "번째 category/result->", datalist);
+        res.send(datalist);
+      }
+    });
+  }
+});
 
 server.listen(3001, () => {
   console.log(`Socket Server Running PORT ${SOCKET_PORT}`);
