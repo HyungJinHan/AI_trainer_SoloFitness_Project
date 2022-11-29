@@ -50,7 +50,7 @@ const AIModelSelect_C = () => {
           <CountdownCircleTimer
             isPlaying
             duration={5}
-            colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
+            colors={["#0070d6", "#0f8cff", "#4da9ff", "#a3d3ff"]}
             colorsTime={[7, 5, 2, 0]}
             onComplete={() => {
               SetSecondRender(false);
@@ -66,19 +66,33 @@ const AIModelSelect_C = () => {
             <svg className="svgColor">
               <defs>
                 <linearGradient id="testid" x1="1" y1="0" x2="0" y2="0">
-                  <stop offset="5%" stopColor="gold" />
-                  <stop offset="95%" stopColor="red" />
+                  <stop offset="5%" stopColor="#3DA2FF" />
+                  <stop offset="95%" stopColor="#94ccff" />
                 </linearGradient>
               </defs>
             </svg>
-            <CountdownCircleTimer isPlaying duration={20} colors="url(#testid)">
+            <CountdownCircleTimer
+              isPlaying
+              duration={5}
+              colors="url(#testid)"
+              onComplete={() => {
+                axios.post("http://localhost:8000/videoshutdownchallenge", {
+                  downkeyword: false,
+                });
+              }}
+            >
               {AIRenderTime}
             </CountdownCircleTimer>
           </div>
-          <div>{counter}</div>
+          <div className="AIModelSelect_C_counter_div">
+            <div className="AIModelSelect_C_counter_text_div">COUNT</div>
+            <div className="AIModelSelect_C_counting_div">{counter}</div>
+          </div>
         </div>
       )}
-      <VideoModelC />
+      <div className="AIModelSelect_C_video_model">
+        <VideoModelC />
+      </div>
     </div>
   );
 };

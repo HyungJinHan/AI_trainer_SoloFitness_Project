@@ -37,15 +37,15 @@ def get_stream_video_C():
         cap = cv2.VideoCapture(0)
     else:
         return False
-    cap.set(3, 800)  # width
-    cap.set(4, 480)  # height
+    cap.set(3, 350)  # width
+    cap.set(4, 300)  # height
     # setup mediapipe
     with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
         counter = 0
         status = True
         while cap.isOpened():
             ret, frame = cap.read()
-            frame = cv2.resize(frame, (800, 480), interpolation=cv2.INTER_LINEAR)
+            frame = cv2.resize(frame, (350, 300), interpolation=cv2.INTER_LINEAR)
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             frame = cv2.flip(frame, 1)
             frame.flags.writeable = False
@@ -79,8 +79,8 @@ def get_stream_video_C():
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(frame) + b'\r\n')
-            # if downCamera[-1] == countlist[-1]:
-            #     downCamera.append(0)
+            # if downCamera_C[-1] == 0:
+            #     downCamera.append(1)
             #     break
 
         cap.release()
