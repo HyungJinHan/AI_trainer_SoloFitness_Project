@@ -1,9 +1,8 @@
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
-import Navigator from '../Navigator/Navigator';
+import { useNavigate } from 'react-router-dom';
 import SearchResult from './SearchResult';
-// const qs = require("qs");
+import CategoryList from './CategoryList';
 
 const Category = () => {
   const navigator = useNavigate();
@@ -20,6 +19,12 @@ const Category = () => {
     "VIDEO_ADDRESS": "",
     "VIDEO_CATEGORY": "",
     "VIDEO_THUMBNAIL": ""
+  })
+  const [categoryList,setCategoryList] = useState({categorylist:[]})
+  const [categoryArticle, setcategoryArticle] = useState({
+    VIDEO_TITLE:"",
+    VIDEO_CATEGORY:"",
+    VIDEO_THUMBNAIL:""
   })
   //0은 카테고리, 1은 검색결과
   const [mode, setMode] = useState(0);
@@ -69,9 +74,19 @@ const Category = () => {
     thumb: "https://cdn-icons-png.flaticon.com/128/7126/7126790.png"
   },
   {
-    category: "맨몸운동",
+    category: "하체",
     thumb: "https://cdn-icons-png.flaticon.com/512/2983/2983018.png"
   }]
+
+  function handleCategory() {
+    axios.post("http://localhost:8008/category",{categories:items})
+    .then((datalist) => {
+      console.log("category(datalist)->",datalist);
+      setCategoryList({categorylist:datalist.data})
+    }).catch((e) => {
+      console.error(e);
+    })
+  }
 
   if (mode === 0) {
     return (
@@ -93,7 +108,12 @@ const Category = () => {
           display: "grid",
           gridTemplateRows: "1fr",
           gridTemplateColumns: "1fr 1fr 1fr",
-        }}>
+        }}
+          // onClick={() => {
+          //   handleCategory();
+          //   setMode(2);
+          // }}
+        >
           {items.map((item) => {
             return <div style={{ margin: "20px 10px", backgroundColor: "lightblue", height: "120px", borderRadius: "50%" }}>
               <div>
@@ -104,13 +124,15 @@ const Category = () => {
             </div>
           })}
         </div>
-        <Navigator />
-        <Outlet />
       </div>
     )
   } else if (mode === 1) {
     return (
       <SearchResult searchword={SearchWord} searchcount={SearchCount} searchlist={SearchList} />
+    )
+  } else if (mode === 2) {
+    return (
+      <CategoryList categorylist={categoryList}/>
     )
   }
 };
