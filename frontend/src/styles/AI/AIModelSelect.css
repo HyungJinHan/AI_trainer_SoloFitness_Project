@@ -14,5 +14,36 @@
 }
 
 .AIModelSelect_counter_div{
+    padding-top: 3.125rem;
     height: 1.875rem;
+    width: 21.875rem;
+    font-size: 1.5625rem;
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AIModelSelect_counter_text_div{
+    background: #424242;
+    color:white;
+    width: 10.9375rem;
+}
+
+.AIModelSelect_counting_div{
+    background: #3DA2FF;
+    color:white;
+    width: 10.9375rem;
+}
+
+.AIModelSelect_goal_count{
+    background: #3DA2FF;
+    color:white;
+    width: 21.875rem;
+    height: 1.875rem;
+    margin:0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5625rem;
 }
