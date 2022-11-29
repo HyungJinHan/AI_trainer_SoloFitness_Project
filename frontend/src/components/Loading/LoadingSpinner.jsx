@@ -1,7 +1,9 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import "../../styles/Loading/Loading_spinner.css";
+import ReactLoading from "react-loading";
+import styled from "tachyons-components";
 
 const LoadingSpinner = () => {
   const location = useLocation();
@@ -15,12 +17,11 @@ const LoadingSpinner = () => {
     navigate(url, { state: { nickname: nickname } });
   }, 2000);
   return (
-    <div className="loader_top_div">
-      <div className="loader" id="loader"></div>
-      <div className="loader" id="loader2"></div>
-      <div className="loader" id="loader3"></div>
-      <div className="loader" id="loader4"></div>
-      <span id="text">LOADING...</span>
+    <div className="LoadingSpinner_top_div">
+      <div className="LoadingSpinner_bubbles">
+        <ReactLoading type="spinningBubbles" color="white" width={"40%"} />
+      </div>
+      <div className="LoadingSpinner_text">결과를 불러오고 있습니다.</div>
       <br></br>
     </div>
   );

@@ -80,27 +80,27 @@ const ModelSelect = () => {
 
   /** 유저가 지정한 카운트만큼 운동을 하면 결과창 이동 및 db에 정보 저장 */
   if (counter === parseInt(location.state.inputCount)) {
-    axios.post("http://localhost:8008/fitnessresultinfoinsert", {
-      userNickname: nickname,
-      excerciseName: execiseCategories,
-      excerciseCount: counter,
-    });
-    navigate(url, { state: { nickname: nickname } });
+    // axios.post("http://localhost:8008/fitnessresultinfoinsert", {
+    //   userNickname: nickname,
+    //   excerciseName: execiseCategories,
+    //   excerciseCount: counter,
+    // });
+    // navigate(url, { state: { nickname: nickname } });
   }
 
   console.log(location.state.inputCount, execiseCategories);
   return (
-    <div className="model">
+    <div className="AIModelSelect_top_div">
       {/* <input type="text" ref={goRef} onChange={counter} /> */}
-      <div className="guide_img_div">
+      <div className="AIModelSelect_guide_img_div">
         <img
           src={require(`../../static/images/KCJ/${execiseCategories}1.jpg`)}
-          className="guide_img"
+          className="AIModelSelect_guide_img"
           alt="undefined"
         />
       </div>
-      <div className="counter_div">{counter}</div>
-      <div className="feedback_div">
+      <div className="AIModelSelect_counter_div">{counter}</div>
+      <div className="AIModelSelect_feedback_div">
         <p>{feedbackClass()}</p>
       </div>
       <VideoModel />

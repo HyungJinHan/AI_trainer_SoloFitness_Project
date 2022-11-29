@@ -1,18 +1,18 @@
-.model {
+.AIModelSelect_top_div {
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
-.guide_img{
-    width: 50rem;
-    height: 30rem;
+.AIModelSelect_guide_img{
+    width: 21.875rem;
+    height: 18.75rem;
 }
 
-.feedback_div{
+.AIModelSelect_feedback_div{
     height: 1.875rem;
 }
 
-.counter_div{
+.AIModelSelect_counter_div{
     height: 1.875rem;
 }
