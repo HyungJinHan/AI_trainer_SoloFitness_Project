@@ -6,13 +6,13 @@ const RegisterFirst = ({ setNickname, setMode, consoleAll }) => {
   /** 중복체크 실행 여부 검사 */
   const [errorKey, setErrorKey] = useState(true);
 
-  const [errorMassege, setErrorMassege] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const nicknameRef = useRef();
 
   const jobDone = () => {
     if (errorKey === true) {
-      setErrorMassege('센터 이름 중복 체크를 해주세요.');
+      setErrorMessage('센터 이름 중복 체크를 해주세요.');
       return false
     }
 
@@ -29,13 +29,13 @@ const RegisterFirst = ({ setNickname, setMode, consoleAll }) => {
       .then((res => {
         if (nicknameRef.current.value.length < 2
           || nicknameRef.current.value.length > 8) {
-          setErrorMassege('닉네임 입력 형식을 지켜주세요.');
+          setErrorMessage('닉네임 입력 형식을 지켜주세요.');
           nicknameRef.current.focus();
-          console.log("nicknameCheck =>", errorMassege);
+          console.log("nicknameCheck =>", errorMessage);
           return false;
         }
         else if ((res.data[0].COUNT >= 1) && (nicknameRef.current.value !== '')) {
-          setErrorMassege(
+          setErrorMessage(
             '닉네임이 중복됩니다.'
           )
           nicknameRef.current.value = '';
@@ -47,7 +47,7 @@ const RegisterFirst = ({ setNickname, setMode, consoleAll }) => {
 사용하시겠습니까?`)) {
             setNickname(nicknameRef.current.value);
             setErrorKey(false);
-            setErrorMassege('')
+            setErrorMessage('')
           } else {
             alert('취소하셨습니다.');
             nicknameRef.current.value = '';
@@ -95,7 +95,7 @@ const RegisterFirst = ({ setNickname, setMode, consoleAll }) => {
         />
       </div>
       <div className='UserRegister_error'>
-        {errorMassege}
+        {errorMessage}
       </div>
       <input
         className='UserRegister_button'

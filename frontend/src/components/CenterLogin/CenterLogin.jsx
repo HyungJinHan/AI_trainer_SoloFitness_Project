@@ -6,12 +6,6 @@ import axios from 'axios';
 import '../../styles/CenterLogin/CenterLogin.css'
 import MainLogo from '../../static/images/HHJ/icons/MainLogo.svg'
 
-const ErrorDiv = styled.p`
-    background-color: red;
-    color: white;
-    margin: 0;
-  `
-
 const MainCenter = styled.div`
     text-align: center;
     padding-top: 3.125rem;
@@ -20,11 +14,9 @@ const MainCenter = styled.div`
 /** 센터 로그인 페이지 */
 function CenterLogin() {
   /** 사업자 등록번호 인식 */
-  const [hiddenIdKey, setHiddenIdKey] = useState(false);
-  const [idMessage, setIdMessage] = useState('');
-  /** 비밀번호 인식 */
-  const [hiddenPwKey, setHiddenPwKey] = useState(false);
-  const [pwMessage, setPwMessage] = useState('');
+  const [errorKey, setErrorKey] = useState(true);
+
+  const [errorMassege, setErrorMassege] = useState('');
 
   const idRef = useRef();
   const pwRef = useRef();
@@ -34,18 +26,14 @@ function CenterLogin() {
 
   const handleLogin = () => {
     if (idRef.current.value === "" || idRef.current.value === undefined) {
-      setHiddenIdKey(true);
-      setIdMessage(
-        <p>사업자 등록번호를 입력하세요.</p>
-      )
+      setErrorKey(true);
+      setErrorMassege('사업자 등록번호를 입력하세요.')
       idRef.current.focus();
       return false;
     }
     if (idRef.current.value.length < 10) {
-      setHiddenIdKey(true);
-      setIdMessage(
-        <p>사업자 등록번호 길이를 확인하세요.</p>
-      );
+      setErrorKey(true);
+      setErrorMassege('사업자 등록번호 길이를 확인하세요.');
       idRef.current.focus();
       return false;
     }
@@ -58,39 +46,32 @@ function CenterLogin() {
           (ch >= "a" && ch <= "z") ||
           (ch >= "A" && ch <= "Z")
         ) {
-          setHiddenIdKey(true);
-          setIdMessage(
-            <p>사업자 등록번호는 숫자로만 입력해주세요.</p>
-          )
+          setErrorKey(true);
+          setErrorMassege('사업자 등록번호는 숫자로만 입력해주세요.');
           idRef.current.focus();
           return false;
         }
       }
     }
 
-    setHiddenIdKey(false);
-    setIdMessage('');
+    setErrorKey(false);
+    setErrorMassege('');
     pwRef.current.focus();
 
     if (pwRef.current.value === "" || pwRef.current.value === undefined) {
-      setHiddenPwKey(true);
-      setPwMessage(
-        <p>비밀번호를 입력하세요.</p>
-      )
+      setErrorKey(true);
+      setErrorMassege('비밀번호를 입력하세요.');
       pwRef.current.focus();
       return false;
-    }
-    else if (pwRef.current.value.length < 8 || pwRef.current.value.length > 15) {
-      setHiddenPwKey(true);
-      setPwMessage(
-        <p>비밀번호를 길이를 확인하세요.</p>
-      );
+    } else if (pwRef.current.value.length < 8 || pwRef.current.value.length > 15) {
+      setErrorKey(true);
+      setErrorMassege('비밀번호를 길이를 확인하세요.');
       pwRef.current.focus();
       return false;
     }
     else {
-      setHiddenPwKey(false);
-      setPwMessage('');
+      setErrorKey(false);
+      setErrorMassege('');
     }
 
     axios
@@ -104,10 +85,10 @@ function CenterLogin() {
           window.sessionStorage.setItem("centerID", idRef.current.value);
           navigate("/centermain");
         } else {
-          alert("아이디 혹은 비밀번호가 틀렸습니다.");
-          idRef.current.value = ''
-          pwRef.current.value = ''
-          navigate("/centerlogin");
+          setErrorKey(true);
+          setErrorMassege('아이디 혹은 비밀번호가 틀렸습니다.');
+          idRef.current.focus();
+          return false;
         }
       })
       .catch((e) => {
@@ -143,13 +124,6 @@ function CenterLogin() {
             }
           }}
         />
-        <ErrorDiv>
-          {
-            setHiddenPwKey === true ?
-              <p>{idMessage}</p> :
-              <>{idMessage}</>
-          }
-        </ErrorDiv>
       </div>
       <div>
         <input
@@ -165,13 +139,9 @@ function CenterLogin() {
             }
           }}
         />
-        <ErrorDiv>
-          {
-            setHiddenPwKey === true ?
-              <p>{pwMessage}</p> :
-              <>{pwMessage}</>
-          }
-        </ErrorDiv>
+      </div>
+      <div className='CenterLogin_error'>
+        {errorMassege}
       </div>
       <div>
         <input

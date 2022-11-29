@@ -1,11 +1,5 @@
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
-import styled from 'styled-components';
-
-// const ErrorDiv = styled.p`
-//     color: red;
-//     font-size: .75rem;
-//   `
 
 const CenterRegisterFirst = ({
   setCenterName,

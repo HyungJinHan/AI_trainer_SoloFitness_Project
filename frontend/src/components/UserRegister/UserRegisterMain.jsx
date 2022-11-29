@@ -5,6 +5,7 @@ import RegisterFirst from './UserRegisterFirst';
 import RegisterFourth from './UserRegisterFourth';
 import RegisterSecond from './UserRegisterSecond';
 import RegisterThird from './UserRegisterThird';
+import '../../styles/UserRegister/UserRegister.css'
 
 const RegisterMain = () => {
   const [mode, setMode] = useState(0);
@@ -107,15 +108,19 @@ const RegisterMain = () => {
   }
   if (mode === 4) {
     return (
-      <div>
-        <div>
-          회원가입이 성공적으로 이뤄졌습니다!
+      <div className='UserRegister_main'>
+        <div className='UserRegister_info'>
+          회원가입이
+          <br />
+          성공적으로 이뤄졌습니다!
         </div>
         <div>
-          <Link to='/userlogin'>
-            <button>
-              로그인 하러 가기
-            </button>
+          <Link to='/'>
+            <input
+              className='UserRegister_button'
+              type='button'
+              value='로그인 하러 가기'
+            />
           </Link>
         </div>
       </div>

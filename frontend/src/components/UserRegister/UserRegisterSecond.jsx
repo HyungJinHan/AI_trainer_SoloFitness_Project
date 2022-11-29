@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import axios from 'axios';
+import '../../styles/UserRegister/UserRegister.css'
 
 const RegisterSecond = ({
   setUserID,

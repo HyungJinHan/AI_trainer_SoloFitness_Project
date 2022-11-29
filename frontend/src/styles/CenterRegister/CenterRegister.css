@@ -1,8 +1,8 @@
-.UserRegister_main {
+.CenterRegister_main {
   text-align: center;
 }
 
-.UserRegister_info {
+.CenterRegister_info {
   text-align: left;
   padding-left: 1.875rem;
   padding-top: 8.125rem;
@@ -10,7 +10,7 @@
   font-size: 1.4375rem;
 }
 
-.UserRegister_inputDiv {
+.CenterRegister_inputDiv {
   text-align: center;
   width: 21.875rem;
   height: 2.5rem;
@@ -22,7 +22,7 @@
   margin-top: .8125rem;
 }
 
-.UserRegister_input {
+.CenterRegister_input {
   background-color: transparent;
   border: none;
   width: 18.875rem;
@@ -30,7 +30,7 @@
   padding-left: .625rem;
 }
 
-.UserRegister_overlap {
+.CenterRegister_overlap {
   background-color: transparent;
   border: none;
   background: #3DA2FF;
@@ -38,7 +38,7 @@
   border-radius: 0rem .4375rem .4375rem 0rem;
 }
 
-.UserRegister_button {
+.CenterRegister_button {
   width: 21.875rem;
   height: 2.5rem;
   margin: .625rem;
@@ -56,7 +56,7 @@
   text-align: center;
 }
 
-.UserRegister_error {
+.CenterRegister_error {
   text-align: left;
   padding-top: .625rem;
   padding-left: 2.8125rem;
@@ -64,7 +64,7 @@
   font-size: .8125rem;
 }
 
-.UserRegister_inputSolo {
+.CenterRegister_inputSolo {
   width: 21.875rem;
   height: 2.5rem;
   margin-top: .8125rem;
@@ -74,7 +74,7 @@
   padding-left: .625rem;
 }
 
-.UserRegister_genderDiv {
+.CenterRegister_genderDiv {
   text-align: center;
   width: 21.875rem;
   height: 2.5rem;
@@ -84,7 +84,7 @@
   margin-top: .8125rem;
 }
 
-.UserRegister_maleTrue {
+.CenterRegister_maleTrue {
   width: 50%;
   height: 2.5rem;
   background: #3DA2FF;
@@ -93,7 +93,7 @@
   color: white;
 }
 
-.UserRegister_femaleTrue {
+.CenterRegister_femaleTrue {
   width: 50%;
   height: 2.5rem;
   background: #3DA2FF;
@@ -102,7 +102,7 @@
   color: white;
 }
 
-.UserRegister_maleFalse {
+.CenterRegister_maleFalse {
   width: 50%;
   height: 2.5rem;
   background: #F2F2F2;
@@ -110,7 +110,7 @@
   border-radius: .3125rem 0rem 0rem .3125rem;
 }
 
-.UserRegister_femaleFalse {
+.CenterRegister_femaleFalse {
   width: 50%;
   height: 2.5rem;
   background: #F2F2F2;

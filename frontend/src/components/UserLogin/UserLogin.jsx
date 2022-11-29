@@ -1,16 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import MainLogo from '../../static/images/HHJ/icons/MainLogo.svg'
 import '../../styles/UserLogin/UserLogin.css'
-
-const ErrorDiv = styled.p`
-    background-color: red;
-    color: white;
-    margin: 0;
-  `
 
 const MainCenter = styled.div`
     text-align: center;
@@ -19,6 +13,10 @@ const MainCenter = styled.div`
 
 // 로그인 페이지
 function UserLogin() {
+  const [errorKey, setErrorKey] = useState(true);
+
+  const [errorMassege, setErrorMassege] = useState('');
+
   const idRef = useRef();
   const pwRef = useRef();
   const btnRef = useRef();
@@ -27,12 +25,25 @@ function UserLogin() {
 
   const handleLogin = () => {
     if (idRef.current.value === "" || idRef.current.value === undefined) {
-      alert("아이디를 입력하세요.");
+      setErrorKey(true);
+      setErrorMassege('아이디를 입력하세요.')
+      idRef.current.focus();
+      return false;
+    }
+    if (idRef.current.value.length < 10) {
+      setErrorKey(true);
+      setErrorMassege('아이디 길이를 확인하세요.');
       idRef.current.focus();
       return false;
     }
     if (pwRef.current.value === "" || pwRef.current.value === undefined) {
-      alert("패스워드를 입력하세요.");
+      setErrorKey(true);
+      setErrorMassege('패스워드를 입력하세요.')
+      pwRef.current.focus();
+      return false;
+    } else if (pwRef.current.value.length < 8 || pwRef.current.value.length > 15) {
+      setErrorKey(true);
+      setErrorMassege('비밀번호를 길이를 확인하세요.');
       pwRef.current.focus();
       return false;
     }
@@ -48,10 +59,10 @@ function UserLogin() {
           window.sessionStorage.setItem("userID", idRef.current.value);
           navigate("/usermain");
         } else {
-          alert("아이디 혹은 비밀번호가 틀렸습니다.");
-          idRef.current.value = ''
-          pwRef.current.value = ''
-          navigate("/");
+          setErrorKey(true);
+          setErrorMassege('아이디 혹은 비밀번호가 틀렸습니다.');
+          idRef.current.focus();
+          return false;
         }
       })
       .catch((e) => {
@@ -78,7 +89,7 @@ function UserLogin() {
           name="id"
           ref={idRef}
           autoComplete="off"
-          placeholder='임시 -> zx'
+          placeholder='임시 -> aaaaaaaaaa'
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               pwRef.current.focus();
@@ -93,13 +104,16 @@ function UserLogin() {
           name="pw"
           ref={pwRef}
           autoComplete="off"
-          placeholder='임시 -> zx'
+          placeholder='임시 -> aaaaaaaaaa'
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               btnRef.current.focus();
             }
           }}
         />
+      </div>
+      <div className='UserLogin_error'>
+        {errorMassege}
       </div>
       <div>
         <input

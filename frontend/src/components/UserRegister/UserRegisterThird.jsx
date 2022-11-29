@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import DaumPostcode from "react-daum-postcode";
 import DaumAddressPopup from '../CenterRegister/CenterDaumPostCode/DaumAddressPopup.jsx';
+import '../../styles/UserRegister/UserRegister.css'
 
 const RegisterThird = ({
   setUserName,
@@ -63,8 +64,16 @@ const RegisterThird = ({
       )
       addressRef.current.focus();
       return false;
+    } else {
+      setErrorMessage('');
     }
-    else {
+
+    if ((maleToggle === false) && (femaleToggle === false)) {
+      setErrorMessage(
+        '성별을 선택해주세요.'
+      )
+      return false;
+    } else {
       setErrorMessage('');
     }
 
@@ -112,15 +121,8 @@ const RegisterThird = ({
       )
       addressRef.current.focus();
       return false;
-    }
-    else {
+    } else {
       setErrorMessage('');
-    }
-    if ((maleToggle === false) && (femaleToggle === false)) {
-      setErrorMessage(
-        '성별을 선택해주세요.'
-      )
-      return false;
     }
     consoleAll();
     setMode(3);
@@ -189,6 +191,7 @@ const RegisterThird = ({
       </div>
       <div>
         <input
+          className='UserRegister_inputSolo'
           type="tel"
           name="tel"
           autoComplete="off"
@@ -207,6 +210,7 @@ const RegisterThird = ({
       </div>
       <div>
         <input
+          className='UserRegister_inputSolo'
           type="email"
           name="email"
           autoComplete="off"
@@ -223,38 +227,9 @@ const RegisterThird = ({
           placeholder='센터 이메일을 입력하세요.'
         />
       </div>
-      <div>
-        <div className="div111" id="juso">
-          주소
-          {/* 버튼 클릭 시 팝업 생성 */}
-          <button
-            type="button"
-            onClick={openPostCode}
-          >
-            우편번호 검색
-          </button>
-        </div>
-        {/* 팝업 생성 기준 div */}
-        <div id="popupDom">
-          {isPopupOpen && (
-            <DaumAddressPopup>
-              <div>
-                <DaumPostcode onComplete={handlePostCode} />
-                {/* 닫기 버튼 생성 */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    closePostCode();
-                  }}
-                  className="close"
-                >
-                  닫기
-                </button>
-              </div>
-            </DaumAddressPopup>
-          )}
-        </div>
+      <div className='UserRegister_inputDiv'>
         <input
+          className='UserRegister_input'
           type="text"
           name="address"
           size="20"
@@ -270,16 +245,43 @@ const RegisterThird = ({
           }}
           placeholder="우편번호 검색을 이용해주세요."
         />
-        <div>
-          {errorMessage}
-        </div>
+        {/* 버튼 클릭 시 팝업 생성 */}
+        <input
+          value='우편번호 검색'
+          type='button'
+          className='UserRegister_overlap'
+          onClick={openPostCode}
+        />
+      </div>
+      {/* 팝업 생성 기준 div */}
+      <div id="popupDom">
+        {isPopupOpen && (
+          <DaumAddressPopup>
+            <div>
+              <DaumPostcode onComplete={handlePostCode} />
+              {/* 닫기 버튼 생성 */}
+              <button
+                type="button"
+                onClick={() => {
+                  closePostCode();
+                }}
+                className="close"
+              >
+                닫기
+              </button>
+            </div>
+          </DaumAddressPopup>
+        )}
+      </div>
+      <div className='UserRegister_error'>
+        {errorMessage}
       </div>
       <div>
-        <button
+        <input
+          value='등록하기'
+          className='UserRegister_button'
           onClick={doneJob}
-        >
-          등록하기
-        </button>
+        />
       </div>
     </div>
   );
