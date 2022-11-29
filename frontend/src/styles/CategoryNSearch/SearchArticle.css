@@ -1,0 +1,12 @@
+.sa_first_td {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  background-color: rgb(190, 180, 180);
+}
+
+.sa_second_td {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: rgb(190, 180, 180);
+  width: 80%;
+}
