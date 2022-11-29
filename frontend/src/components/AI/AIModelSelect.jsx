@@ -80,12 +80,12 @@ const ModelSelect = () => {
 
   /** 유저가 지정한 카운트만큼 운동을 하면 결과창 이동 및 db에 정보 저장 */
   if (counter === parseInt(location.state.inputCount)) {
-    // axios.post("http://localhost:8008/fitnessresultinfoinsert", {
-    //   userNickname: nickname,
-    //   excerciseName: execiseCategories,
-    //   excerciseCount: counter,
-    // });
-    // navigate(url, { state: { nickname: nickname } });
+    axios.post("http://localhost:8008/fitnessresultinfoinsert", {
+      userNickname: nickname,
+      excerciseName: execiseCategories,
+      excerciseCount: counter,
+    });
+    navigate(url, { state: { nickname: nickname } });
   }
 
   console.log(location.state.inputCount, execiseCategories);
@@ -99,18 +99,19 @@ const ModelSelect = () => {
           alt="undefined"
         />
       </div>
-      <div className="AIModelSelect_counter_div">{counter}</div>
+      <div className="AIModelSelect_counter_div">
+        <div className="AIModelSelect_counter_text_div">COUNT</div>
+        <div className="AIModelSelect_counting_div">{counter}</div>
+      </div>
       <div className="AIModelSelect_feedback_div">
         <p>{feedbackClass()}</p>
       </div>
       <VideoModel />
       <br />
       <br />
-      <br />
-      <a href="http://localhost:3000">Back To Main</a>
-      <a href={url}>결과봐라</a>
-      {/* <input type="button" onClick={goHome} value="집에가라" />
-      <input type="button" onClick={goResult} value="결과봐라" /> */}
+      <div className="AIModelSelect_goal_count">
+        목표 카운트 {location.state.inputCount}
+      </div>
     </div>
   );
 };

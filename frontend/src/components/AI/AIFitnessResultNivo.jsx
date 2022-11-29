@@ -47,7 +47,7 @@ const FitnessResultNivo = () => {
 
   return (
     // chart height이 100%이기 때문이 chart를 덮는 마크업 요소에 height 설정
-    <div style={{ width: "31.25rem", height: "36.25rem", margin: "0 auto" }}>
+    <div style={{ width: "25rem", height: "30rem", margin: "0 auto" }}>
       <ResponsiveBar
         /**
          * chart에 사용될 데이터
@@ -78,7 +78,7 @@ const FitnessResultNivo = () => {
         /**
          * chart 색상
          */
-        colors={["rgb(75, 165, 88)", "rgba(75, 165, 88,0.5)", "orange"]} // 커스터하여 사용할 때
+        colors={["rgb(61, 162, 255)"]} // 커스터하여 사용할 때
         // colors={{ scheme: 'nivo' }} // nivo에서 제공해주는 색상 조합 사용할 때
         /**
          * color 적용 방식

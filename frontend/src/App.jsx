@@ -17,6 +17,7 @@ import CenterMain from "./components/CenterPage/CenterMain";
 import Navigator from "./components/Navigator/Navigator";
 import ChallengeMain from "./components/Challenge/ChallengeMain";
 import CategoryList from "./components/Search/CategoryList";
+import LoadingSpinner from "./components/Loading/LoadingSpinner";
 
 const App = () => {
   return (
@@ -52,6 +53,8 @@ const App = () => {
         <Route path="/navigator" element={<Navigator />} />
         {/** 카테고리 리스트 */}
         <Route path="/categorylist" element={<CategoryList />} />
+        {/** 운동 결과 로딩창 */}
+        <Route path="/loading" element={<LoadingSpinner />} />
       </Routes>
     </div>
   );
