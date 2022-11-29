@@ -13,6 +13,7 @@ const ModelSelect = () => {
   const [pullup, setPullup] = useState(null);
   const [situp, setSitup] = useState(null);
   const [curl, setCurl] = useState(null);
+  const [nickname, setNickname] = useState();
 
   const location = useLocation();
   const execiseCategories = queryString.parse(location.search).exec;
@@ -30,6 +31,13 @@ const ModelSelect = () => {
       setCounter(res.data.countlist[0]);
       console.log("initial:", counter);
     });
+    axios
+      .post("http://localhost:8008/fitnessresultusernickname", {
+        userNickname: window.sessionStorage.getItem("userID"),
+      })
+      .then((res) => {
+        setNickname(res.data[0].USER_NICKNAME);
+      });
   }, []);
 
   // useEffect(() => {
@@ -37,9 +45,9 @@ const ModelSelect = () => {
   // }, [])
 
   /** setInterval, clearInterval에 담기 위한 콜백 함수 */
-  const counterfunc = () => {
+  const counterfunc = async () => {
     /** 카운트 및 피드백을 파이썬에서 받아옴 */
-    axios
+    await axios
       .get("http://localhost:8000/videocount")
       .then((res) => {
         var countlist = res.data.count;
@@ -67,16 +75,20 @@ const ModelSelect = () => {
     }
   };
 
-  const url = `/fitnessresult?exec=${execiseCategories}`;
+  // const url = `/fitnessresult?exec=${execiseCategories}&nickname=${nickname}`;
+  const url = `/loading?exec=${execiseCategories}`;
 
+  /** 유저가 지정한 카운트만큼 운동을 하면 결과창 이동 및 db에 정보 저장 */
   if (counter === parseInt(location.state.inputCount)) {
-    // clearInterval(interval);
-    // setCounter(0);
-    navigate(url);
+    axios.post("http://localhost:8008/fitnessresultinfoinsert", {
+      userNickname: nickname,
+      excerciseName: execiseCategories,
+      excerciseCount: counter,
+    });
+    navigate(url, { state: { nickname: nickname } });
   }
 
   console.log(location.state.inputCount, execiseCategories);
-
   return (
     <div className="model">
       {/* <input type="text" ref={goRef} onChange={counter} /> */}

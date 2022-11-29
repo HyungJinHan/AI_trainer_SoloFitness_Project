@@ -10,14 +10,19 @@ const FitnessResultNivo = () => {
   const [exerciseName, setExerciseName] = useState([]);
   const [exerciseCount, setExerciseCount] = useState([]);
   const [exerciseDate, setExerciseDate] = useState([]);
+  const [nickname, setNickname] = useState();
 
   /** modelSelect에서 보낸 exec=운동정보 를 그대로 받아옴 */
-  const location = useLocation().search;
-  const execiseCategories = queryString.parse(location).exec;
+  const location = useLocation();
+  const execiseCategories = queryString.parse(location.search).exec;
+  const userNickname = location.state.nickname;
 
   useEffect(() => {
     axios
-      .post("http://localhost:8008/fitnessresult", { execiseCategories })
+      .post("http://localhost:8008/fitnessresult", {
+        execiseCategories: execiseCategories,
+        userNickname: userNickname,
+      })
       .then((res) => {
         res.data.map((exerciseData) => {
           /** 불변성 유지를 위해 immer 라이브러리 사용 */
@@ -39,6 +44,7 @@ const FitnessResultNivo = () => {
         });
       });
   }, []);
+
   return (
     // chart height이 100%이기 때문이 chart를 덮는 마크업 요소에 height 설정
     <div style={{ width: "900px", height: "500px", margin: "0 auto" }}>

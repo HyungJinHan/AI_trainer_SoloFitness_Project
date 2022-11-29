@@ -100,14 +100,15 @@ app.post("/", (req, res) => {
 
 app.post("/fitnessresult", (req, res) => {
   const execurl = req.body.execiseCategories;
+  const userNickname = req.body.userNickname;
   const sqlQuery =
-    "SELECT * FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = ? ORDER BY EXCERCISE_DATE LIMIT 5";
+    "SELECT EXCERCISE_NAME, EXCERCISE_COUNT, DATE_FORMAT(EXCERCISE_DATE, '%H시%i분%S초') AS EXCERCISE_DATE FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = ? AND EXCERCISE_USER = ? ORDER BY EXCERCISE_DATE DESC LIMIT 5;";
 
-  db.query(sqlQuery, [execurl], (err, result) => {
+  db.query(sqlQuery, [execurl, userNickname], (err, result) => {
     res.send(result);
+    console.log("nodejs fitnessresult", result);
   });
 });
-
 /** 검색 */
 app.post("/searchcount", (req, res) => {
   const searchword = req.body.searchword;
@@ -256,6 +257,31 @@ app.post("/detail", (req, res) => {
     res.send(result);
     console.log("detail/result ->", result);
   });
+});
+
+/** 운동 후 유저 닉네임 알아내기 */
+app.post("/fitnessresultusernickname", (req, res) => {
+  var userNickname = req.body.userNickname;
+
+  const sqlQuery = "SELECT USER_NICKNAME FROM USER_TABLE WHERE USER_ID = ?;";
+  db.query(sqlQuery, [userNickname], (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 운동정보 결과 INSERT(NIVO에 쓰기위함) */
+app.post("/fitnessresultinfoinsert", (req, res) => {
+  const userNickname = req.body.userNickname;
+  const excerciseName = req.body.excerciseName;
+  const excerciseCount = req.body.excerciseCount;
+
+  const sqlQuery =
+    "INSERT INTO EXCERCISE_TABLE(EXCERCISE_USER, EXCERCISE_NAME, EXCERCISE_COUNT) VALUES (?,?,?);";
+  db.query(
+    sqlQuery,
+    [userNickname, excerciseName, excerciseCount],
+    (err, result) => {}
+  );
 });
 
 server.listen(3001, () => {
