@@ -28,27 +28,9 @@ function UserPageMain(props) {
     <MainCenter>
       <input
         type="button"
-        value="Logout"
-        onClick={() => {
-          window.sessionStorage.clear();
-          navigate("/");
-        }}
-      />
-      <br />
-      <br />
-      <input
-        type="button"
         value="Go To Chat"
         onClick={() => {
           navigate("/chatjoin");
-        }}
-      />
-      &nbsp;&nbsp;
-      <input
-        type="button"
-        value="search"
-        onClick={() => {
-          navigate("/category");
         }}
       />
       <br />
