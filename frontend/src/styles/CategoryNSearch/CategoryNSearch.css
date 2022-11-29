@@ -1,0 +1,69 @@
+/* 검색창 */
+.CNS_search_div {
+  border-bottom: 1px solid black;
+}
+
+.CNS_search_div > p {
+  text-align: center;
+  font-size: 25px;
+}
+
+.CNS_search_div > form {
+  padding: 7px;
+  border: 2px solid rgb(153, 210, 230);
+  margin: 0 5%;
+  margin-bottom: 20%;
+}
+
+.CNS_search_input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 1.125rem;
+  width: 90%;
+}
+
+.CNS_search_button {
+  border: none;
+  background: none;
+}
+
+.CNS_search_button > img {
+  width: 20px;
+  height: 20px;
+}
+
+/* 그리드 */
+.CNS_grid_div {
+  padding: 20px;
+  width: 30%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.CNS_category_item {
+  margin: 15px;
+}
+
+.CNS_image {
+  width: 100px;
+  height: 90px;
+  /* text-align: center; */
+  position: relative;
+  background-color: rgb(196, 229, 240);
+  border-radius: 50%;
+}
+
+.CNS_image > img {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  top: 10%;
+  left: 11%;
+}
+
+.CNS_category_item > p {
+  margin: 5px 0;
+  text-align: center;
+}
