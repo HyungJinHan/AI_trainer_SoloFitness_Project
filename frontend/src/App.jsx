@@ -11,19 +11,16 @@ import UserLogin from "./components/UserLogin/UserLogin";
 import RegisterMain from "./components/UserRegister/UserRegisterMain";
 import CenterRegisterMain from "./components/CenterRegister/CenterRegisterMain";
 import CenterLogin from "./components/CenterLogin/CenterLogin";
-// import AIModelSelect_C from "./components/AI/AIModelSelect_C";
+import AIModelSelect_C from "./components/AI/AIModelSelect_C";
 import Category from "./components/Search/CategoryNSearch";
 // import Detail from "./components/Detail/Detail";
 import Pass from "./components/Detail/PassPage";
 import CenterMain from "./components/CenterPage/CenterMain";
+import LoadingSpinner from "./components/Loading/LoadingSpinner";
 import Navigator from "./components/Navigator/Navigator";
 import ChallengeMain from "./components/Challenge/ChallengeMain";
 
 const App = () => {
-  const AIModelSelect_C = React.lazy(() =>
-    import("./components/AI/AIModelSelect_C")
-  );
-
   return (
     <div>
       <Routes>
@@ -53,6 +50,8 @@ const App = () => {
         <Route path="/category" element={<Category />} />
         {/** 운동 디테일 페이지 */}
         <Route path="/detail" element={<Pass />} />
+        {/** 로딩창  */}
+        <Route path="/loading" element={<LoadingSpinner />} />
         {/** 네이게이션 바 */}
         <Route path="/navigator" element={<Navigator />} />
       </Routes>
