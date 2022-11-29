@@ -27,6 +27,9 @@ class exec_categories(BaseModel):
 class count_class(BaseModel):
   count: int
 
+class count_class_c(BaseModel):
+  keyword: bool
+
 # openCV에서 이미지,영상 불러오는 함수
 def video_streaming():
   return get_stream_video()
@@ -70,3 +73,9 @@ def shutdown(count: count_class):
   print('shutdown count', count.count)
   downCamera.append(count.count)
   print(downCamera)
+  
+@app.post('/videoshutdownchallenge')
+def shutdown():
+  global downCamera_C
+  downCamera_C = False
+  

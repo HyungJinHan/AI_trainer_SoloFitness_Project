@@ -19,6 +19,7 @@ import ChallengeMain from "./components/Challenge/ChallengeMain";
 import CategoryList from "./components/Search/CategoryList";
 import LoadingSpinner from "./components/Loading/LoadingSpinner";
 import UserMypageMain from "./components/UserMypage/UserMypageMain";
+import LoadingSpinner_C from "./components/Loading/LoadingSpinner_C";
 import NavigatorTop from "./components/Navigator/NavigatorTop";
 import MainSliderTheme from "./components/MainSlider/MainSliderTheme";
 import MainSliderLeg from "./components/MainSlider/MainSliderLeg";
@@ -62,6 +63,8 @@ const App = () => {
         <Route path="/loading" element={<LoadingSpinner />} />
         {/** 유저 마이페이지 */}
         <Route path="/usermypage" element={<UserMypageMain />} />
+        {/** 챌린지 결과 로딩창 */}
+        <Route path="/loadingchallenge" element={<LoadingSpinner_C />} />
         {/** 테마 슬라이더 */}
         <Route path="/mainslidertheme" element={<MainSliderTheme />} />
         <Route path="/mainsliderlist" element={<MainSliderLeg />} />

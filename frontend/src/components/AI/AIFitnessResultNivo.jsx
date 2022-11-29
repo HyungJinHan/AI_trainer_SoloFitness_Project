@@ -130,14 +130,15 @@ const FitnessResultNivo = () => {
         /**
          * axis bottom 설정
          */
-        axisBottom={{
-          tickSize: 5, // 값 설명하기 위해 튀어나오는 점 크기
-          tickPadding: 5, // tick padding
-          tickRotation: 0, // tick 기울기
-          // legend: "다른 회원과의 비교",
-          legendPosition: "middle", // 글씨 위치
-          legendOffset: 40, // 글씨와 chart간 간격
-        }}
+        // axisBottom={{
+        //   tickSize: 5, // 값 설명하기 위해 튀어나오는 점 크기
+        //   tickPadding: 5, // tick padding
+        //   tickRotation: 0, // tick 기울기
+        //   legend: "날짜별 운동",
+        //   legendPosition: "middle", // 글씨 위치
+        //   legendOffset: 40, // 글씨와 chart간 간격
+        // }}
+        axisBottom={null}
         /**
          * axis left 설정
          */
@@ -145,10 +146,11 @@ const FitnessResultNivo = () => {
           tickSize: 5, // 값 설명하기 위해 튀어나오는 점 크기
           tickPadding: 5, // tick padding
           tickRotation: 0, // tick 기울기
-          legend: "운동횟수", // left 글씨
+          legend: "COUNT", // left 글씨
           legendPosition: "middle", // 글씨 위치
           legendOffset: -50, // 글씨와 chart간 간격
         }}
+        enableGridY={false}
         /**
          * label 안보이게 할 기준 width
          */
@@ -169,8 +171,8 @@ const FitnessResultNivo = () => {
             anchor: "bottom-right", // 위치
             direction: "column", // item 그려지는 방향
             justify: false, // 글씨, 색상간 간격 justify 적용 여부
-            translateX: 120, // chart와 X 간격
-            translateY: -360, // chart와 Y 간격
+            translateX: 250, // chart와 X 간격
+            translateY: -400, // chart와 Y 간격
             itemsSpacing: 2, // item간 간격
             itemWidth: 180, // item width
             itemHeight: 20, // item height

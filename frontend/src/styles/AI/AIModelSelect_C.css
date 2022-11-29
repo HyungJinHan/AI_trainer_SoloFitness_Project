@@ -2,9 +2,37 @@
   margin: 0;
   padding: 0;
   text-align: center;
+  margin-top: 1.875rem;
+}
+
+.AIModelSelect_C_video_model{
+  margin-top: 5rem;
 }
 
 .svgColor {
   width: 0;
   height: 0;
+}
+
+.AIModelSelect_C_counter_div{
+  padding-top: 3.125rem;
+  height: 1.875rem;
+  width: 21.875rem;
+  font-size: 1.5625rem;
+  margin:0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AIModelSelect_C_counter_text_div{
+  background: #424242;
+  color:white;
+  width: 10.9375rem;
+}
+
+.AIModelSelect_C_counting_div{
+  background: #3DA2FF;
+  color:white;
+  width: 10.9375rem;
 }
