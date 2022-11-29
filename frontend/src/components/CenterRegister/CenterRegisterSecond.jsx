@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
-import styled from 'styled-components';
+import '../../styles/CenterRegister/CenterRegister.css'
 
 const CenterRegisterSecond = ({
   setCenterID,
@@ -20,7 +20,7 @@ const CenterRegisterSecond = ({
   const jobDone = () => {
     if (errorKey === true) {
       setErrorMessage('센터 이름 중복 체크를 해주세요.');
-      return false
+      return false;
     }
 
     setErrorMessage('');
@@ -98,41 +98,11 @@ const CenterRegisterSecond = ({
         }
         if ((res.data[0].COUNT >= 1)) {
           setErrorMessage(
-            '사업자 등록번호를 입력해 주세요.'
+            '사업자 등록번호가 중복됩니다.'
           )
           idRef.current.value = '';
           idRef.current.focus();
           return false;
-        }
-        if (idRef.current.value.length < 10) {
-          setErrorMessage(
-            '사업자 등록번호 길이를 확인하세요.'
-          );
-          idRef.current.focus();
-          return false;
-        }
-        else {
-          const str = idRef.current.value;
-          for (var i = 0; i < str.length; i++) {
-            const ch = str.substring(i, i + 1);
-            if (
-              !(ch >= "0" && ch <= "9")
-            ) {
-              setErrorMessage(
-                '사업자 등록번호는 숫자로만 입력해주세요.'
-              )
-              idRef.current.focus();
-              return false;
-            }
-          }
-          if ((res.data[0].COUNT >= 1) && (idRef.current.value !== '')) {
-            setErrorMessage(
-              '사업자 등록번호가 중복됩니다.'
-            )
-            idRef.current.value = '';
-            idRef.current.focus();
-            return false;
-          }
         }
         if (window.confirm(`사업자 등록번호가 중복되지 않습니다.
 사용하시겠습니까?`)) {
@@ -152,9 +122,15 @@ const CenterRegisterSecond = ({
   }
 
   return (
-    <div>
-      <div>
+    <div className='CenterRegister_main'>
+      <div className='CenterRegister_info'>
+        사업자 등록번호와
+        <br />
+        비밀번호를 입력해주세요.
+      </div>
+      <div className='CenterRegister_inputDiv'>
         <input
+          className='CenterRegister_input'
           type="text"
           name="id"
           autoComplete="off"
@@ -165,7 +141,7 @@ const CenterRegisterSecond = ({
             setCenterID(e.target.value);
             setErrorKey(true);
           }}
-          placeholder="센터 사업자 등록 번호 입력"
+          placeholder="사업자 등록 번호 10자리를 입력해주세요."
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               jobDone();
@@ -173,6 +149,7 @@ const CenterRegisterSecond = ({
           }}
         />
         <input
+          className='CenterRegister_overlap'
           type='button'
           value='중복 체크'
           onClick={
@@ -187,6 +164,7 @@ const CenterRegisterSecond = ({
       </div>
       <div>
         <input
+          className='CenterRegister_inputSolo'
           type="password"
           name="pw"
           ref={pwRef}
@@ -195,7 +173,7 @@ const CenterRegisterSecond = ({
           onChange={(e) => {
             setCenterPW(e.target.value)
           }}
-          placeholder="센터 비밀번호 입력"
+          placeholder="비밀번호는 8 ~ 15자까지 입력하세요."
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               jobDone();
@@ -205,12 +183,13 @@ const CenterRegisterSecond = ({
       </div>
       <div>
         <input
+          className='CenterRegister_inputSolo'
           type="password"
           name="pwck"
           ref={pwckRef}
           autoComplete="off"
           defaultValue=''
-          placeholder="센터 비밀번호 확인"
+          placeholder="비밀번호를 한번 더 입력하세요."
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               jobDone();
@@ -218,18 +197,17 @@ const CenterRegisterSecond = ({
           }}
         />
       </div>
-      <div>
-        {setErrorMessage}
+      <div className='CenterRegister_error'>
+        {errorMessage}
       </div>
-      <div>
-        <button
-          onClick={
-            jobDone
-          }
-        >
-          다음
-        </button>
-      </div>
+      <input
+        className='CenterRegister_button'
+        value='다음'
+        type='button'
+        onClick={
+          jobDone
+        }
+      />
     </div>
   );
 };

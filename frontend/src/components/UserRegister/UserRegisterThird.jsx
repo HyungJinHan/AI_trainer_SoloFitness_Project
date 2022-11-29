@@ -224,7 +224,7 @@ const RegisterThird = ({
               doneJob();
             }
           }}
-          placeholder='센터 이메일을 입력하세요.'
+          placeholder='이메일을 입력하세요.'
         />
       </div>
       <div className='UserRegister_inputDiv'>

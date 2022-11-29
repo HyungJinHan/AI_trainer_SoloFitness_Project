@@ -93,7 +93,7 @@ const CenterRegisterMain = () => {
     return (
       <div className='CenterRegister_main'>
         <div className='CenterRegister_info'>
-          회원가입이
+          센터 등록이
           <br />
           성공적으로 이뤄졌습니다!
         </div>

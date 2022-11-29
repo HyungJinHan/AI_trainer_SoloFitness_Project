@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
+import '../../styles/CenterRegister/CenterRegister.css'
 
 const CenterRegisterFirst = ({
   setCenterName,

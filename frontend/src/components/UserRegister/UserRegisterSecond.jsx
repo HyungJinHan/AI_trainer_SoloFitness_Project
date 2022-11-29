@@ -23,14 +23,14 @@ const RegisterSecond = ({
     }
     if (pwRef.current.value.length < 8 ||
       pwRef.current.value.length > 15) {
-      setErrorMessage('비밀번호 입력 형식을 지켜주세요.');
+      setErrorMessage('비밀번호를 길이를 확인하세요.');
       pwRef.current.focus();
       return false;
     } else {
       setErrorMessage('');
     }
     if (pwRef.current.value !== pwchRef.current.value) {
-      setErrorMessage('비밀번호가 확인란과 다릅니다.');
+      setErrorMessage('비밀번호가 맞지 않습니다.');
       pwchRef.current.focus();
       return false;
     } else {
@@ -50,7 +50,7 @@ const RegisterSecond = ({
       .then((res => {
         if (idRef.current.value.length < 8
           || idRef.current.value.length > 15) {
-          setErrorMessage('아이디 입력 형식을 지켜주세요.');
+          setErrorMessage('아이디 길이를 확인하세요.');
           idRef.current.focus();
           console.log("nicknameCheck =>", errorMessage);
           return false;
@@ -130,6 +130,7 @@ const RegisterSecond = ({
         />
         <input
           className='UserRegister_inputSolo'
+          placeholder='비밀번호를 한번 더 입력하세요.'
           type="password"
           name="pwch"
           ref={pwchRef}
