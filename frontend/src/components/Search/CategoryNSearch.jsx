@@ -104,7 +104,7 @@ const Category = () => {
           // margin: "50px",
           padding: "20px",
           paddingBottom: '0px',
-          width: "480px",
+          width: "30%",
           display: "grid",
           gridTemplateRows: "1fr",
           gridTemplateColumns: "1fr 1fr 1fr",
@@ -115,7 +115,7 @@ const Category = () => {
           // }}
         >
           {items.map((item) => {
-            return <div style={{ margin: "20px 10px", backgroundColor: "lightblue", height: "120px", borderRadius: "50%" }}>
+            return <div style={{ margin: "20px 10px", backgroundColor: "lightblue", height: "50%", borderRadius: "50%" }}>
               <div>
                 <img src={item.thumb} alt="카테고리 이미지"
                   style={{ width: "100px", height: "100px" }} />
