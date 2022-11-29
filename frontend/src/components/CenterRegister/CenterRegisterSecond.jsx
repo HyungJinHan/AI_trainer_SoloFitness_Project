@@ -10,14 +10,8 @@ const CenterRegisterSecond = ({
 }) => {
 
   /** 중복체크 실행 여부 검사 */
+  const [errorMessage, setErrorMessage] = useState('');
   const [errorKey, setErrorKey] = useState(true);
-
-  /** 사업자 등록번호 인식 */
-  const [idMessage, setIdMessage] = useState('');
-  /** 비밀번호 인식 */
-  const [pwMessage, setPwMessage] = useState('');
-  /** 비밀번호 확인 인식 */
-  const [pwckMessage, setPwckMessage] = useState('');
 
   const idRef = useRef();
   const pwRef = useRef();
@@ -25,40 +19,40 @@ const CenterRegisterSecond = ({
 
   const jobDone = () => {
     if (errorKey === true) {
-      setIdMessage('센터 이름 중복 체크를 해주세요.');
+      setErrorMessage('센터 이름 중복 체크를 해주세요.');
       return false
     }
 
-    setIdMessage('');
+    setErrorMessage('');
     pwRef.current.focus();
 
     if (pwRef.current.value === "" || pwRef.current.value === undefined) {
-      setPwMessage(
+      setErrorMessage(
         '비밀번호를 입력하세요.'
       )
       pwRef.current.focus();
       return false;
     }
     else if (pwRef.current.value.length < 8 || pwRef.current.value.length > 15) {
-      setPwMessage(
+      setErrorMessage(
         '비밀번호를 길이를 확인하세요.'
       );
       pwRef.current.focus();
       return false;
     }
     else {
-      setPwMessage('');
+      setErrorMessage('');
       pwckRef.current.focus();
     }
 
     if (pwRef.current.value !== pwckRef.current.value) {
-      setPwckMessage(
+      setErrorMessage(
         '비밀번호가 맞지 않습니다.'
       );
       return false;
     }
     else if (pwRef.current.value === pwckRef.current.value) {
-      setPwckMessage('');
+      setErrorMessage('');
     }
 
     setMode(2);
@@ -72,14 +66,14 @@ const CenterRegisterSecond = ({
       })
       .then((res => {
         if (idRef.current.value === '') {
-          setIdMessage(
+          setErrorMessage(
             `사업자 등록번호를 입력하세요.`
           )
           idRef.current.focus();
           return false;
         }
         if (idRef.current.value.length < 10) {
-          setIdMessage(
+          setErrorMessage(
             `사업자 등록번호 길이를 확인하세요.`
           );
           idRef.current.focus();
@@ -94,7 +88,7 @@ const CenterRegisterSecond = ({
               (ch >= "a" && ch <= "z") ||
               (ch >= "A" && ch <= "Z")
             ) {
-              setIdMessage(
+              setErrorMessage(
                 `사업자 등록번호는 숫자로만 입력해주세요.`
               )
               idRef.current.focus();
@@ -103,7 +97,7 @@ const CenterRegisterSecond = ({
           }
         }
         if ((res.data[0].COUNT >= 1)) {
-          setIdMessage(
+          setErrorMessage(
             '사업자 등록번호를 입력해 주세요.'
           )
           idRef.current.value = '';
@@ -111,7 +105,7 @@ const CenterRegisterSecond = ({
           return false;
         }
         if (idRef.current.value.length < 10) {
-          setIdMessage(
+          setErrorMessage(
             '사업자 등록번호 길이를 확인하세요.'
           );
           idRef.current.focus();
@@ -124,7 +118,7 @@ const CenterRegisterSecond = ({
             if (
               !(ch >= "0" && ch <= "9")
             ) {
-              setIdMessage(
+              setErrorMessage(
                 '사업자 등록번호는 숫자로만 입력해주세요.'
               )
               idRef.current.focus();
@@ -132,7 +126,7 @@ const CenterRegisterSecond = ({
             }
           }
           if ((res.data[0].COUNT >= 1) && (idRef.current.value !== '')) {
-            setIdMessage(
+            setErrorMessage(
               '사업자 등록번호가 중복됩니다.'
             )
             idRef.current.value = '';
@@ -144,7 +138,7 @@ const CenterRegisterSecond = ({
 사용하시겠습니까?`)) {
           setCenterID(idRef.current.value);
           setErrorKey(false);
-          setIdMessage('')
+          setErrorMessage('')
         } else {
           alert('취소하셨습니다.');
           idRef.current.value = '';
@@ -191,11 +185,6 @@ const CenterRegisterSecond = ({
           }}
         />
       </div>
-      {/* <ErrorDiv> */}
-      <div>
-        {idMessage}
-      </div>
-      {/* </ErrorDiv> */}
       <div>
         <input
           type="password"
@@ -214,11 +203,6 @@ const CenterRegisterSecond = ({
           }}
         />
       </div>
-      {/* <ErrorDiv> */}
-      <div>
-        {pwMessage}
-      </div>
-      {/* </ErrorDiv> */}
       <div>
         <input
           type="password"
@@ -234,11 +218,9 @@ const CenterRegisterSecond = ({
           }}
         />
       </div>
-      {/* <ErrorDiv> */}
       <div>
-        {pwckMessage}
+        {setErrorMessage}
       </div>
-      {/* </ErrorDiv> */}
       <div>
         <button
           onClick={
