@@ -1,30 +1,168 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const UserMypageUpdate = (userInfo) => {
-  const infoList = userInfo.userInfo
-  console.log(infoList);
+const UserMypageUpdate = (props) => {
+  const infoList = props.userInfo
+  const userImage = `${infoList.USER_IMAGE}`
+  console.log('userImage=>', userImage);
+  const [imageName, setImageName] = useState(userImage);
+
+  const idRef = useRef();
+  const pwRef = useRef();
+  const nameRef = useRef();
+  const nicknameRef = useRef();
+  const emailRef = useRef();
+  const addrRef = useRef();
+  const telRef = useRef();
+
+  function onImage(e) {
+    setImageName(URL.createObjectURL(e.target.files[0]));
+
+    console.log(imageName);
+  }
+
+  const updateMyInfo = () => {
+    const config = {
+      headers: { "Content-Type": "multipart/form-data" },
+    };
+    axios
+      .post("http://localhost:8008/updatemyInfo", {
+        USER_ID: idRef.current.value,
+        USER_PW: pwRef.current.value,
+        USER_NAME: nameRef.current.value,
+        USER_NICKNAME: nicknameRef.current.value,
+        USER_EMAIL: emailRef.current.value,
+        USER_ADDRESS: addrRef.current.value,
+        USER_TEL: telRef.current.value,
+        USER_IMAGE: imageName,
+      },
+        config
+      )
+      .then((res) => {
+        console.log(res.status);
+        if (res.status === 200) {
+          console.log("업데이트 완료");
+          props.setMode(0);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   return (
     <div>
       <div>
-        {infoList.USER_ID}
+        <p>내 정보 수정</p>
       </div>
       <div>
-        {infoList.USER_PW}
+        {infoList.USER_IMAGE && (
+          <img src={imageName} alt="sample" width="9.375rem" height="9.375rem"></img>
+        )}
       </div>
       <div>
-        {infoList.USER_NAME}
+        <input
+          id="ex_file"
+          type="file"
+          name="image"
+          accept="image/*"
+          onChange={onImage}
+        />
       </div>
       <div>
-        {infoList.USER_NICKNAME}
+        <p>닉네임</p>
+        <input
+          type='text'
+          name='myname'
+          ref={nicknameRef}
+          autoComplete="off"
+          defaultValue={infoList.USER_NICKNAME}
+        />
       </div>
       <div>
-        {infoList.EMAIL}
+        <p>이름</p>
+        <input
+          type='text'
+          name='myname'
+          ref={nameRef}
+          autoComplete="off"
+          readOnly
+          defaultValue={infoList.USER_NAME}
+        />
       </div>
       <div>
-        {infoList.ADDRESS}
+        <p>아이디</p>
+        <input
+          type='text'
+          name='myname'
+          ref={idRef}
+          autoComplete="off"
+          readOnly
+          defaultValue={infoList.USER_ID}
+        />
       </div>
       <div>
-        {infoList.SEX}
+        <p>비밀번호</p>
+        <input
+          type='password'
+          name='myname'
+          ref={pwRef}
+          autoComplete="off"
+          defaultValue={infoList.USER_PW}
+        />
+      </div>
+      <div>
+        <p>이메일</p>
+        <input
+          type='text'
+          name='myname'
+          ref={emailRef}
+          autoComplete="off"
+          defaultValue={infoList.USER_EMAIL}
+        />
+      </div>
+      <div>
+        <p>전화번호</p>
+        <input
+          type='text'
+          name='mytel'
+          ref={telRef}
+          autoComplete="off"
+          defaultValue={infoList.USER_TEL}
+        />
+      </div>
+      <div>
+        <p>주소</p>
+        <input
+          type='text'
+          name='myname'
+          ref={addrRef}
+          autoComplete="off"
+          defaultValue={infoList.USER_ADDRESS}
+        />
+      </div>
+      {
+        infoList.USER_ACCESS_CODE === null ? null :
+          <div>
+            <p>등록센터</p>
+            <input
+              type='text'
+              name='myname'
+              ref={addrRef}
+              autoComplete="off"
+              readOnly
+              defaultValue={infoList.USER_ACCESS_CODE}
+            />
+          </div>
+      }
+      <div>
+        <input
+          type='button'
+          name='updatebtn'
+          value='수정하기'
+          onClick={updateMyInfo}
+        />
       </div>
     </div>
   );

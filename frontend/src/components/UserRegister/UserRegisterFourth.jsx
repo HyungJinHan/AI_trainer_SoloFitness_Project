@@ -5,9 +5,10 @@ import '../../styles/UserRegister/UserRegister.css'
 const RegisterFourth = ({
   consoleAll,
   insertUser,
-  setCenterCode,
+  setCenterName,
 }) => {
 
+  const [errorKey, setErrorKey] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [keyValue, setKeyValue] = useState('');
@@ -16,6 +17,10 @@ const RegisterFourth = ({
   const centerKeyRef = useRef();
 
   const jobDone = () => {
+    if (errorKey === true) {
+      setErrorMessage('아이디 중복 체크를 해주세요.');
+      return false;
+    }
     consoleAll();
     insertUser();
   }
@@ -30,10 +35,11 @@ const RegisterFourth = ({
       .then((res => {
         if ((res.data[0].COUNT >= 1) &&
           (centerNameRef.current.value !== '')) {
-          setCenterCode(
+          setCenterName(
             centerNameRef.current.value
           )
-          setErrorMessage('');
+          setErrorMessage('인증되었습니다.');
+          setErrorKey(false);
         } else {
           setKeyValue('');
           centerKeyRef.current.focus();
@@ -123,7 +129,6 @@ const RegisterFourth = ({
             className='UserRegister_button'
             onClick={
               () => {
-                checkOverlap();
                 jobDone();
               }
             }
