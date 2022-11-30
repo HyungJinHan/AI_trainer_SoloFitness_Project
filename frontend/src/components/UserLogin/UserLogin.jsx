@@ -30,7 +30,7 @@ function UserLogin() {
       idRef.current.focus();
       return false;
     }
-    if (idRef.current.value.length < 10) {
+    if (idRef.current.value.length < 8 || idRef.current.value.length > 15) {
       setErrorKey(true);
       setErrorMassege('아이디 길이를 확인하세요.');
       idRef.current.focus();

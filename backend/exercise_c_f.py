@@ -23,6 +23,5 @@ execList = []
 # 파이썬 카메라 끄기 위한 플래그 배열
 downCamera = []
 
-# 파이썬 카메라 끄기 (챌린지용)
-global downCamera_C
-downCamera_C = True
+# 파이썬 카메라 끄기 챌린지용
+downCamera_C = [0,0]
