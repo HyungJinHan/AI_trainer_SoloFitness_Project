@@ -79,9 +79,8 @@ def get_stream_video_C():
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(frame) + b'\r\n')
-            # if downCamera_C[-1] == 0:
-            #     downCamera.append(1)
-            #     break
-
+            if downCamera_C[-1] == 1:
+                downCamera_C.append(0)
+                break
         cap.release()
         # cv2.destroyAllWindows()

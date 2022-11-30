@@ -5,6 +5,8 @@ import fastapi as fastapi
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from exercise_c_f import *
+import cv2
+import time
 
 app = fastapi.FastAPI()
 
@@ -57,6 +59,7 @@ def main2():
 def counterInitialization():
   countlist.append(0)
   countlist_c.append(0)
+  downCamera_C.append(0)
   return {'countlist':countlist, 'countlist_c':countlist_c}
 
 @app.post('/execcategories')
@@ -74,8 +77,8 @@ def shutdown(count: count_class):
   downCamera.append(count.count)
   print(downCamera)
   
-@app.post('/videoshutdownchallenge')
-def shutdown():
-  global downCamera_C
-  downCamera_C = False
+@app.get('/camerachallengeshutdown')
+def shutdownC():
+  downCamera_C.append(1)
+  return downCamera_C
   

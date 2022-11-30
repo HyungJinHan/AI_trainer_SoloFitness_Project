@@ -338,10 +338,10 @@ app.post("/detail", (req, res) => {
 
 /** 운동 후 유저 닉네임 알아내기 */
 app.post("/fitnessresultusernickname", (req, res) => {
-  var userNickname = req.body.userNickname;
+  var nickname = req.body.userNickname;
 
   const sqlQuery = "SELECT USER_NICKNAME FROM USER_TABLE WHERE USER_ID = ?;";
-  db.query(sqlQuery, [userNickname], (err, result) => {
+  db.query(sqlQuery, [nickname], (err, result) => {
     res.send(result);
   });
 });
@@ -357,7 +357,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
   db.query(
     sqlQuery,
     [userNickname, excerciseName, excerciseCount],
-    (err, result) => { }
+    (err, result) => {}
   );
 });
 
@@ -400,15 +400,23 @@ app.post('/legtheme', (req, res) => {
 app.post("/myInfo", (req, res) => {
   const USER_ID = req.body.USER_ID;
 
-  const sqlQuery =
-    "SELECT * FROM USER_TABLE WHERE USER_ID = ?;";
+  const sqlQuery = "SELECT * FROM USER_TABLE WHERE USER_ID = ?;";
 
   db.query(sqlQuery, [USER_ID], (err, result) => {
     res.send(result);
   });
 });
 
+app.post('/legtheme', (req, res) => {
+  const VIDEO_CATEGORY = req.body.VIDEO_CATEGORY;
 
+  const sqlQuery =
+    'SELECT VIDEO_THUMBNAIL, VIDEO_TITLE FROM VIDEO_TABLE WHERE VIDEO_CATEGORY = ?;';
+
+  db.query(sqlQuery, [VIDEO_CATEGORY], (err, result) => {
+    res.send(result);
+  });
+});
 
 
 /** 마이페이지 수정 */
@@ -444,6 +452,135 @@ app.post("/updatemyInfo", upload.single("image"), (req, res) => {
   );
 });
 
+/** 스쿼트 챌린지 */
+app.post("/squatchallenge", (req, res) => {
+  var USER_NICKNAME = req.body.USER_NICKNAME;
+  var USER_SCORE = req.body.USER_SCORE;
+  const sqlQuery =
+    "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SQUAT_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SQUAT_SCORE = ?;";
+
+  db.query(sqlQuery, [USER_NICKNAME, USER_SCORE, USER_SCORE], (err, result) => {
+    console.log("err", err);
+    console.log("result", result);
+  });
+});
+
+/** 풀업 챌린지 */
+app.post("/pullupchallenge", (req, res) => {
+  var USER_NICKNAME = req.body.USER_NICKNAME;
+  var USER_SCORE = req.body.USER_SCORE;
+  const sqlQuery =
+    "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_PULLUP_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_PULLUP_SCORE = ?;";
+
+  db.query(sqlQuery, [USER_NICKNAME, USER_SCORE, USER_SCORE], (err, result) => {
+    console.log("err", err);
+    console.log("result", result);
+  });
+});
+
+/** 푸쉬업 챌린지 */
+app.post("/pushupchallenge", (req, res) => {
+  var USER_NICKNAME = req.body.USER_NICKNAME;
+  var USER_SCORE = req.body.USER_SCORE;
+  const sqlQuery =
+    "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_PUSHUP_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_PUSHUP_SCORE = ?;";
+
+  db.query(sqlQuery, [USER_NICKNAME, USER_SCORE, USER_SCORE], (err, result) => {
+    console.log("err", err);
+    console.log("result", result);
+  });
+});
+
+/** 싯업 챌린지 */
+app.post("/situpchallenge", (req, res) => {
+  var USER_NICKNAME = req.body.USER_NICKNAME;
+  var USER_SCORE = req.body.USER_SCORE;
+  const sqlQuery =
+    "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SITUP_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SITUP_SCORE = ?;";
+
+  db.query(sqlQuery, [USER_NICKNAME, USER_SCORE, USER_SCORE], (err, result) => {
+    console.log("err", err);
+    console.log("result", result);
+  });
+});
+
+/** 덤벨컬 챌린지 */
+app.post("/curlchallenge", (req, res) => {
+  var USER_NICKNAME = req.body.USER_NICKNAME;
+  var USER_SCORE = req.body.USER_SCORE;
+  const sqlQuery =
+    "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_CURL_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_CURL_SCORE = ?;";
+
+  db.query(sqlQuery, [USER_NICKNAME, USER_SCORE, USER_SCORE], (err, result) => {
+    console.log("err", err);
+    console.log("result", result);
+  });
+});
+
+/** 각 챌린지별 운동 점수 가져오기 */
+app.post("/challengescore", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT CHALLENGE_SQUAT_SCORE,CHALLENGE_PULLUP_SCORE,CHALLENGE_PUSHUP_SCORE,CHALLENGE_SITUP_SCORE,CHALLENGE_CURL_SCORE FROM CHALLENGE_TABLE WHERE CHALLENGE_USER = ?;";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 각 챌린지별 운동 점수 최종 스코어에 넣기 */
+app.post("/challengescoreresult", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  var resultScore = req.body.resultScore1;
+
+  const sqlQuery =
+    "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?;";
+  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => {});
+});
+
+/** 챌린지 랭킹 닉네임 점수 표시하기 */
+app.post("/challengerank", (req, res) => {
+  const sqlQuery =
+    "SELECT RANK() OVER (ORDER BY CHALLENGE_SCORE DESC) AS RANKING , CHALLENGE_USER, CHALLENGE_SCORE FROM CHALLENGE_TABLE LIMIT 10;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 내 챌린지 닉네임 점수 표시 */
+app.post("/mychallengerank", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT CHALLENGE_USER, CHALLENGE_SCORE FROM CHALLENGE_TABLE WHERE CHALLENGE_USER = ?;";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 내 챌린지 랭킹 표시 */
+app.post("/mychallengeranking", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT COUNT(*) +1 AS MYRANKING FROM CHALLENGE_TABLE WHERE CHALLENGE_SCORE > ( SELECT CHALLENGE_SCORE	FROM CHALLENGE_TABLE WHERE CHALLENGE_USER =  ? );";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 프로필 사진 업로드 */
+// const upload = multer({
+//   storage: multer.diskStorage({
+//     destination: (req, file, done) => {
+//       done(null, "../frontend/src/static/images/USER_PROFILE");
+//     },
+//     filename: (req, file, done) => {
+//       const ext = path.extname(file.originalname);
+//       const filename =
+//         path.basename(file.originalname, ext) + "_" + Date.now() + ext;
+//       done(null, filename);
+//     },
+//   }),
+//   limits: { fileSize: 5 * 1024 * 1024 }, //5mb
+// });
 
 server.listen(3001, () => {
   console.log(`Socket Server Running PORT ${SOCKET_PORT}`);
