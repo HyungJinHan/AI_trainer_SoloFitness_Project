@@ -29,10 +29,45 @@
   background: #424242;
   color:white;
   width: 10.9375rem;
+  border-radius: 7px 0 0 7px;
 }
 
 .AIModelSelect_C_counting_div{
   background: #3DA2FF;
   color:white;
   width: 10.9375rem;
+  border-radius: 0 7px 7px 0;
+}
+
+.AIModelSelect_C_text{
+  margin-top: 2.5rem;
+  font-size: 1.5625rem;
+}
+
+.AIModelSelect_C_challenge_bottom_div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+.AIModelSelect_C_challenge_no{
+  background: #424242;
+  color:white;
+  width: 9.375rem;
+  margin-right: 3.125rem;
+  border-radius: 7px;
+  height: 1.875rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.AIModelSelect_C_challenge_yes{
+  background: #3DA2FF;
+  color:white;
+  width: 9.375rem;
+  border-radius: 7px;
+  height: 1.875rem;
+  font-size: 1.25rem;
+  font-weight: 700;
 }

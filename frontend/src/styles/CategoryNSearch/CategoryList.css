@@ -1,13 +1,13 @@
-.sr_div {
+.cl_div {
   margin: 0 2%;
   margin-bottom: 30%;
 }
 
-.sr_text {
+.cl_text {
   font-size: 27px;
-  padding: 10% 0 10% 5%;
+  padding: 10% 0 5% 5%;
 }
 
-.search_tbl {
+.category_tbl {
   border-spacing: 0 20px;
 }

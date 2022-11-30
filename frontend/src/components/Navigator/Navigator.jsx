@@ -12,53 +12,52 @@ const NavCenter = styled.div`
   padding-top: 5.625rem;
 `;
 
-function Navigator(props) {
+// 새로고침하지 않아도 검색 아이콘 누르면 바로 다시 검색&카테고리 고를 수 있도록 CategoryNSearch에서 mode를 searchMode이름으로 받아옴
+function Navigator({searchMode,setSearchMode}) {
   const navigate = useNavigate();
 
   return (
-    <NavCenter>
-      <div className='Navigator_bar'>
-        <img
-          className='Navigator_image'
-          src={home}
-          alt="undefind"
-          onClick={
-            () => {
-              navigate('/usermain');
+<NavCenter>
+    <div className="Navigator_bar">
+      <img
+        className="Navigator_image"
+        src={home}
+        alt="undefind"
+        onClick={() => {
+          navigate("/usermain");
+        }}
+      />
+      <img
+        className="Navigator_image"
+        src={search}
+        alt="undefind"
+        onClick={
+          () => {
+            navigate('/category');
+            if (searchMode === 1 || searchMode === 2) {
+              setSearchMode(0)
             }
           }
-        />
-        <img
-          className='Navigator_image'
-          src={search}
-          alt="undefind"
-          onClick={
-            () => {
-              navigate('/category');
-            }
-          }
-        />
-        <img
-          className='Navigator_image'
-          src={rank}
-          alt="undefind"
-          onClick={
-            () => {
-              navigate('/challenge');
-            }
-          }
-        />
-        <img
-          className='Navigator_image'
-          src={user}
-          alt="undefind"
-          onClick={
-            () => {
-              navigate('/usermypage');
-            }
-          }
-        />
-      </div>
+        }
+      />
+      <img
+        className="Navigator_image"
+        src={rank}
+        alt="undefind"
+        onClick={() => {
+          navigate("/challengerank");
+          window.location.reload();
+        }}
+      />
+      <img
+        className="Navigator_image"
+        src={user}
+        alt="undefind"
+        onClick={() => {
+          navigate("/usermypage");
+        }}
+      />
+    </div>
     </NavCenter>
   );
 }
