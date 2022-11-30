@@ -23,6 +23,7 @@ import LoadingSpinner_C from "./components/Loading/LoadingSpinner_C";
 import NavigatorTop from "./components/Navigator/NavigatorTop";
 import MainSliderTheme from "./components/MainSlider/MainSliderTheme";
 import MainSliderLeg from "./components/MainSlider/MainSliderLeg";
+import MainSliderEvent from "./components/MainSlider/MainSliderEvent";
 
 const App = () => {
   return (
@@ -68,6 +69,7 @@ const App = () => {
         {/** 테마 슬라이더 */}
         <Route path="/mainslidertheme" element={<MainSliderTheme />} />
         <Route path="/mainsliderlist" element={<MainSliderLeg />} />
+        <Route path="/mainsliderevent" element={<MainSliderEvent />} />
       </Routes>
     </div>
   );

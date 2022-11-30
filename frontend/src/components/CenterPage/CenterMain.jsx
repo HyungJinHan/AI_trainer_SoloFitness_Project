@@ -1,5 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
+import Navigator from '../Navigator/Navigator';
 
 function CenterMain(props) {
   const navigate = useNavigate();
@@ -24,6 +25,8 @@ function CenterMain(props) {
       <div>
         여기서 센터 관리함
       </div>
+      <Navigator />
+      <Outlet />
     </div>
   );
 }
