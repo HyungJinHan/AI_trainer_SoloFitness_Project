@@ -1,6 +1,6 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Navigator from '../Navigator/Navigator';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Navigator from "../Navigator/Navigator";
 
 function ChallengeMain(props) {
   return (
