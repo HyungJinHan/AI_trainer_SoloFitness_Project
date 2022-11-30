@@ -9,17 +9,21 @@ const SearchResult = ({ searchword, searchcount, searchlist }) => {
     <div className="sr_div">
       <div className="sr_text">{searchword} 검색 결과</div>
       <p>{searchcount}개의 운동</p>
-      <table className="search_tbl" width="90%">
-        <tbody>
-          {searchlist.searchlist.map((article) => {
-            return (
-              <SearchArticle
-                article={article}
-              />
-            );
-          })}
-        </tbody>
-      </table>
+
+      {/* 검색 결과가 많아져 테이블이 길어질 때 스크롤 만들기 위해 div로 감싸서 스타일 준 것 */}
+      <div style={{height:"600px",overflowY:"scroll"}}>
+        <table className="search_tbl" width="90%">
+          <tbody>            
+            {searchlist.searchlist.map((article) => {
+              return (
+                <SearchArticle
+                  article={article}
+                />
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 };

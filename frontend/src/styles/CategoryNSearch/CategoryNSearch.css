@@ -3,14 +3,14 @@
   border-bottom: 1px solid black;
 }
 
-.CNS_search_div > p {
+.CNS_search_div > p:first-child {
   text-align: center;
   font-size: 25px;
 }
 
 .CNS_search_div > form {
   padding: 7px;
-  border: 2px solid rgb(153, 210, 230);
+  border: 2px solid #3da2ff;
   margin: 0 5%;
   margin-bottom: 20%;
 }
@@ -51,7 +51,7 @@
   height: 90px;
   /* text-align: center; */
   position: relative;
-  background-color: rgb(196, 229, 240);
+  background-color: #e5f3ff;
   border-radius: 50%;
 }
 
