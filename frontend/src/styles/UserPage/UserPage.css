@@ -1,0 +1,13 @@
+.UserMain_white {
+  width: 100%;
+  background-color: white;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.UserMain_gray {
+  width: 100%;
+  background-color: whitesmoke;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}

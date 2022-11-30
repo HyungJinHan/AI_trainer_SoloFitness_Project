@@ -5,7 +5,7 @@ import SearchResult from './SearchResult';
 import CategoryList from './CategoryList';
 import Navigator from "../Navigator/Navigator";
 import "../../styles/CategoryNSearch/CategoryNSearch.css";
-import search from "../../static/images/JYY/ICON/search.png";
+import search1 from '../../static/images/HHJ/Navigator/search_white.svg';
 
 const Category = () => {
   const navigator = useNavigate();
@@ -211,34 +211,32 @@ const Category = () => {
 
   if (mode === 0) {
     return (
-      <div>
-        <input type="button" onClick={() => { navigator("/usermain") }} value="메인으로 돌아가기" />
-        <div className="CNS_search_div">
-          <p>검색</p>
-          <form>
-            <input 
-              className="CNS_search_input"
-              type="text" 
-              // placeholder="검색어를 입력하세요" 
-              ref={SearchwordRef} 
-            />
-            {/* <input
-              className="CNS_search_button"
-              type="button"
-              value="검색"
-              onClick={handleSearch}
-            /> */}
-            <button 
-              className="CNS_search_button"
-              onClick={handleSearch}
-            >
-              <img src={search} alt="돋보기"/>
-            </button>
-          </form>
+      <div className='CNS_search_main'>
+        {/* <input
+          type="button"
+          onClick={() => { navigator("/usermain") }}
+          value="메인으로 돌아가기"
+        /> */}
+        <div className='CNS_search_info'>
+          검색
         </div>
-
-        <div 
-          className="CNS_grid_div"
+        <div className="CNS_search_div">
+          <input
+            className='CNS_search_input'
+            type="text"
+            placeholder="검색어를 입력하세요"
+            ref={SearchwordRef}
+          />
+          <button
+            className="CNS_search_button"
+            onClick={handleSearch}
+          >
+            <img src={search1} alt="돋보기" />
+          </button>
+        </div>
+        <div className='CNS_grid_category'>
+          <div
+            className="CNS_grid_div"
           // onClick={() => {
           //   handleCategory();
           //   setMode(2);

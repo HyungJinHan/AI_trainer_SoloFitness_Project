@@ -1,16 +1,23 @@
-import { useNavigate } from "react-router-dom";
-import React from "react";
-import "../../styles/Navigator/Navigator.css";
-import home from "../../static/images/HHJ/Navigator/home_white.svg";
-import rank from "../../static/images/HHJ/Navigator/rank_white.svg";
-import search from "../../static/images/HHJ/Navigator/search_white.svg";
-import user from "../../static/images/HHJ/Navigator/user_white.svg";
+import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import '../../styles/Navigator/Navigator.css'
+import home from '../../static/images/HHJ/Navigator/home_white.svg'
+import rank from '../../static/images/HHJ/Navigator/rank_white.svg'
+import search from '../../static/images/HHJ/Navigator/search_white.svg'
+import user from '../../static/images/HHJ/Navigator/user_white.svg'
+import styled from "styled-components";
+
+const NavCenter = styled.div`
+  text-align: center;
+  padding-top: 5.625rem;
+`;
 
 // 새로고침하지 않아도 검색 아이콘 누르면 바로 다시 검색&카테고리 고를 수 있도록 CategoryNSearch에서 mode를 searchMode이름으로 받아옴
 function Navigator({searchMode,setSearchMode}) {
   const navigate = useNavigate();
 
   return (
+<NavCenter>
     <div className="Navigator_bar">
       <img
         className="Navigator_image"
@@ -51,6 +58,7 @@ function Navigator({searchMode,setSearchMode}) {
         }}
       />
     </div>
+    </NavCenter>
   );
 }
 

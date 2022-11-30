@@ -1,7 +1,25 @@
 /* 검색창 */
-.CNS_search_div {
-  border-bottom: 1px solid black;
+.CNS_search_main {
+  text-align: center;
 }
+
+.CNS_search_info {
+  padding-top: 4.375rem;
+  padding-bottom: .9375rem;
+  font-size: 1.4375rem;
+}
+
+.CNS_search_div {
+  text-align: center;
+  width: 21.875rem;
+  height: 2.8125rem;
+  background: #F2F2F2;
+  border: none;
+  border-radius: .4375rem;
+  display: flex;
+  margin: 0 auto;
+  margin-top: .8125rem;
+ }
 
 .CNS_search_div > p:first-child {
   text-align: center;
@@ -16,21 +34,33 @@
 }
 
 .CNS_search_input {
+  background-color: transparent;
   border: none;
-  outline: none;
-  padding: 5px;
-  font-size: 1.125rem;
-  width: 90%;
+  width: 18.75rem;
+  padding-left: .625rem;
 }
 
 .CNS_search_button {
+  width: 3.125rem;
+  background-color: transparent;
   border: none;
-  background: none;
+  background: #3DA2FF;
+  color: white;
+  border-radius: 0rem .4375rem .4375rem 0rem;
 }
 
-.CNS_search_button > img {
+/* .CNS_search_div {
+  border-bottom: 1px solid black;
+} */
+
+.CNS_search_button img {
   width: 20px;
   height: 20px;
+}
+
+.CNS_grid_category {
+  margin-top: 1.875rem;
+  border-top: 1px solid #424242;
 }
 
 /* 그리드 */
@@ -55,7 +85,7 @@
   border-radius: 50%;
 }
 
-.CNS_image > img {
+.CNS_image>img {
   width: 75px;
   height: 75px;
   position: absolute;
@@ -63,7 +93,7 @@
   left: 11%;
 }
 
-.CNS_category_item > p {
+.CNS_category_item>p {
   margin: 5px 0;
   text-align: center;
 }

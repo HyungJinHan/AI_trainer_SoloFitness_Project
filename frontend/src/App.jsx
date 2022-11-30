@@ -22,6 +22,7 @@ import UserMypageMain from "./components/UserMypage/UserMypageMain";
 import NavigatorTop from "./components/Navigator/NavigatorTop";
 import MainSliderTheme from "./components/MainSlider/MainSliderTheme";
 import MainSliderLeg from "./components/MainSlider/MainSliderLeg";
+import MainSliderEvent from "./components/MainSlider/MainSliderEvent";
 import ChallengeRank from "./components/Challenge/ChallengeRank";
 
 const App = () => {
@@ -66,6 +67,7 @@ const App = () => {
         {/** 테마 슬라이더 */}
         <Route path="/mainslidertheme" element={<MainSliderTheme />} />
         <Route path="/mainsliderlist" element={<MainSliderLeg />} />
+        <Route path="/mainsliderevent" element={<MainSliderEvent />} />
         {/** 챌린지 랭킹 */}
         <Route path="/challengerank" element={<ChallengeRank />} />
       </Routes>
