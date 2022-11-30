@@ -27,19 +27,19 @@ function UserMypageMain() {
   };
   useEffect(() => {
     loadUserInfo();
-  }, []);
+  }, [mode,]);
 
   console.log('userInfo=> ', userInfo);
   return (
     <div>
-      <div>
-        <div>환영합니다</div>
-        <div>{userInfo.USER_NICKNAME}</div>
-        <div>님</div>
-      </div>
       {
         mode === 0 ?
           <div>
+            <div>
+              <div>환영합니다</div>
+              <div>{userInfo.USER_NICKNAME}</div>
+              <div>님</div>
+            </div>
             <div>
               <input
                 type="button"
@@ -66,7 +66,7 @@ function UserMypageMain() {
       {
         mode === 1 ?
           <div>
-            <UserMypageUpdate userInfo={userInfo} />
+            <UserMypageUpdate userInfo={userInfo} setMode={setMode} />
           </div>
           :
           null

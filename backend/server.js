@@ -8,6 +8,9 @@ const http = require("http");
 const { Server } = require("socket.io");
 const PORT = 8008;
 const SOCKET_PORT = 3001;
+const multer = require("multer");
+const fs = require("fs");
+const iconv = require("iconv-lite");
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
@@ -31,6 +34,7 @@ app.use(cors());
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/uploads", express.static("uploads"));
 
 const db = mysql.createPool({
   host: process.env.DB_HOST,
@@ -86,6 +90,36 @@ io.on("connect", (socket) => {
       });
     }
   });
+});
+
+/** 이미지 업로드 코드 */
+try {
+  fs.readdirSync("uploads");
+} catch (error) {
+  console.error("uploads 폴더가 없어 uploads 폴더를 생성합니다.");
+  fs.mkdirSync("uploads");
+}
+
+const upload = multer({
+  storage: multer.diskStorage({
+    destination(req, file, done) {
+      done(null, "uploads");
+    },
+    filename(req, file, done) {
+      const ext = path.extname(file.originalname);
+
+      done(
+        null,
+        path.basename(
+          iconv.decode(file.originalname, "utf-8").toString(),
+          ext // 확장자 제외한 이름
+        ) +
+        Date.now() +
+        ext
+      ); // 날짜 포함해서 새로운 이름 생성
+    },
+  }),
+  limits: { fileSize: 10 * 1024 * 1024 },
 });
 
 app.post("/", (req, res) => {
@@ -351,18 +385,6 @@ app.post("/category", (req, res) => {
   }
 });
 
-/** 마이페이지 조회 */
-app.post("/myInfo", (req, res) => {
-  const USER_ID = req.body.USER_ID;
-
-  const sqlQuery =
-    "SELECT * FROM USER_TABLE WHERE USER_ID = ?;";
-
-  db.query(sqlQuery, [USER_ID], (err, result) => {
-      res.send(result);
-  });
-});
-
 app.post('/legtheme', (req, res) => {
   const VIDEO_CATEGORY = req.body.VIDEO_CATEGORY;
 
@@ -373,6 +395,55 @@ app.post('/legtheme', (req, res) => {
     res.send(result);
   });
 });
+
+/** 마이페이지 조회 */
+app.post("/myInfo", (req, res) => {
+  const USER_ID = req.body.USER_ID;
+
+  const sqlQuery =
+    "SELECT * FROM USER_TABLE WHERE USER_ID = ?;";
+
+  db.query(sqlQuery, [USER_ID], (err, result) => {
+    res.send(result);
+  });
+});
+
+
+
+
+/** 마이페이지 수정 */
+app.post("/updatemyInfo", upload.single("image"), (req, res) => {
+  var USER_ID = req.body.USER_ID;
+  var USER_PW = req.body.USER_PW;
+  var USER_NAME = req.body.USER_NAME;
+  var USER_NICKNAME = req.body.USER_NICKNAME;
+  var USER_EMAIL = req.body.USER_EMAIL;
+  var USER_ADDRESS = req.body.USER_ADDRESS;
+  var USER_TEL = req.body.USER_TEL;
+  var USER_SEX = req.body.USER_SEX;
+  var USER_IMAGE = req.body.USER_IMAGE;
+
+  const sqlQuery =
+    "UPDATE USER_TABLE SET USER_PW = ?,USER_NAME = ?,USER_NICKNAME = ?,USER_EMAIL = ?,USER_ADDRESS = ?,USER_TEL = ?,USER_SEX = ?, USER_IMAGE=? WHERE USER_ID = ?;";
+  db.query(
+    sqlQuery,
+    [
+      USER_PW,
+      USER_NAME,
+      USER_NICKNAME,
+      USER_EMAIL,
+      USER_ADDRESS,
+      USER_TEL,
+      USER_SEX,
+      USER_IMAGE,
+      USER_ID,
+    ],
+    (err, result) => {
+      res.send(result);
+    }
+  );
+});
+
 
 server.listen(3001, () => {
   console.log(`Socket Server Running PORT ${SOCKET_PORT}`);
