@@ -1,19 +1,27 @@
 import React from "react";
 import CategoryArticle from "./CategoryArticle";
+import "../../styles/CategoryNSearch/CategoryList.css";
 
-const CategoryList = ({categorylist}) => {
+const CategoryList = ({categorylist, item}) => {
   return (
-    <table>
-      <tbody>
-        {categorylist.categorylist.map((article) => {
-          return (
-            <CategoryArticle
-              article={article}
-            />
-          )
-        })}
-      </tbody>
-    </table>
+    <div className="cl_div">
+      <div className="cl_text">
+        <p>{item} 카테고리</p>
+      </div>
+      <div style={{height:"630px",overflowY:"scroll"}}>
+        <table className="category_tbl">
+          <tbody>
+            {categorylist.categorylist.map((article) => {
+              return (
+                <CategoryArticle
+                  article={article}
+                />
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
   )
 };
 

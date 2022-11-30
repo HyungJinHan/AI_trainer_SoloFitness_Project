@@ -362,7 +362,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
 });
 
 /** 카테고리 */
-app.post("/category", (req, res) => {
+/* app.post("/category", (req, res) => {
   const categories = req.body.categories;
   // console.log("category(req)->", categories);
 
@@ -383,6 +383,14 @@ app.post("/category", (req, res) => {
       }
     });
   }
+}); */
+app.post("/onecategory", (req, res) => {
+  const sqlQuery =
+    "SELECT VIDEO_TITLE,VIDEO_CATEGORY,VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_CATEGORY=?;";
+
+  db.query(sqlQuery, [req.body.category], (err, result) => {
+    res.send(result);
+  });
 });
 
 app.post('/legtheme', (req, res) => {
@@ -407,11 +415,11 @@ app.post("/myInfo", (req, res) => {
   });
 });
 
-app.post('/legtheme', (req, res) => {
+app.post("/legtheme", (req, res) => {
   const VIDEO_CATEGORY = req.body.VIDEO_CATEGORY;
 
   const sqlQuery =
-    'SELECT VIDEO_THUMBNAIL, VIDEO_TITLE FROM VIDEO_TABLE WHERE VIDEO_CATEGORY = ?;';
+    "SELECT VIDEO_THUMBNAIL, VIDEO_TITLE FROM VIDEO_TABLE WHERE VIDEO_CATEGORY = ?;";
 
   db.query(sqlQuery, [VIDEO_CATEGORY], (err, result) => {
     res.send(result);

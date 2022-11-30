@@ -1,11 +1,4 @@
-/* 
-테이블 셀 안에 이미지를 여백 없이 채워넣기 위해서 
-  .sa_first_td에 border-spacing:0; padding:0;
-  .sa_first_td_img에 margin:0, padding:0; display:block;
-  하고 이미지를 셀(td)의 너비 높이 길이에 맞춰주면 됨.  
-*/
-
-.sa_first_td {
+.cl_first_td {
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   background-color: #605e5e;
@@ -13,9 +6,9 @@
   padding: 0;
 }
 
-.sa_first_td_img {
-  width: 92px;
-  height: 124px;
+.cl_first_td > img {
+  width: 90px;
+  height: 122px;
   margin: 0;
   padding: 0;
   display: block;
@@ -23,14 +16,14 @@
   border-bottom-left-radius: 25px;
 }
 
-.sa_second_td {
+.cl_second_td {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   background-color: #605e5e;
   width: 75%;
 }
 
-.sa_second_td > p {
+.cl_second_td > p {
   color: white;
   padding-left: 5px;
 }

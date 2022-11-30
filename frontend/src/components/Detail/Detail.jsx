@@ -10,7 +10,6 @@ const Detail = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const detailCategories = queryString.parse(location.search).exec;
-  // 쿼리파라미터를 exec로 똑같이 하면 충돌?
   const [detailInfo, setDetailInfo] = useState([{
     "VIDEO_CATEGORY": "",
     "VIDEO_VIDEO_PREPARE": "",
@@ -21,7 +20,7 @@ const Detail = () => {
   useEffect(() => {
     axios.post("http://localhost:8008/detail", { detailExec: detailCategories })
       .then((res) => {
-        console.log('detail(res)->', res);
+        // console.log('detail(res)->', res);
         setDetailInfo(res.data);
       })
       .catch((e) => {
@@ -31,50 +30,54 @@ const Detail = () => {
 
   return (
     <div>
-      <img
-        src={detailInfo[0].VIDEO_THUMBNAIL}
-        alt="undefined"
-        width='100%'
-      />
-      <br />
-      {detailCategories}
-      <br />
-      <br />
-      <p>{detailInfo[0].VIDEO_CATEGORY}</p>
-      <input
-        placeholder="운동 개수 지정"
-        ref={inputCountRef}
-        onChange={
-          (e) => {
-            setInputCount(e.target.value);
-            axios
-              .post('http://localhost:8000/videoshutdown', {
-                count: parseInt(e.target.value)
-              })
-          }
-        }
-      />
-      <input
-        type='button'
-        value='운동 시작'
-        onClick={
-          () => {
-            if (inputCountRef.current.value === '' || inputCountRef.current.value === undefined) {
-              alert('운동 개수를 지정해주세요.');
-              return false;
-            } else {
-              navigate(`/video?exec=${detailCategories}`, { state: { inputCount: inputCount } })
+      {/* 디테일 사항이 길어질 때 스크롤 만들기 위해 div로 감싸서 스타일 준 것 */}
+      <div style={{height:"770px", overflowY:"scroll"}} >
+        <img
+          src={detailInfo[0].VIDEO_THUMBNAIL}
+          alt="undefined"
+          width='100%'
+          height='40%'
+        />
+        <br />
+        {detailCategories}
+        <br />
+        <br />
+        <p>{detailInfo[0].VIDEO_CATEGORY}</p>
+        <input
+          placeholder="운동 개수 지정"
+          ref={inputCountRef}
+          onChange={
+            (e) => {
+              setInputCount(e.target.value);
+              axios
+                .post('http://localhost:8000/videoshutdown', {
+                  count: parseInt(e.target.value)
+                })
             }
           }
-        }
-      />
-      <p style={{ fontSize: "25px", color: "blue" }}>운동 준비물</p>
-      {detailInfo[0].VIDEO_PREPARE}
-      <p style={{ fontSize: "25px", color: "blue" }}>운동 소개</p>
-      {detailInfo[0].VIDEO_INFO}
-      <p style={{ fontSize: "25px", color: "blue" }}>운동 효과</p>
-      {detailInfo[0].VIDEO_EFFECT}
-      <p style={{ fontSize: "25px", color: "blue" }}>주의사항</p>
+        />
+        <input
+          type='button'
+          value='운동 시작'
+          onClick={
+            () => {
+              if (inputCountRef.current.value === '' || inputCountRef.current.value === undefined) {
+                alert('운동 개수를 지정해주세요.');
+                return false;
+              } else {
+                navigate(`/video?exec=${detailCategories}`, { state: { inputCount: inputCount } })
+              }
+            }
+          }
+        />
+        <p style={{ fontSize: "25px", color: "blue" }}>운동 준비물</p>
+        {detailInfo[0].VIDEO_PREPARE}
+        <p style={{ fontSize: "25px", color: "blue" }}>운동 소개</p>
+        {detailInfo[0].VIDEO_INFO}
+        <p style={{ fontSize: "25px", color: "blue" }}>운동 효과</p>
+        {detailInfo[0].VIDEO_EFFECT}
+        <p style={{ fontSize: "25px", color: "blue" }}>주의사항</p>
+      </div>
       <Navigator />
       <Outlet />
     </div>
