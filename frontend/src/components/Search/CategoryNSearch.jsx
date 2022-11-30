@@ -104,7 +104,7 @@ const Category = () => {
   }]
 
   /* mode:2로 넘어가 카테고리 리스트가 뜰 때 무슨 카테고리인지 알려주기 위해 item을 넘겨줄 것 */
-  const [item,setItem] = useState("")
+  const [item, setItem] = useState("")
 
   /* node js에 empty items 뜨면서 null이 받아와지기 때문에 한 번에 불가 */
   // function handleCategory() {
@@ -119,94 +119,94 @@ const Category = () => {
 
   // 여기서부터 카테고리 하나씩 해당 목록 불러오는 함수 만들 것
   function categoryLower() {
-    axios.post("http://localhost:8008/onecategory", {category:"하체"})
-    .then((res) => {
-      // console.log("lower(res)->",res)
-      setCategoryList({categorylist:res.data})
-      setMode(2)
-    }).catch((e) => {
-      console.error(e);
-    });
+    axios.post("http://localhost:8008/onecategory", { category: "하체" })
+      .then((res) => {
+        // console.log("lower(res)->",res)
+        setCategoryList({ categorylist: res.data })
+        setMode(2)
+      }).catch((e) => {
+        console.error(e);
+      });
   };
   function categoryUpper() {
-    axios.post("http://localhost:8008/onecategory", {category:"상체"})
-    .then((res) => {
-      // console.log("upper(res)->",res)
-      setCategoryList({categorylist:res.data})
-      setMode(2)
-    }).catch((e) => {
-      console.error(e);
-    });
+    axios.post("http://localhost:8008/onecategory", { category: "상체" })
+      .then((res) => {
+        // console.log("upper(res)->",res)
+        setCategoryList({ categorylist: res.data })
+        setMode(2)
+      }).catch((e) => {
+        console.error(e);
+      });
   };
   function categoryEquip() {
-    axios.post("http://localhost:8008/onecategory", {category:"기구운동"})
-    .then((res) => {
-      // console.log("equip(res)->",res)
-      setCategoryList({categorylist:res.data})
-      setMode(2)
-    }).catch((e) => {
-      console.error(e);
-    });
+    axios.post("http://localhost:8008/onecategory", { category: "기구운동" })
+      .then((res) => {
+        // console.log("equip(res)->",res)
+        setCategoryList({ categorylist: res.data })
+        setMode(2)
+      }).catch((e) => {
+        console.error(e);
+      });
   };
   function categoryBarebody() {
-    axios.post("http://localhost:8008/onecategory", {category:"맨몸운동"})
-    .then((res) => {
-      // console.log("barebody(res)->",res)
-      setCategoryList({categorylist:res.data})
-      setMode(2)
-    }).catch((e) => {
-      console.error(e);
-    });
+    axios.post("http://localhost:8008/onecategory", { category: "맨몸운동" })
+      .then((res) => {
+        // console.log("barebody(res)->",res)
+        setCategoryList({ categorylist: res.data })
+        setMode(2)
+      }).catch((e) => {
+        console.error(e);
+      });
   };
   function categoryYoga() {
-    axios.post("http://localhost:8008/onecategory", {category:"요가"})
-    .then((res) => {
-      // console.log("yoga(res)->",res)
-      setCategoryList({categorylist:res.data})
-      setMode(2)
-    }).catch((e) => {
-      console.error(e);
-    });
+    axios.post("http://localhost:8008/onecategory", { category: "요가" })
+      .then((res) => {
+        // console.log("yoga(res)->",res)
+        setCategoryList({ categorylist: res.data })
+        setMode(2)
+      }).catch((e) => {
+        console.error(e);
+      });
   };
   function categoryStretch() {
-    axios.post("http://localhost:8008/onecategory", {category:"스트레칭"})
-    .then((res) => {
-      // console.log("stretching(res)->",res)
-      setCategoryList({categorylist:res.data})
-      setMode(2)
-    }).catch((e) => {
-      console.error(e);
-    });
+    axios.post("http://localhost:8008/onecategory", { category: "스트레칭" })
+      .then((res) => {
+        // console.log("stretching(res)->",res)
+        setCategoryList({ categorylist: res.data })
+        setMode(2)
+      }).catch((e) => {
+        console.error(e);
+      });
   };
   function categoryFullbody() {
-    axios.post("http://localhost:8008/onecategory", {category:"전신운동"})
-    .then((res) => {
-      // console.log("fullbody(res)->",res)
-      setCategoryList({categorylist:res.data})
-      setMode(2)
-    }).catch((e) => {
-      console.error(e);
-    });
+    axios.post("http://localhost:8008/onecategory", { category: "전신운동" })
+      .then((res) => {
+        // console.log("fullbody(res)->",res)
+        setCategoryList({ categorylist: res.data })
+        setMode(2)
+      }).catch((e) => {
+        console.error(e);
+      });
   };
   function categoryPilates() {
-    axios.post("http://localhost:8008/onecategory", {category:"필라테스"})
-    .then((res) => {
-      // console.log("pilates(res)->",res)
-      setCategoryList({categorylist:res.data})
-      setMode(2)
-    }).catch((e) => {
-      console.error(e);
-    });
+    axios.post("http://localhost:8008/onecategory", { category: "필라테스" })
+      .then((res) => {
+        // console.log("pilates(res)->",res)
+        setCategoryList({ categorylist: res.data })
+        setMode(2)
+      }).catch((e) => {
+        console.error(e);
+      });
   };
   function categoryAerobic() {
-    axios.post("http://localhost:8008/onecategory", {category:"유산소"})
-    .then((res) => {
-      // console.log("aerobic(res)->",res)
-      setCategoryList({categorylist:res.data})
-      setMode(2)
-    }).catch((e) => {
-      console.error(e);
-    });
+    axios.post("http://localhost:8008/onecategory", { category: "유산소" })
+      .then((res) => {
+        // console.log("aerobic(res)->",res)
+        setCategoryList({ categorylist: res.data })
+        setMode(2)
+      }).catch((e) => {
+        console.error(e);
+      });
   };
 
   if (mode === 0) {
@@ -241,59 +241,60 @@ const Category = () => {
           //   handleCategory();
           //   setMode(2);
           // }}
-        >
-          {items.map((item, index) => {
-            return (
-            <div className="CNS_category_item" 
-              key={index}
-              onClick={() => {
-                if (index === 0) {
-                  categoryLower();
-                  setItem("하체")
-                } else if (index === 1) {
-                  categoryUpper();
-                  setItem("상체")
-                } else if (index === 2) {
-                  categoryEquip();
-                  setItem("기구운동")
-                } else if (index === 3) {
-                  categoryBarebody();
-                  setItem("맨몸운동")
-                } else if (index === 4) {
-                  categoryYoga();
-                  setItem("요가")
-                } else if (index === 5) {
-                  categoryStretch();
-                  setItem("스트레칭")
-                } else if (index === 6) {
-                  categoryFullbody();
-                  setItem("전신운동")
-                } else if (index === 7) {
-                  categoryPilates();
-                  setItem("필라테스")
-                } else if (index === 8) {
-                  categoryAerobic();
-                  setItem("유산소")
-                }
-              }}
-            >              
-              <div className="CNS_image">
-                <img src={require(`../../static/images/JYY/ICON/mycollection/png/${item.thumb}`)} alt="카테고리 이미지" />
-              </div>
-              <p>{item.category}</p>
-            </div>
-            )
-          })}
+          >
+            {items.map((item, index) => {
+              return (
+                <div className="CNS_category_item"
+                  key={index}
+                  onClick={() => {
+                    if (index === 0) {
+                      categoryLower();
+                      setItem("하체")
+                    } else if (index === 1) {
+                      categoryUpper();
+                      setItem("상체")
+                    } else if (index === 2) {
+                      categoryEquip();
+                      setItem("기구운동")
+                    } else if (index === 3) {
+                      categoryBarebody();
+                      setItem("맨몸운동")
+                    } else if (index === 4) {
+                      categoryYoga();
+                      setItem("요가")
+                    } else if (index === 5) {
+                      categoryStretch();
+                      setItem("스트레칭")
+                    } else if (index === 6) {
+                      categoryFullbody();
+                      setItem("전신운동")
+                    } else if (index === 7) {
+                      categoryPilates();
+                      setItem("필라테스")
+                    } else if (index === 8) {
+                      categoryAerobic();
+                      setItem("유산소")
+                    }
+                  }}
+                >
+                  <div className="CNS_image">
+                    <img src={require(`../../static/images/JYY/ICON/mycollection/png/${item.thumb}`)} alt="카테고리 이미지" />
+                  </div>
+                  <p>{item.category}</p>
+                </div>
+              )
+            })}
+          </div>
+          <Navigator />
+          <Outlet />
         </div>
-        <Navigator />
-        <Outlet />
       </div>
     )
   } else if (mode === 1) {
     return (
       <div>
         <SearchResult searchword={SearchWord} searchcount={SearchCount} searchlist={SearchList} />
-        <Navigator searchMode={mode} setSearchMode={setMode}/>
+        <Navigator searchMode={mode} setSearchMode={setMode} />
         <Outlet />
       </div>
     )
@@ -301,7 +302,7 @@ const Category = () => {
     return (
       <div>
         <CategoryList categorylist={categoryList} item={item} />
-        <Navigator searchMode={mode} setSearchMode={setMode}/>
+        <Navigator searchMode={mode} setSearchMode={setMode} />
         <Outlet />
       </div>
     )
