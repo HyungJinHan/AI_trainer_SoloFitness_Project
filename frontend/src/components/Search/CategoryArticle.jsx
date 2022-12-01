@@ -13,8 +13,8 @@ const CategoryArticle = ({article,setmode}) => {
         />
       </td>
       <td className="cl_second_td">
-        <p style={{fontSize:"25px"}}>{article.VIDEO_TITLE}</p>
-        <p>{article.VIDEO_CATEGORY}</p>
+        <p style={{ fontSize: "20px", margin:"10px 0" }}>{article.VIDEO_TITLE}</p>
+        <p style={{ color:"#cccbcb", margin:"10px 0" }}>{article.VIDEO_CATEGORY}</p>
       </td>
     </tr>
   )

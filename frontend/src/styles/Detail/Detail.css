@@ -1,0 +1,8 @@
+.detail_scroll_div {
+  position: relative;
+}
+
+.detail_exerName {
+  font-size: 2rem;
+  margin: 15px 0;
+}

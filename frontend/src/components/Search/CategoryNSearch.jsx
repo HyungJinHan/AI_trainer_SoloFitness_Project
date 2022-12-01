@@ -10,6 +10,8 @@ import search1 from '../../static/images/HHJ/Navigator/search_white.svg';
 const Category = () => {
   const navigator = useNavigate();
   const SearchwordRef = useRef();
+  const RecwordRef = useRef();
+
   const [SearchCount, setSearchCount] = useState(0);
   const [SearchWord, setSearchWord] = useState("");
 
@@ -42,15 +44,15 @@ const Category = () => {
     }
 
     axios.post("http://localhost:8008/searchcount", {
-      searchword: SearchwordRef.current.value
+      searchword: SearchwordRef.current.value,
     }).then((res) => {
       console.log("handleSearch(count) ->", res);
       setSearchCount(res.data[0].COUNT);
     }).catch((e) => {
       console.error(e);
     });
-    axios.post("http://localhost:8008/Search", {
-      searchword: SearchwordRef.current.value
+    axios.post("http://localhost:8008/search", {
+      searchword: SearchwordRef.current.value,
     }).then((res) => {
       console.log("handleSearch(res) -> ", res)
       const { data } = res;
@@ -229,7 +231,10 @@ const Category = () => {
           />
           <button
             className="CNS_search_button"
-            onClick={handleSearch}
+            onClick={(e) => {
+              // console.log(e.target.tagName);
+              handleSearch(e);
+            }}
           >
             <img src={search1} alt="돋보기" />
           </button>

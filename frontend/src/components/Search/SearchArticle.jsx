@@ -12,7 +12,6 @@ const SearchArticle = ({ article }) => {
       <td className="sa_first_td">
             <img
               className="sa_first_td_img"
-              // style={{ width: "90px", height: "110px" }}
               src={article.VIDEO_THUMBNAIL}
               alt="운동이미지"
             />
