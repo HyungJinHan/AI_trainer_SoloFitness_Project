@@ -1,0 +1,189 @@
+.AdminPageMain_top_div {
+  margin: 0;
+  padding: 0;
+}
+
+.AdminPageMain_nav_brand_text {
+  margin: 0;
+  margin-top: 20px;
+}
+
+.AdminPageMain_side_nav_container {
+  background-color: #424242;
+  width: 18.75rem;
+  height: 160vh;
+  position: relative;
+  color: white;
+
+  transition: 0.4s;
+}
+
+.AdminPageMain_side_nav_container_NX {
+  width: 85px;
+}
+
+.AdminPageMain_nav_upper,
+.AdminPageMain_nav_heading,
+.AdminPageMain_nav_manu,
+.AdminPageMain_menu_item {
+  display: grid;
+}
+
+.AdminPageMain_nav_heading {
+  grid-template-columns: 2fr, 1fr;
+  grid-template-rows: 1fr;
+  height: 4.6875rem;
+}
+
+.AdminPageMain_nav_brand {
+  display: flex;
+}
+
+.AdminPageMain_nav_brand img {
+  width: 2.5rem;
+  padding: 0 10px;
+}
+
+.AdminPageMain_button {
+  position: absolute;
+  right: 0;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  margin: auto -35px;
+  background-color: #55717e;
+  border: 2px solid white;
+  padding: 20px;
+  border-radius: 90px;
+  height: 71px;
+  width: 74px;
+}
+
+.AdminPageMain_button span {
+  display: block;
+  margin-top: 5px;
+  background-color: white;
+  border-radius: 15px;
+  height: 4px;
+  width: 30px;
+
+  transition: 0.4s;
+}
+
+.AdminPageMain_button:hover span {
+  margin: auto;
+}
+
+.AdminPageMain_button_in:hover span:nth-child(1) {
+  width: 25px;
+  transform: translate(-3px, 8px) rotate(30deg);
+}
+.AdminPageMain_button_in:hover span:nth-child(2) {
+  display: none;
+}
+
+.AdminPageMain_button_in:hover span:nth-child(3) {
+  width: 25px;
+  transform: translate(-3px, -8px) rotate(-30deg);
+}
+
+.AdminPageMain_button_out:hover span:nth-child(1) {
+  width: 25px;
+  transform: translate(0px, 8px) rotate(-30deg);
+}
+.AdminPageMain_button_out:hover span:nth-child(2) {
+  display: none;
+}
+
+.AdminPageMain_button_out:hover span:nth-child(3) {
+  width: 25px;
+  transform: translate(0px, -8px) rotate(30deg);
+}
+
+.AdminPageMain_nav_manu {
+  grid-template-rows: repeat(7, 1fr);
+  margin-top: 50px;
+}
+
+.AdminPageMain_menu_item {
+  height: 57px;
+  width: 16em;
+  display: flex;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: auto 20px;
+  border-radius: 10px;
+  position: relative;
+}
+.AdminPageMain_menu_item_NX {
+  margin: auto;
+  width: 4.5em;
+}
+
+.AdminPageMain_menu_item:hover {
+  background-color: #55717e;
+}
+.AdminPageMain_menu_item img {
+  width: 30px;
+  padding: 0 20px;
+}
+.AdminPageMain_menu_item:hover > .AdminPageMain_menu_tooltip {
+  display: block;
+}
+
+.AdminPageMain_menu_tooltip {
+  display: none;
+  position: absolute;
+  left: 99%;
+  bottom: 80%;
+
+  width: auto;
+  height: 35px;
+  padding: 4px, 8px;
+
+  border-radius: 15px 15px 15px 0;
+  white-space: nowrap;
+  border: 2px solid white;
+  background-color: #061b28;
+}
+
+.AdminPageMain_menu_nav_footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  grid-template-columns: 2fr 1fr;
+  background-color: #061b28;
+}
+
+.AdminPageMain_menu_nav_details {
+  display: flex;
+}
+
+.AdminPageMain_menu_nav_details img {
+  width: 50px;
+  padding: 0 20px;
+}
+
+.AdminPageMain_menu_nav_footer_user_name {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.AdminPageMain_menu_nav_footer_user_position {
+  margin-top: -15px;
+  color: #756388;
+}
+
+.AdminPageMain_menu_log_out {
+  width: 30px;
+  margin: auto;
+  border-radius: 90px;
+  padding: 20px;
+  margin-left: 5px;
+}
+.AdminPageMain_menu_log_out:hover {
+  background-color: #55717e;
+}

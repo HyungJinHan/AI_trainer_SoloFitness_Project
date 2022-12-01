@@ -104,9 +104,11 @@ const ModelSelect = () => {
         <div className="AIModelSelect_counting_div">{counter}</div>
       </div>
       <div className="AIModelSelect_feedback_div">
-        <p>{feedbackClass()}</p>
+        <p className="AIModelSelect_feedback">{feedbackClass()}</p>
       </div>
-      <VideoModel />
+      <div className="AIModelSelect_real_time_web_cam">
+        <VideoModel />
+      </div>
       <br />
       <br />
       <div className="AIModelSelect_goal_count">

@@ -24,6 +24,7 @@ import MainSliderTheme from "./components/MainSlider/MainSliderTheme";
 import MainSliderLeg from "./components/MainSlider/MainSliderLeg";
 import MainSliderEvent from "./components/MainSlider/MainSliderEvent";
 import ChallengeRank from "./components/Challenge/ChallengeRank";
+import AdminPageMain from "./components/AdminPage/AdminPageMain";
 
 const App = () => {
   return (
@@ -70,6 +71,8 @@ const App = () => {
         <Route path="/mainsliderevent" element={<MainSliderEvent />} />
         {/** 챌린지 랭킹 */}
         <Route path="/challengerank" element={<ChallengeRank />} />
+        {/** 관리자 페이지 */}
+        <Route path="/admin" element={<AdminPageMain />} />
       </Routes>
     </div>
   );

@@ -3,14 +3,26 @@
     padding: 0;
     text-align: center;
 }
-
+.AIModelSelect_guide_img_div{
+    background-color: black;
+}
 .AIModelSelect_guide_img{
     width: 21.875rem;
     height: 18.75rem;
 }
 
 .AIModelSelect_feedback_div{
-    height: 1.875rem;
+    margin-top: 1.875rem;
+    height: 3.4375rem;
+    width: 21.875rem;
+    margin:0 auto;
+}
+
+.AIModelSelect_feedback{
+    margin-top: 1.875rem;
+    font-size: 1.875rem;
+    font-weight: 800;
+
 }
 
 .AIModelSelect_counter_div{
@@ -46,4 +58,10 @@
     justify-content: center;
     align-items: center;
     font-size: 1.5625rem;
+}
+
+.AIModelSelect_real_time_web_cam{
+    width:350px;
+    height:300px;
+    margin:0 auto;
 }

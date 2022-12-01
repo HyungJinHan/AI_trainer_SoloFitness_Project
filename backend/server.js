@@ -114,8 +114,8 @@ const upload = multer({
           iconv.decode(file.originalname, "utf-8").toString(),
           ext // 확장자 제외한 이름
         ) +
-        Date.now() +
-        ext
+          Date.now() +
+          ext
       ); // 날짜 포함해서 새로운 이름 생성
     },
   }),
@@ -131,12 +131,12 @@ app.post("/", (req, res) => {
     console.log("/hi(res) ->", result);
   });
 });
-
+/** NIVO차트에 들어갈 정보 */
 app.post("/fitnessresult", (req, res) => {
   const execurl = req.body.execiseCategories;
   const userNickname = req.body.userNickname;
   const sqlQuery =
-    "SELECT EXCERCISE_NAME, EXCERCISE_COUNT, DATE_FORMAT(EXCERCISE_DATE, '%H시%i분%S초') AS EXCERCISE_DATE FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = ? AND EXCERCISE_USER = ? ORDER BY EXCERCISE_DATE DESC LIMIT 5;";
+    "SELECT EXCERCISE_NAME, EXCERCISE_COUNT, DATE_FORMAT(EXCERCISE_DATE, '%Y-%m-%d %h:%i %S초') AS EXCERCISE_DATE FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = ? AND EXCERCISE_USER = ? ORDER BY EXCERCISE_DATE DESC LIMIT 5;";
 
   db.query(sqlQuery, [execurl, userNickname], (err, result) => {
     res.send(result);
@@ -393,11 +393,11 @@ app.post("/onecategory", (req, res) => {
   });
 });
 
-app.post('/legtheme', (req, res) => {
+app.post("/legtheme", (req, res) => {
   const VIDEO_CATEGORY = req.body.VIDEO_CATEGORY;
 
   const sqlQuery =
-    'SELECT VIDEO_THUMBNAIL, VIDEO_TITLE FROM VIDEO_TABLE WHERE VIDEO_CATEGORY = ?;';
+    "SELECT VIDEO_THUMBNAIL, VIDEO_TITLE FROM VIDEO_TABLE WHERE VIDEO_CATEGORY = ?;";
 
   db.query(sqlQuery, [VIDEO_CATEGORY], (err, result) => {
     res.send(result);
@@ -425,7 +425,6 @@ app.post("/legtheme", (req, res) => {
     res.send(result);
   });
 });
-
 
 /** 마이페이지 수정 */
 app.post("/updatemyInfo", upload.single("image"), (req, res) => {
