@@ -357,7 +357,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
   db.query(
     sqlQuery,
     [userNickname, excerciseName, excerciseCount],
-    (err, result) => {}
+    (err, result) => { }
   );
 });
 
@@ -460,6 +460,28 @@ app.post("/updatemyInfo", upload.single("image"), (req, res) => {
   );
 });
 
+/** 센터 정보 조회 */
+app.post("/centerInfo", (req, res) => {
+  const CENTER_ID = req.body.CENTER_ID;
+
+  const sqlQuery = "SELECT * FROM CENTER_TABLE WHERE CENTER_ID = ?;";
+
+  db.query(sqlQuery, [CENTER_ID], (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 센터 회원 정보 조회 */
+app.post("/memberInfo", (req, res) => {
+  const USER_ACCESS_CODE = req.body.USER_ACCESS_CODE;
+
+  const sqlQuery = "SELECT * FROM USER_TABLE WHERE USER_ACCESS_CODE = ?;";
+
+  db.query(sqlQuery, [USER_ACCESS_CODE], (err, result) => {
+    res.send(result);
+  });
+});
+
 /** 스쿼트 챌린지 */
 app.post("/squatchallenge", (req, res) => {
   var USER_NICKNAME = req.body.USER_NICKNAME;
@@ -542,7 +564,7 @@ app.post("/challengescoreresult", (req, res) => {
 
   const sqlQuery =
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?;";
-  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => {});
+  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => { });
 });
 
 /** 챌린지 랭킹 닉네임 점수 표시하기 */
