@@ -10,7 +10,6 @@ import search1 from '../../static/images/HHJ/Navigator/search_white.svg';
 const Category = () => {
   const navigator = useNavigate();
   const SearchwordRef = useRef();
-  const RecwordRef = useRef();
 
   const [SearchCount, setSearchCount] = useState(0);
   const [SearchWord, setSearchWord] = useState("");
@@ -53,6 +52,35 @@ const Category = () => {
     });
     axios.post("http://localhost:8008/search", {
       searchword: SearchwordRef.current.value,
+    }).then((res) => {
+      console.log("handleSearch(res) -> ", res)
+      const { data } = res;
+      if (data.length > 0) {
+        setSearchList({ searchlist: data })
+      } else if (data.length === 0) {
+        alert("검색 결과가 없습니다.")
+        setMode(0);
+      }
+    }).catch((e) => {
+      console.error(e);
+    });
+  }
+
+  /* 추천 검색어 */
+  function RecSearch(e) {
+    setMode(1);
+    setSearchWord(e.target.innerText);
+
+    axios.post("http://localhost:8008/searchcount", {
+      searchword: e.target.innerText
+    }).then((res) => {
+      console.log("handleSearch(count) ->", res);
+      setSearchCount(res.data[0].COUNT);
+    }).catch((e) => {
+      console.error(e);
+    });
+    axios.post("http://localhost:8008/search", {
+      searchword: e.target.innerText
     }).then((res) => {
       console.log("handleSearch(res) -> ", res)
       const { data } = res;
@@ -231,13 +259,23 @@ const Category = () => {
           />
           <button
             className="CNS_search_button"
-            onClick={(e) => {
-              // console.log(e.target.tagName);
-              handleSearch(e);
+            onClick={() => {
+              handleSearch();
             }}
           >
             <img src={search1} alt="돋보기" />
           </button>
+        </div>
+        <div className="CNS_rec_div">
+          <p>추천 검색어</p>
+          <ul>
+            <li onClick={(e) => RecSearch(e)}>up</li>
+            <li onClick={(e) => RecSearch(e)}>테스트</li>
+            <li onClick={(e) => RecSearch(e)}>기본</li>
+            {/* 추가하고 싶은 검색어 아래처럼 추가하면 됩니다. */}
+            {/* <li onClick={(e) => RecSearch(e)}>요가</li>
+            <li onClick={(e) => RecSearch(e)}>스트레칭</li> */}
+          </ul>
         </div>
         <div className='CNS_grid_category'>
           <div

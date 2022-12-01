@@ -58,9 +58,43 @@
   height: 20px;
 }
 
+/* 추천 검색어 */
+.CNS_rec_div {
+  margin-bottom: 1rem;
+}
+
+.CNS_rec_div p {
+  text-align: left;
+  padding-left: 2.25rem;
+}
+
+/* 가로 스크롤을 주기 위해서는 flex:left; 주면 안 되고,
+  자식 요소에 display:inline-block;주고
+  부모 요소에 white-space:nowrap; overflwow:scroll; 주라고 함*/
+.CNS_rec_div ul {
+  width: 23rem;
+  height: 2.5rem;
+  overflow: scroll;
+  white-space: nowrap;
+  margin-left: 2rem;
+  padding-left: 1rem;
+}
+
+.CNS_rec_div li {
+  list-style: none;
+  /* float: left; */
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  margin-right: 1rem;
+  background: #3da2ff;
+  color: white;
+  border-radius: 20px;
+}
+
 /* 그리드 */
 .CNS_grid_category {
   margin-top: 1.875rem;
+  /* margin-top: 3rem; */
   border-top: 1px solid #424242;
 }
 
