@@ -1,0 +1,39 @@
+.detail_exerName {
+  font-size: 2.25rem;
+  margin: 15px 0;
+}
+
+.detail_exerstart {
+  width: 17.87rem;
+  height: 2.8125rem;
+  background: #f2f2f2;
+  border: none;
+  border-radius: 0.5375rem;
+  display: flex;
+  margin: 0 auto;
+}
+
+.detail_exerstart input:first-child {
+  background-color: transparent;
+  border: none;
+  width: 8.75rem;
+  font-size: 15px;
+  padding-left: 0.625rem;
+  /* text-align: center; */
+}
+
+.detail_exerstart input:last-child {
+  width: 9.12rem;
+  background-color: transparent;
+  border: none;
+  background: #3da2ff;
+  color: white;
+  border-radius: 0.5375rem;
+  font-size: 18px;
+}
+
+.detail_text {
+  /* text-align: justify; */
+  text-align: left;
+  word-break: keep-all;
+}

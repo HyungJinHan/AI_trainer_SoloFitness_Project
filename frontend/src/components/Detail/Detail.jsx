@@ -3,6 +3,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import axios from "axios";
 import Navigator from "../Navigator/Navigator";
+import "../../styles/Detail/Detail.css";
 
 const Detail = () => {
   const inputCountRef = useRef();
@@ -36,47 +37,53 @@ const Detail = () => {
           src={detailInfo[0].VIDEO_THUMBNAIL}
           alt="undefined"
           width='100%'
-          height='40%'
+          height='50%'
         />
-        <br />
-        {detailCategories}
-        <br />
-        <br />
-        <p>{detailInfo[0].VIDEO_CATEGORY}</p>
-        <input
-          placeholder="운동 개수 지정"
-          ref={inputCountRef}
-          onChange={
-            (e) => {
-              setInputCount(e.target.value);
-              axios
-                .post('http://localhost:8000/videoshutdown', {
-                  count: parseInt(e.target.value)
-                })
-            }
-          }
-        />
-        <input
-          type='button'
-          value='운동 시작'
-          onClick={
-            () => {
-              if (inputCountRef.current.value === '' || inputCountRef.current.value === undefined) {
-                alert('운동 개수를 지정해주세요.');
-                return false;
-              } else {
-                navigate(`/video?exec=${detailCategories}`, { state: { inputCount: inputCount } })
+        <div style={{margin:"0 8px"}}>
+          <p className="detail_exerName detail_text">{detailCategories}</p>
+          <p>#{detailInfo[0].VIDEO_CATEGORY}</p>
+          <div className="detail_exerstart">
+            <input
+              placeholder="운동 개수 지정"
+              ref={inputCountRef}
+              onChange={
+                (e) => {
+                  setInputCount(e.target.value);
+                  axios
+                    .post('http://localhost:8000/videoshutdown', {
+                      count: parseInt(e.target.value)
+                    })
+                }
               }
-            }
-          }
-        />
-        <p style={{ fontSize: "25px", color: "blue" }}>운동 준비물</p>
-        {detailInfo[0].VIDEO_PREPARE}
-        <p style={{ fontSize: "25px", color: "blue" }}>운동 소개</p>
-        {detailInfo[0].VIDEO_INFO}
-        <p style={{ fontSize: "25px", color: "blue" }}>운동 효과</p>
-        {detailInfo[0].VIDEO_EFFECT}
-        <p style={{ fontSize: "25px", color: "blue" }}>주의사항</p>
+            />
+            <input
+              type='button'
+              value='운동 시작'
+              onClick={
+                () => {
+                  if (inputCountRef.current.value === '' || inputCountRef.current.value === undefined) {
+                    alert('운동 개수를 지정해주세요.');
+                    return false;
+                  } else {
+                    navigate(`/video?exec=${detailCategories}`, { state: { inputCount: inputCount } })
+                  }
+                }
+              }
+            />
+          </div>
+          <p style={{ fontSize: "16px", color: "#3da2ff" }}>필요 준비물</p>
+          {detailInfo[0].VIDEO_PREPARE}
+          <p style={{ fontSize: "25px", color: "#3da2ff" }}>운동 소개</p>
+          <p className="detail_text">{detailInfo[0].VIDEO_INFO}</p>
+          <p style={{ fontSize: "25px", color: "#3da2ff" }}>운동 효과</p>
+          {/* <p>{detailInfo[0].VIDEO_EFFECT}</p> */}
+          <p className="detail_effect detail_text">{detailInfo[0].VIDEO_EFFECT.split("\\n").map((data) => 
+                  {return <span>
+                    {data}
+                    <br/>
+                  </span>})}</p>
+          <p style={{ fontSize: "25px", color: "#3da2ff" }}>주의사항</p>
+        </div>
       </div>
       <Navigator />
       <Outlet />

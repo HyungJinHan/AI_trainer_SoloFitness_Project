@@ -12,13 +12,12 @@ const SearchArticle = ({ article }) => {
       <td className="sa_first_td">
             <img
               className="sa_first_td_img"
-              // style={{ width: "90px", height: "110px" }}
               src={article.VIDEO_THUMBNAIL}
               alt="운동이미지"
             />
       </td>
       <td className="sa_second_td" height="110px">      
-        <p style={{ fontSize: "20px", margin:"10px 0" }}>{article.VIDEO_TITLE}</p>
+        <p className="sa_videotitle">{article.VIDEO_TITLE}</p>
         <p style={{ color:"#cccbcb", margin:"10px 0" }}>{article.VIDEO_CATEGORY}</p>
       </td>
     </tr>
