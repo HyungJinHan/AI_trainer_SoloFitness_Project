@@ -131,12 +131,12 @@ app.post("/", (req, res) => {
     console.log("/hi(res) ->", result);
   });
 });
-
+/** NIVO차트에 들어갈 정보 */
 app.post("/fitnessresult", (req, res) => {
   const execurl = req.body.execiseCategories;
   const userNickname = req.body.userNickname;
   const sqlQuery =
-    "SELECT EXCERCISE_NAME, EXCERCISE_COUNT, DATE_FORMAT(EXCERCISE_DATE, '%H시%i분%S초') AS EXCERCISE_DATE FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = ? AND EXCERCISE_USER = ? ORDER BY EXCERCISE_DATE DESC LIMIT 5;";
+    "SELECT EXCERCISE_NAME, EXCERCISE_COUNT, DATE_FORMAT(EXCERCISE_DATE, '%Y-%m-%d %h:%i %S초') AS EXCERCISE_DATE FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = ? AND EXCERCISE_USER = ? ORDER BY EXCERCISE_DATE DESC LIMIT 5;";
 
   db.query(sqlQuery, [execurl, userNickname], (err, result) => {
     res.send(result);

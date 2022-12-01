@@ -30,7 +30,7 @@ class TypeOfExercise(BodyPartAngle):
                 pushUpFeedbackList.append('Great!')
             if pushupFeedback_flag:
                 if 91 < avg_arm_angle < 140:
-                    pushUpFeedbackList.append('좀 더!')
+                    pushUpFeedbackList.append('상체를 더 숙이세요.')
                     pushupFeedback_flag = False
         else:
             if avg_arm_angle > 160:
