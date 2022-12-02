@@ -1,14 +1,14 @@
 .cl_first_td {
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
+  border-top-left-radius: 1.5625rem;
+  border-bottom-left-radius: 1.5625rem;
   background-color: #605e5e;
   border-spacing: 0;
   padding: 0;
 }
 
-.cl_first_td > img {
-  width: 90px;
-  height: 122px;
+.cl_first_td>img {
+  width: 5.625rem;
+  height: 7.625rem;
   margin: 0;
   padding: 0;
   display: block;
@@ -23,7 +23,7 @@
   width: 75%;
 }
 
-.cl_second_td > p {
+.cl_second_td>p {
   color: white;
   padding-left: 5px;
 }

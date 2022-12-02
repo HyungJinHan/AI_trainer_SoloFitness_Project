@@ -4,8 +4,22 @@
   .sa_first_td_img에 margin:0, padding:0; display:block;
   하고 이미지를 셀(td)의 너비 높이 길이에 맞춰주면 됨.  
 */
+.sa_total_div {
+  display: flex;
+  text-align: center;
+}
 
-.sa_first_td {
+.sa_first_td_img {
+  width: 6.25rem;
+  height: 6.25rem;
+}
+
+.sa_second_td {
+  background-color: #605e5e;
+  width: 17rem;
+}
+
+/* .sa_first_td {
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   background-color: #605e5e;
@@ -30,7 +44,7 @@
   width: 75%;
 }
 
-.sa_second_td > p {
+.sa_second_td>p {
   color: white;
   padding-left: 5px;
 }
@@ -40,4 +54,4 @@
   margin: 10px 0;
   text-align: left;
   word-break: keep-all;
-}
+} */
