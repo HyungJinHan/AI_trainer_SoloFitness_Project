@@ -114,8 +114,8 @@ const upload = multer({
           iconv.decode(file.originalname, "utf-8").toString(),
           ext // 확장자 제외한 이름
         ) +
-        Date.now() +
-        ext
+          Date.now() +
+          ext
       ); // 날짜 포함해서 새로운 이름 생성
     },
   }),
@@ -647,7 +647,7 @@ app.post("/adminusergender2", (req, res) => {
 /** 관리자 페이지 유저나이(미성년자)*/
 app.post("/adminuserage1", (req, res) => {
   const sqlQuery =
-    "SELECT COUNT(USER_AGE) FROM USER_TABLE WHERE 1 < USER_AGE && USER_AGE < 20;";
+    "SELECT COUNT(USER_AGE) AS AGE FROM USER_TABLE WHERE 1 < USER_AGE && USER_AGE < 20;";
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
@@ -656,7 +656,7 @@ app.post("/adminuserage1", (req, res) => {
 /** 관리자 페이지 유저나이(20대)*/
 app.post("/adminuserage2", (req, res) => {
   const sqlQuery =
-    "SELECT COUNT(USER_AGE) FROM USER_TABLE WHERE 20 =< USER_AGE && USER_AGE < 30;";
+    "SELECT COUNT(USER_AGE) AS AGE FROM USER_TABLE WHERE 20 <= USER_AGE && USER_AGE < 30;";
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
@@ -665,7 +665,7 @@ app.post("/adminuserage2", (req, res) => {
 /** 관리자 페이지 유저나이(30대)*/
 app.post("/adminuserage3", (req, res) => {
   const sqlQuery =
-    "SELECT COUNT(USER_AGE) FROM USER_TABLE WHERE 30 =< USER_AGE && USER_AGE < 40;";
+    "SELECT COUNT(USER_AGE) AS AGE FROM USER_TABLE WHERE 30 <= USER_AGE && USER_AGE < 40;";
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
@@ -674,7 +674,7 @@ app.post("/adminuserage3", (req, res) => {
 /** 관리자 페이지 유저나이(40대)*/
 app.post("/adminuserage4", (req, res) => {
   const sqlQuery =
-    "SELECT COUNT(USER_AGE) FROM USER_TABLE WHERE 40 =< USER_AGE && USER_AGE < 50;";
+    "SELECT COUNT(USER_AGE) AS AGE FROM USER_TABLE WHERE 40 <= USER_AGE && USER_AGE < 50;";
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
@@ -683,7 +683,25 @@ app.post("/adminuserage4", (req, res) => {
 /** 관리자 페이지 유저나이(50대이상)*/
 app.post("/adminuserage5", (req, res) => {
   const sqlQuery =
-    "SELECT COUNT(USER_AGE) FROM USER_TABLE WHERE 50 =< USER_AGE;";
+    "SELECT COUNT(USER_AGE) AS AGE FROM USER_TABLE WHERE 50 <= USER_AGE;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 관리자 페이지 센터가입 유저*/
+app.post("/adminusercenter1", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(*) AS ACCESS FROM USER_TABLE WHERE USER_ACCESS_CODE IS NOT NULL;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 관리자 페이지 센터가입x 유저*/
+app.post("/adminusercenter2", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(*) AS ACCESS FROM USER_TABLE WHERE USER_ACCESS_CODE IS NULL;";
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });

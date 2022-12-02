@@ -3,23 +3,46 @@ import { ResponsiveBar } from "@nivo/bar";
 import axios from "axios";
 import { useEffect, useState } from "react";
 const AdminPageUserNivo_A = () => {
+  const [teenager, setTeenager] = useState();
+  const [youngAdult, setYoungAdult] = useState();
+  const [adult, setAdult] = useState();
+  const [middleAgedAdult, setMiddleAgedAdult] = useState();
+  const [elder, setElder] = useState();
+  useEffect(() => {
+    axios.post("http://localhost:8008/adminuserage1").then((res) => {
+      setTeenager(res.data[0].AGE);
+    });
+    axios.post("http://localhost:8008/adminuserage2").then((res) => {
+      setYoungAdult(res.data[0].AGE);
+    });
+    axios.post("http://localhost:8008/adminuserage3").then((res) => {
+      setAdult(res.data[0].AGE);
+    });
+    axios.post("http://localhost:8008/adminuserage4").then((res) => {
+      setMiddleAgedAdult(res.data[0].AGE);
+    });
+    axios.post("http://localhost:8008/adminuserage5").then((res) => {
+      setElder(res.data[0].AGE);
+    });
+  }, []);
+  console.log("asdasd", teenager);
   return (
-    <div style={{ width: "25rem", height: "30rem", margin: "0 auto" }}>
+    <div className="AdminPageUserNivo_age">
       <ResponsiveBar
         /**
          * chart에 사용될 데이터
          */
         data={[
-          { bottle: "19세 미만", User: "" },
-          { bottle: "20대", User: "" },
-          { bottle: "30대", User: "" },
-          { bottle: "40대", User: "" },
-          { bottle: "50대 이상", User: "" },
+          { bottle: "19세 미만", 유저: teenager },
+          { bottle: "20대", 유저: youngAdult },
+          { bottle: "30대", 유저: adult },
+          { bottle: "40대", 유저: middleAgedAdult },
+          { bottle: "50대 이상", 유저: elder },
         ]}
         /**
          * chart에 보여질 데이터 key (측정되는 값)
          */
-        keys={["User"]}
+        keys={["유저"]}
         /**
          * keys들을 그룹화하는 index key (분류하는 값)
          */
@@ -98,14 +121,15 @@ const AdminPageUserNivo_A = () => {
         /**
          * axis left 설정
          */
-        axisLeft={{
-          tickSize: 5, // 값 설명하기 위해 튀어나오는 점 크기
-          tickPadding: 5, // tick padding
-          tickRotation: 0, // tick 기울기
-          legend: "USERS", // left 글씨
-          legendPosition: "middle", // 글씨 위치
-          legendOffset: -50, // 글씨와 chart간 간격
-        }}
+        // axisLeft={{
+        //   tickSize: 5, // 값 설명하기 위해 튀어나오는 점 크기
+        //   tickPadding: 5, // tick padding
+        //   tickRotation: 0, // tick 기울기
+        //   legend: "회원 수", // left 글씨
+        //   legendPosition: "middle", // 글씨 위치
+        //   legendOffset: -50, // 글씨와 chart간 간격
+        // }}
+        axisLeft={null}
         enableGridY={false}
         /**
          * label 안보이게 할 기준 width
