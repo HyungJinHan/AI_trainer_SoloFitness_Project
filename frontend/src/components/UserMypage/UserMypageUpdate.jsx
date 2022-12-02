@@ -2,7 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// 회원 정보 수정 컴포넌트, 이름, 아이디, 등록센터 변경 불가능
+// 회원 탈퇴기능도 여기 있다.
+
 const UserMypageUpdate = (props) => {
+  const navigate = useNavigate();
+
   const infoList = props.userInfo
   const userImage = `${infoList.USER_IMAGE}`
   console.log('userImage=>', userImage);
@@ -49,6 +54,22 @@ const UserMypageUpdate = (props) => {
       .catch((e) => {
         console.log(e);
       });
+  };
+
+  const deleteUser = () => {
+    axios
+      .post("http://localhost:8008/deleteuser", {
+        USER_ID: infoList.USER_ID,
+      })
+      .then((res) => {
+        console.log('회원탈퇴 성공', res);
+        window.sessionStorage.clear();
+        navigate('/');
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+
   };
 
   return (
@@ -162,6 +183,14 @@ const UserMypageUpdate = (props) => {
           name='updatebtn'
           value='수정하기'
           onClick={updateMyInfo}
+        />
+      </div>
+      <div>
+        <input
+          type='button'
+          name='deletebtn'
+          value='회원탈퇴'
+          onClick={deleteUser}
         />
       </div>
     </div>

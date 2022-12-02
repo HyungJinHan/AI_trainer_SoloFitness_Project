@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import '../../styles/CenterRegister/CenterRegister.css'
 
+// 센터 이름 인풋받는 컴포넌트
+
 const CenterRegisterFirst = ({
   setCenterName,
   setMode,

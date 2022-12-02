@@ -11,7 +11,8 @@ const MainCenter = styled.div`
     padding-top: 3.125rem;
   `;
 
-// 로그인 페이지
+// 로그인 페이지 성공하면 메인 페이지 이동
+
 function UserLogin() {
   const [errorKey, setErrorKey] = useState(true);
 
