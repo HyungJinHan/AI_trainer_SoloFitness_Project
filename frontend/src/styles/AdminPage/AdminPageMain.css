@@ -5,13 +5,15 @@
 
 .AdminPageMain_nav_brand_text {
   margin: 0;
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-left: 30px;
+  font-size: 30px;
 }
 
 .AdminPageMain_side_nav_container {
   background-color: #424242;
   width: 18.75rem;
-  height: 160vh;
+  height: 100vh;
   position: relative;
   color: white;
 
@@ -25,7 +27,8 @@
 .AdminPageMain_nav_upper,
 .AdminPageMain_nav_heading,
 .AdminPageMain_nav_manu,
-.AdminPageMain_menu_item {
+.AdminPageMain_menu_item,
+.AdminPageMain_menu_nav_footer {
   display: grid;
 }
 
@@ -53,7 +56,7 @@
   cursor: pointer;
 
   margin: auto -35px;
-  background-color: #55717e;
+  background-color: #3da2ff;
   border: 2px solid white;
   padding: 20px;
   border-radius: 90px;
@@ -109,26 +112,24 @@
 
 .AdminPageMain_menu_item {
   height: 57px;
-  width: 16em;
   display: flex;
   color: white;
   text-decoration: none;
   text-transform: uppercase;
-  margin: auto 20px;
+  margin: 15px 20px;
   border-radius: 10px;
   position: relative;
 }
 .AdminPageMain_menu_item_NX {
-  margin: auto;
-  width: 4.5em;
+  margin: 15px;
+  width: 4.5rem;
 }
 
 .AdminPageMain_menu_item:hover {
-  background-color: #55717e;
+  background-color: #3da2ff;
 }
 .AdminPageMain_menu_item img {
-  width: 30px;
-  padding: 0 20px;
+  padding: 6px 10px;
 }
 .AdminPageMain_menu_item:hover > .AdminPageMain_menu_tooltip {
   display: block;
@@ -155,7 +156,7 @@
   width: 100%;
   bottom: 0;
   grid-template-columns: 2fr 1fr;
-  background-color: #061b28;
+  background-color: #424242;
 }
 
 .AdminPageMain_menu_nav_details {
@@ -163,8 +164,8 @@
 }
 
 .AdminPageMain_menu_nav_details img {
-  width: 50px;
-  padding: 0 20px;
+  /* width: 50px; */
+  padding: 10px 20px;
 }
 
 .AdminPageMain_menu_nav_footer_user_name {
@@ -174,16 +175,23 @@
 
 .AdminPageMain_menu_nav_footer_user_position {
   margin-top: -15px;
-  color: #756388;
+  color: #d1d1d1;
 }
 
 .AdminPageMain_menu_log_out {
-  width: 30px;
+  width: 80px;
   margin: auto;
   border-radius: 90px;
   padding: 20px;
   margin-left: 5px;
 }
 .AdminPageMain_menu_log_out:hover {
-  background-color: #55717e;
+  background-color: #3da2ff;
+}
+
+.asdasd {
+  display: inline-flex;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 50px;
 }
