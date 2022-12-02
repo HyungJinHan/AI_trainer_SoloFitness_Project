@@ -8,19 +8,19 @@ const SearchArticle = ({ article }) => {
   const navigate = useNavigate();
 
   return (
-    <tr onClick={() => navigate(`/detail?exec=${article.VIDEO_TITLE}`)}>
-      <td className="sa_first_td">
-            <img
-              className="sa_first_td_img"
-              src={article.VIDEO_THUMBNAIL}
-              alt="운동이미지"
-            />
-      </td>
-      <td className="sa_second_td" height="110px">      
+    <div className="sa_total_div" onClick={() => navigate(`/detail?exec=${article.VIDEO_TITLE}`)}>
+      <div className="sa_first_td">
+        <img
+          className="sa_first_td_img"
+          src={article.VIDEO_THUMBNAIL}
+          alt="운동이미지"
+        />
+      </div>
+      <div className="sa_second_td" height="110px">
         <p className="sa_videotitle">{article.VIDEO_TITLE}</p>
-        <p style={{ color:"#cccbcb", margin:"10px 0" }}>{article.VIDEO_CATEGORY}</p>
-      </td>
-    </tr>
+        <p style={{ color: "#cccbcb", margin: "10px 0" }}>{article.VIDEO_CATEGORY}</p>
+      </div>
+    </div>
   );
 };
 
