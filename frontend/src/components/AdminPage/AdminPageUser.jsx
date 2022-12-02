@@ -4,6 +4,7 @@ import AdminPageMain from "./AdminPageMain";
 import AdminPageUserNivo from "./AdminPageUserNivo";
 import AdminPageUserNivo_A from "./AdminPageUserNivo_A";
 import AdminPageUserNivo_C from "./AdminPageUserNivo_C";
+import AdminPageUserNivo_E from "./AdminPageUserNivo_E";
 
 const AdminPageUser = () => {
   return (
@@ -22,9 +23,15 @@ const AdminPageUser = () => {
         </div>
         <div className="AdminPageUser_user_center_main">
           <div className="AdminPageUser_user_center_nivo_text">
-            회원 나이 분포
+            센터 등록 회원
           </div>
           <AdminPageUserNivo_C />
+        </div>
+        <div className="AdminPageUser_user_excercise_main">
+          <div className="AdminPageUser_user_excercise_nivo_text">
+            회원 선호 운동
+          </div>
+          <AdminPageUserNivo_E />
         </div>
       </div>
     </div>

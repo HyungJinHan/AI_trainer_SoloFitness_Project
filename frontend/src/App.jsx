@@ -26,6 +26,8 @@ import MainSliderEvent from "./components/MainSlider/MainSliderEvent";
 import ChallengeRank from "./components/Challenge/ChallengeRank";
 import AdminPageMain from "./components/AdminPage/AdminPageMain";
 import AdminPageUser from "./components/AdminPage/AdminPageUser";
+import AdminPageCenter from "./components/AdminPage/AdminPageCenter";
+import AdminPageChat from "./components/AdminPage/AdminPageChat";
 
 const App = () => {
   return (
@@ -76,6 +78,10 @@ const App = () => {
         <Route path="/admin" element={<AdminPageMain />} />
         {/** 관리자 페이지 유저정보 */}
         <Route path="/adminuser" element={<AdminPageUser />} />
+        {/** 관리자 페이지 센터정보 */}
+        <Route path="/admincenter" element={<AdminPageCenter />} />
+        {/** 관리자 페이지 채팅 */}
+        <Route path="/adminchat" element={<AdminPageChat />} />
       </Routes>
     </div>
   );

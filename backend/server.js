@@ -707,6 +707,51 @@ app.post("/adminusercenter2", (req, res) => {
   });
 });
 
+/** 스쿼트 이용자 수 */
+app.post("/adminuserexec1", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(EXCERCISE_NAME) AS EXEC1 FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = 'squat';";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 푸쉬업 이용자 수 */
+app.post("/adminuserexec2", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(EXCERCISE_NAME) AS EXEC2 FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = 'pushup';";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 풀업 이용자 수 */
+app.post("/adminuserexec3", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(EXCERCISE_NAME) AS EXEC3 FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = 'pullup';";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 싯업 이용자 수 */
+app.post("/adminuserexec4", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(EXCERCISE_NAME) AS EXEC4 FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = 'situp';";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 덤벨컬 이용자 수 */
+app.post("/adminuserexec5", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(EXCERCISE_NAME) AS EXEC5 FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = 'curl';";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
 server.listen(3001, () => {
   console.log(`Socket Server Running PORT ${SOCKET_PORT}`);
 });

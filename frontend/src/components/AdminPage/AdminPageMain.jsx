@@ -1,35 +1,30 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/AdminPage/AdminPageMain.css";
 import user from "../../static/images/KCJ/icons/user.png";
-import front from "../../static/images/KCJ/icons/ux-design.png";
-import back from "../../static/images/KCJ/icons/backend.png";
-import ai_img from "../../static/images/KCJ/icons/ai.png";
 import chat from "../../static/images/KCJ/icons/bubble-chat.png";
 import logout from "../../static/images/KCJ/icons/power-off.png";
 import admin from "../../static/images/KCJ/icons/admin.png";
+import weight from "../../static/images/KCJ/icons/weight.png";
 
 const AdminPageMain = () => {
+  const navigator = useNavigate();
   const [expended, setExpended] = useState(true);
   const menuItems = [
     {
-      text: "유저정보",
+      text: "회원관리",
       icons: user,
+      url: "adminuser",
     },
     {
-      text: "Front-end setting",
-      icons: front,
-    },
-    {
-      text: "Back-end setting",
-      icons: back,
-    },
-    {
-      text: "AI setting",
-      icons: ai_img,
+      text: "센터관리",
+      icons: weight,
+      url: "admincenter",
     },
     {
       text: "관리자 채팅",
       icons: chat,
+      url: "adminchat",
     },
   ];
   return (
@@ -69,8 +64,11 @@ const AdminPageMain = () => {
                   ? "AdminPageMain_menu_item"
                   : "AdminPageMain_menu_item AdminPageMain_menu_item_NX"
               }
+              onClick={() => {
+                navigator(`/${item.url}`);
+              }}
             >
-              <img src={item.icons} alt="왜안뜸?" />
+              <img src={item.icons} />
               {expended && <p>{item.text}</p>}
               {!expended && (
                 <div className="AdminPageMain_menu_tooltip">{item.text}</div>

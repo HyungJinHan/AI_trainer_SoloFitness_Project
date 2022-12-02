@@ -2,42 +2,42 @@ import React from "react";
 import { ResponsiveBar } from "@nivo/bar";
 import axios from "axios";
 import { useEffect, useState } from "react";
-const AdminPageUserNivo_A = () => {
-  const [teenager, setTeenager] = useState();
-  const [youngAdult, setYoungAdult] = useState();
-  const [adult, setAdult] = useState();
-  const [middleAgedAdult, setMiddleAgedAdult] = useState();
-  const [elder, setElder] = useState();
+
+const AdminPageUserNivo_E = () => {
+  const [exec1, setExec1] = useState();
+  const [exec2, setExec2] = useState();
+  const [exec3, setExec3] = useState();
+  const [exec4, setExec4] = useState();
+  const [exec5, setExec5] = useState();
   useEffect(() => {
-    axios.post("http://localhost:8008/adminuserage1").then((res) => {
-      setTeenager(res.data[0].AGE);
+    axios.post("http://localhost:8008/adminuserexec1").then((res) => {
+      setExec1(res.data[0].EXEC1);
     });
-    axios.post("http://localhost:8008/adminuserage2").then((res) => {
-      setYoungAdult(res.data[0].AGE);
+    axios.post("http://localhost:8008/adminuserexec2").then((res) => {
+      setExec2(res.data[0].EXEC2);
     });
-    axios.post("http://localhost:8008/adminuserage3").then((res) => {
-      setAdult(res.data[0].AGE);
+    axios.post("http://localhost:8008/adminuserexec3").then((res) => {
+      setExec3(res.data[0].EXEC3);
     });
-    axios.post("http://localhost:8008/adminuserage4").then((res) => {
-      setMiddleAgedAdult(res.data[0].AGE);
+    axios.post("http://localhost:8008/adminuserexec4").then((res) => {
+      setExec4(res.data[0].EXEC4);
     });
-    axios.post("http://localhost:8008/adminuserage5").then((res) => {
-      setElder(res.data[0].AGE);
+    axios.post("http://localhost:8008/adminuserexec5").then((res) => {
+      setExec5(res.data[0].EXEC5);
     });
-  }, []);
-  console.log("asdasd", teenager);
+  });
   return (
-    <div className="AdminPageUserNivo_age">
+    <div className="AdminPageUserNivo_excercise">
       <ResponsiveBar
         /**
          * chart에 사용될 데이터
          */
         data={[
-          { bottle: "19세 미만", 유저: teenager },
-          { bottle: "20대", 유저: youngAdult },
-          { bottle: "30대", 유저: adult },
-          { bottle: "40대", 유저: middleAgedAdult },
-          { bottle: "50대 이상", 유저: elder },
+          { bottle: "스쿼트", 유저: exec1 },
+          { bottle: "푸쉬업", 유저: exec2 },
+          { bottle: "풀업", 유저: exec3 },
+          { bottle: "윗몸일으키기", 유저: exec4 },
+          { bottle: "덤벨컬", 유저: exec5 },
         ]}
         /**
          * chart에 보여질 데이터 key (측정되는 값)
@@ -59,7 +59,7 @@ const AdminPageUserNivo_A = () => {
          * chart 색상
          */
         colors={["rgb(61, 162, 255)"]} // 커스터하여 사용할 때
-        // colors={{ scheme: "nivo" }} // nivo에서 제공해주는 색상 조합 사용할 때
+        // colors={{ scheme: 'nivo' }} // nivo에서 제공해주는 색상 조합 사용할 때
         /**
          * color 적용 방식
          */
@@ -175,4 +175,4 @@ const AdminPageUserNivo_A = () => {
   );
 };
 
-export default AdminPageUserNivo_A;
+export default AdminPageUserNivo_E;
