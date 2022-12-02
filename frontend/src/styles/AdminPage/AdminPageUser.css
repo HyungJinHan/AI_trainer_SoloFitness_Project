@@ -1,28 +1,17 @@
 .AdminPageUser_top_div {
   display: flex;
-  margin: 0;
-  padding: 0;
-  /* position: relative; */
+  /* width: 100vw; */
 }
 
 .AdminPageUser_sidebar {
   width: 300px;
-}
-
-/* .AdminPageUser_user_main {
-  margin: 0 auto;
-} */
-
-.AdminPageUser_user_top_text {
-  margin-top: 30px;
-  font-size: 3rem;
-  font-weight: 800;
-  margin: 0 auto;
-  margin: 0;
+  display: flex;
 }
 .AdminPageUser_user_gender_main {
+  display: inline-block;
   margin-top: 50px;
-  /* position: absolute; */
+  height: 400px;
+  background-color: whitesmoke;
 }
 
 .AdminPageUserNivo_gender {
@@ -36,10 +25,36 @@
 }
 
 .AdminPageUser_user_age_main {
+  display: inline-block;
   margin-top: 50px;
+  height: 400px;
+  background-color: whitesmoke;
+  margin-left: 120px;
 }
 .AdminPageUser_user_age_nivo_text {
   font-size: 1.875rem;
   text-align: center;
   font-weight: 800;
+}
+
+.AdminPageUserNivo_age {
+  width: 900px;
+  height: 300px;
+}
+
+.AdminPageUser_user_center_main {
+  display: inline-block;
+  margin-top: 50px;
+  height: 500px;
+  background-color: whitesmoke;
+}
+.AdminPageUser_user_center_nivo_text {
+  font-size: 1.875rem;
+  text-align: center;
+  font-weight: 800;
+}
+
+.AdminPageUserNivo_center {
+  width: 500px;
+  height: 400px;
 }
