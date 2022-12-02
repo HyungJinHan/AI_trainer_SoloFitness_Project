@@ -68,7 +68,7 @@
   padding-left: 2.25rem;
 }
 
-/* 가로 스크롤을 주기 위해서는 flex:left; 주면 안 되고,
+/* 가로 스크롤을 주기 위해서는 float:left; 주면 안 되고,
   자식 요소에 display:inline-block;주고
   부모 요소에 white-space:nowrap; overflwow:scroll; 주라고 함*/
 .CNS_rec_div ul {
@@ -107,15 +107,16 @@
 }
 
 .CNS_category_item {
-  margin: 15px;
+  margin: 13px;
 }
 
 .CNS_image {
   width: 100px;
-  height: 90px;
+  height: 95px;
   /* text-align: center; */
   position: relative;
-  background-color: #e5f3ff;
+  /* background-color: #e5f3ff; */
+  background: #3da2ff;
   border-radius: 50%;
 }
 

@@ -98,39 +98,48 @@ const Category = () => {
   /* 카테고리 */
   const items = [{
     category: "하체",
-    thumb: "032-icon-185611.png"
+    // thumb: "032-icon-185611.png"
+    thumb: "low.png"
   },
   {
     category: "상체",
-    thumb: "006-icon-185584.png"
+    // thumb: "006-icon-185584.png"
+    thumb: "top.png"
   },
   {
     category: "기구운동",
-    thumb: "044-icon-763964.png"
+    // thumb: "044-icon-763964.png"
+    thumb:"machine.png"
   },
   {
     category: "맨몸운동",
-    thumb: "004-icon-185617.png"
+    // thumb: "004-icon-185617.png"
+    thumb: "body.png"
   },
   {
     category: "요가",
-    thumb: "045-icon-763960.png"
+    // thumb: "045-icon-763960.png"
+    thumb: "yoga.png"
   },
   {
     category: "스트레칭",
-    thumb: "025-icon-185601.png"
+    // thumb: "025-icon-185601.png"
+    thumb: "stretching.png"
   },
   {
     category: "전신운동",
-    thumb: "009-icon-185612.png"
+    // thumb: "009-icon-185612.png"
+    thumb: "allbody.png"
   },
   {
     category: "필라테스",
-    thumb: "017-icon-185605.png"
+    // thumb: "017-icon-185605.png"
+    thumb: "pilates.png"
   },
   {
     category: "유산소",
-    thumb: "005-icon-185599.png"
+    // thumb: "005-icon-185599.png"
+    thumb: "aerobic.png"
   }]
 
   /* mode:2로 넘어가 카테고리 리스트가 뜰 때 무슨 카테고리인지 알려주기 위해 item을 넘겨줄 것 */
@@ -321,7 +330,7 @@ const Category = () => {
                   }}
                 >
                   <div className="CNS_image">
-                    <img src={require(`../../static/images/JYY/ICON/mycollection/png/${item.thumb}`)} alt="카테고리 이미지" />
+                    <img src={require(`../../static/images/JYY/ICON/mycollection/category/${item.thumb}`)} alt="카테고리 이미지" />
                   </div>
                   <p>{item.category}</p>
                 </div>
