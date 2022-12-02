@@ -114,8 +114,8 @@ const upload = multer({
           iconv.decode(file.originalname, "utf-8").toString(),
           ext // 확장자 제외한 이름
         ) +
-          Date.now() +
-          ext
+        Date.now() +
+        ext
       ); // 날짜 포함해서 새로운 이름 생성
     },
   }),
@@ -205,9 +205,10 @@ app.post("/userjoin", (req, res) => {
   var USER_ADDRESS = req.body.USER_ADDRESS;
   var USER_TEL = req.body.USER_TEL;
   var USER_SEX = req.body.USER_SEX;
+  var USER_ACCESS_CODE = req.body.USER_ACCESS_CODE;
 
   const sqlQuery =
-    "INSERT INTO USER_TABLE VALUES (?, ?, ?, ?, ?, ?, ?, null,?, null, null, null, null);";
+    "INSERT INTO USER_TABLE VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, null, null, null, null, null);";
   db.query(
     sqlQuery,
     [
@@ -218,6 +219,7 @@ app.post("/userjoin", (req, res) => {
       USER_EMAIL,
       USER_ADDRESS,
       USER_TEL,
+      USER_ACCESS_CODE,
       USER_SEX,
     ],
     (err, result) => {
@@ -436,10 +438,11 @@ app.post("/updatemyInfo", upload.single("image"), (req, res) => {
   var USER_ADDRESS = req.body.USER_ADDRESS;
   var USER_TEL = req.body.USER_TEL;
   var USER_SEX = req.body.USER_SEX;
+  var USER_ACCESS_CODE = req.body.USER_ACCESS_CODE;
   var USER_IMAGE = req.body.USER_IMAGE;
 
   const sqlQuery =
-    "UPDATE USER_TABLE SET USER_PW = ?,USER_NAME = ?,USER_NICKNAME = ?,USER_EMAIL = ?,USER_ADDRESS = ?,USER_TEL = ?,USER_SEX = ?, USER_IMAGE=? WHERE USER_ID = ?;";
+    "UPDATE USER_TABLE SET USER_PW = ?,USER_NAME = ?,USER_NICKNAME = ?,USER_EMAIL = ?,USER_ADDRESS = ?,USER_TEL = ?,USER_ACCESS_CODE =?, USER_SEX = ?, USER_IMAGE=? WHERE USER_ID = ?;";
   db.query(
     sqlQuery,
     [
@@ -449,6 +452,7 @@ app.post("/updatemyInfo", upload.single("image"), (req, res) => {
       USER_EMAIL,
       USER_ADDRESS,
       USER_TEL,
+      USER_ACCESS_CODE,
       USER_SEX,
       USER_IMAGE,
       USER_ID,
@@ -457,6 +461,17 @@ app.post("/updatemyInfo", upload.single("image"), (req, res) => {
       res.send(result);
     }
   );
+});
+
+/** 회원탈퇴 */
+app.post("/deleteuser", (req, res) => {
+  const USER_ID = req.body.USER_ID;
+
+  const sqlQuery = "DELETE FROM USER_TABLE WHERE USER_ID = ?;";
+
+  db.query(sqlQuery, [USER_ID], (err, result) => {
+    res.send(result);
+  });
 });
 
 /** 센터 정보 조회 */

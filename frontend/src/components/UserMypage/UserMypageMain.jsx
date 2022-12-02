@@ -4,6 +4,8 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import Navigator from '../Navigator/Navigator';
 import UserMypageUpdate from './UserMypageUpdate';
 
+// 마이페이지 중 메인부분, 회원 정보 수정 컴포넌트와 로그아웃 기능,
+
 function UserMypageMain() {
   const [mode, setMode] = useState(0);
 

@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import '../../styles/CenterRegister/CenterRegister.css'
 
+// 사업자 등록번호와 비밀번호를 인풋받는 컴포넌트
+
 const CenterRegisterSecond = ({
   setCenterID,
   setCenterPW,

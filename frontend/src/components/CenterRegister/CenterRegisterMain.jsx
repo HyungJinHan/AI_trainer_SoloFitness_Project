@@ -6,6 +6,9 @@ import CenterRegisterSecond from './CenterRegisterSecond';
 import CenterRegisterThird from './CenterRegisterThird';
 import '../../styles/CenterRegister/CenterRegister.css'
 
+// 센터 회원가입 페이지 mode 변수로 컴포넌트 구분
+// 각 컴포넌트마다 useState 의 set 함수를 보내서 데이터를 담는다.
+
 const CenterRegisterMain = () => {
   const [mode, setMode] = useState(0);
   const [centerID, setCenterID] = useState(0);

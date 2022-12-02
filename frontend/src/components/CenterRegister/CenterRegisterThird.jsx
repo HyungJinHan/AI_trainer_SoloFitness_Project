@@ -3,6 +3,9 @@ import DaumPostcode from "react-daum-postcode";
 import DaumAddressPopup from '../CenterRegister/CenterDaumPostCode/DaumAddressPopup.jsx';
 import '../../styles/CenterRegister/CenterRegister.css'
 
+// 그외 센터 정보들을 입력받고 회원가입을 시도하는 페이지,
+// 회원가입이 성공하면 센터로그인 페이지로 이동한다.
+
 const CenterRegisterThird = ({
   setCenterAddress,
   setCenterTel,
