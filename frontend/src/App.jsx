@@ -25,6 +25,7 @@ import MainSliderLeg from "./components/MainSlider/MainSliderLeg";
 import MainSliderEvent from "./components/MainSlider/MainSliderEvent";
 import ChallengeRank from "./components/Challenge/ChallengeRank";
 import AdminPageMain from "./components/AdminPage/AdminPageMain";
+import AdminPageUser from "./components/AdminPage/AdminPageUser";
 
 const App = () => {
   return (
@@ -71,8 +72,10 @@ const App = () => {
         <Route path="/mainsliderevent" element={<MainSliderEvent />} />
         {/** 챌린지 랭킹 */}
         <Route path="/challengerank" element={<ChallengeRank />} />
-        {/** 관리자 페이지 */}
+        {/** 관리자 페이지 사이드바 */}
         <Route path="/admin" element={<AdminPageMain />} />
+        {/** 관리자 페이지 유저정보 */}
+        <Route path="/adminuser" element={<AdminPageUser />} />
       </Routes>
     </div>
   );

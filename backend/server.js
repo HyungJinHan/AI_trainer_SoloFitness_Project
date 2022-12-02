@@ -357,7 +357,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
   db.query(
     sqlQuery,
     [userNickname, excerciseName, excerciseCount],
-    (err, result) => { }
+    (err, result) => {}
   );
 });
 
@@ -563,7 +563,7 @@ app.post("/challengescoreresult", (req, res) => {
 
   const sqlQuery =
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?;";
-  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => { });
+  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => {});
 });
 
 /** 챌린지 랭킹 닉네임 점수 표시하기 */
@@ -610,6 +610,69 @@ app.post("/mychallengeranking", (req, res) => {
 //   }),
 //   limits: { fileSize: 5 * 1024 * 1024 }, //5mb
 // });
+
+/** 관리자 페이지 성별(남) */
+app.post("/adminusergender", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(USER_SEX) AS MALE FROM USER_TABLE WHERE USER_SEX = 'male';";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 관리자 페이지 성별(여) */
+app.post("/adminusergender2", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(USER_SEX) AS FEMALE FROM USER_TABLE WHERE USER_SEX = 'female';";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 관리자 페이지 유저나이(미성년자)*/
+app.post("/adminuserage1", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(USER_AGE) FROM USER_TABLE WHERE 1 < USER_AGE && USER_AGE < 20;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 관리자 페이지 유저나이(20대)*/
+app.post("/adminuserage2", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(USER_AGE) FROM USER_TABLE WHERE 20 =< USER_AGE && USER_AGE < 30;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 관리자 페이지 유저나이(30대)*/
+app.post("/adminuserage3", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(USER_AGE) FROM USER_TABLE WHERE 30 =< USER_AGE && USER_AGE < 40;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 관리자 페이지 유저나이(40대)*/
+app.post("/adminuserage4", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(USER_AGE) FROM USER_TABLE WHERE 40 =< USER_AGE && USER_AGE < 50;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 관리자 페이지 유저나이(50대이상)*/
+app.post("/adminuserage5", (req, res) => {
+  const sqlQuery =
+    "SELECT COUNT(USER_AGE) FROM USER_TABLE WHERE 50 =< USER_AGE;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
 
 server.listen(3001, () => {
   console.log(`Socket Server Running PORT ${SOCKET_PORT}`);
