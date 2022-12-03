@@ -352,7 +352,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
   db.query(
     sqlQuery,
     [userNickname, excerciseName, excerciseCount],
-    (err, result) => {}
+    (err, result) => { }
   );
 });
 
@@ -570,7 +570,7 @@ app.post("/challengescoreresult", (req, res) => {
 
   const sqlQuery =
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?;";
-  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => {});
+  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => { });
 });
 
 /** 챌린지 랭킹 닉네임 점수 표시하기 */
