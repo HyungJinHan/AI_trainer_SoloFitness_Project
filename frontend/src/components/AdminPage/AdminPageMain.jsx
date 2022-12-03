@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/AdminPage/AdminPageMain.css";
 import user from "../../static/images/KCJ/icons/user.png";
@@ -10,6 +10,8 @@ import weight from "../../static/images/KCJ/icons/weight.png";
 const AdminPageMain = () => {
   const navigator = useNavigate();
   const [expended, setExpended] = useState(true);
+  const [adminName, setAdminName] = useState("김찬진");
+  const [adminJob, setAdminJob] = useState("AI 관리자");
   const menuItems = [
     {
       text: "회원관리",
@@ -27,6 +29,24 @@ const AdminPageMain = () => {
       url: "adminchat",
     },
   ];
+  useEffect(() => {
+    if (window.sessionStorage.getItem === "admin_hhj") {
+      setAdminName("한형진");
+      setAdminJob("총 관리자");
+    } else if (window.sessionStorage.getItem === "admin_jyy") {
+      setAdminName("정영윤");
+      setAdminJob("프론트 관리자");
+    } else if (window.sessionStorage.getItem === "admin_kcj") {
+      setAdminName("김찬진");
+      setAdminJob("AI 관리자");
+    } else if (window.sessionStorage.getItem === "admin_ljj") {
+      setAdminName("이진주");
+      setAdminJob("DB 관리자");
+    } else if (window.sessionStorage.getItem === "admin_hhh") {
+      setAdminName("홍현호");
+      setAdminJob("기획 관리자");
+    }
+  });
   return (
     <div
       className={
@@ -82,9 +102,11 @@ const AdminPageMain = () => {
           <div className="AdminPageMain_menu_nav_details">
             <img src={admin}></img>
             <div className="AdminPageMain_menu_nav_footer_info">
-              <p className="AdminPageMain_menu_nav_footer_user_name">김찬진</p>
+              <p className="AdminPageMain_menu_nav_footer_user_name">
+                {adminName}
+              </p>
               <p className="AdminPageMain_menu_nav_footer_user_position">
-                AI 관리자
+                {adminJob}
               </p>
             </div>
           </div>

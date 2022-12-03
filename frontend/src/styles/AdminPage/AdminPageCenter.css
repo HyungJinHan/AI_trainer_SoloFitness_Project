@@ -2,7 +2,7 @@
   display: flex;
 }
 .AdminPageCenter_sidebar {
-  width: 300px;
+  width: auto;
   display: flex;
 }
 

@@ -1,61 +1,67 @@
 .ChallengeRank_top {
-    margin-bottom: 5.625rem;
+  margin-bottom: 5.625rem;
 }
 
 .ChallengeRank_rank_text {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-top: 5rem;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 5rem;
 }
 
 .ChallengeRank_main_div {
-    margin: 0 auto;
-    margin-top: 1.875rem;
-    width: 25rem;
-    height: 6.25rem;
-    border-radius: 7px;
-    display: flex;
-    background-color: #605E5E;
+  margin: 0 auto;
+  margin-top: 1.875rem;
+  width: 25rem;
+  height: 6.25rem;
+  border-radius: 7px;
+  display: flex;
+  background-color: #605e5e;
 }
 
 .ChallengeRank_main_profile {
-    width: 6.25rem;
-    height: 6.25rem;
-    border-radius: 7px 0 0 7px;
-    background-color: #B8B8B8;
+  width: 6.25rem;
+  height: 6.25rem;
+  border-radius: 7px 0 0 7px;
+  background-color: #b8b8b8;
 }
 
-.ChallengeRank_main_profile img {}
+.ChallengeRank_main_profile img {
+  width: 6.25rem;
+  height: 6.25rem;
+}
+
+.ChallengeRank_main_profile img {
+}
 
 .ChallengeRank_main_rank {
-    display: flex;
-    color: white;
-    font-size: 1.875rem;
-    font-weight: 800;
-    height: 1.875rem;
-    width: 6.25rem;
-    margin-top: 1.625rem;
-    margin-left: 1.25rem;
+  display: flex;
+  color: white;
+  font-size: 1.875rem;
+  font-weight: 800;
+  height: 1.875rem;
+  width: 6.25rem;
+  margin-top: 1.625rem;
+  margin-left: 1.25rem;
 }
 
 .ChallengeRank_main_name {
-    display: flex;
-    color: white;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.5625rem;
-    font-weight: 800;
-    height: 1.875rem;
-    margin-top: .625rem;
+  display: flex;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5625rem;
+  font-weight: 800;
+  height: 1.875rem;
+  margin-top: 0.625rem;
 }
 
 .ChallengeRank_my_rank {
-    /* margin: 0 auto; */
-    width: 100%;
-    height: 6.25rem;
-    display: flex;
-    background-color: #605E5E;
-    position: fixed;
-    bottom: 50px;
-    margin-bottom: .3125rem;
+  /* margin: 0 auto; */
+  width: 100%;
+  height: 6.25rem;
+  display: flex;
+  background-color: #605e5e;
+  position: fixed;
+  bottom: 50px;
+  margin-bottom: 0.3125rem;
 }

@@ -3,7 +3,7 @@
 }
 
 .AdminPageUser_sidebar {
-  width: 300px;
+  width: auto;
   display: flex;
 }
 .AdminPageUser_user_gender_main {
