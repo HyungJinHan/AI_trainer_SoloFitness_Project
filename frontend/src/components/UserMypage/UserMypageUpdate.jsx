@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import '../../styles/UserMyPage/UserMyPage.css';
 import DaumAddressPopup from '../CenterRegister/CenterDaumPostCode/DaumAddressPopup';
 import DaumPostcode from "react-daum-postcode";
+import ex from '../../static/images/HHJ/icons/MainLogo.svg'
+import edit from '../../static/images/HHJ/icons/edit.svg'
+import edit1 from '../../static/images/HHJ/icons/edit1.png'
+import edit2 from '../../static/images/HHJ/icons/edit2.png'
 
 // 회원 정보 수정 컴포넌트, 이름, 아이디, 등록센터 변경 불가능
 // 회원 탈퇴기능도 여기 있다.
@@ -111,20 +115,25 @@ const UserMypageUpdate = (props) => {
         내 정보 수정
       </div>
       <div className='UserMyPage_UpdateBorder'>
-        <div>
-          {infoList.USER_IMAGE && (
-            <img src={imageName} alt="sample" width="9.375rem" height="9.375rem"></img>
-          )}
-        </div>
-        <div>
-          <input
-            id="ex_file"
-            type="file"
-            name="image"
-            accept="image/*"
-            onChange={onImage}
-          />
-        </div>
+        <br />
+        <img className='UserMyPage_image' src={ex} alt="sample" />
+        <label className='UserMyPage_label' for="ex_file">
+          <div className='UserMyPage_profileDiv'>
+            <img className='UserMyPage_profile' src={edit1} alt="sample" />
+          </div>
+        </label>
+        <br />
+        {/* <label className="UserMyPage_imageUpload" for="ex_file">
+          프로필 사진 업로드
+        </label> */}
+        <input
+          style={{ display: "none" }}
+          id="ex_file"
+          type="file"
+          name="image"
+          accept="image/*"
+          onChange={onImage}
+        />
         <div className='UserMyPage_inputDiv'>
           <input
             type='button'

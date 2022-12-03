@@ -213,7 +213,7 @@ const CenterRegisterThird = ({
                   onClick={() => {
                     closePostCode();
                   }}
-                  className="close"
+                  className="UserRegister_button"
                 >
                   닫기
                 </button>
