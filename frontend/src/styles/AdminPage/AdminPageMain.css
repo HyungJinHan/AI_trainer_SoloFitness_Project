@@ -55,7 +55,7 @@
   border: none;
   cursor: pointer;
 
-  margin: auto -35px;
+  margin: auto -0px;
   background-color: #3da2ff;
   border: 2px solid white;
   padding: 20px;
@@ -164,7 +164,7 @@
 }
 
 .AdminPageMain_menu_nav_details img {
-  /* width: 50px; */
+  /* width: 40px; */
   padding: 10px 20px;
 }
 
@@ -179,7 +179,7 @@
 }
 
 .AdminPageMain_menu_log_out {
-  width: 80px;
+  width: 40px;
   margin: auto;
   border-radius: 90px;
   padding: 20px;
