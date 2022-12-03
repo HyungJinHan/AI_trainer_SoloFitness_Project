@@ -12,11 +12,21 @@
 .sa_first_td_img {
   width: 6.25rem;
   height: 6.25rem;
+  margin-left: .25rem;
+  border-top-left-radius: .5625rem;
+  border-bottom-left-radius: .5625rem;
 }
 
 .sa_second_td {
   background-color: #605e5e;
   width: 17rem;
+}
+
+.sa_second_td {
+  width: 18.75rem;
+  height: 6.25rem;
+  border-top-right-radius: .5625rem;
+  border-bottom-right-radius: .5625rem;
 }
 
 /* .sa_first_td {
