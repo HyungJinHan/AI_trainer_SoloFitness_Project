@@ -9,7 +9,9 @@ import "ag-grid-community/styles/ag-theme-alpine.css";
 const AdminPageCenter = () => {
   const [selectedRows, setSelectedRows] = useState([]);
   const [centerData, setCenterData] = useState([{}]);
-  const [centerAccessedUser, setCenterAccessedUser] = useState([{}]);
+  const [centerAccessedUser, setCenterAccessedUser] = useState();
+  const [adminName, setAdminName] = useState("김찬진");
+  const [adminJob, setAdminJob] = useState("AI 관리자");
 
   // headerName <- 테이블 헤더에 보여줄 내용
   // filed <- rowData 정보
@@ -26,6 +28,8 @@ const AdminPageCenter = () => {
       checkboxSelection: true,
       sortable: true,
       width: 250,
+      filter: true,
+      floatingFilter: true,
     },
     {
       headerName: "센터주소",
@@ -62,6 +66,7 @@ const AdminPageCenter = () => {
               centerAddress: list.CENTER_ADRESS,
               centerAccess: list.CENTER_ACCESS_CODE,
               centerPhone: list.CENTER_TEL,
+              centerUser: `${list.USER_COUNT}명`,
             };
           })} // 테이블 데이터
           columnDefs={columnDefs} // 헤더데이터

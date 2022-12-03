@@ -38,7 +38,7 @@ app.use("/uploads", express.static("uploads"));
 
 const db = mysql.createPool({
   host: process.env.DB_HOST,
-  user: process.env.DB_USER,
+  user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   port: process.env.DB_PORT,
@@ -577,16 +577,16 @@ app.post("/challengescore", (req, res) => {
 app.post("/challengescoreresult", (req, res) => {
   var NICKNAME = req.body.Nickname;
   var resultScore = req.body.resultScore1;
-
+  var profile = req.body.profile;
   const sqlQuery =
-    "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?;";
+    "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?";
   db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => {});
 });
 
 /** 챌린지 랭킹 닉네임 점수 표시하기 */
 app.post("/challengerank", (req, res) => {
   const sqlQuery =
-    "SELECT RANK() OVER (ORDER BY CHALLENGE_SCORE DESC) AS RANKING , CHALLENGE_USER, CHALLENGE_SCORE FROM CHALLENGE_TABLE LIMIT 10;";
+    "SELECT RANK() OVER (ORDER BY CHALLENGE_SCORE DESC) AS RANKING , CHALLENGE_USER, CHALLENGE_SCORE, USER_IMAGE FROM CHALLENGE_TABLE INNER JOIN USER_TABLE ON CHALLENGE_TABLE.CHALLENGE_USER = USER_TABLE.USER_NICKNAME LIMIT 10;";
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
@@ -596,7 +596,7 @@ app.post("/challengerank", (req, res) => {
 app.post("/mychallengerank", (req, res) => {
   var NICKNAME = req.body.Nickname;
   const sqlQuery =
-    "SELECT CHALLENGE_USER, CHALLENGE_SCORE FROM CHALLENGE_TABLE WHERE CHALLENGE_USER = ?;";
+    "SELECT CHALLENGE_USER, CHALLENGE_SCORE, USER_IMAGE FROM CHALLENGE_TABLE INNER JOIN USER_TABLE ON CHALLENGE_TABLE.CHALLENGE_USER = USER_TABLE.USER_NICKNAME WHERE CHALLENGE_USER = ?;";
   db.query(sqlQuery, [NICKNAME], (err, result) => {
     res.send(result);
   });
@@ -740,16 +740,8 @@ app.post("/adminuserexec5", (req, res) => {
 
 /** 센터정보 불러오기 */
 app.post("/admincenter", (req, res) => {
-  const sqlQuery = "SELECT * FROM CENTER_TABLE;";
-  db.query(sqlQuery, (err, result) => {
-    res.send(result);
-  });
-});
-
-/** 센터정보 인증코드 확인된 유저 수 카운트 */
-app.post("/admincenteraccesseduser", (req, res) => {
   const sqlQuery =
-    "SELECT CENTER_NAME, COUNT(CENTER_NAME) AS COUNT FROM CENTER_TABLE WHERE CENTER_ACCESS_CODE IN (SELECT USER_ACCESS_CODE FROM USER_TABLE) GROUP BY CENTER_NAME;";
+    "SELECT CENTER_NAME,CENTER_ADRESS,CENTER_ACCESS_CODE,CENTER_TEL, COUNT(USER_ACCESS_CODE) AS USER_COUNT FROM CENTER_TABLE LEFT OUTER JOIN USER_TABLE ON USER_TABLE.USER_ACCESS_CODE = CENTER_TABLE.CENTER_ACCESS_CODE GROUP BY CENTER_NAME,CENTER_ADRESS,CENTER_ACCESS_CODE,CENTER_TEL,USER_ACCESS_CODE;";
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
@@ -760,5 +752,7 @@ server.listen(3001, () => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Node.js Server Running PORT ${PORT}`);
+  console.log(
+    `Node.js Server Running PORT ${PORT} ${process.env.DB_HOST} ${process.env.DB_USERNAME} ${process.env.DB_PASSWORD} ${process.env.DB_DATABASE} ${process.env.DB_PORT}`
+  );
 });

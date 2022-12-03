@@ -2,7 +2,7 @@
   display: flex;
 }
 .AdminPageChat_sidebar {
-  width: 300px;
+  width: auto;
   display: flex;
 }
 

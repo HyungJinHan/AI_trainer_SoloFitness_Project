@@ -7,6 +7,7 @@ import axios from "axios";
 
 const ChallengeRank = () => {
   const [nickname, setNickname] = useState();
+  const [profile, setProfile] = useState();
   const [resultScore, setResultScore] = useState(0);
   const [rank, setRank] = useState([]);
   const [myrank, setMyrank] = useState();
@@ -25,21 +26,6 @@ const ChallengeRank = () => {
             Nickname: nickname,
           })
           .then((res) => {
-            // if (res.data[0]?.CHALLENGE_SQUAT_SCORE === null) {
-            //   res.data[0].CHALLENGE_SQUAT_SCORE = 0;
-            // }
-            // if (res.data[0]?.CHALLENGE_PULLUP_SCORE === null) {
-            //   res.data[0].CHALLENGE_PULLUP_SCORE = 0;
-            // }
-            // if (res.data[0]?.CHALLENGE_PUSHUP_SCORE === null) {
-            //   res.data[0].CHALLENGE_PUSHUP_SCORE = 0;
-            // }
-            // if (res.data[0]?.CHALLENGE_SITUP_SCORE === null) {
-            //   res.data[0].CHALLENGE_SITUP_SCORE = 0;
-            // }
-            // if (res.data[0]?.CHALLENGE_CURL_SCORE === null) {
-            //   res.data[0].CHALLENGE_CURL_SCORE = 0;
-            // }
             const allScore =
               res.data[0]?.CHALLENGE_PULLUP_SCORE * 100 +
               res.data[0]?.CHALLENGE_SQUAT_SCORE * 75 +
@@ -58,7 +44,7 @@ const ChallengeRank = () => {
                   .post("http://localhost:8008/challengerank")
                   .then((res) => {
                     setRank(res.data);
-                    console.log(rank);
+                    console.log("CRANK", rank);
                     axios
                       .post("http://localhost:8008/mychallengerank", {
                         Nickname: nickname,
@@ -78,9 +64,6 @@ const ChallengeRank = () => {
           });
       });
   }, [resultScore]);
-  console.log(myrank);
-  console.log(myRanking);
-
   return (
     <div>
       <div className="ChallengeRank_top">
@@ -89,9 +72,13 @@ const ChallengeRank = () => {
           return (
             <div className="ChallengeRank_main_div" key={index}>
               <div className="ChallengeRank_main_profile">
-                <img src={img1}></img>
+                <img
+                  src={`http://localhost:8008/uploads/${ranklist.USER_IMAGE}`}
+                ></img>
               </div>
-              <div className="ChallengeRank_main_rank">{ranklist.RANKING} 등</div>
+              <div className="ChallengeRank_main_rank">
+                {ranklist.RANKING} 등
+              </div>
               <div className="ChallengeRank_main_name">
                 {ranklist.CHALLENGE_USER}
                 <br />
@@ -103,7 +90,9 @@ const ChallengeRank = () => {
       </div>
       <div className="ChallengeRank_my_rank">
         <div className="ChallengeRank_main_profile">
-          <img src={img1}></img>
+          <img
+            src={`http://localhost:8008/uploads/${myrank?.USER_IMAGE}`}
+          ></img>
         </div>
         <div className="ChallengeRank_main_rank"> {myRanking?.MYRANKING}등</div>
         <div className="ChallengeRank_main_name">
