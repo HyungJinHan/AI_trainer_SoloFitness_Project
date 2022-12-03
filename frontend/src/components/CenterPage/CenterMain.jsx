@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import CenterControl from './CenterControl';
 import ReactPlayer from "react-player";
 import CenterUpload from './CenterUpload';
+import '../../styles/CenterPage/CenterPage.css'
 
 // 센터로 로그인 하면 나타나는 페이지, 센터 회원 현황과 동영상 업로드 가능
 // mode로 컴포넌트를 구분한다.
@@ -59,14 +60,14 @@ function CenterMain() {
 
   if (mode === 0) {
     return (
-      <div>
-        <div>
+      <div className='CenterPage_main'>
+        <div className='CenterPage_info'>
           <div>환영합니다</div>
-          <div>{centerInfo.CENTER_NAME}</div>
-          <div>님</div>
+          <div>{centerInfo.CENTER_NAME} 님</div>
         </div>
         <div>
           <input
+            className='CenterPage_button'
             type='button'
             value='회원 정보 현황'
             onClick={() => {
@@ -76,6 +77,7 @@ function CenterMain() {
         </div>
         <div>
           <input
+            className='CenterPage_button'
             type='button'
             value='동영상 업로드'
             onClick={() => {
@@ -85,6 +87,7 @@ function CenterMain() {
         </div>
         <div>
           <input
+            className='CenterPage_button'
             type="button"
             value="로그아웃"
             onClick={() => {
