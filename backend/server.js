@@ -352,7 +352,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
   db.query(
     sqlQuery,
     [userNickname, excerciseName, excerciseCount],
-    (err, result) => { }
+    (err, result) => {}
   );
 });
 
@@ -488,6 +488,16 @@ app.post("/memberInfo", (req, res) => {
   });
 });
 
+/** 센터 업로드 */
+app.post("/centerupload", (req, res) => {
+  const title = req.body.title;
+  const category = req.body.category;
+  const info = req.body.info;
+  const effect = req.body.effect;
+  const address = req.body.address;
+  // console.log("centerupload(req)->", title, category, info, effect, address);
+});
+
 /** 스쿼트 챌린지 */
 app.post("/squatchallenge", (req, res) => {
   var USER_NICKNAME = req.body.USER_NICKNAME;
@@ -570,7 +580,7 @@ app.post("/challengescoreresult", (req, res) => {
 
   const sqlQuery =
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?;";
-  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => { });
+  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => {});
 });
 
 /** 챌린지 랭킹 닉네임 점수 표시하기 */
