@@ -18,7 +18,8 @@ const SearchArticle = ({ article }) => {
       </div>
       <div className="sa_second_td" height="110px">
         <p className="sa_videotitle">{article.VIDEO_TITLE}</p>
-        <p style={{ color: "#cccbcb", margin: "10px 0" }}>{article.VIDEO_CATEGORY}</p>
+        <p className="sa_videocategory"># {article.VIDEO_CATEGORY}</p>
+        <p className="sa_videowriter">{article.VIDEO_WRITER}</p>
       </div>
     </div>
   );

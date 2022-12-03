@@ -10,7 +10,7 @@ const PORT = 8008;
 const SOCKET_PORT = 3001;
 const multer = require("multer");
 const fs = require("fs");
-const iconv = require("iconv-lite");
+// const iconv = require("iconv-lite");
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
@@ -104,20 +104,11 @@ try {
 const upload = multer({
   storage: multer.diskStorage({
     destination(req, file, done) {
-      done(null, "uploads");
+      done(null, "uploads/");
     },
     filename(req, file, done) {
       const ext = path.extname(file.originalname);
-
-      done(
-        null,
-        path.basename(
-          iconv.decode(file.originalname, "utf-8").toString(),
-          ext // 확장자 제외한 이름
-        ) +
-        Date.now() +
-        ext
-      ); // 날짜 포함해서 새로운 이름 생성
+      done(null, path.basename(file.originalname, ext) + ext);
     },
   }),
   limits: { fileSize: 10 * 1024 * 1024 },
@@ -430,7 +421,7 @@ app.post("/legtheme", (req, res) => {
 });
 
 /** 마이페이지 수정 */
-app.post("/updatemyInfo", upload.single("image"), (req, res) => {
+app.post("/updatemyInfo", upload.single("USER_IMAGE"), (req, res) => {
   var USER_ID = req.body.USER_ID;
   var USER_PW = req.body.USER_PW;
   var USER_NAME = req.body.USER_NAME;
@@ -440,7 +431,6 @@ app.post("/updatemyInfo", upload.single("image"), (req, res) => {
   var USER_TEL = req.body.USER_TEL;
   var USER_SEX = req.body.USER_SEX;
   var USER_ACCESS_CODE = req.body.USER_ACCESS_CODE;
-  var USER_IMAGE = req.body.USER_IMAGE;
 
   const sqlQuery =
     "UPDATE USER_TABLE SET USER_PW = ?,USER_NAME = ?,USER_NICKNAME = ?,USER_EMAIL = ?,USER_ADDRESS = ?,USER_TEL = ?,USER_ACCESS_CODE =?, USER_SEX = ?, USER_IMAGE=? WHERE USER_ID = ?;";
@@ -455,7 +445,7 @@ app.post("/updatemyInfo", upload.single("image"), (req, res) => {
       USER_TEL,
       USER_ACCESS_CODE,
       USER_SEX,
-      USER_IMAGE,
+      req.file.filename,
       USER_ID,
     ],
     (err, result) => {
@@ -610,22 +600,6 @@ app.post("/mychallengeranking", (req, res) => {
     res.send(result);
   });
 });
-
-/** 프로필 사진 업로드 */
-// const upload = multer({
-//   storage: multer.diskStorage({
-//     destination: (req, file, done) => {
-//       done(null, "../frontend/src/static/images/USER_PROFILE");
-//     },
-//     filename: (req, file, done) => {
-//       const ext = path.extname(file.originalname);
-//       const filename =
-//         path.basename(file.originalname, ext) + "_" + Date.now() + ext;
-//       done(null, filename);
-//     },
-//   }),
-//   limits: { fileSize: 5 * 1024 * 1024 }, //5mb
-// });
 
 /** 관리자 페이지 성별(남) */
 app.post("/adminusergender", (req, res) => {
