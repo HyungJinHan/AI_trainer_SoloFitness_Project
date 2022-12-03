@@ -29,6 +29,7 @@ import AdminPageMain from "./components/AdminPage/AdminPageMain";
 import AdminPageUser from "./components/AdminPage/AdminPageUser";
 import AdminPageCenter from "./components/AdminPage/AdminPageCenter";
 import AdminPageChat from "./components/AdminPage/AdminPageChat";
+import CenterVideoList from "./components/CenterPage/CenterVideoList";
 
 const App = () => {
   return (
@@ -44,6 +45,8 @@ const App = () => {
         <Route path="/centerjoin" element={<CenterRegisterMain />} />
         {/** 센터 페이지 */}
         <Route path="/centermain" element={<CenterMain />} />
+        {/* 센터 영상 리스트 */}
+        <Route path="/videolist" element={<CenterVideoList />} />
         {/** 운동 모델 */}
         <Route path="/video" element={<ModelSelect />} />
         {/** 채팅 */}

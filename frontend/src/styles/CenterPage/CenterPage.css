@@ -22,6 +22,14 @@
   margin-top: 1.5625rem;
 }
 
+.CenterPage_info {
+  text-align: left;
+  padding-left: 2.5rem;
+  padding-top: 8.125rem;
+  padding-bottom: 1.875rem;
+  font-size: 1.4375rem;
+}
+
 .CenterPage_input {
   background-color: transparent;
   border: none;
@@ -99,12 +107,25 @@
 
 .CenterPage_inputSolo {
   width: 21.875rem;
-  height: 2.5rem;
-  margin-top: .8125rem;
+  /* height: 2.5rem; */
   background: #F2F2F2;
   border: none;
   border-radius: .4375rem;
-  padding-left: .625rem;
+  margin: 0 auto;
+  margin-top: 1.25rem;
+  padding-top: .625rem;
+  font-size: .9375rem;
+}
+
+.CenterPage_textarea {
+  width: 18.75rem;
+  height: 6.25rem;
+  background: white;
+  /* border: none; */
+  border-radius: .4375rem;
+  margin: 0 auto;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .CenterPage_imageUpload {
@@ -145,4 +166,41 @@
 
 .CenterPage_profileDiv {
   display: inline;
+}
+
+.CenterPage_mainDiv {
+  margin-top: 1.25rem;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.CenterPage_video {
+  /* width: 50%; */
+  text-align: center;
+  display: flex;
+  padding-left: .9375rem;
+  /* padding-top: .3125rem; */
+}
+
+.CenterPage_text {
+  display: flex;
+  text-align: left;
+  padding-left: .625rem;
+  align-items: center;
+}
+
+.CenterPage_page {
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  color: #607eaa;
+}
+
+.CenterPage_page>a {
+  padding: .3125rem;
+}
+
+.center_page {
+  text-align: center;
+  display: inline-block;
 }
