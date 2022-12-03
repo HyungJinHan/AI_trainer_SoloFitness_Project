@@ -1,0 +1,7 @@
+.AdminPageCenter_top_div {
+  display: flex;
+}
+.AdminPageCenter_sidebar {
+  width: 300px;
+  display: flex;
+}

@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 import DaumPostcode from "react-daum-postcode";
-import DaumAddressPopup from '../CenterRegister/CenterDaumPostCode/DaumAddressPopup.jsx';
-import '../../styles/CenterRegister/CenterRegister.css'
+import DaumAddressPopup from "../CenterRegister/CenterDaumPostCode/DaumAddressPopup.jsx";
+import "../../styles/CenterRegister/CenterRegister.css";
+import shortid from "shortid";
 
 // 그외 센터 정보들을 입력받고 회원가입을 시도하는 페이지,
 // 회원가입이 성공하면 센터로그인 페이지로 이동한다.
@@ -12,11 +13,11 @@ const CenterRegisterThird = ({
   setCenterEmail,
   setCenterAccess,
   consoleAll,
-  insertCenter
+  insertCenter,
+  centerAccess,
 }) => {
-
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   const addressRef = useRef();
   const telRef = useRef();
@@ -49,15 +50,13 @@ const CenterRegisterThird = ({
     }
     addressRef.current.value = fullAddress;
     setCenterAddress(fullAddress);
-    setErrorMessage('');
+    setErrorMessage("");
     closePostCode();
   };
 
   const doneJob = () => {
     if (telRef.current.value === "" || telRef.current.value === undefined) {
-      setErrorMessage(
-        '센터 전화번호를 입력하세요.'
-      )
+      setErrorMessage("센터 전화번호를 입력하세요.");
       telRef.current.focus();
       return false;
     } else {
@@ -69,119 +68,116 @@ const CenterRegisterThird = ({
           (ch >= "a" && ch <= "z") ||
           (ch >= "A" && ch <= "Z")
         ) {
-          setErrorMessage(
-            '전화번호는 숫자로만 입력해주세요.'
-          )
+          setErrorMessage("전화번호는 숫자로만 입력해주세요.");
           telRef.current.focus();
           return false;
         }
       }
     }
 
-    setErrorMessage('');
+    setErrorMessage("");
     emailRef.current.focus();
 
     if (emailRef.current.value === "" || emailRef.current.value === undefined) {
-      setErrorMessage(
-        '센터 이메일을 입력해주세요.'
-      )
+      setErrorMessage("센터 이메일을 입력해주세요.");
       emailRef.current.focus();
       return false;
-    }
-    else {
-      setErrorMessage('');
+    } else {
+      setErrorMessage("");
       codeRef.current.focus();
     }
 
     if (codeRef.current.value === "" || codeRef.current.value === undefined) {
-      setErrorMessage(
-        '센터 승인 코드를 입력해주세요.'
-      )
+      setErrorMessage("센터 승인 코드를 입력해주세요.");
       codeRef.current.focus();
       return false;
     }
 
-    if (addressRef.current.value === "" || addressRef.current.value === undefined) {
-      setErrorMessage(
-        '센터 주소를 입력하세요.'
-      )
+    if (
+      addressRef.current.value === "" ||
+      addressRef.current.value === undefined
+    ) {
+      setErrorMessage("센터 주소를 입력하세요.");
       addressRef.current.focus();
       return false;
-    }
-    else {
-      setErrorMessage('');
+    } else {
+      setErrorMessage("");
     }
 
     consoleAll();
     insertCenter();
-  }
+  };
 
   return (
-    <div className='CenterRegister_main'>
-      <div className='CenterRegister_info'>
+    <div className="CenterRegister_main">
+      <div className="CenterRegister_info">
         센터 정보를
         <br />
         입력해주세요.
       </div>
       <div>
         <input
-          className='CenterRegister_inputSolo'
+          className="CenterRegister_inputSolo"
           type="tel"
           name="tel"
           autoComplete="off"
-          defaultValue=''
+          defaultValue=""
           ref={telRef}
           onChange={(e) => {
             setCenterTel(e.target.value);
           }}
           onKeyPress={(e) => {
-            if (e.key === 'Enter') {
+            if (e.key === "Enter") {
               emailRef.current.focus();
             }
           }}
-          placeholder='센터 전화번호를 입력하세요.'
+          placeholder="센터 전화번호를 입력하세요."
         />
       </div>
       <div>
         <input
-          className='CenterRegister_inputSolo'
+          className="CenterRegister_inputSolo"
           type="email"
           name="email"
           autoComplete="off"
-          defaultValue=''
+          defaultValue=""
           ref={emailRef}
           onChange={(e) => {
-            setCenterEmail(e.target.value)
+            setCenterEmail(e.target.value);
           }}
           onKeyPress={(e) => {
-            if (e.key === 'Enter') {
+            if (e.key === "Enter") {
               doneJob();
             }
           }}
-          placeholder='센터 이메일을 입력하세요.'
+          placeholder="센터 이메일을 입력하세요."
         />
       </div>
       <div>
         <input
-          className='CenterRegister_inputSolo'
-          type="text"
+          className="CenterRegister_inputSolo"
           name="code"
+          type="text"
+          readOnly
           autoComplete="off"
-          defaultValue=''
+          defaultValue={centerAccess}
           ref={codeRef}
-          onChange={(e) => {
-            setCenterAccess(e.target.value)
-          }}
+          // onChange={(e) => {
+          //   setCenterAccess(codeRef.current.value);
+          // }}
           onKeyPress={(e) => {
-            if (e.key === 'Enter') {
+            if (e.key === "Enter") {
               doneJob();
             }
           }}
-          placeholder='센터 인증 코드를 입력하세요.'
+          placeholder="센터 인증 코드를 입력하세요."
         />
-        <div className='CenterRegister_inputDiv'>
+        <div className="CenterRegister_error">
+          센터 인증 코드입니다. 유출에 주의해주세요
+        </div>
+        <div className="CenterRegister_inputDiv">
           <input
-            className='CenterRegister_input'
+            className="CenterRegister_input"
             type="text"
             name="address"
             size="20"
@@ -190,7 +186,7 @@ const CenterRegisterThird = ({
             ref={addressRef}
             onClick={() => {
               openPostCode();
-              addressRef.current.value = '';
+              addressRef.current.value = "";
             }}
             onChange={() => {
               openPostCode();
@@ -199,9 +195,9 @@ const CenterRegisterThird = ({
           />
           {/* 버튼 클릭 시 팝업 생성 */}
           <input
-            value='우편번호 검색'
-            type='button'
-            className='CenterRegister_overlap'
+            value="우편번호 검색"
+            type="button"
+            className="CenterRegister_overlap"
             onClick={openPostCode}
           />
         </div>
@@ -225,14 +221,12 @@ const CenterRegisterThird = ({
             </DaumAddressPopup>
           )}
         </div>
-        <div className='CenterRegister_error'>
-          {errorMessage}
-        </div>
+        <div className="CenterRegister_error">{errorMessage}</div>
       </div>
       <div>
         <input
-          value='등록하기'
-          className='CenterRegister_button'
+          value="등록하기"
+          className="CenterRegister_button"
           onClick={doneJob}
         />
       </div>

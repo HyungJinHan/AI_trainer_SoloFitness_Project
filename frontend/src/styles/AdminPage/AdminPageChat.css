@@ -1,0 +1,12 @@
+.AdminPageChat_top_div {
+  display: flex;
+}
+.AdminPageChat_sidebar {
+  width: 300px;
+  display: flex;
+}
+
+.AdminPageChat_Chat {
+  width: 100vw;
+  height: 500px;
+}
