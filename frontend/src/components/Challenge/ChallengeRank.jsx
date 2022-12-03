@@ -82,23 +82,25 @@ const ChallengeRank = () => {
   console.log(myRanking);
 
   return (
-    <div className="ChallengeRank_top_div">
-      <div className="ChallengeRank_rank_text">랭킹</div>
-      {rank.map((ranklist, index) => {
-        return (
-          <div className="ChallengeRank_main_div" key={index}>
-            <div className="ChallengeRank_main_profile">
-              <img src={img1}></img>
+    <div>
+      <div className="ChallengeRank_top">
+        <div className="ChallengeRank_rank_text">랭킹</div>
+        {rank.map((ranklist, index) => {
+          return (
+            <div className="ChallengeRank_main_div" key={index}>
+              <div className="ChallengeRank_main_profile">
+                <img src={img1}></img>
+              </div>
+              <div className="ChallengeRank_main_rank">{ranklist.RANKING} 등</div>
+              <div className="ChallengeRank_main_name">
+                {ranklist.CHALLENGE_USER}
+                <br />
+                {ranklist.CHALLENGE_SCORE}점
+              </div>
             </div>
-            <div className="ChallengeRank_main_rank">{ranklist.RANKING} 등</div>
-            <div className="ChallengeRank_main_name">
-              {ranklist.CHALLENGE_USER}
-              <br />
-              {ranklist.CHALLENGE_SCORE}점
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
       <div className="ChallengeRank_my_rank">
         <div className="ChallengeRank_main_profile">
           <img src={img1}></img>

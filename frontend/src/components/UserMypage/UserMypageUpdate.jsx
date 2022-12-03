@@ -1,13 +1,17 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/UserMyPage/UserMyPage.css';
+import DaumAddressPopup from '../CenterRegister/CenterDaumPostCode/DaumAddressPopup';
+import DaumPostcode from "react-daum-postcode";
 
 // 회원 정보 수정 컴포넌트, 이름, 아이디, 등록센터 변경 불가능
 // 회원 탈퇴기능도 여기 있다.
 
 const UserMypageUpdate = (props) => {
   const navigate = useNavigate();
-
+  const [userAddr, setUserAddr] = useState('');
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const infoList = props.userInfo
   const userImage = `${infoList.USER_IMAGE}`
   console.log('userImage=>', userImage);
@@ -26,6 +30,35 @@ const UserMypageUpdate = (props) => {
 
     console.log(imageName);
   }
+
+  /** 팝업창 열기 */
+  const openPostCode = () => {
+    setIsPopupOpen(true);
+  };
+
+  /** 팝업창 닫기 */
+  const closePostCode = () => {
+    setIsPopupOpen(false);
+  };
+
+  const handlePostCode = (data) => {
+    let fullAddress = data.address;
+    let extraAddress = "";
+
+    if (data.addressType === "R") {
+      if (data.bname !== "") {
+        extraAddress += data.bname;
+      }
+      if (data.buildingName !== "") {
+        extraAddress +=
+          extraAddress !== "" ? `, ${data.buildingName}` : data.buildingName;
+      }
+      fullAddress += extraAddress !== "" ? ` (${extraAddress})` : "";
+    }
+    addrRef.current.value = fullAddress;
+    setUserAddr(fullAddress);
+    closePostCode();
+  };
 
   const updateMyInfo = () => {
     const config = {
@@ -73,125 +106,187 @@ const UserMypageUpdate = (props) => {
   };
 
   return (
-    <div>
-      <div>
-        <p>내 정보 수정</p>
+    <div className='UserMyPage_main'>
+      <div className='UserMyPage_InfoUpdate'>
+        내 정보 수정
       </div>
-      <div>
-        {infoList.USER_IMAGE && (
-          <img src={imageName} alt="sample" width="9.375rem" height="9.375rem"></img>
-        )}
-      </div>
-      <div>
+      <div className='UserMyPage_UpdateBorder'>
+        <div>
+          {infoList.USER_IMAGE && (
+            <img src={imageName} alt="sample" width="9.375rem" height="9.375rem"></img>
+          )}
+        </div>
+        <div>
+          <input
+            id="ex_file"
+            type="file"
+            name="image"
+            accept="image/*"
+            onChange={onImage}
+          />
+        </div>
+        <div className='UserMyPage_inputDiv'>
+          <input
+            type='button'
+            className='UserMyPage_overlap'
+            value='닉네임'
+          />
+          <input
+            className='UserMyPage_input'
+            type='text'
+            name='myname'
+            ref={nicknameRef}
+            autoComplete="off"
+            defaultValue={infoList.USER_NICKNAME}
+          />
+        </div>
+        <div className='UserMyPage_inputDiv'>
+          <input
+            type='button'
+            className='UserMyPage_overlap'
+            value='이름'
+          />
+          <input
+            className='UserMyPage_input'
+            type='text'
+            name='myname'
+            ref={nameRef}
+            autoComplete="off"
+            readOnly
+            defaultValue={infoList.USER_NAME}
+          />
+        </div>
+        <div className='UserMyPage_inputDiv'>
+          <input
+            type='button'
+            className='UserMyPage_overlap'
+            value='아이디'
+          />
+          <input
+            className='UserMyPage_input'
+            type='text'
+            name='myname'
+            ref={idRef}
+            autoComplete="off"
+            readOnly
+            defaultValue={infoList.USER_ID}
+          />
+        </div>
+        <div className='UserMyPage_inputDiv'>
+          <input
+            type='button'
+            className='UserMyPage_overlap'
+            value='비밀번호'
+          />
+          <input
+            className='UserMyPage_input'
+            type='password'
+            name='myname'
+            ref={pwRef}
+            autoComplete="off"
+            defaultValue={infoList.USER_PW}
+          />
+        </div>
+        <div className='UserMyPage_inputDiv'>
+          <input
+            type='button'
+            className='UserMyPage_overlap'
+            value='이메일'
+          />
+          <input
+            className='UserMyPage_input'
+            type='text'
+            name='myname'
+            ref={emailRef}
+            autoComplete="off"
+            defaultValue={infoList.USER_EMAIL}
+          />
+        </div>
+        <div className='UserMyPage_inputDiv'>
+          <input
+            type='button'
+            className='UserMyPage_overlap'
+            value='전화번호'
+          />
+          <input
+            className='UserMyPage_input'
+            type='text'
+            name='mytel'
+            ref={telRef}
+            autoComplete="off"
+            defaultValue={infoList.USER_TEL}
+          />
+        </div>
         <input
-          id="ex_file"
-          type="file"
-          name="image"
-          accept="image/*"
-          onChange={onImage}
-        />
-      </div>
-      <div>
-        <p>닉네임</p>
-        <input
-          type='text'
-          name='myname'
-          ref={nicknameRef}
+          className='UserMyPage_inputAddress'
+          type="text"
+          name="address"
+          size="20"
           autoComplete="off"
-          defaultValue={infoList.USER_NICKNAME}
-        />
-      </div>
-      <div>
-        <p>이름</p>
-        <input
-          type='text'
-          name='myname'
-          ref={nameRef}
-          autoComplete="off"
-          readOnly
-          defaultValue={infoList.USER_NAME}
-        />
-      </div>
-      <div>
-        <p>아이디</p>
-        <input
-          type='text'
-          name='myname'
-          ref={idRef}
-          autoComplete="off"
-          readOnly
-          defaultValue={infoList.USER_ID}
-        />
-      </div>
-      <div>
-        <p>비밀번호</p>
-        <input
-          type='password'
-          name='myname'
-          ref={pwRef}
-          autoComplete="off"
-          defaultValue={infoList.USER_PW}
-        />
-      </div>
-      <div>
-        <p>이메일</p>
-        <input
-          type='text'
-          name='myname'
-          ref={emailRef}
-          autoComplete="off"
-          defaultValue={infoList.USER_EMAIL}
-        />
-      </div>
-      <div>
-        <p>전화번호</p>
-        <input
-          type='text'
-          name='mytel'
-          ref={telRef}
-          autoComplete="off"
-          defaultValue={infoList.USER_TEL}
-        />
-      </div>
-      <div>
-        <p>주소</p>
-        <input
-          type='text'
-          name='myname'
           ref={addrRef}
-          autoComplete="off"
           defaultValue={infoList.USER_ADDRESS}
+          onClick={() => {
+            openPostCode();
+            addrRef.current.value = '';
+          }}
+          onChange={() => {
+            openPostCode();
+            setUserAddr(addrRef.current.value);
+          }}
+          placeholder="우편번호 검색을 이용해주세요."
         />
-      </div>
-      {
-        infoList.USER_ACCESS_CODE === null ? null :
-          <div>
-            <p>등록센터</p>
-            <input
-              type='text'
-              name='myname'
-              ref={addrRef}
-              autoComplete="off"
-              readOnly
-              defaultValue={infoList.USER_ACCESS_CODE}
-            />
-          </div>
-      }
-      <div>
-        <input
-          type='button'
-          name='updatebtn'
-          value='수정하기'
-          onClick={updateMyInfo}
-        />
-      </div>
-      <div>
-        <input
-          type='button'
-          name='deletebtn'
-          value='회원탈퇴'
-          onClick={deleteUser}
-        />
+        {/* 팝업 생성 기준 div */}
+        <div id="popupDom">
+          {isPopupOpen && (
+            <DaumAddressPopup>
+              <div>
+                <DaumPostcode onComplete={handlePostCode} />
+                {/* 닫기 버튼 생성 */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    closePostCode();
+                  }}
+                  className="UserMyPage_button"
+                >
+                  닫기
+                </button>
+              </div>
+            </DaumAddressPopup>
+          )}
+        </div>
+        {
+          infoList.USER_ACCESS_CODE === null ? null :
+            <div>
+              <p>등록센터</p>
+              <input
+                type='text'
+                name='myname'
+                ref={addrRef}
+                autoComplete="off"
+                readOnly
+                defaultValue={infoList.USER_ACCESS_CODE}
+              />
+            </div>
+        }
+        <div>
+          <input
+            className='UserMyPage_button'
+            type='button'
+            name='updatebtn'
+            value='수정하기'
+            onClick={updateMyInfo}
+          />
+        </div>
+        <div>
+          <input
+            className='UserMyPage_button'
+            type='button'
+            name='deletebtn'
+            value='회원탈퇴'
+            onClick={deleteUser}
+          />
+        </div>
       </div>
     </div>
   );
