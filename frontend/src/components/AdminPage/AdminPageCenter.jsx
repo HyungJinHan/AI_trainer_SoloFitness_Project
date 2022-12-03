@@ -8,6 +8,7 @@ const AdminPageCenter = () => {
       <div className="AdminPageCenter_sidebar">
         <AdminPageMain />
       </div>
+      <div></div>
     </div>
   );
 };
