@@ -30,6 +30,7 @@ import AdminPageUser from "./components/AdminPage/AdminPageUser";
 import AdminPageCenter from "./components/AdminPage/AdminPageCenter";
 import AdminPageChat from "./components/AdminPage/AdminPageChat";
 import CenterVideoList from "./components/CenterPage/CenterVideoList";
+import AdminPageLogin from "./components/AdminPage/AdminPageLogin";
 
 const App = () => {
   return (
@@ -78,8 +79,11 @@ const App = () => {
         <Route path="/mainsliderevent" element={<MainSliderEvent />} />
         {/** 챌린지 랭킹 */}
         <Route path="/challengerank" element={<ChallengeRank />} />
+        {/** 관리자 페이지 로그인 */}
+        {/* <Route path="/admin" element={<AdminPageLogin />} /> */}
         {/** 관리자 페이지 사이드바 */}
         <Route path="/admin" element={<AdminPageMain />} />
+        {/* <Route path="/adminmain" element={<AdminPageMain />} /> */}
         {/** 관리자 페이지 유저정보 */}
         <Route path="/adminuser" element={<AdminPageUser />} />
         {/** 관리자 페이지 센터정보 */}

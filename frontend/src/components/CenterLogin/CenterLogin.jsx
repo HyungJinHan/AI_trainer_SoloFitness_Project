@@ -114,7 +114,7 @@ function CenterLogin() {
           className='CenterLogin_input'
           type="text"
           name="id"
-          placeholder="임시 -> 1111111111"
+          placeholder="사업자 등록번호를 입력하세요."
           ref={idRef}
           autoComplete="off"
           maxLength="10"
@@ -130,7 +130,7 @@ function CenterLogin() {
           className='CenterLogin_input'
           type="password"
           name="pw"
-          placeholder="임시 -> 1111111111"
+          placeholder="비밀번호를 입력하세요."
           ref={pwRef}
           autoComplete="off"
           onKeyPress={(e) => {

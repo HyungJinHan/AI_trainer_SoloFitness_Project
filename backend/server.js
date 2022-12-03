@@ -803,6 +803,18 @@ app.post('/registcentervideo', (req, res) => {
   });
 });
 
+app.post("/adminlogin", (req, res) => {
+  const ADMIN_ID = req.body.ADMIN_ID;
+  const ADMIN_PW = req.body.ADMIN_PW;
+
+  const sqlQuery =
+    "SELECT ADMIN_ID, ADMIN_PW, count(*) as 'cnt' FROM ADMIN_TABLE WHERE ADMIN_ID = ? AND ADMIN_PW = ?;";
+
+  db.query(sqlQuery, [ADMIN_ID, ADMIN_PW], (err, result) => {
+    res.send(result);
+  });
+});
+
 server.listen(3001, () => {
   console.log(`Socket Server Running PORT ${SOCKET_PORT}`);
 });

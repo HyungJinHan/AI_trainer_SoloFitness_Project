@@ -1,69 +1,46 @@
-import React, { useState } from 'react';
-import { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import '../../styles/AdminPage/AdminPageLogin.css'
 import MainLogo from '../../static/images/HHJ/icons/MainLogo.svg'
-import '../../styles/UserLogin/UserLogin.css'
 
 const MainCenter = styled.div`
     text-align: center;
     padding-top: 3.125rem;
   `;
 
-// 로그인 페이지 성공하면 메인 페이지 이동
-
-function UserLogin() {
+function AdminPageLogin(props) {
   const [errorKey, setErrorKey] = useState(true);
-
   const [errorMassege, setErrorMassege] = useState('');
-
   const idRef = useRef();
   const pwRef = useRef();
-  const btnRef = useRef();
-
   const navigate = useNavigate();
 
   const handleLogin = () => {
     if (idRef.current.value === "" || idRef.current.value === undefined) {
       setErrorKey(true);
-      setErrorMassege('아이디를 입력하세요.')
-      idRef.current.focus();
-      return false;
-    }
-    if (idRef.current.value.length < 8 || idRef.current.value.length > 15) {
-      setErrorKey(true);
-      setErrorMassege('아이디 길이를 확인하세요.');
+      setErrorMassege('아이디를 입력하세요.');
       idRef.current.focus();
       return false;
     }
     if (pwRef.current.value === "" || pwRef.current.value === undefined) {
       setErrorKey(true);
-      setErrorMassege('패스워드를 입력하세요.')
-      pwRef.current.focus();
-      return false;
-    } else if (pwRef.current.value.length < 8 || pwRef.current.value.length > 15) {
-      setErrorKey(true);
-      setErrorMassege('비밀번호를 길이를 확인하세요.');
+      setErrorMassege('패스워드를 입력하세요.');
       pwRef.current.focus();
       return false;
     }
 
     axios
-      .post("http://localhost:8008/userlogin", {
-        USER_ID: idRef.current.value,
-        USER_PW: pwRef.current.value,
+      .post("http://localhost:8008/adminlogin", {
+        ADMIN_ID: idRef.current.value,
+        ADMIN_PW: pwRef.current.value,
       })
       .then((res) => {
         if (res.data[0].cnt === 1) {
           window.sessionStorage.clear();
-          window.sessionStorage.setItem("userID", idRef.current.value);
-          navigate("/usermain");
-        } else {
-          setErrorKey(true);
-          setErrorMassege('아이디 혹은 비밀번호가 틀렸습니다.');
-          idRef.current.focus();
-          return false;
+          window.sessionStorage.setItem("adminID", idRef.current.value);
+          navigate("/adminmain");
         }
       })
       .catch((e) => {
@@ -79,19 +56,19 @@ function UserLogin() {
       <img
         src={MainLogo}
         alt="undefind"
-        width='60%'
+        width='20%'
       />
       <br />
       <br />
       <br />
       <div>
         <input
-          className='UserLogin_input'
+          className='AdminLogin_input'
           type="text"
           name="id"
           ref={idRef}
           autoComplete="off"
-          placeholder='아이디를 입력하세요.'
+          placeholder='임시 -> admin_hhj'
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               pwRef.current.focus();
@@ -101,28 +78,27 @@ function UserLogin() {
       </div>
       <div>
         <input
-          className='UserLogin_input'
+          className='AdminLogin_input'
           type="password"
           name="pw"
           ref={pwRef}
           autoComplete="off"
-          placeholder='비밀번호를 입력하세요'
+          placeholder='임시 -> hhj961210'
           onKeyPress={(e) => {
             if (e.key === "Enter") {
-              btnRef.current.focus();
+              handleLogin();
             }
           }}
         />
       </div>
-      <div className='UserLogin_error'>
+      <div className='AdminLogin_error'>
         {errorMassege}
       </div>
       <div>
         <input
-          className='UserLogin_button'
+          className='AdminLogin_button'
           value='로그인'
           type='button'
-          ref={btnRef}
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               handleLogin();
@@ -131,14 +107,8 @@ function UserLogin() {
           onClick={handleLogin}
         />
       </div>
-      <div>
-        <a href='http://localhost:3000/userjoin' className='UserLogin_link'>처음이신가요?</a>
-        <br />
-        <br />
-        <a href='http://localhost:3000/centerlogin' className='UserLogin_link'>센터 로그인</a>
-      </div>
     </MainCenter>
   );
 }
 
-export default UserLogin;
+export default AdminPageLogin;
