@@ -57,9 +57,10 @@ io.on("connect", (socket) => {
       text: `${user.name}님 환영합니다.
       ${user.room} 채팅 방입니다.`,
     });
-    socket.broadcast
-      .to(user.room)
-      .emit("message", { user: "System", text: `${user.name}님이 들어오셨습니다.` });
+    socket.broadcast.to(user.room).emit("message", {
+      user: "System",
+      text: `${user.name}님이 들어오셨습니다.`,
+    });
 
     io.to(user.room).emit("roomData", {
       room: user.room,
@@ -115,8 +116,8 @@ const upload = multer({
           iconv.decode(file.originalname, "utf-8").toString(),
           ext // 확장자 제외한 이름
         ) +
-        Date.now() +
-        ext
+          Date.now() +
+          ext
       ); // 날짜 포함해서 새로운 이름 생성
     },
   }),
@@ -360,7 +361,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
   db.query(
     sqlQuery,
     [userNickname, excerciseName, excerciseCount],
-    (err, result) => { }
+    (err, result) => {}
   );
 });
 
@@ -579,7 +580,7 @@ app.post("/challengescoreresult", (req, res) => {
 
   const sqlQuery =
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?;";
-  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => { });
+  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => {});
 });
 
 /** 챌린지 랭킹 닉네임 점수 표시하기 */
@@ -748,6 +749,23 @@ app.post("/adminuserexec4", (req, res) => {
 app.post("/adminuserexec5", (req, res) => {
   const sqlQuery =
     "SELECT COUNT(EXCERCISE_NAME) AS EXEC5 FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = 'curl';";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 센터정보 불러오기 */
+app.post("/admincenter", (req, res) => {
+  const sqlQuery = "SELECT * FROM CENTER_TABLE;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 센터정보 인증코드 확인된 유저 수 카운트 */
+app.post("/admincenteraccesseduser", (req, res) => {
+  const sqlQuery =
+    "SELECT CENTER_NAME, COUNT(CENTER_NAME) AS COUNT FROM CENTER_TABLE WHERE CENTER_ACCESS_CODE IN (SELECT USER_ACCESS_CODE FROM USER_TABLE) GROUP BY CENTER_NAME;";
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
