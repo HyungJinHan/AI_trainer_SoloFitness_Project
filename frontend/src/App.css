@@ -1,0 +1,29 @@
+/* * {
+  padding: 0;
+  margin: 0;
+} */
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "baseFont";
+  src: url("./static/fonts/TTF/LeferiBaseRegular.ttf");
+}
+
+@font-face {
+  font-family: "boldFont";
+  src: url("./static/fonts/TTF/LeferiBaseBold.ttf");
+}
+
+@font-face {
+  font-family: "melonFont";
+  src: url("./static/fonts/EARLYFONT_WATERMELON_SALAD/EF_watermelonSalad.ttf");
+}
+
+* {
+  font-family: 'baseFont';
+}

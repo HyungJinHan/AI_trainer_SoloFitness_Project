@@ -13,7 +13,7 @@ const UserMypageUpdate = (props) => {
   const [userAddr, setUserAddr] = useState('');
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const infoList = props.userInfo
-  const userImage = `${infoList.USER_IMAGE}`
+  const userImage = infoList.USER_IMAGE
   console.log('userImage=>', userImage);
   const [imageName, setImageName] = useState(userImage);
 
@@ -24,11 +24,13 @@ const UserMypageUpdate = (props) => {
   const emailRef = useRef();
   const addrRef = useRef();
   const telRef = useRef();
+  const imageRef = useRef();
+
+  const image = "http://localhost:8008/uploads/" + userImage
 
   function onImage(e) {
-    setImageName(URL.createObjectURL(e.target.files[0]));
-
-    console.log(imageName);
+    // setImageName(URL.createObjectURL(e.target.files[0]));
+    setImageName(e.target.files[0]);
   }
 
   /** 팝업창 열기 */
@@ -112,15 +114,14 @@ const UserMypageUpdate = (props) => {
       </div>
       <div className='UserMyPage_UpdateBorder'>
         <div>
-          {infoList.USER_IMAGE && (
-            <img src={imageName} alt="sample" width="9.375rem" height="9.375rem"></img>
-          )}
+          <img src={image} alt="undefind" />
         </div>
         <div>
           <input
             id="ex_file"
             type="file"
             name="image"
+            ref={imageRef}
             accept="image/*"
             onChange={onImage}
           />
