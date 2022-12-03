@@ -809,6 +809,6 @@ server.listen(3001, () => {
 
 app.listen(PORT, () => {
   console.log(
-    `Node.js Server Running PORT ${PORT} ${process.env.DB_HOST} ${process.env.DB_USERNAME} ${process.env.DB_PASSWORD} ${process.env.DB_DATABASE} ${process.env.DB_PORT}`
+    `Node.js Server Running PORT ${PORT}`
   );
 });
