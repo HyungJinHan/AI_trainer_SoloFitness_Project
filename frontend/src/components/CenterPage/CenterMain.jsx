@@ -88,6 +88,16 @@ function CenterMain() {
         <div>
           <input
             className='CenterPage_button'
+            type='button'
+            value='업로드한 동영상 목록'
+            onClick={() => {
+              navigate('/videolist');
+            }}
+          />
+        </div>
+        <div>
+          <input
+            className='CenterPage_button'
             type="button"
             value="로그아웃"
             onClick={() => {

@@ -352,7 +352,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
   db.query(
     sqlQuery,
     [userNickname, excerciseName, excerciseCount],
-    (err, result) => {}
+    (err, result) => { }
   );
 });
 
@@ -495,7 +495,41 @@ app.post("/centerupload", (req, res) => {
   const info = req.body.info;
   const effect = req.body.effect;
   const address = req.body.address;
-  // console.log("centerupload(req)->", title, category, info, effect, address);
+  const part = req.body.part;
+  const prepare = req.body.prepare;
+  const writer = req.body.writer;
+
+  const sqlQuery =
+    "INSERT INTO CT_VIDEO_TABLE (CT_VIDEO_TITLE, CT_VIDEO_WRITER, CT_VIDEO_CATEGORY, CT_VIDEO_ADDRESS, CT_VIDEO_INFO, CT_VIDEO_BODY_PART, CT_VIDEO_EFFECT, CT_VIDEO_PREPARE) VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
+
+  db.query(sqlQuery, [title, writer, category, address, info, part, effect, prepare], (err, result) => {
+  });
+});
+
+app.post("/videocount", (req, res) => {
+  var CT_VIDEO_WRITER = req.body.CT_VIDEO_WRITER;
+
+  const sqlQuery =
+    "SELECT COUNT(*) AS COUNT FROM CT_VIDEO_TABLE WHERE CT_VIDEO_WRITER = ?;";
+  db.query(sqlQuery, [CT_VIDEO_WRITER], (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 센터 영상 리스트 조회 */
+app.post("/videolist", (req, res) => {
+
+  var page_num = parseInt(req.body.page_num);
+  var page_size = parseInt(req.body.page_size);
+  const start_limit = (page_num - 1) * page_size;
+
+  const CT_VIDEO_WRITER = req.body.CT_VIDEO_WRITER;
+
+  const sqlQuery = "SELECT * FROM CT_VIDEO_TABLE WHERE CT_VIDEO_WRITER = ? LIMIT ?, ?;";
+
+  db.query(sqlQuery, [CT_VIDEO_WRITER, start_limit, page_size], (err, result) => {
+    res.send(result);
+  });
 });
 
 /** 스쿼트 챌린지 */
@@ -506,7 +540,6 @@ app.post("/squatchallenge", (req, res) => {
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SQUAT_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SQUAT_SCORE = ?;";
 
   db.query(sqlQuery, [USER_NICKNAME, USER_SCORE, USER_SCORE], (err, result) => {
-    console.log("err", err);
     console.log("result", result);
   });
 });
@@ -519,7 +552,6 @@ app.post("/pullupchallenge", (req, res) => {
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_PULLUP_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_PULLUP_SCORE = ?;";
 
   db.query(sqlQuery, [USER_NICKNAME, USER_SCORE, USER_SCORE], (err, result) => {
-    console.log("err", err);
     console.log("result", result);
   });
 });
@@ -532,7 +564,6 @@ app.post("/pushupchallenge", (req, res) => {
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_PUSHUP_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_PUSHUP_SCORE = ?;";
 
   db.query(sqlQuery, [USER_NICKNAME, USER_SCORE, USER_SCORE], (err, result) => {
-    console.log("err", err);
     console.log("result", result);
   });
 });
@@ -545,7 +576,6 @@ app.post("/situpchallenge", (req, res) => {
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SITUP_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SITUP_SCORE = ?;";
 
   db.query(sqlQuery, [USER_NICKNAME, USER_SCORE, USER_SCORE], (err, result) => {
-    console.log("err", err);
     console.log("result", result);
   });
 });
@@ -558,7 +588,6 @@ app.post("/curlchallenge", (req, res) => {
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_CURL_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_CURL_SCORE = ?;";
 
   db.query(sqlQuery, [USER_NICKNAME, USER_SCORE, USER_SCORE], (err, result) => {
-    console.log("err", err);
     console.log("result", result);
   });
 });
@@ -580,7 +609,7 @@ app.post("/challengescoreresult", (req, res) => {
 
   const sqlQuery =
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?;";
-  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => {});
+  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => { });
 });
 
 /** 챌린지 랭킹 닉네임 점수 표시하기 */
@@ -751,6 +780,33 @@ app.post("/admincenteraccesseduser", (req, res) => {
   const sqlQuery =
     "SELECT CENTER_NAME, COUNT(CENTER_NAME) AS COUNT FROM CENTER_TABLE WHERE CENTER_ACCESS_CODE IN (SELECT USER_ACCESS_CODE FROM USER_TABLE) GROUP BY CENTER_NAME;";
   db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.post('/maincenterinfo', (req, res) => {
+  var USER_ID = req.body.USER_ID;
+
+  const sqlQuery = 'SELECT * FROM CENTER_TABLE WHERE CENTER_ACCESS_CODE = (SELECT USER_ACCESS_CODE FROM USER_TABLE WHERE USER_ID = ?);'
+  db.query(sqlQuery, [USER_ID], (err, result) => {
+    res.send(result);
+  });
+});
+
+app.post('/codeinfo', (req, res) => {
+  var USER_ID = req.body.USER_ID;
+
+  const sqlQuery = 'SELECT USER_ACCESS_CODE FROM USER_TABLE WHERE USER_ID = ?;'
+  db.query(sqlQuery, [USER_ID], (err, result) => {
+    res.send(result);
+  });
+});
+
+app.post('/registcentervideo', (req, res) => {
+  var CENTER_ID = req.body.CENTER_ID;
+
+  const sqlQuery = 'SELECT * FROM CT_VIDEO_TABLE WHERE CT_VIDEO_WRITER = ?;'
+  db.query(sqlQuery, [CENTER_ID], (err, result) => {
     res.send(result);
   });
 });

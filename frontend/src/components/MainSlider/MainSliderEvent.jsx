@@ -8,7 +8,7 @@ import Event from '../../static/images/HHJ/Event/Event1.jpg'
 function MainSliderEvent(props) {
   return (
     <div>
-      <div className='MainSlider_themeTitle'>
+      <div className='MainSlider_themeGray'>
         피트니스 센터 이벤트
       </div>
       <Swiper
@@ -21,7 +21,7 @@ function MainSliderEvent(props) {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        speed={2500}
+        speed={3500}
         className="mySwiper"
       >
         <SwiperSlide>

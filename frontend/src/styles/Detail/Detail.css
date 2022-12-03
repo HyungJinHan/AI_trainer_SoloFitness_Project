@@ -1,44 +1,85 @@
+.detail_main {
+  text-align: center;
+}
+
+.detail_image {
+  position: relative;
+}
+
+.detail_textDiv {
+  position: absolute;
+  top: 50%;
+}
+
 .detail_exerName {
   font-size: 2.25rem;
-  margin: 15px 0;
-}
-
-.detail_exerstart {
-  width: 17.87rem;
-  height: 2.8125rem;
-  background: #f2f2f2;
-  border: none;
-  border-radius: 0.5375rem;
-  display: flex;
-  margin: 0 auto;
-}
-
-.detail_exerstart input:first-child {
-  background-color: transparent;
-  border: none;
-  width: 8.75rem;
-  font-size: 15px;
-  padding-left: 0.625rem;
-  /* text-align: center; */
-}
-
-.detail_exerstart input:last-child {
-  width: 9.12rem;
-  background-color: transparent;
-  border: none;
-  background: #3da2ff;
+  text-align: center;
+  margin-top: 1.25rem;
+  background: #3DA2FF;
+  border-radius: 0px 10px 10px 0px;
+  padding: .3125rem;
+  margin-bottom: .625rem;
+  padding-left: 1.875rem;
   color: white;
-  border-radius: 0.5375rem;
-  font-size: 18px;
 }
 
-.detail_text {
-  /* text-align: justify; */
+.detail_category {
+  font-size: 1.125rem;
+  text-align: center;
+  background: #3DA2FF;
+  border-radius: 0px 10px 10px 0px;
+  padding: .3125rem;
+  margin-bottom: .625rem;
+  padding-left: 1.875rem;
+  color: white;
+}
+
+.detail_prepare {
+  color: #3DA2FF;
   text-align: left;
-  word-break: keep-all;
+  padding-left: .625rem;
+  padding-top: .625rem;
+  font-size: 1.125rem;
 }
 
-.UserRegister_genderDiv {
+.detail_title {
+  color: #3DA2FF;
+  text-align: left;
+  padding-left: .625rem;
+  padding-top: .625rem;
+  font-size: 1.5625rem;
+}
+
+.detail_article {
+  text-align: left;
+  padding-left: .625rem;
+  padding-top: .625rem;
+}
+
+.detail_inputSolo {
+  width: 12.5rem;
+  height: 2.5rem;
+  margin-top: .8125rem;
+  background: #F2F2F2;
+  border: none;
+  border-radius: .4375rem;
+  text-align: center;
+  margin-bottom: .625rem;
+}
+
+.detail_inputChallenge {
+  width: 12.5rem;
+  height: 2.5rem;
+  margin-top: .8125rem;
+  background: #F2F2F2;
+  border: none;
+  border-radius: .4375rem;
+  text-align: center;
+  color: red;
+  margin-bottom: .625rem;
+}
+
+.detail_inputDiv {
   text-align: center;
   width: 21.875rem;
   height: 2.5rem;
@@ -46,9 +87,10 @@
   display: flex;
   margin: 0 auto;
   margin-top: .8125rem;
+  margin-bottom: 1.25rem;
 }
 
-.UserRegister_maleTrue {
+.detail_execTrue {
   width: 50%;
   height: 2.5rem;
   background: #3DA2FF;
@@ -57,16 +99,16 @@
   color: white;
 }
 
-.UserRegister_femaleTrue {
+.detail_challengeTrue {
   width: 50%;
   height: 2.5rem;
-  background: #3DA2FF;
+  background: #fa6f6f;
   border: none;
   border-radius: 0rem .3125rem .3125rem 0rem;
   color: white;
 }
 
-.UserRegister_maleFalse {
+.detail_execFalse {
   width: 50%;
   height: 2.5rem;
   background: #F2F2F2;
@@ -74,10 +116,45 @@
   border-radius: .3125rem 0rem 0rem .3125rem;
 }
 
-.UserRegister_femaleFalse {
+.detail_challengeFalse {
   width: 50%;
   height: 2.5rem;
   background: #F2F2F2;
   border: none;
   border-radius: 0rem .3125rem .3125rem 0rem;
 }
+
+/* .detail_exerstart {
+  width: 21.875rem;
+  height: 2.5rem;
+  margin-top: .8125rem;
+  background: #F2F2F2;
+  border: none;
+  border-radius: .4375rem;
+  padding-left: .625rem;
+} */
+
+/* .detail_exerstart input:first-child {
+  background-color: transparent;
+  border: none;
+  width: 8.75rem;
+  font-size: 15px;
+  padding-left: 0.625rem;
+  text-align: center;
+} */
+
+/* .detail_exerstart input:last-child {
+  width: 9.12rem;
+  background-color: transparent;
+  border: none;
+  background: #3da2ff;
+  color: white;
+  border-radius: 0.5375rem;
+  font-size: 18px;
+} */
+
+/* .detail_text {
+  text-align: justify;
+  text-align: left;
+  word-break: keep-all;
+} */

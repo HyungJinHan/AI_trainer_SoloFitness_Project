@@ -118,7 +118,7 @@ const UserMypageUpdate = (props) => {
       </div>
       <div className='UserMyPage_UpdateBorder'>
         <br />
-        <img className='UserMyPage_image' src={image} alt="undefind"/>
+        <img className='UserMyPage_image' src={image} alt="undefind" />
         <label className='UserMyPage_label' for="ex_file">
           <div className='UserMyPage_profileDiv'>
             <img className='UserMyPage_profile' src={edit1} alt="sample" />
@@ -131,11 +131,11 @@ const UserMypageUpdate = (props) => {
         <input
           style={{ display: "none" }}
           id="ex_file"
-            type="file"
-            name="image"
-            ref={imageRef}
-            accept="image/*"
-            onChange={onImage}
+          type="file"
+          name="image"
+          ref={imageRef}
+          accept="image/*"
+          onChange={onImage}
         />
         <div className='UserMyPage_inputDiv'>
           <input
@@ -267,7 +267,7 @@ const UserMypageUpdate = (props) => {
             </DaumAddressPopup>
           )}
         </div>
-        {
+        {/* {
           infoList.USER_ACCESS_CODE === null ? null :
             <div>
               <p>등록센터</p>
@@ -280,7 +280,7 @@ const UserMypageUpdate = (props) => {
                 defaultValue={infoList.USER_ACCESS_CODE}
               />
             </div>
-        }
+        } */}
         <div>
           <input
             className='UserMyPage_button'

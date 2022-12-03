@@ -29,7 +29,7 @@ function MainSliderTheme(props) {
 
   return (
     <div>
-      <div className='MainSlider_themeTitle'>
+      <div className='MainSlider_themeWhite'>
         일어나... 하체해야지...
       </div>
       <Swiper
