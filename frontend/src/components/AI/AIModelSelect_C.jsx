@@ -2,7 +2,7 @@ import VideoModelC from "./AIVideoModelC";
 import queryString from "query-string";
 import React, { Suspense, useRef } from "react";
 import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../../styles/AI/AIRenderTime.css";
 import "../../styles/AI/AIModelSelect_C.css";
@@ -58,45 +58,66 @@ const AIModelSelect_C = () => {
   const challengeResisterFunc = () => {
     if (execiseCategories_C === "squat") {
       alert("챌린지 등록 성공!");
-      axios.post("http://localhost:8008/squatchallenge", {
-        USER_NICKNAME: nickname,
-        USER_SCORE: counter,
-      });
+      axios
+        .post("http://localhost:8008/squatchallenge", {
+          USER_NICKNAME: nickname,
+          USER_SCORE: counter,
+        })
+        .then((res) => {
+          navigator('/challengerank');
+        })
     }
     if (execiseCategories_C === "pullup") {
       alert("챌린지 등록 성공!");
-      axios.post("http://localhost:8008/pullupchallenge", {
-        USER_NICKNAME: nickname,
-        USER_SCORE: counter,
-      });
+      axios
+        .post("http://localhost:8008/pullupchallenge", {
+          USER_NICKNAME: nickname,
+          USER_SCORE: counter,
+        })
+        .then((res) => {
+          navigator('/challengerank');
+        })
     }
     if (execiseCategories_C === "pushup") {
       alert("챌린지 등록 성공!");
-      axios.post("http://localhost:8008/pushupchallenge", {
-        USER_NICKNAME: nickname,
-        USER_SCORE: counter,
-      });
+      axios
+        .post("http://localhost:8008/pushupchallenge", {
+          USER_NICKNAME: nickname,
+          USER_SCORE: counter,
+        })
+        .then((res) => {
+          navigator('/challengerank');
+        })
     }
     if (execiseCategories_C === "situp") {
       alert("챌린지 등록 성공!");
-      axios.post("http://localhost:8008/situpchallenge", {
-        USER_NICKNAME: nickname,
-        USER_SCORE: counter,
-      });
+      axios
+        .post("http://localhost:8008/situpchallenge", {
+          USER_NICKNAME: nickname,
+          USER_SCORE: counter,
+        })
+        .then((res) => {
+          navigator('/challengerank');
+        })
     }
     if (execiseCategories_C === "curl") {
       alert("챌린지 등록 성공!");
-      axios.post("http://localhost:8008/curlchallenge", {
-        USER_NICKNAME: nickname,
-        USER_SCORE: counter,
-      });
+      axios
+        .post("http://localhost:8008/curlchallenge", {
+          USER_NICKNAME: nickname,
+          USER_SCORE: counter,
+        })
+        .then((res) => {
+          navigator('/challengerank');
+        })
     }
   };
 
-  const goToMain = () => {
-    navigator("/usermain");
+  const goToDetail = () => {
+    navigator(`/detail${location.search}`);
     window.location.reload();
   };
+
   return (
     <div className="modelC">
       {secondRender === true ? (
@@ -153,7 +174,7 @@ const AIModelSelect_C = () => {
               챌린지에 등록하시겠습니까?
             </div>
             <div className="AIModelSelect_C_challenge_bottom_div">
-              <div className="AIModelSelect_C_challenge_no" onClick={goToMain}>
+              <div className="AIModelSelect_C_challenge_no" onClick={goToDetail}>
                 아니요
               </div>
               <div

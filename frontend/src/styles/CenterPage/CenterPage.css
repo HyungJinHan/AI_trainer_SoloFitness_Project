@@ -1,0 +1,206 @@
+.CenterPage_main {
+  text-align: center;
+}
+
+.CenterPage_info {
+  text-align: left;
+  padding-left: 2.5rem;
+  padding-top: 8.125rem;
+  padding-bottom: 1.875rem;
+  font-size: 1.4375rem;
+}
+
+.CenterPage_inputDiv {
+  text-align: center;
+  width: 21.875rem;
+  height: 2.5rem;
+  background: #F2F2F2;
+  border: none;
+  border-radius: .4375rem;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 1.5625rem;
+}
+
+.CenterPage_info {
+  text-align: left;
+  padding-left: 2.5rem;
+  padding-top: 8.125rem;
+  padding-bottom: 1.875rem;
+  font-size: 1.4375rem;
+}
+
+.CenterPage_input {
+  background-color: transparent;
+  border: none;
+  width: 18.875rem;
+  height: 2.5rem;
+  padding-right: 1.25rem;
+  text-align: right;
+}
+
+.CenterPage_overlap {
+  background-color: transparent;
+  border: none;
+  padding-left: 1.25rem;
+  /* background: #3DA2FF; */
+  /* color: white; */
+  border-radius: .4375rem 0rem 0rem .4375rem;
+}
+
+.CenterPage_inputAddress {
+  text-align: center;
+  /* padding-left: 1.25rem; */
+  width: 21.875rem;
+  height: 2.5rem;
+  background: #F2F2F2;
+  border: none;
+  border-radius: .4375rem;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 1.5625rem;
+}
+
+.CenterPage_UpdateBorder {
+  border: .0625rem solid #3DA2FF;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.CenterPage_InfoUpdate {
+  margin: 0 auto;
+  margin-top: 3.125rem;
+  width: 90%;
+  height: 1.875rem;
+  color: white;
+  background: #3DA2FF;
+  border-radius: 20px 20px 0px 0px;
+  padding-top: .75rem;
+  border: .0625rem solid #3DA2FF;
+  font-weight: 1000;
+  font-size: 1.0625rem;
+}
+
+.CenterPage_button {
+  width: 21.875rem;
+  height: 2.5rem;
+  margin: .625rem;
+  margin-top: 1.25rem;
+  background: #3DA2FF;
+  border-radius: 24px;
+  border: none;
+  color: white;
+  font-style: normal;
+  font-weight: 1000;
+  font-size: 1.0625rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+
+.CenterPage_error {
+  text-align: left;
+  padding-top: .625rem;
+  padding-left: 2.8125rem;
+  color: red;
+  font-size: .8125rem;
+}
+
+.CenterPage_inputSolo {
+  width: 21.875rem;
+  /* height: 2.5rem; */
+  background: #F2F2F2;
+  border: none;
+  border-radius: .4375rem;
+  margin: 0 auto;
+  margin-top: 1.25rem;
+  padding-top: .625rem;
+  font-size: .9375rem;
+}
+
+.CenterPage_textarea {
+  width: 18.75rem;
+  height: 6.25rem;
+  background: white;
+  /* border: none; */
+  border-radius: .4375rem;
+  margin: 0 auto;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.CenterPage_imageUpload {
+  width: 21.875rem;
+  height: 2.5rem;
+  margin: .625rem;
+  margin-top: 1.25rem;
+  background: #3DA2FF;
+  border-radius: 24px;
+  border: none;
+  color: white;
+  font-style: normal;
+  font-weight: 1000;
+  font-size: 1.0625rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: .625rem;
+  padding-bottom: .625rem;
+}
+
+.CenterPage_image {
+  width: 150px;
+  height: 150px;
+  background: #F4F4F4;
+  border-radius: 50%;
+  margin-left: 2.5rem;
+  display: inline;
+}
+
+.CenterPage_profile {
+  width: 1.875rem;
+  height: 1.875rem;
+  /* background: #424242; */
+  /* border-radius: 50%; */
+}
+
+.CenterPage_profileDiv {
+  display: inline;
+}
+
+.CenterPage_mainDiv {
+  margin-top: 1.25rem;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.CenterPage_video {
+  /* width: 50%; */
+  text-align: center;
+  display: flex;
+  padding-left: .9375rem;
+  /* padding-top: .3125rem; */
+}
+
+.CenterPage_text {
+  display: flex;
+  text-align: left;
+  padding-left: .625rem;
+  align-items: center;
+}
+
+.CenterPage_page {
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  color: #607eaa;
+}
+
+.CenterPage_page>a {
+  padding: .3125rem;
+}
+
+.center_page {
+  text-align: center;
+  display: inline-block;
+}

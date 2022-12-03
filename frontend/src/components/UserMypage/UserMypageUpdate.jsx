@@ -117,10 +117,10 @@ const UserMypageUpdate = (props) => {
       <div className="UserMyPage_InfoUpdate">내 정보 수정</div>
       <div className="UserMyPage_UpdateBorder">
         <br />
-        <img className="UserMyPage_image" src={image} alt="undefind" />
-        <label className="UserMyPage_label" for="ex_file">
-          <div className="UserMyPage_profileDiv">
-            <img className="UserMyPage_profile" src={edit1} alt="sample" />
+        <img className='UserMyPage_image' src={image} alt="undefind" />
+        <label className='UserMyPage_label' for="ex_file">
+          <div className='UserMyPage_profileDiv'>
+            <img className='UserMyPage_profile' src={edit1} alt="sample" />
           </div>
         </label>
         <br />
@@ -250,19 +250,20 @@ const UserMypageUpdate = (props) => {
             </DaumAddressPopup>
           )}
         </div>
-        {infoList.USER_ACCESS_CODE === null ? null : (
-          <div>
-            <p>등록센터</p>
-            <input
-              type="text"
-              name="myname"
-              ref={addrRef}
-              autoComplete="off"
-              readOnly
-              defaultValue={infoList.USER_ACCESS_CODE}
-            />
-          </div>
-        )}
+        {/* {
+          infoList.USER_ACCESS_CODE === null ? null :
+            <div>
+              <p>등록센터</p>
+              <input
+                type='text'
+                name='myname'
+                ref={addrRef}
+                autoComplete="off"
+                readOnly
+                defaultValue={infoList.USER_ACCESS_CODE}
+              />
+            </div>
+        } */}
         <div>
           <input
             className="UserMyPage_button"

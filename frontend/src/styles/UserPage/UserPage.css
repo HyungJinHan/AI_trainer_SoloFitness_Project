@@ -10,4 +10,34 @@
   background-color: whitesmoke;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+  box-shadow: 0px 3px 15px;
+}
+
+.UserMain_center {
+  /* width: 100%; */
+  text-align: center;
+  background-color: whitesmoke;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  box-shadow: 0px 3px 15px;
+}
+
+.UserMain_centerTitle {
+  text-align: left;
+  padding-left: 1.25rem;
+  padding-bottom: 1.25rem;
+  font-size: 1.25rem;
+}
+
+.UserMain_centerMap {
+  padding-left: 3.75rem;
+  padding-right: 3.125rem;
+}
+
+.UserMain_centerContents {
+  /* text-align: left; */
+  padding-left: 1.25rem;
+  padding-bottom: 1.25rem;
+  padding-top: .9375rem;
+  font-size: 1.25rem;
 }

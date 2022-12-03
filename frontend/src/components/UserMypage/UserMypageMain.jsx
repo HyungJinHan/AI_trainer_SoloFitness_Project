@@ -28,6 +28,7 @@ function UserMypageMain() {
       });
 
   };
+
   useEffect(() => {
     loadUserInfo();
   }, [mode,]);
