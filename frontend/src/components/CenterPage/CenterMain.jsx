@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import CenterControl from './CenterControl';
 import ReactPlayer from "react-player";
+import CenterUpload from './CenterUpload';
 
 // 센터로 로그인 하면 나타나는 페이지, 센터 회원 현황과 동영상 업로드 가능
 // mode로 컴포넌트를 구분한다.
@@ -75,6 +76,15 @@ function CenterMain() {
         </div>
         <div>
           <input
+            type='button'
+            value='동영상 업로드'
+            onClick={() => {
+              setMode(2);
+            }}
+          />
+        </div>
+        <div>
+          <input
             type="button"
             value="로그아웃"
             onClick={() => {
@@ -90,6 +100,12 @@ function CenterMain() {
     return (
       <div>
         <CenterControl setMode={setMode} memberInfo={memberInfo} />
+      </div>
+    )
+  } else if (mode === 2) {
+    return (
+      <div>
+        <CenterUpload setMode={setMode} />
       </div>
     )
   }

@@ -57,9 +57,10 @@ io.on("connect", (socket) => {
       text: `${user.name}님 환영합니다.
       ${user.room} 채팅 방입니다.`,
     });
-    socket.broadcast
-      .to(user.room)
-      .emit("message", { user: "System", text: `${user.name}님이 들어오셨습니다.` });
+    socket.broadcast.to(user.room).emit("message", {
+      user: "System",
+      text: `${user.name}님이 들어오셨습니다.`,
+    });
 
     io.to(user.room).emit("roomData", {
       room: user.room,
@@ -115,8 +116,8 @@ const upload = multer({
           iconv.decode(file.originalname, "utf-8").toString(),
           ext // 확장자 제외한 이름
         ) +
-        Date.now() +
-        ext
+          Date.now() +
+          ext
       ); // 날짜 포함해서 새로운 이름 생성
     },
   }),
@@ -360,7 +361,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
   db.query(
     sqlQuery,
     [userNickname, excerciseName, excerciseCount],
-    (err, result) => { }
+    (err, result) => {}
   );
 });
 
@@ -497,6 +498,16 @@ app.post("/memberInfo", (req, res) => {
   });
 });
 
+/** 센터 업로드 */
+app.post("/centerupload", (req, res) => {
+  const title = req.body.title;
+  const category = req.body.category;
+  const info = req.body.info;
+  const effect = req.body.effect;
+  const address = req.body.address;
+  // console.log("centerupload(req)->", title, category, info, effect, address);
+});
+
 /** 스쿼트 챌린지 */
 app.post("/squatchallenge", (req, res) => {
   var USER_NICKNAME = req.body.USER_NICKNAME;
@@ -579,7 +590,7 @@ app.post("/challengescoreresult", (req, res) => {
 
   const sqlQuery =
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?;";
-  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => { });
+  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => {});
 });
 
 /** 챌린지 랭킹 닉네임 점수 표시하기 */
