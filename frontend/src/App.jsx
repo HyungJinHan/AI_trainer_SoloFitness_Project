@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import ModelSelect from "./components/AI/AIModelSelect";
 import UserPageMain from "./components/UserPage/UserPageMain";
