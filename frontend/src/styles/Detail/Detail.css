@@ -37,3 +37,47 @@
   text-align: left;
   word-break: keep-all;
 }
+
+.UserRegister_genderDiv {
+  text-align: center;
+  width: 21.875rem;
+  height: 2.5rem;
+  border-radius: .4375rem;
+  display: flex;
+  margin: 0 auto;
+  margin-top: .8125rem;
+}
+
+.UserRegister_maleTrue {
+  width: 50%;
+  height: 2.5rem;
+  background: #3DA2FF;
+  border: none;
+  border-radius: .3125rem 0rem 0rem .3125rem;
+  color: white;
+}
+
+.UserRegister_femaleTrue {
+  width: 50%;
+  height: 2.5rem;
+  background: #3DA2FF;
+  border: none;
+  border-radius: 0rem .3125rem .3125rem 0rem;
+  color: white;
+}
+
+.UserRegister_maleFalse {
+  width: 50%;
+  height: 2.5rem;
+  background: #F2F2F2;
+  border: none;
+  border-radius: .3125rem 0rem 0rem .3125rem;
+}
+
+.UserRegister_femaleFalse {
+  width: 50%;
+  height: 2.5rem;
+  background: #F2F2F2;
+  border: none;
+  border-radius: 0rem .3125rem .3125rem 0rem;
+}

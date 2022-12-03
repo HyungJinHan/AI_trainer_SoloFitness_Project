@@ -1,0 +1,74 @@
+.UserMyPage_main {
+  text-align: center;
+}
+
+.UserMyPage_info {
+  text-align: left;
+  padding-left: 2.5rem;
+  padding-top: 8.125rem;
+  padding-bottom: 1.875rem;
+  font-size: 1.4375rem;
+}
+
+.UserMyPage_inputDiv {
+  text-align: center;
+  width: 21.875rem;
+  height: 2.5rem;
+  background: #F2F2F2;
+  border: none;
+  border-radius: .4375rem;
+  display: flex;
+  margin: 0 auto;
+  margin-top: .8125rem;
+}
+
+.UserMyPage_input {
+  background-color: transparent;
+  border: none;
+  width: 18.875rem;
+  height: 2.5rem;
+  padding-left: .625rem;
+}
+
+.UserMyPage_overlap {
+  background-color: transparent;
+  border: none;
+  background: #3DA2FF;
+  color: white;
+  border-radius: 0rem .4375rem .4375rem 0rem;
+}
+
+.UserMyPage_button {
+  width: 21.875rem;
+  height: 2.5rem;
+  margin: .625rem;
+  margin-top: 1.25rem;
+  background: #3DA2FF;
+  border-radius: 24px;
+  border: none;
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 1000;
+  font-size: 1.0625rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+
+.UserMyPage_error {
+  text-align: left;
+  padding-top: .625rem;
+  padding-left: 2.8125rem;
+  color: red;
+  font-size: .8125rem;
+}
+
+.UserMyPage_inputSolo {
+  width: 21.875rem;
+  height: 2.5rem;
+  margin-top: .8125rem;
+  background: #F2F2F2;
+  border: none;
+  border-radius: .4375rem;
+  padding-left: .625rem;
+}

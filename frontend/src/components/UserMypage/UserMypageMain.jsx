@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Navigator from '../Navigator/Navigator';
 import UserMypageUpdate from './UserMypageUpdate';
+import '../../styles/UserMyPage/UserMyPage.css';
 
 // 마이페이지 중 메인부분, 회원 정보 수정 컴포넌트와 로그아웃 기능,
 
@@ -36,23 +37,31 @@ function UserMypageMain() {
     <div>
       {
         mode === 0 ?
-          <div>
-            <div>
-              <div>환영합니다</div>
-              <div>{userInfo.USER_NICKNAME}</div>
-              <div>님</div>
+          <div className='UserMyPage_main'>
+            <div className='UserMyPage_info'>
+              환영합니다.
+              <br />
+              {userInfo.USER_NICKNAME} 님
             </div>
+            <input
+              className='UserMyPage_button'
+              type="button"
+              value="내 정보 수정"
+              onClick={() => {
+                setMode(1);
+              }}
+            />
+            <input
+              className='UserMyPage_button'
+              type="button"
+              value="실시간 문의하기 💬"
+              onClick={() => {
+                window.open("http://localhost:3000/chatjoin")
+              }}
+            />
             <div>
               <input
-                type="button"
-                value="내 정보 수정"
-                onClick={() => {
-                  setMode(1);
-                }}
-              />
-            </div>
-            <div>
-              <input
+                className='UserMyPage_button'
                 type="button"
                 value="로그아웃"
                 onClick={() => {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import CenterControl from './CenterControl';
+import ReactPlayer from "react-player";
 
 // 센터로 로그인 하면 나타나는 페이지, 센터 회원 현황과 동영상 업로드 가능
 // mode로 컴포넌트를 구분한다.
