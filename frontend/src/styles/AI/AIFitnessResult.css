@@ -1,30 +1,36 @@
-.fitness_result_top_div{
-    padding: 0;
-    margin: 0 auto;
-    padding-top: 3.125rem;
-    text-align: center;
+.fitness_result_top_div {
+  padding: 0;
+  margin: 0 auto;
+  padding-top: 3.125rem;
+  text-align: center;
 }
 
-.AIFitnessResult_intro{
-    text-align: left;
-    margin-left: 1.875rem;
+.AIFitnessResult_intro {
+  text-align: left;
+  margin-left: 1.875rem;
 }
 
-.AIFitnessResult_nickname{
-    font-size: 2rem;
+.AIFitnessResult_nickname {
+  font-size: 2rem;
 }
 
-.AIFitnessResult_go_to_main{
-width: 18.875rem;
-height: 2.5rem;
-margin: .625rem;
-background: #3DA2FF;
-border-radius: 1.5rem;
-border: none;
-color: white;
-font-style: normal;
-font-size: 1.25rem;
-letter-spacing: 0.2rem;
-line-height: 2;
-margin:0 auto;
+.AIFitnessResult_go_to_main {
+  width: 18.875rem;
+  height: 2.5rem;
+  margin: 0.625rem;
+  background: #3da2ff;
+  border-radius: 1.5rem;
+  border: none;
+  color: white;
+  font-style: normal;
+  font-size: 1.25rem;
+  letter-spacing: 0.2rem;
+  line-height: 2;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.AIFitnessExec_nivo {
+  font-size: 20px;
+  background-color: whitesmoke;
 }

@@ -40,7 +40,7 @@ const AdminPageCenter = () => {
     { headerName: "인증코드", field: "centerAccess", sortable: true },
     { headerName: "전화번호", field: "centerPhone", sortable: true },
     { headerName: "센터회원", field: "centerUser", sortable: true },
-    { headerName: "센터영상", field: "centerVideo", sortable: true },
+    { headerName: "사업자등록번호", field: "centerID", sortable: true },
   ]);
 
   const defaultColDef = {
@@ -67,6 +67,7 @@ const AdminPageCenter = () => {
               centerAccess: list.CENTER_ACCESS_CODE,
               centerPhone: list.CENTER_TEL,
               centerUser: `${list.USER_COUNT}명`,
+              centerID: list.CENTER_ID,
             };
           })} // 테이블 데이터
           columnDefs={columnDefs} // 헤더데이터
