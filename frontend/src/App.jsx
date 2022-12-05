@@ -15,7 +15,10 @@ import AIModelSelect_C from "./components/AI/AIModelSelect_C";
 import Category from "./components/Search/CategoryNSearch";
 import Detail from "./components/Detail/Detail";
 import CenterMain from "./components/CenterPage/CenterMain";
-import Navigator from "./components/Navigator/Navigator";
+import NavigatorMain from "./components/Navigator/NavigatorMain";
+import NavigatorSearch from "./components/Navigator/NavigatorSearch";
+import NavigatorRank from "./components/Navigator/NavigatorRank";
+import NavigatorMy from "./components/Navigator/NavigatorMy";
 import ChallengeMain from "./components/Challenge/ChallengeMain";
 import CategoryList from "./components/Search/CategoryList";
 import LoadingSpinner from "./components/Loading/LoadingSpinner";
@@ -68,7 +71,7 @@ const App = () => {
         {/** 운동 디테일 페이지 */}
         <Route path="/detail" element={<Detail />} />
         {/** 네이게이션 바 */}
-        <Route path="/navigator" element={<Navigator />} />
+        <Route path="/navigator" element={<NavigatorMain />} />
         <Route path="/navigatortop" element={<NavigatorTop />} />
         {/** 카테고리 리스트 */}
         <Route path="/categorylist" element={<CategoryList />} />

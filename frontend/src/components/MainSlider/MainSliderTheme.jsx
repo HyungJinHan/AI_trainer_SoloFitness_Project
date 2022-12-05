@@ -31,15 +31,15 @@ function MainSliderTheme(props) {
       <div className="MainSlider_themeWhite">일어나... 하체해야지...</div>
       <Swiper
         slidesPerView={2}
-        spaceBetween={0}
+        spaceBetween={100}
         modules={[Autoplay]}
         loop={true}
         slidesPerGroup={1}
         autoplay={{
-          delay: 3000,
+          delay: 4000,
           disableOnInteraction: false,
         }}
-        speed={2500}
+        speed={4000}
         className="mySwiper"
       >
         {legThemeList.list.map((list) => {

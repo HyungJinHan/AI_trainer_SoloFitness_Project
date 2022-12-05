@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import axios from "axios";
-import Navigator from "../Navigator/Navigator";
+import NavigatorMain from "../Navigator/NavigatorMain";
 import "../../styles/Detail/Detail.css";
 
 const Detail = () => {
@@ -159,7 +159,7 @@ const Detail = () => {
       {detailInfo[0].VIDEO_EFFECT.split("\\n").map((data) => {
         return <div className="detail_article">{data}</div>;
       })}
-      <Navigator />
+      <NavigatorMain />
       <Outlet />
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Outlet, useNavigate } from 'react-router-dom';
-import Navigator from '../Navigator/Navigator';
+import NavigatorMy from "../Navigator/NavigatorMy";
 import UserMypageUpdate from './UserMypageUpdate';
 import '../../styles/UserMyPage/UserMyPage.css';
 
@@ -83,7 +83,7 @@ function UserMypageMain() {
           :
           null
       }
-      <Navigator />
+      <NavigatorMy />
       <Outlet />
     </div>
   );
