@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Navigator from "../Navigator/Navigator";
+import NavigatorRank from "../Navigator/NavigatorRank";
 
 function ChallengeMain(props) {
   return (
@@ -15,7 +15,7 @@ function ChallengeMain(props) {
       &nbsp;&nbsp;
       <a href="/videoc?exec=curl">덤벨컬챌린지</a>
       &nbsp;&nbsp;
-      <Navigator />
+      <NavigatorRank />
       <Outlet />
     </div>
   );
