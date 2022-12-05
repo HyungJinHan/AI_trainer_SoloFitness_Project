@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 // 해당 센터 회원들을 표출해주는 페이지
 
@@ -9,7 +9,7 @@ const CenterControl = (props) => {
   // console.log('memberList=>', memberList);
   // const memberCount = 1;
 
-  const [memberList,setMemberList] = useState({list:[]});
+  const [memberList, setMemberList] = useState({ list: [] });
   const [pageLink, setPageLink] = useState([]);
 
   var page_num = 1;
@@ -24,9 +24,9 @@ const CenterControl = (props) => {
 
   async function getMemberList() {
     await axios.post("http://localhost:8008/membercount", {
-      CENTER_ID : window.sessionStorage.getItem('centerID'),
+      CENTER_ID: window.sessionStorage.getItem('centerID'),
     }).then((res) => {
-      const {data} = res;
+      const { data } = res;
       article_count = data[0].COUNT;
       page_count = Math.ceil(article_count / page_size);
       var page_link = [];
@@ -37,15 +37,15 @@ const CenterControl = (props) => {
     });
 
     await axios.post("http://localhost:8008/memberlist", {
-      page_num : page_num,
-      page_size : page_size,
-      article_count : article_count,
-      CENTER_ID : window.sessionStorage.getItem('centerID'),
+      page_num: page_num,
+      page_size: page_size,
+      article_count: article_count,
+      CENTER_ID: window.sessionStorage.getItem('centerID'),
     }).then((res) => {
-      const {data} = res;
-      console.log("memberlist(res)->",res);
-      setMemberList({list: data});
-      console.log("setMemberList->",memberList);
+      const { data } = res;
+      console.log("memberlist(res)->", res);
+      setMemberList({ list: data });
+      console.log("setMemberList->", memberList);
     }).catch((e) => {
       console.error(e);
     })
@@ -65,11 +65,8 @@ const CenterControl = (props) => {
         <div>성별</div>
         <div>전화번호</div>
       </div>
-      {/* {memberList.list.map((ml) => (
+      {memberList.list.map((ml) => (
         <div key={ml.USER_ID}>
-          <div>
-            {ml.USER_ID}
-          </div>
           <div>
             {ml.USER_NAME}
           </div>
@@ -83,7 +80,7 @@ const CenterControl = (props) => {
             {ml.USER_TEL}
           </div>
         </div>
-      ))} */}
+      ))}
       <div>
         {pageLink.map((page) => {
           return (
