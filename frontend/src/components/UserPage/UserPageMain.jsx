@@ -2,7 +2,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import MainSliderEvent from "../MainSlider/MainSliderEvent";
 import MainSliderTheme from "../MainSlider/MainSliderTheme";
-import Navigator from "../Navigator/Navigator";
+import NavigatorMain from "../Navigator/NavigatorMain";
 import '../../styles/UserPage/UserPage.css'
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -15,7 +15,8 @@ import strechingImage from "../../static/images/JYY/main/streching.png";
 import chanjinImage from "../../static/images/JYY/main/chanjin.png";
 import mainLogo from "../../static/images/JYY/main/mainLogo.png";
 import mainLogo2 from "../../static/images/JYY/exImage.png";
-
+import homeBlack from "../../static/images/JYY/ICON/homeBlack.png";
+import beginner from "../../static/images/JYY/main/beginner.png";
 
 const MainCenter = styled.div`
   text-align: center;
@@ -61,13 +62,49 @@ function UserPageMain(props) {
   return (
     <div className="userMain_total_div">
       <div className="main_logo_div">
+        <span className="main_span_big">
+          나
+        </span>
+        <span className="main_span_small">
+          혼자
+        </span>
+        <span className="main_span_big">
+          피
+        </span>
+        <span className="main_span_small">
+          트니
+        </span>
+        {/* <span className="main_span_image"> */}
         <img
+          src={homeBlack}
+          alt="?"
+          className="main_logo_image"
+        />
+        {/* </span> */}
+        {/* <img
           src={mainLogo2}
           alt="?"
           className="main_logo"
-        />
+        /> */}
       </div>
       <MainCenter>
+        <div className="main_image_div">
+          <img
+            className="main_yoga_content"
+            src={beginner}
+            width="385px"
+            alt="?"
+          />
+        </div>
+        <div className="main_image_div">
+
+          <img
+            className="main_chanjin_content"
+            src={chanjinImage}
+            alt="?"
+            width="385px"
+          />
+        </div>
         {
           codeInfo.USER_ACCESS_CODE === null ?
             null
@@ -103,20 +140,19 @@ function UserPageMain(props) {
         }
         <div className="main_image_div">
           <img
-            className="main_chanjin_content"
-            src={chanjinImage}
-            alt="?"
+            className="main_yoga_content"
+            src={yogaImage}
             width="385px"
+            alt="?"
           />
         </div>
-
         <div className='UserMain_white'>
           <MainSliderTheme />
         </div>
         <div className="main_image_div">
           <img
-            className="main_yoga_content"
-            src={yogaImage}
+            className="main_lift_content"
+            src={liftImage}
             width="385px"
             alt="?"
           />
@@ -132,14 +168,7 @@ function UserPageMain(props) {
             alt="?"
           />
         </div>
-        <div className="main_image_div">
-          <img
-            className="main_lift_content"
-            src={liftImage}
-            width="385px"
-            alt="?"
-          />
-        </div>
+
         <div className="main_image_div">
           <img
             className="main_back_content"
@@ -148,7 +177,7 @@ function UserPageMain(props) {
             alt="?"
           />
         </div>
-        <Navigator />
+        <NavigatorMain />
         <Outlet />
       </MainCenter>
     </div>

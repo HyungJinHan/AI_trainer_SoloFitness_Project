@@ -3,17 +3,13 @@
   height: 100%;
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: .625rem;
-  justify-content: center;
-  align-items: center;
-}
+.swiper-slide {}
 
 .swiper-slide img {
   /* display: block; */
-  width: 11.25rem;
-  height: 12.5rem;
+  margin-left: 1.25rem;
+  width: 15rem;
+  height: 8.4375rem;
   transition: 0.3s;
   object-fit: cover;
   border-radius: 1.25rem;
@@ -27,37 +23,39 @@
 
 .MainSlider_themeGray {
   text-align: left;
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
   padding-bottom: .875rem;
   font-size: 1.5rem;
-  font-family: "boldFont";
+  font-family: "GmarketSansMedium";
+  font-weight: 500;
 }
 
 .MainSlider_themeWhite {
   text-align: left;
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
   padding-bottom: .875rem;
   font-size: 1.5rem;
-  font-family: "boldFont";
+  font-family: "GmarketSansMedium";
+  font-weight: 500;
 }
 
 .MainSlider_themeEvent {
+  width: 12.5rem;
   text-align: left;
-  padding-left: 1.25rem;
-  padding-bottom: .875rem;
+  margin-left: 1.5rem;
   font-size: .9375rem;
 }
 
 .MainSlider_title_text {
   font-size: 1.25rem;
   text-align: left;
-  padding-left: 1.25rem;
-  font-family: "dohyeon";
+  padding-left: 1.8rem;
+  font-family: "LINESeedKR";
 }
 
 .MainSlider_ctgr_text {
   font-size: 0.9rem;
   text-align: left;
-  padding-left: 1.25rem;
-  font-family: "baseFont";
+  padding-left: 2rem;
+  font-family: "LINESeedKR";
 }

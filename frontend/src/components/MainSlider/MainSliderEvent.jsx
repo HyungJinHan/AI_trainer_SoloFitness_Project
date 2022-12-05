@@ -14,15 +14,15 @@ function MainSliderEvent(props) {
       <div className="MainSlider_themeGray">피트니스 센터 이벤트</div>
       <Swiper
         slidesPerView={2}
-        spaceBetween={0}
+        spaceBetween={100}
         modules={[Autoplay]}
         loop={true}
         slidesPerGroup={1}
         autoplay={{
-          delay: 3000,
+          delay: 4000,
           disableOnInteraction: false,
         }}
-        speed={3500}
+        speed={4000}
         className="mySwiper"
       >
         <SwiperSlide>

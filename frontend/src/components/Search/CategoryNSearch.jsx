@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import SearchResult from './SearchResult';
 import CategoryList from './CategoryList';
-import Navigator from "../Navigator/Navigator";
+import NavigatorSearch from "../Navigator/NavigatorSearch";
 import "../../styles/CategoryNSearch/CategoryNSearch.css";
 import search1 from '../../static/images/HHJ/Navigator/search_white.svg';
 
@@ -109,7 +109,7 @@ const Category = () => {
   {
     category: "기구운동",
     // thumb: "044-icon-763964.png"
-    thumb:"machine.png"
+    thumb: "machine.png"
   },
   {
     category: "맨몸운동",
@@ -337,7 +337,7 @@ const Category = () => {
               )
             })}
           </div>
-          <Navigator />
+          <NavigatorSearch />
           <Outlet />
         </div>
       </div>
@@ -346,7 +346,7 @@ const Category = () => {
     return (
       <div>
         <SearchResult searchword={SearchWord} searchcount={SearchCount} searchlist={SearchList} />
-        <Navigator searchMode={mode} setSearchMode={setMode} />
+        <NavigatorSearch searchMode={mode} setSearchMode={setMode} />
         <Outlet />
       </div>
     )
@@ -354,7 +354,7 @@ const Category = () => {
     return (
       <div>
         <CategoryList categorylist={categoryList} item={item} />
-        <Navigator searchMode={mode} setSearchMode={setMode} />
+        <NavigatorSearch searchMode={mode} setSearchMode={setMode} />
         <Outlet />
       </div>
     )

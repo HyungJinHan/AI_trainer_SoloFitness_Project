@@ -34,15 +34,15 @@ function MainSliderCenter({ CENTER_ID }) {
     <div>
       <Swiper
         slidesPerView={2}
-        spaceBetween={15}
+        spaceBetween={100}
         modules={[Autoplay]}
         loop={true}
         slidesPerGroup={1}
         autoplay={{
-          delay: 3000,
+          delay: 4000,
           disableOnInteraction: false,
         }}
-        speed={2500}
+        speed={4000}
         className="mySwiper"
       >
         {
