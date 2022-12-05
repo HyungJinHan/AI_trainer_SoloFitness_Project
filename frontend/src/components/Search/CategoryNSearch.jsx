@@ -282,8 +282,8 @@ const Category = () => {
             <li onClick={(e) => RecSearch(e)}>테스트</li>
             <li onClick={(e) => RecSearch(e)}>기본</li>
             {/* 추가하고 싶은 검색어 아래처럼 추가하면 됩니다. */}
-            {/* <li onClick={(e) => RecSearch(e)}>요가</li>
-            <li onClick={(e) => RecSearch(e)}>스트레칭</li> */}
+            {/* <li onClick={(e) => RecSearch(e)}>요가</li> */}
+            <li onClick={(e) => RecSearch(e)}>스트레칭</li>
           </ul>
         </div>
         <div className='CNS_grid_category'>

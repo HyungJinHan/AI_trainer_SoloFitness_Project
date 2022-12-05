@@ -40,7 +40,7 @@ const Detail = () => {
           src={detailInfo[0].VIDEO_THUMBNAIL}
           alt="undefined"
           width='100%'
-          height='50%'
+          height='100%'
         />
         <div className="detail_textDiv">
           <div className="detail_exerName">

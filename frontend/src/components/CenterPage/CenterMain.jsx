@@ -33,7 +33,7 @@ function CenterMain() {
   const loadUserList = () => {
     axios
       .post("http://localhost:8008/memberInfo", {
-        USER_ACCESS_CODE: centerInfo.CENTER_NAME,
+        CENTER_ACCESS_CODE : centerID
       })
       .then((res) => {
         setMemberInfo(res.data);
