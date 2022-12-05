@@ -17,10 +17,6 @@ const RegisterFourth = ({
   const centerKeyRef = useRef();
 
   const jobDone = () => {
-    if (errorKey === true) {
-      setErrorMessage('아이디 중복 체크를 해주세요.');
-      return false;
-    }
     consoleAll();
     insertUser();
   }
