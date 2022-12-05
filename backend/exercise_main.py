@@ -62,7 +62,7 @@ def get_stream_video():
             except:
                 pass
 
-            frame = score_table(execList[-1], frame, counter, status)
+            # frame = score_table(execList[-1], frame, counter, status)
 
             mp_drawing.draw_landmarks(frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
                                     mp_drawing.DrawingSpec(color=(255, 255, 255), thickness=2, circle_radius=2))

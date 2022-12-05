@@ -14,6 +14,7 @@ const ModelSelect = () => {
   const [situp, setSitup] = useState(null);
   const [curl, setCurl] = useState(null);
   const [nickname, setNickname] = useState();
+  const [greatFeedback, setGreatFeedback] = useState(false);
 
   const location = useLocation();
   const execiseCategories = queryString.parse(location.search).exec;
@@ -89,6 +90,7 @@ const ModelSelect = () => {
   }
 
   console.log(location.state.inputCount, execiseCategories);
+  console.log("great", greatFeedback);
   return (
     <div className="AIModelSelect_top_div">
       {/* <input type="text" ref={goRef} onChange={counter} /> */}
@@ -103,17 +105,26 @@ const ModelSelect = () => {
         <div className="AIModelSelect_counter_text_div">COUNT</div>
         <div className="AIModelSelect_counting_div">{counter}</div>
       </div>
+      <div className="AIModelSelect_goal_count">
+        <div className="AIModelSelect_counter_text_div">목표</div>
+        <div className="AIModelSelect_counting_div">
+          {location.state.inputCount}
+        </div>
+      </div>
       <div className="AIModelSelect_feedback_div">
-        <p className="AIModelSelect_feedback">{feedbackClass()}</p>
+        <p
+          className={`AIModelSelect_feedback ${
+            squat === "Great!" ? "great_feedback" : "not_great_feedback"
+          }`}
+        >
+          {feedbackClass()}
+        </p>
       </div>
       <div className="AIModelSelect_real_time_web_cam">
         <VideoModel />
       </div>
       <br />
       <br />
-      <div className="AIModelSelect_goal_count">
-        목표 카운트 {location.state.inputCount}
-      </div>
     </div>
   );
 };

@@ -51,7 +51,7 @@ const AIFitnessExecNivo = () => {
       });
   });
   return (
-    <div style={{ width: "25rem", height: "30rem", margin: "0 auto" }}>
+    <div style={{ width: "25rem", height: "20rem", margin: "0 auto" }}>
       <ResponsivePie
         data={[
           {
