@@ -45,8 +45,8 @@ const KakaoMapContainer = ({ center_address }) => {
     <div
       id={`${center_address}`}
       style={{
-        width: "300px",
-        height: "150px",
+        width: "100%",
+        height: "200px",
       }}
     ></div>
   );

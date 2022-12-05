@@ -8,8 +8,8 @@ const CategoryList = ({ categorylist, item }) => {
       <div className="sr_text">
         <p>{item} 카테고리</p>
       </div>
-      <div style={{ height: "600px", overflowY: "scroll" }}>
-        <table className="search_tbl" width="90%">
+      <div>
+        <table className="search_tbl">
           <tbody>
             {categorylist.categorylist.map((article) => {
               return (

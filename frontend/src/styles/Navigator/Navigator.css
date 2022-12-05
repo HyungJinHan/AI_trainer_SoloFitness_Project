@@ -1,18 +1,32 @@
 .Navigator_bar {
   position: fixed;
+  display: flex;
   width: 100%;
-  height: 3.125rem;
+  height: 4.375rem;
   bottom: 0px;
-  background: #3DA2FF;
+  background: #FFFFFF;
   text-align: center;
   vertical-align: middle;
-  margin-top: 1.875rem;
   z-index: 99;
+  border-top: solid 2px #e4e4e4;
+}
+
+.Navigator_div {
+  width: 6.6406rem;
 }
 
 .Navigator_image {
-  width: 10%;
-  margin-left: 1.875rem;
-  margin-right: 1.875rem;
-  padding-top: .3125rem;
+  width: 25%;
+  margin: auto;
+  padding-top: .5rem
+}
+
+.Navigator_p {
+  margin: 0;
+  color: #828282;
+}
+
+.Navigator_p_select {
+  color: #3DA2FF;
+  margin: 0;
 }

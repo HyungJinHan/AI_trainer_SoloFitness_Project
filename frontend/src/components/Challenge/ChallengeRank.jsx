@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import "../../styles/Challenge/ChallengeRank.css";
-import Navigator from "../Navigator/Navigator";
+import NavigatorRank from "../Navigator/NavigatorRank";
 import img1 from "../../static/images/KCJ/rabbit.jpg";
 import axios from "axios";
 
@@ -110,7 +110,7 @@ const ChallengeRank = () => {
         </div>
       </div>
       <div className="ChallengeRank_rank_footer_navigator">
-        <Navigator />
+        <NavigatorRank />
         <Outlet />
       </div>
     </div>

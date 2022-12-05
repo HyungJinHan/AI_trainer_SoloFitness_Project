@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Outlet, useNavigate } from "react-router-dom";
-import Navigator from "../Navigator/Navigator";
-import UserMypageUpdate from "./UserMypageUpdate";
-import "../../styles/UserMyPage/UserMyPage.css";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Outlet, useNavigate } from 'react-router-dom';
+import NavigatorMy from "../Navigator/NavigatorMy";
+import UserMypageUpdate from './UserMypageUpdate';
+import '../../styles/UserMyPage/UserMyPage.css';
 import UserMypageExecNivo from "./UserMypageExecNivo";
 
 // 마이페이지 중 메인부분, 회원 정보 수정 컴포넌트와 로그아웃 기능,
@@ -80,7 +80,7 @@ function UserMypageMain() {
           <UserMypageUpdate userInfo={userInfo} setMode={setMode} />
         </div>
       ) : null}
-      <Navigator />
+      <NavigatorMy />
       <Outlet />
     </div>
   );
