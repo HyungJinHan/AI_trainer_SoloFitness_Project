@@ -73,3 +73,15 @@
 .not_great_feedback {
   color: red;
 }
+
+.AIModelSelect_knee {
+  text-align: center;
+  font-size: 18px;
+  color: red;
+}
+
+.AIModelSelect_shoulder {
+  text-align: center;
+  font-size: 18px;
+  color: red;
+}

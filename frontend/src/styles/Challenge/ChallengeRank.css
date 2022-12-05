@@ -66,14 +66,19 @@
   margin-bottom: 0.3125rem;
 } */
 .ChallengeRank_top {
-  margin-bottom: 5rem
+  margin-bottom: 5rem;
 }
 
 .ChallengeRank_rank_text {
+  width: 200px;
+  background: #3da2ff;
   font-size: 2.5rem;
   text-align: center;
+  color: whitesmoke;
+  margin: 0 auto;
   margin-top: 3.125rem;
   margin-bottom: 1.875rem;
+  border-radius: 15px;
 }
 
 .ChallengeRank_main_div {
@@ -85,21 +90,21 @@
 .ChallengeRank_main_profile {
   width: 6.25rem;
   height: 6.25rem;
-  margin-left: .75rem;
-  border-top-left-radius: .5625rem;
-  border-bottom-left-radius: .5625rem;
-  box-shadow: 0px .1875rem .1875rem rgba(0, 0, 0, 0.15);
+  margin-left: 0.75rem;
+  border-top-left-radius: 0.5625rem;
+  border-bottom-left-radius: 0.5625rem;
+  box-shadow: 0px 0.1875rem 0.1875rem rgba(0, 0, 0, 0.15);
 }
 
 .ChallengeRank_main_total_text {
   background-color: whitesmoke;
   width: 18.75rem;
   height: 6.25rem;
-  border-top-right-radius: .5625rem;
-  border-bottom-right-radius: .5625rem;
+  border-top-right-radius: 0.5625rem;
+  border-bottom-right-radius: 0.5625rem;
   margin-bottom: 1.25rem;
-  color: #605E5E;
-  box-shadow: 0px .1875rem .1875rem rgba(0, 0, 0, 0.15);
+  color: #605e5e;
+  box-shadow: 0px 0.1875rem 0.1875rem rgba(0, 0, 0, 0.15);
   display: flex;
 }
 
@@ -114,11 +119,10 @@
 .ChallengeRank_main_name {
   font-size: 1.125rem;
   width: 12.5rem;
-  letter-spacing: .125rem;
+  letter-spacing: 0.125rem;
   line-height: 3rem;
   text-align: center;
 }
-
 
 .ChallengeRank_my_rank {
   color: white;
@@ -144,14 +148,14 @@
   font-size: 2.5rem;
   width: 7.8125rem;
   text-align: center;
-  letter-spacing: .5rem;
+  letter-spacing: 0.5rem;
   line-height: 7.5rem;
 }
 
 .ChallengeRank_my_name {
   font-size: 1.5rem;
   width: 11.25rem;
-  letter-spacing: .5rem;
+  letter-spacing: 0.5rem;
   line-height: 3rem;
   text-align: center;
 }

@@ -69,7 +69,11 @@ def exec_categories1(exec: exec_categories):
 
 @app.get('/videocount')
 def countchecker():
-  return {'count':countlist, 'squatFeedback':sqautFeedbackList, 'pushUpFeedback':pushUpFeedbackList, 'count_c':countlist_c}
+  return {'count':countlist, 'squatFeedback':sqautFeedbackList, 
+          'pushUpFeedback':pushUpFeedbackList, 'count_c':countlist_c, 
+          'squatKneeFeedback':squatKneeFeedbackList,
+          'squatShoulderFeedback': squatShoulderFeedbackList
+          }
 
 @app.post('/videoshutdown')
 def shutdown(count: count_class):

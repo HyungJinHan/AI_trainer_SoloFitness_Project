@@ -25,3 +25,12 @@ downCamera = []
 
 # 파이썬 카메라 끄기 챌린지용
 downCamera_C = [0,0]
+
+# 스쿼트 발보다 무릎이 더 나갔을때 피드백
+squatKneeFeedbackList = []
+
+# 스쿼트 어깨 피드백 플래그
+squatShoulderFeedbackFlag = [True]
+
+# 스쿼트 어깨가 직선이 아니였을때 피드백
+squatShoulderFeedbackList = []
