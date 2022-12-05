@@ -4,8 +4,10 @@ import { Autoplay } from "swiper";
 import axios from 'axios';
 import ReactPlayer from 'react-player';
 import '../../styles/UserPage/UserPage.css'
+import { useNavigate } from 'react-router-dom';
 
 function MainSliderCenter({ CENTER_ID }) {
+  const navigate = useNavigate();
   const [centerVideo, setCenterVideo] = useState({
     list: []
   });
@@ -53,6 +55,7 @@ function MainSliderCenter({ CENTER_ID }) {
                     controls
                     width={'100%'}
                     height={'250px'}
+                    onStart={()=>{navigate(`/centerdetail?exec=${items.CT_VIDEO_TITLE}`)}}
                   />
                 </div>
               </SwiperSlide>

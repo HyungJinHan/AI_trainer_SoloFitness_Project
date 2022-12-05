@@ -539,6 +539,17 @@ app.post("/videolist", (req, res) => {
   );
 });
 
+/** 센터 디테일 페이지 */
+app.post("/centerdetail", (req, res) => {
+  const centerExec = req.body.centerExec;
+
+  const sqlQuery =
+    "SELECT CT_VIDEO_TITLE,CT_VIDEO_CATEGORY,CT_VIDEO_ADDRESS,CT_VIDEO_INFO,CT_VIDEO_BODY_PART,CT_VIDEO_EFFECT,CT_VIDEO_PREPARE FROM CT_VIDEO_TABLE WHERE CT_VIDEO_TITLE = ?;";
+  db.query(sqlQuery, [centerExec], (err, result) => {
+    res.send(result);
+  });
+});
+
 /** 스쿼트 챌린지 */
 app.post("/squatchallenge", (req, res) => {
   var USER_NICKNAME = req.body.USER_NICKNAME;
