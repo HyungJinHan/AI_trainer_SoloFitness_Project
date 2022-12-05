@@ -146,7 +146,10 @@ const FitnessResultNivo = () => {
           tickSize: 5, // 값 설명하기 위해 튀어나오는 점 크기
           tickPadding: 5, // tick padding
           tickRotation: 0, // tick 기울기
-          tickValues: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          tickValues: [
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+            19, 20,
+          ],
           legend: "COUNT", // left 글씨
           legendPosition: "middle", // 글씨 위치
           legendOffset: -50, // 글씨와 chart간 간격
