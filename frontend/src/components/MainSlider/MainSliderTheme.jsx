@@ -57,6 +57,7 @@ function MainSliderTheme(props) {
               <MainSliderList
                 VIDEO_THUMBNAIL={list.VIDEO_THUMBNAIL}
                 VIDEO_TITLE={list.VIDEO_TITLE}
+                VIDEO_CATEGORY={list.VIDEO_CATEGORY}
               />
             </SwiperSlide>
           );
