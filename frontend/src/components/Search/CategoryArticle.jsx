@@ -6,9 +6,13 @@ const CategoryArticle = ({ article, setmode }) => {
   const navigate = useNavigate();
 
   return (
-    <div claasName='sa_total_div' onClick={() => navigate(`/detail?exec=${article.VIDEO_TITLE}`)}>
+    <div
+      claasName='sa_total_div'
+      onClick={() => navigate(`/detail?exec=${article.VIDEO_TITLE}`)}
+    >
       <div className="sa_first_td">
-        <img className="sa_first_td_img"
+        <img
+          className="sa_first_td_img"
           src={article.VIDEO_THUMBNAIL}
           alt="운동이미지"
         />
