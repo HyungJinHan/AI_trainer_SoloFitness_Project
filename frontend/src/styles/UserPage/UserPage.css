@@ -1,13 +1,17 @@
+.userMain_total_div {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
 .UserMain_white {
   width: 100%;
-  background-color: white;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
 
 .UserMain_gray {
   width: 100%;
-  background-color: whitesmoke;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
   /* box-shadow: 0px 3px 15px; */
@@ -15,15 +19,11 @@
 
 .UserMain_center {
   /* width: 100%; */
-  text-align: center;
-  background-color: whitesmoke;
-  padding-top: 1.25rem;
   padding-bottom: 1.25rem;
   /* box-shadow: 0px 3px 15px; */
 }
 
 .UserMain_centerTitle {
-  text-align: left;
   padding-left: 1.25rem;
   padding-bottom: 1.25rem;
   font-size: 1.25rem;
@@ -35,9 +35,36 @@
 }
 
 .UserMain_centerContents {
-  /* text-align: left; */
+  text-align: left;
   padding-left: 1.25rem;
-  padding-bottom: 1.25rem;
-  padding-top: .9375rem;
-  font-size: 1.25rem;
+  padding-bottom: .9375rem;
+  padding-top: 1.5rem;
+  font-size: 1rem;
+  font-family: 'dohyeon';
+  color: black;
+}
+
+.UserMain_centerContents_title {
+  font-size: 1.5rem;
+}
+
+.UserMain_centerVideoSlider {
+  width: 12rem;
+  height: auto;
+  padding-left: 1.25rem;
+  margin: 0 auto;
+}
+
+.main_image_div img {
+  border-radius: 1.25rem;
+}
+
+.main_logo_div {
+  padding-top: 1.25rem;
+  padding-left: 1.25rem;
+  text-align: left;
+}
+
+.main_logo {
+  width: 200px;
 }

@@ -8,10 +8,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import KakaoMapContainer from '../KakaoMap/KakaoMapContainer'
 import MainSliderCenter from "../MainSlider/MainSliderCenter";
+import yogaImage from "../../static/images/JYY/main/yoga.png";
+import backImage from "../../static/images/JYY/main/back.png";
+import liftImage from "../../static/images/JYY/main/lift.png";
+import strechingImage from "../../static/images/JYY/main/streching.png";
+import chanjinImage from "../../static/images/JYY/main/chanjin.png";
+import mainLogo from "../../static/images/JYY/main/mainLogo.png";
+import mainLogo2 from "../../static/images/JYY/exImage.png";
+
 
 const MainCenter = styled.div`
   text-align: center;
-  padding-top: 3.125rem;
   /* padding-bottom: 6.25rem; */
 `;
 
@@ -52,14 +59,22 @@ function UserPageMain(props) {
   }
 
   return (
-    <MainCenter>
-      {
-        codeInfo.USER_ACCESS_CODE === null ?
-          null
-          :
-          <div className="UserMain_center">
-            <div>
-              <div className="UserMain_centerTitle">
+    <div className="userMain_total_div">
+      <div className="main_logo_div">
+        <img
+          src={mainLogo2}
+          alt="?"
+          className="main_logo"
+        />
+      </div>
+      <MainCenter>
+        {
+          codeInfo.USER_ACCESS_CODE === null ?
+            null
+            :
+            <div className="UserMain_center">
+              <div>
+                {/* <div className="UserMain_centerTitle">
                 {centerInfos.CENTER_NAME} 센터의 회원으로
                 <br />
                 등록 중 입니다!
@@ -71,25 +86,72 @@ function UserPageMain(props) {
                 />
               </div>
               <br />
-              <hr />
-              <div className="UserMain_centerContents">
-                {centerInfos.CENTER_NAME} 센터의 콘텐츠를 즐겨보세요!
+              <hr /> */}
+                <div className="UserMain_centerContents">
+                  <span className="UserMain_centerContents_title">
+                    {centerInfos.CENTER_NAME}
+                  </span>
+                  <span className="UserMain_centerContents_content">
+                    &nbsp;센터 영상
+                  </span>
+                </div >
+                <MainSliderCenter
+                  CENTER_ID={centerInfos.CENTER_ID}
+                />
               </div>
-              <MainSliderCenter
-                CENTER_ID={centerInfos.CENTER_ID}
-              />
             </div>
-          </div>
-      }
-      <div className='UserMain_white'>
-        <MainSliderTheme />
-      </div>
-      <div className='UserMain_gray'>
-        <MainSliderEvent />
-      </div>
-      <Navigator />
-      <Outlet />
-    </MainCenter>
+        }
+        <div className="main_image_div">
+          <img
+            className="main_chanjin_content"
+            src={chanjinImage}
+            alt="?"
+            width="385px"
+          />
+        </div>
+
+        <div className='UserMain_white'>
+          <MainSliderTheme />
+        </div>
+        <div className="main_image_div">
+          <img
+            className="main_yoga_content"
+            src={yogaImage}
+            width="385px"
+            alt="?"
+          />
+        </div>
+        <div className='UserMain_gray'>
+          <MainSliderEvent />
+        </div>
+        <div className="main_image_div">
+          <img
+            className="main_streching_content"
+            src={strechingImage}
+            width="385px"
+            alt="?"
+          />
+        </div>
+        <div className="main_image_div">
+          <img
+            className="main_lift_content"
+            src={liftImage}
+            width="385px"
+            alt="?"
+          />
+        </div>
+        <div className="main_image_div">
+          <img
+            className="main_back_content"
+            src={backImage}
+            width="385px"
+            alt="?"
+          />
+        </div>
+        <Navigator />
+        <Outlet />
+      </MainCenter>
+    </div>
   );
 }
 
