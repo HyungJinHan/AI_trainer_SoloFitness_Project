@@ -4,98 +4,101 @@
 
 .detail_image {
   position: relative;
+  height: 27.5rem;
 }
 
 .detail_textDiv {
   position: absolute;
-  top: 50%;
+  /* top: 55%; */
+  bottom: 5%;
 }
 
 .detail_exerName {
   font-size: 2.25rem;
   text-align: center;
   margin-top: 1.25rem;
-  background: #3DA2FF;
+  background: #3da2ff;
   border-radius: 0px 10px 10px 0px;
-  padding: .3125rem;
-  margin-bottom: .625rem;
+  padding: 0.3125rem;
+  margin-bottom: 0.625rem;
   padding-left: 1.875rem;
   color: white;
+  word-break: keep-all;
 }
 
 .detail_category {
   font-size: 1.125rem;
   text-align: center;
-  background: #3DA2FF;
+  background: #3da2ff;
   border-radius: 0px 10px 10px 0px;
-  padding: .3125rem;
-  margin-bottom: .625rem;
+  padding: 0.3125rem;
+  margin-bottom: 0.625rem;
   padding-left: 1.875rem;
   color: white;
 }
 
 .detail_prepare {
-  color: #3DA2FF;
+  color: #3da2ff;
   text-align: left;
-  padding-left: .625rem;
-  padding-top: .625rem;
+  padding-left: 0.625rem;
+  padding-top: 0.625rem;
   font-size: 1.125rem;
 }
 
 .detail_title {
-  color: #3DA2FF;
+  color: #3da2ff;
   text-align: left;
-  padding-left: .625rem;
-  padding-top: .625rem;
+  padding-left: 0.625rem;
+  padding-top: 0.625rem;
   font-size: 1.5625rem;
 }
 
 .detail_article {
   text-align: left;
-  padding-left: .625rem;
-  padding-top: .625rem;
+  padding-left: 0.625rem;
+  padding-top: 0.625rem;
 }
 
 .detail_inputSolo {
   width: 12.5rem;
   height: 2.5rem;
-  margin-top: .8125rem;
-  background: #F2F2F2;
+  margin-top: 0.8125rem;
+  background: #f2f2f2;
   border: none;
-  border-radius: .4375rem;
+  border-radius: 0.4375rem;
   text-align: center;
-  margin-bottom: .625rem;
+  margin-bottom: 0.625rem;
 }
 
 .detail_inputChallenge {
   width: 12.5rem;
   height: 2.5rem;
-  margin-top: .8125rem;
-  background: #F2F2F2;
+  margin-top: 0.8125rem;
+  background: #f2f2f2;
   border: none;
-  border-radius: .4375rem;
+  border-radius: 0.4375rem;
   text-align: center;
   color: red;
-  margin-bottom: .625rem;
+  margin-bottom: 0.625rem;
 }
 
 .detail_inputDiv {
   text-align: center;
   width: 21.875rem;
   height: 2.5rem;
-  border-radius: .4375rem;
+  border-radius: 0.4375rem;
   display: flex;
   margin: 0 auto;
-  margin-top: .8125rem;
+  margin-top: 0.8125rem;
   margin-bottom: 1.25rem;
 }
 
 .detail_execTrue {
   width: 50%;
   height: 2.5rem;
-  background: #3DA2FF;
+  background: #3da2ff;
   border: none;
-  border-radius: .3125rem 0rem 0rem .3125rem;
+  border-radius: 0.3125rem 0rem 0rem 0.3125rem;
   color: white;
 }
 
@@ -104,24 +107,24 @@
   height: 2.5rem;
   background: #fa6f6f;
   border: none;
-  border-radius: 0rem .3125rem .3125rem 0rem;
+  border-radius: 0rem 0.3125rem 0.3125rem 0rem;
   color: white;
 }
 
 .detail_execFalse {
   width: 50%;
   height: 2.5rem;
-  background: #F2F2F2;
+  background: #f2f2f2;
   border: none;
-  border-radius: .3125rem 0rem 0rem .3125rem;
+  border-radius: 0.3125rem 0rem 0rem 0.3125rem;
 }
 
 .detail_challengeFalse {
   width: 50%;
   height: 2.5rem;
-  background: #F2F2F2;
+  background: #f2f2f2;
   border: none;
-  border-radius: 0rem .3125rem .3125rem 0rem;
+  border-radius: 0rem 0.3125rem 0.3125rem 0rem;
 }
 
 /* .detail_exerstart {

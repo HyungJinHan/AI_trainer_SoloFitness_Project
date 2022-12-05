@@ -381,7 +381,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
 }); */
 app.post("/onecategory", (req, res) => {
   const sqlQuery =
-    "SELECT VIDEO_TITLE,VIDEO_CATEGORY,VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_CATEGORY=?;";
+    "SELECT VIDEO_TITLE,VIDEO_CATEGORY,VIDEO_WRITER,VIDEO_THUMBNAIL FROM VIDEO_TABLE WHERE VIDEO_CATEGORY=?;";
 
   db.query(sqlQuery, [req.body.category], (err, result) => {
     res.send(result);
@@ -479,11 +479,12 @@ app.post("/centerInfo", (req, res) => {
 
 /** 센터 회원 정보 조회 */
 app.post("/memberInfo", (req, res) => {
-  const USER_ACCESS_CODE = req.body.USER_ACCESS_CODE;
+  const CENTER_ACCESS_CODE = req.body.CENTER_ACCESS_CODE;
 
-  const sqlQuery = "SELECT * FROM USER_TABLE WHERE USER_ACCESS_CODE = ?;";
+  const sqlQuery =
+    "SELECT * FROM USER_TABLE WHERE USER_ACCESS_CODE = (SELECT CENTER_ACCESS_CODE FROM CENTER_TABLE WHERE CENTER_ID = ?;);";
 
-  db.query(sqlQuery, [USER_ACCESS_CODE], (err, result) => {
+  db.query(sqlQuery, [CENTER_ACCESS_CODE], (err, result) => {
     res.send(result);
   });
 });
