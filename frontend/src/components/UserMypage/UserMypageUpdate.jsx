@@ -29,6 +29,8 @@ const UserMypageUpdate = (props) => {
   const addrRef = useRef();
   const telRef = useRef();
   const imageRef = useRef();
+  const genderRef = useRef();
+  const codeRef = useRef();
 
   const image = "http://localhost:8008/uploads/" + userImage;
 
@@ -82,6 +84,8 @@ const UserMypageUpdate = (props) => {
           USER_ADDRESS: addrRef.current.value,
           USER_TEL: telRef.current.value,
           USER_IMAGE: imageName,
+          USER_SEX: genderRef.current.value,
+          USER_ACCESS_CODE: codeRef.current.value
         },
         config
       )
@@ -250,6 +254,22 @@ const UserMypageUpdate = (props) => {
             </DaumAddressPopup>
           )}
         </div>
+        <input
+          className="UserMyPage_input"
+          type="hidden"
+          name="gender"
+          ref={genderRef}
+          autoComplete="off"
+          defaultValue={infoList.USER_SEX}
+        />
+        <input
+          className="UserMyPage_input"
+          type="hidden"
+          name="code"
+          ref={codeRef}
+          autoComplete="off"
+          defaultValue={infoList.USER_ACCESS_CODE}
+        />
         {/* {
           infoList.USER_ACCESS_CODE === null ? null :
             <div>

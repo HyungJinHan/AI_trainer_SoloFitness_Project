@@ -74,27 +74,22 @@ function UserPageMain(props) {
             :
             <div className="UserMain_center">
               <div>
-                {/* <div className="UserMain_centerTitle">
-                {centerInfos.CENTER_NAME} 센터의 회원으로
-                <br />
-                등록 중 입니다!
-              </div>
-              <div className="UserMain_centerMap">
-                <KakaoMapContainer
-                  center_address={centerInfos.CENTER_ADRESS}
-                  id={centerInfos.CENTER_ID}
-                />
-              </div>
-              <br />
-              <hr /> */}
                 <div className="UserMain_centerContents">
                   <span className="UserMain_centerContents_title">
                     {centerInfos.CENTER_NAME}
                   </span>
                   <span className="UserMain_centerContents_content">
-                    &nbsp;센터 영상
+                    &nbsp;센터 컨텐츠
                   </span>
+                  <br />
                 </div >
+                <div className="UserMain_centerMap">
+                  <KakaoMapContainer
+                    center_address={centerInfos.CENTER_ADRESS}
+                    id={centerInfos.CENTER_ID}
+                  />
+                </div>
+                <br />
                 <MainSliderCenter
                   CENTER_ID={centerInfos.CENTER_ID}
                 />

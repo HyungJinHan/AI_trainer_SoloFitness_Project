@@ -34,12 +34,12 @@ function MainSliderCenter({ CENTER_ID }) {
     <div>
       <Swiper
         slidesPerView={2}
-        spaceBetween={15}
+        spaceBetween={0}
         modules={[Autoplay]}
         loop={true}
-        slidesPerGroup={1}
+        slidesPerGroup={2}
         autoplay={{
-          delay: 3000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         speed={2500}

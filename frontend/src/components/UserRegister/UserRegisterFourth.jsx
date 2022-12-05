@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useRef, useState } from "react";
 import "../../styles/UserRegister/UserRegister.css";
 
-const RegisterFourth = ({ consoleAll, insertUser, setCenterName }) => {
+const RegisterFourth = ({ consoleAll, insertUser, setCenterCode }) => {
   const [errorKey, setErrorKey] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const [inputValue, setInputValue] = useState("");
@@ -24,8 +24,10 @@ const RegisterFourth = ({ consoleAll, insertUser, setCenterName }) => {
         CENTER_ACCESS_CODE: keyValue,
       })
       .then((res) => {
-        if (res.data[0].COUNT >= 1 && centerNameRef.current.value !== "") {
-          setCenterName(centerNameRef.current.value);
+        if (
+          (res.data[0].COUNT >= 1 && centerNameRef.current.value !== "") && (res.data[0].CENTER_ACCESS_CODE !== centerKeyRef.current.value)
+        ) {
+          setCenterCode(centerKeyRef.current.value);
           setErrorMessage("인증되었습니다.");
           setErrorKey(false);
         } else {
