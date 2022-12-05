@@ -44,9 +44,6 @@ function UserPageMain(props) {
       });
   }, [])
 
-  // console.log(centerInfos.CENTER_ADRESS);
-  // console.log(codeInfo);
-
   if (window.sessionStorage.userID === '' || window.sessionStorage.userID === undefined) {
     alert(`로그인 후 이용 가능합니다.
 로그인 페이지로 이동합니다.`);
@@ -56,8 +53,8 @@ function UserPageMain(props) {
 
   return (
     <MainCenter>
-      {/* {
-        codeInfo.USER_ACCESS_CODE === '' ?
+      {
+        codeInfo.USER_ACCESS_CODE === null ?
           null
           :
           <div className="UserMain_center">
@@ -83,7 +80,7 @@ function UserPageMain(props) {
               />
             </div>
           </div>
-      } */}
+      }
       <div className='UserMain_white'>
         <MainSliderTheme />
       </div>
