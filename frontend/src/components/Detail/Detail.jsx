@@ -123,7 +123,7 @@ const Detail = () => {
             className={
               challengeToggle === true
                 ? "detail_challengeTrue"
-                : "detail_execFalse"
+                : "detail_challengeFalse"
             }
           />
         ) : (

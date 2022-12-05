@@ -21,8 +21,9 @@
 }
 
 .UserMain_centerMap {
-  padding-left: 3.75rem;
-  padding-right: 3.125rem;
+  /* padding-left: 2.8125rem;
+  padding-right: 3.125rem; */
+  margin: 0 auto;
 }
 
 .UserMain_centerContents {

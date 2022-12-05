@@ -37,7 +37,7 @@ function MainSliderCenter({ CENTER_ID }) {
         spaceBetween={100}
         modules={[Autoplay]}
         loop={true}
-        slidesPerGroup={1}
+        slidesPerGroup={2}
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
