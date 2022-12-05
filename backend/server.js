@@ -352,7 +352,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
   db.query(
     sqlQuery,
     [userNickname, excerciseName, excerciseCount],
-    (err, result) => {}
+    (err, result) => { }
   );
 });
 
@@ -392,7 +392,7 @@ app.post("/legtheme", (req, res) => {
   const VIDEO_CATEGORY = req.body.VIDEO_CATEGORY;
 
   const sqlQuery =
-    "SELECT VIDEO_THUMBNAIL, VIDEO_TITLE FROM VIDEO_TABLE WHERE VIDEO_CATEGORY = ?;";
+    "SELECT VIDEO_THUMBNAIL, VIDEO_TITLE, VIDEO_CATEGORY FROM VIDEO_TABLE WHERE VIDEO_CATEGORY = ?;";
 
   db.query(sqlQuery, [VIDEO_CATEGORY], (err, result) => {
     res.send(result);
@@ -505,7 +505,7 @@ app.post("/centerupload", (req, res) => {
   db.query(
     sqlQuery,
     [title, writer, category, address, info, part, effect, prepare],
-    (err, result) => {}
+    (err, result) => { }
   );
 });
 
@@ -627,7 +627,7 @@ app.post("/challengescoreresult", (req, res) => {
   var profile = req.body.profile;
   const sqlQuery =
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?;";
-  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => {});
+  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => { });
 });
 
 /** 챌린지 랭킹 닉네임 점수 표시하기 */

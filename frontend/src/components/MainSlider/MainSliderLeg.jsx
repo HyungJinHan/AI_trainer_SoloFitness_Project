@@ -4,7 +4,8 @@ import "swiper/css";
 
 function MainSliderList({
   VIDEO_THUMBNAIL,
-  VIDEO_TITLE
+  VIDEO_TITLE,
+  VIDEO_CATEGORY
 }) {
   const navigate = useNavigate();
 
@@ -20,8 +21,11 @@ function MainSliderList({
         src={VIDEO_THUMBNAIL}
         alt="undefined"
       />
-      <div className='MainSlider_swiperFont'>
+      <div className='MainSlider_title_text'>
         {VIDEO_TITLE}
+      </div>
+      <div className='MainSlider_ctgr_text'>
+        #  {VIDEO_CATEGORY}
       </div>
     </div>
   )

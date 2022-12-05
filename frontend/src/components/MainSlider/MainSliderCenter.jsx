@@ -33,8 +33,8 @@ function MainSliderCenter({ CENTER_ID }) {
   return (
     <div>
       <Swiper
-        slidesPerView={1}
-        spaceBetween={5}
+        slidesPerView={2}
+        spaceBetween={15}
         modules={[Autoplay]}
         loop={true}
         slidesPerGroup={1}
@@ -42,7 +42,7 @@ function MainSliderCenter({ CENTER_ID }) {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        speed={1800}
+        speed={2500}
         className="mySwiper"
       >
         {
@@ -51,11 +51,12 @@ function MainSliderCenter({ CENTER_ID }) {
               <SwiperSlide key={items.CT_VIDEO_TITLE}>
                 <div className='UserMain_centerVideoSlider'>
                   <ReactPlayer
+                    className="UserMain_centerVideoItem"
                     url={items.CT_VIDEO_ADDRESS}
                     controls
                     width={'100%'}
-                    height={'250px'}
-                    onStart={()=>{navigate(`/centerdetail?exec=${items.CT_VIDEO_TITLE}`)}}
+                    height={'auto'}
+                    onStart={() => { navigate(`/centerdetail?exec=${items.CT_VIDEO_TITLE}`) }}
                   />
                 </div>
               </SwiperSlide>
