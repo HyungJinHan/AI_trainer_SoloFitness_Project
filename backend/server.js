@@ -322,6 +322,7 @@ app.post("/centeridcheck", (req, res) => {
 /** 운동 디테일 페이지 */
 app.post("/detail", (req, res) => {
   const exec = req.body.detailExec;
+  console.log("/detail(req)->", exec);
 
   const sqlQuery =
     "SELECT VIDEO_THUMBNAIL, VIDEO_CATEGORY, VIDEO_PREPARE, VIDEO_INFO, VIDEO_EFFECT FROM VIDEO_TABLE WHERE VIDEO_TITLE = ?;";
@@ -352,7 +353,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
   db.query(
     sqlQuery,
     [userNickname, excerciseName, excerciseCount],
-    (err, result) => { }
+    (err, result) => {}
   );
 });
 
@@ -478,14 +479,40 @@ app.post("/centerInfo", (req, res) => {
 });
 
 /** 센터 회원 정보 조회 */
-app.post("/memberInfo", (req, res) => {
-  const CENTER_ACCESS_CODE = req.body.CENTER_ACCESS_CODE;
+// app.post("/memberInfo", (req, res) => {
+//   const CENTER_ID = req.body.CENTER_ID;
+
+//   const sqlQuery =
+//     "SELECT USER_ID,USER_NAME,USER_SEX,USER_AGE,USER_TEL FROM USER_TABLE WHERE USER_ACCESS_CODE = (SELECT CENTER_ACCESS_CODE FROM CENTER_TABLE WHERE CENTER_ID = ?);";
+
+//   db.query(sqlQuery, [CENTER_ID], (err, result) => {
+//     res.send(result);
+//     console.log("center_memberinfo(res)->", result);
+//   });
+// });
+app.post("/membercount", (req, res) => {
+  const CENTER_ID = req.body.CENTER_ID;
 
   const sqlQuery =
-    "SELECT * FROM USER_TABLE WHERE USER_ACCESS_CODE = (SELECT CENTER_ACCESS_CODE FROM CENTER_TABLE WHERE CENTER_ID = ?;);";
+    "SELECT COUNT(*) AS COUNT FROM USER_TABLE WHERE USER_ACCESS_CODE = (SELECT CENTER_ACCESS_CODE FROM CENTER_TABLE FROM CENTER_ID = ?);";
 
-  db.query(sqlQuery, [CENTER_ACCESS_CODE], (err, result) => {
+  db.query(sqlQuery, [CENTER_ID], (err, result) => {
     res.send(result);
+  });
+});
+app.post("/memberlist", (req, res) => {
+  var page_num = parseInt(req.body.page_num);
+  var page_size = parseInt(req.body.page_size);
+  const start_limit = (page_num - 1) * page_size;
+
+  const CENTER_ID = req.body.CENTER_ID;
+
+  const sqlQuery =
+    "SELECT USER_ID,USER_NAME,USER_SEX,USER_AGE,USER_TEL FROM USER_TABLE WHERE USER_ACCESS_CODE = (SELECT CENTER_ACCESS_CODE FROM CENTER_TABLE WHERE CENTER_ID = ?) LIMIT ?, ?;";
+
+  db.query(sqlQuery, [CENTER_ID, start_limit, page_size], (err, result) => {
+    res.send(result);
+    console.log("center_memberlist(res)->", result);
   });
 });
 
@@ -506,7 +533,9 @@ app.post("/centerupload", (req, res) => {
   db.query(
     sqlQuery,
     [title, writer, category, address, info, part, effect, prepare],
-    (err, result) => { }
+    (err, result) => {
+      res.send(result);
+    }
   );
 });
 
@@ -628,7 +657,7 @@ app.post("/challengescoreresult", (req, res) => {
   var profile = req.body.profile;
   const sqlQuery =
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?;";
-  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => { });
+  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => {});
 });
 
 /** 챌린지 랭킹 닉네임 점수 표시하기 */

@@ -30,21 +30,20 @@ function CenterMain() {
       });
   }
 
-  const loadUserList = () => {
-    axios
-      .post("http://localhost:8008/memberInfo", {
-        CENTER_ACCESS_CODE : centerID
-      })
-      .then((res) => {
-        setMemberInfo(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
+  // const loadUserList = () => {
+  //   axios
+  //     .post("http://localhost:8008/memberInfo", {
+  //       CENTER_ID : centerID
+  //     })
+  //     .then((res) => {
+  //       setMemberInfo(res.data);
+  //     })
+  //     .catch((e) => {
+  //       console.log(e);
+  //     });
+  // }
 
   useEffect(() => {
-    loadUserList();
     loadCenterInfo();
   }, [mode,]);
 
@@ -112,7 +111,7 @@ function CenterMain() {
   if (mode === 1) {
     return (
       <div>
-        <CenterControl setMode={setMode} memberInfo={memberInfo} />
+        <CenterControl setMode={setMode} />
       </div>
     )
   } else if (mode === 2) {
