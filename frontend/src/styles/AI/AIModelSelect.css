@@ -1,67 +1,75 @@
 .AIModelSelect_top_div {
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
-.AIModelSelect_guide_img_div{
-    background-color: black;
+.AIModelSelect_guide_img_div {
+  /* background-color: black; */
 }
-.AIModelSelect_guide_img{
-    width: 21.875rem;
-    height: 18.75rem;
-}
-
-.AIModelSelect_feedback_div{
-    margin-top: 1.875rem;
-    height: 3.4375rem;
-    width: 21.875rem;
-    margin:0 auto;
+.AIModelSelect_guide_img {
+  width: 21.875rem;
+  height: 18.75rem;
 }
 
-.AIModelSelect_feedback{
-    margin-top: 1.875rem;
-    font-size: 1.875rem;
-    font-weight: 800;
-
+.AIModelSelect_feedback_div {
+  margin-top: 1.875rem;
+  height: 3.4375rem;
+  width: 21.875rem;
+  margin: 0 auto;
 }
 
-.AIModelSelect_counter_div{
-    padding-top: 3.125rem;
-    height: 1.875rem;
-    width: 21.875rem;
-    font-size: 1.5625rem;
-    margin:0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.AIModelSelect_feedback {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 800;
 }
 
-.AIModelSelect_counter_text_div{
-    background: #424242;
-    color:white;
-    width: 10.9375rem;
+.AIModelSelect_counter_div {
+  /* padding-top: 3.125rem; */
+  height: 1.875rem;
+  width: 21.875rem;
+  font-size: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.AIModelSelect_counting_div{
-    background: #3DA2FF;
-    color:white;
-    width: 10.9375rem;
+.AIModelSelect_counter_text_div {
+  background: whitesmoke;
+  color: black;
+  width: 10.9375rem;
 }
 
-.AIModelSelect_goal_count{
-    background: #3DA2FF;
-    color:white;
-    width: 21.875rem;
-    height: 1.875rem;
-    margin:0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5625rem;
+.AIModelSelect_counting_div {
+  background: #3da2ff;
+  color: white;
+  width: 10.9375rem;
 }
 
-.AIModelSelect_real_time_web_cam{
-    width:350px;
-    height:300px;
-    margin:0 auto;
+.AIModelSelect_goal_count {
+  margin: 0;
+  padding: 0;
+  color: black;
+  width: 350px;
+  height: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.AIModelSelect_real_time_web_cam {
+  width: 350px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.great_feedback {
+  color: green;
+}
+
+.not_great_feedback {
+  color: red;
 }

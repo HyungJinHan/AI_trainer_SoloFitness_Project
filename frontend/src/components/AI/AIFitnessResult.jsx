@@ -10,6 +10,7 @@ const FitnessResult = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const userNickname = location.state.nickname;
+  var execiseCategories = queryString.parse(location.search).exec;
   const goToMain = () => {
     navigate("/usermain");
   };
@@ -18,14 +19,15 @@ const FitnessResult = () => {
     <div className="fitness_result_top_div">
       <div className="AIFitnessResult_intro">
         <span className="AIFitnessResult_nickname">{userNickname}</span>
-        <span>님의</span>
-        <p>운동결과</p>
+        <span> 님의 </span>
+        <span className="AIFitnessResult_exec">{execiseCategories} </span>
+        <span>운동결과</span>
       </div>
       <div className="AIFitnessResult_nivo">
         <FitnessResultNivo />
       </div>
       <div className="AIFitnessExec_nivo">
-        <p>지금까지 한 운동을 확인해 보세요</p>
+        {/* <p>지금까지 한 운동을 확인해 보세요</p> */}
         <AIFitnessExecNivo />
       </div>
       <div className="AIFitnessResult_go_to_main" onClick={goToMain}>

@@ -30,23 +30,29 @@ const AdminPageMain = () => {
     },
   ];
   useEffect(() => {
-    if (window.sessionStorage.getItem === "admin_hhj") {
+    if (window.sessionStorage.getItem("adminID") === "admin_hhj") {
       setAdminName("한형진");
       setAdminJob("총 관리자");
-    } else if (window.sessionStorage.getItem === "admin_jyy") {
+    } else if (window.sessionStorage.getItem("adminID") === "admin_jyy") {
       setAdminName("정영윤");
       setAdminJob("프론트 관리자");
-    } else if (window.sessionStorage.getItem === "admin_kcj") {
+    } else if (window.sessionStorage.getItem("adminID") === "admin_kcj") {
       setAdminName("김찬진");
       setAdminJob("AI 관리자");
-    } else if (window.sessionStorage.getItem === "admin_ljj") {
+    } else if (window.sessionStorage.getItem("adminID") === "admin_ljj") {
       setAdminName("이진주");
-      setAdminJob("DB 관리자");
-    } else if (window.sessionStorage.getItem === "admin_hhh") {
+      setAdminJob("AI 관리자");
+    } else if (window.sessionStorage.getItem("adminID") === "admin_hhh") {
       setAdminName("홍현호");
-      setAdminJob("기획 관리자");
+      setAdminJob("DB 관리자");
     }
   });
+
+  const logoutFunc = () => {
+    alert("로그아웃 되었습니다.");
+    window.sessionStorage.removeItem("adminID");
+    navigator("/");
+  };
   return (
     <div
       className={
@@ -111,7 +117,11 @@ const AdminPageMain = () => {
             </div>
           </div>
         )}
-        <img src={logout} className="AdminPageMain_menu_log_out"></img>
+        <img
+          src={logout}
+          onClick={logoutFunc}
+          className="AdminPageMain_menu_log_out"
+        ></img>
       </div>
       <div></div>
     </div>

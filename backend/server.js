@@ -828,7 +828,7 @@ app.post("/adminlogin", (req, res) => {
   const ADMIN_PW = req.body.ADMIN_PW;
 
   const sqlQuery =
-    "SELECT ADMIN_ID, ADMIN_PW, count(*) as 'cnt' FROM ADMIN_TABLE WHERE ADMIN_ID = ? AND ADMIN_PW = ?;";
+    "SELECT ADMIN_ID, ADMIN_PASSWORD, count(*) as 'cnt' FROM ADMIN_TABLE WHERE ADMIN_ID = ? AND ADMIN_PASSWORD = ?;";
 
   db.query(sqlQuery, [ADMIN_ID, ADMIN_PW], (err, result) => {
     res.send(result);

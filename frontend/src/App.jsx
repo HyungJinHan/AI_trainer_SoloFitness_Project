@@ -83,7 +83,7 @@ const App = () => {
         {/** 챌린지 랭킹 */}
         <Route path="/challengerank" element={<ChallengeRank />} />
         {/** 관리자 페이지 로그인 */}
-        {/* <Route path="/admin" element={<AdminPageLogin />} /> */}
+        <Route path="/admin" element={<AdminPageLogin />} />
         {/** 관리자 페이지 사이드바 */}
         <Route path="/admin" element={<AdminPageMain />} />
         {/* <Route path="/adminmain" element={<AdminPageMain />} /> */}
