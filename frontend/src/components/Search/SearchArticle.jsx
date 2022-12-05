@@ -16,7 +16,7 @@ const SearchArticle = ({ article }) => {
           alt="운동이미지"
         />
       </div>
-      <div className="sa_second_td" height="110px">
+      <div className="sa_second_td">
         <p className="sa_videotitle">{article.VIDEO_TITLE}</p>
         <p className="sa_videocategory"># {article.VIDEO_CATEGORY}</p>
         <p className="sa_videowriter">{article.VIDEO_WRITER}</p>

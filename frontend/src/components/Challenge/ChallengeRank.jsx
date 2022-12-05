@@ -71,34 +71,41 @@ const ChallengeRank = () => {
         {rank.map((ranklist, index) => {
           return (
             <div className="ChallengeRank_main_div" key={index}>
-              <div className="ChallengeRank_main_profile">
-                <img
+              <div >
+                <img className="ChallengeRank_main_profile"
                   src={`http://localhost:8008/uploads/${ranklist.USER_IMAGE}`}
                 ></img>
               </div>
-              <div className="ChallengeRank_main_rank">
-                {ranklist.RANKING} 등
-              </div>
-              <div className="ChallengeRank_main_name">
-                {ranklist.CHALLENGE_USER}
-                <br />
-                {ranklist.CHALLENGE_SCORE}점
+              <div className='ChallengeRank_main_total_text'>
+                <div className="ChallengeRank_main_rank">
+                  {ranklist.RANKING} 등
+                </div>
+                <div className="ChallengeRank_main_name">
+                  {ranklist.CHALLENGE_USER}
+                  <br />
+                  {ranklist.CHALLENGE_SCORE}점
+                </div>
               </div>
             </div>
           );
         })}
       </div>
       <div className="ChallengeRank_my_rank">
-        <div className="ChallengeRank_main_profile">
-          <img
+        <div>
+          <img className="ChallengeRank_my_profile"
             src={`http://localhost:8008/uploads/${myrank?.USER_IMAGE}`}
           ></img>
         </div>
-        <div className="ChallengeRank_main_rank"> {myRanking?.MYRANKING}등</div>
-        <div className="ChallengeRank_main_name">
-          {myrank?.CHALLENGE_USER}
-          <br />
-          {myrank?.CHALLENGE_SCORE}점
+        <div className='ChallengeRank_my_total_text'>
+          <div className="ChallengeRank_my_ranking">
+            {myRanking?.MYRANKING}등
+
+          </div>
+          <div className="ChallengeRank_my_name">
+            {myrank?.CHALLENGE_USER}
+            <br />
+            {myrank?.CHALLENGE_SCORE}점
+          </div>
         </div>
       </div>
       <div className="ChallengeRank_rank_footer_navigator">
