@@ -61,6 +61,19 @@ class TypeOfExercise(BodyPartAngle):
         right_leg_angle = self.angle_of_the_right_leg()
         avg_leg_angle = (left_leg_angle + right_leg_angle) // 2
         squatFeedback_flag = True
+        
+        # 무릎이 발보다 앞에있을때 피드백 변수
+        right_knee = detection_body_part(self.landmarks, 'RIGHT_KNEE')
+        left_knee = detection_body_part(self.landmarks, 'LEFT_KNEE')
+        right_foot_index = detection_body_part(self.landmarks, 'RIGHT_FOOT_INDEX')
+        left_foot_index = detection_body_part(self.landmarks, 'LEFT_FOOT_INDEX')
+        avg_knee_x = (right_knee[0] + left_knee[0]) / 2
+        avg_foot_index_x = (right_foot_index[0] + left_foot_index[0]) / 2
+        
+        # 어깨가 틀어졌을때 피드백 변수
+        right_shoulder = detection_body_part(self.landmarks, 'RIGHT_SHOULDER')
+        left_shoulder = detection_body_part(self.landmarks, 'LEFT_SHOULDER')
+        
 
         if status:
             if avg_leg_angle < 70:
@@ -72,12 +85,37 @@ class TypeOfExercise(BodyPartAngle):
             if squatFeedback_flag:
                 if 71 < avg_leg_angle < 140:
                     sqautFeedbackList.append('무릎을 더 굽히세요.')
-                    squatFeedback_flag = False
-                
+                    squatFeedback_flag = False   
         else:
             if avg_leg_angle > 160:
                 status = True
                 squatFeedback_flag = True
+                
+        # 무릎이 발보다 앞에있을때 피드백 변수
+        # if squatKneeFeedback_flag:
+        #     if avg_knee_x > avg_foot_index_x:
+        #         squatKneeFeedbackList.append('무릎이 발 밖으로 나갔습니다.')
+        #         squatKneeFeedback_flag = False
+        #         status = False
+        # else:
+        #     if avg_knee_x < avg_foot_index_x:
+        #         squatKneeFeedbackList.append('')
+        #         squatKneeFeedback_flag = True
+        #         status = True
+        
+        # 어깨가 틀어졌을때 피드백
+        if squatShoulderFeedbackFlag[-1]:
+            if(np.abs((right_shoulder[1] - left_shoulder[1])) > 0.075):
+                status = False
+                squatShoulderFeedbackList.append('어깨 수평을 유지하세요.')
+                squatShoulderFeedbackFlag.append(False)
+        else:
+            if(np.abs((right_shoulder[1] - left_shoulder[1])) < 0.065):
+                status = True
+                squatShoulderFeedbackFlag.append(True)
+                squatShoulderFeedbackList.append('')
+                
+            
 
         return [counter, status]
 

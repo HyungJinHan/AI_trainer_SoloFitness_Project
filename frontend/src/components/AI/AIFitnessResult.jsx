@@ -13,6 +13,7 @@ const FitnessResult = () => {
   var execiseCategories = queryString.parse(location.search).exec;
   const goToMain = () => {
     navigate("/usermain");
+    window.location.reload();
   };
 
   return (

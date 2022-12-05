@@ -67,16 +67,17 @@ const ChallengeRank = () => {
   return (
     <div>
       <div className="ChallengeRank_top">
-        <div className="ChallengeRank_rank_text">랭킹</div>
+        <div className="ChallengeRank_rank_text">RANKING</div>
         {rank.map((ranklist, index) => {
           return (
             <div className="ChallengeRank_main_div" key={index}>
-              <div >
-                <img className="ChallengeRank_main_profile"
+              <div>
+                <img
+                  className="ChallengeRank_main_profile"
                   src={`http://localhost:8008/uploads/${ranklist.USER_IMAGE}`}
                 ></img>
               </div>
-              <div className='ChallengeRank_main_total_text'>
+              <div className="ChallengeRank_main_total_text">
                 <div className="ChallengeRank_main_rank">
                   {ranklist.RANKING} 등
                 </div>
@@ -92,14 +93,14 @@ const ChallengeRank = () => {
       </div>
       <div className="ChallengeRank_my_rank">
         <div>
-          <img className="ChallengeRank_my_profile"
+          <img
+            className="ChallengeRank_my_profile"
             src={`http://localhost:8008/uploads/${myrank?.USER_IMAGE}`}
           ></img>
         </div>
-        <div className='ChallengeRank_my_total_text'>
+        <div className="ChallengeRank_my_total_text">
           <div className="ChallengeRank_my_ranking">
             {myRanking?.MYRANKING}등
-
           </div>
           <div className="ChallengeRank_my_name">
             {myrank?.CHALLENGE_USER}

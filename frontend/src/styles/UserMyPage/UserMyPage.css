@@ -5,7 +5,7 @@
 .UserMyPage_info {
   text-align: left;
   padding-left: 2.5rem;
-  padding-top: 8.125rem;
+  padding-top: 6.25rem;
   padding-bottom: 1.875rem;
   font-size: 1.4375rem;
 }
@@ -14,9 +14,9 @@
   text-align: center;
   width: 21.875rem;
   height: 2.5rem;
-  background: #F2F2F2;
+  background: #f2f2f2;
   border: none;
-  border-radius: .4375rem;
+  border-radius: 0.4375rem;
   display: flex;
   margin: 0 auto;
   margin-top: 1.5625rem;
@@ -37,7 +37,7 @@
   padding-left: 1.25rem;
   /* background: #3DA2FF; */
   /* color: white; */
-  border-radius: .4375rem 0rem 0rem .4375rem;
+  border-radius: 0.4375rem 0rem 0rem 0.4375rem;
 }
 
 .UserMyPage_inputAddress {
@@ -45,16 +45,16 @@
   /* padding-left: 1.25rem; */
   width: 21.875rem;
   height: 2.5rem;
-  background: #F2F2F2;
+  background: #f2f2f2;
   border: none;
-  border-radius: .4375rem;
+  border-radius: 0.4375rem;
   display: flex;
   margin: 0 auto;
   margin-top: 1.5625rem;
 }
 
 .UserMyPage_UpdateBorder {
-  border: .0625rem solid #3DA2FF;
+  border: 0.0625rem solid #3da2ff;
   width: 90%;
   margin: 0 auto;
 }
@@ -65,10 +65,10 @@
   width: 90%;
   height: 1.875rem;
   color: white;
-  background: #3DA2FF;
+  background: #3da2ff;
   border-radius: 20px 20px 0px 0px;
-  padding-top: .75rem;
-  border: .0625rem solid #3DA2FF;
+  padding-top: 0.75rem;
+  border: 0.0625rem solid #3da2ff;
   font-weight: 1000;
   font-size: 1.0625rem;
 }
@@ -76,13 +76,13 @@
 .UserMyPage_button {
   width: 21.875rem;
   height: 2.5rem;
-  margin: .625rem;
+  margin: 0.625rem;
   margin-top: 1.25rem;
-  background: #3DA2FF;
+  background: #3da2ff;
   border-radius: 24px;
   border: none;
   color: white;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 1000;
   font-size: 1.0625rem;
@@ -92,32 +92,32 @@
 
 .UserMyPage_error {
   text-align: left;
-  padding-top: .625rem;
+  padding-top: 0.625rem;
   padding-left: 2.8125rem;
   color: red;
-  font-size: .8125rem;
+  font-size: 0.8125rem;
 }
 
 .UserMyPage_inputSolo {
   width: 21.875rem;
   height: 2.5rem;
-  margin-top: .8125rem;
-  background: #F2F2F2;
+  margin-top: 0.8125rem;
+  background: #f2f2f2;
   border: none;
-  border-radius: .4375rem;
-  padding-left: .625rem;
+  border-radius: 0.4375rem;
+  padding-left: 0.625rem;
 }
 
 .UserMyPage_imageUpload {
   width: 21.875rem;
   height: 2.5rem;
-  margin: .625rem;
+  margin: 0.625rem;
   margin-top: 1.25rem;
-  background: #3DA2FF;
+  background: #3da2ff;
   border-radius: 24px;
   border: none;
   color: white;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 1000;
   font-size: 1.0625rem;
@@ -125,14 +125,14 @@
   text-align: center;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
-  padding-top: .625rem;
-  padding-bottom: .625rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
 }
 
 .UserMyPage_image {
   width: 150px;
   height: 150px;
-  background: #F4F4F4;
+  background: #f4f4f4;
   border-radius: 50%;
   margin-left: 2.5rem;
   display: inline;
@@ -147,4 +147,8 @@
 
 .UserMyPage_profileDiv {
   display: inline;
+}
+
+.UserMyPage_nivo_text {
+  font-weight: 800;
 }

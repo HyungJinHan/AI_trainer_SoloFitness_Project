@@ -15,6 +15,8 @@ const ModelSelect = () => {
   const [curl, setCurl] = useState(null);
   const [nickname, setNickname] = useState();
   const [greatFeedback, setGreatFeedback] = useState(false);
+  const [squatKneeFeedback, setSquatKneeFeedback] = useState(null);
+  const [squatShoulderFeedback, setSquatShoulderFeedback] = useState(null);
 
   const location = useLocation();
   const execiseCategories = queryString.parse(location.search).exec;
@@ -57,6 +59,10 @@ const ModelSelect = () => {
         setSquat(squatFeedback[squatFeedback.length - 1]);
         var pushupFeedback = res.data.pushUpFeedback;
         setPushup(pushupFeedback[pushupFeedback.length - 1]);
+        var squatKnee = res.data.squatKneeFeedback;
+        setSquatKneeFeedback(squatKnee[squatKnee.length - 1]);
+        var squatShoulder = res.data.squatShoulderFeedback;
+        setSquatShoulderFeedback(squatShoulder[squatShoulder.length - 1]);
       })
       .catch((e) => {
         console.error(e);
@@ -73,6 +79,17 @@ const ModelSelect = () => {
       return squat;
     } else if (execiseCategories === "pushup") {
       return pushup;
+    }
+  };
+
+  const squatFeedbackFunc = () => {
+    if (execiseCategories === "squat") {
+      return squatKneeFeedback;
+    }
+  };
+  const squatFeedbackFunc2 = () => {
+    if (execiseCategories === "squat") {
+      return squatShoulderFeedback;
     }
   };
 
@@ -117,8 +134,10 @@ const ModelSelect = () => {
             squat === "Great!" ? "great_feedback" : "not_great_feedback"
           }`}
         >
-          {feedbackClass()}
+          <div>{feedbackClass()}</div>
         </p>
+        <div className="AIModelSelect_knee">{squatFeedbackFunc()}</div>
+        <div className="AIModelSelect_shoulder">{squatFeedbackFunc2()}</div>
       </div>
       <div className="AIModelSelect_real_time_web_cam">
         <VideoModel />
