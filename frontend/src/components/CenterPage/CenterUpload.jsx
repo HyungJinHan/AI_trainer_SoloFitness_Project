@@ -15,6 +15,43 @@ const CenterUpload = (props) => {
   const prepareRef = useRef();
 
   function handleUpload() {
+    if (titleRef.current.value === "" || titleRef.current.value === undefined) {
+      alert("제목을 입력하세요.");
+      titleRef.current.focus();
+      return false;
+    }
+    if (categoryRef.current.value === "") {
+      alert("카테고리를 선택하세요.");
+      categoryRef.current.focus();
+      return false;
+    }
+    if (infoRef.current.value === "" || infoRef.current.value === undefined) {
+      alert("운동소개를 입력하세요.");
+      infoRef.current.focus();
+      return false;
+    }
+    if (partRef.current.value === "" || partRef.current.value === undefined) {
+      alert("운동부위를 입력하세요.");
+      infoRef.current.focus();
+      return false;
+    }
+    if (effectRef.current.value === "" || effectRef.current.value === undefined) {
+      alert("운동효과를 입력하세요.");
+      effectRef.current.focus();
+      return false;
+    }
+    if (prepareRef.current.value === "" || prepareRef.current.value === undefined) {
+      alert("운동 준비물을 입력하세요.");
+      infoRef.current.focus();
+      return false;
+    }
+    //url형식이 들어가니까 정규표현식으로?
+    if (addressRef.current.value === "" || addressRef.current.value === undefined) {
+      alert("url을 입력하세요.");
+      addressRef.current.focus();
+      return false;
+    }
+
     axios.post("http://localhost:8008/centerupload", {
       title: titleRef.current.value,
       category: categoryRef.current.value,
@@ -24,8 +61,15 @@ const CenterUpload = (props) => {
       part: partRef.current.value,
       prepare: prepareRef.current.value,
       writer: window.sessionStorage.getItem('centerID')
-    }).then((res) => {
-      console.log("handleUpload(res)->", res);
+    }).then(() => {
+      // console.log("handleUpload(res)->", res);
+      // titleRef.current.value = "";
+      // infoRef.current.value = "";
+      // effectRef.current.value = "";
+      // addressRef.current.value = "";
+      // partRef.current.value = "";
+      // prepareRef.current.value = "";
+      alert("등록이 완료되었습니다.")
       navigate('/videolist');
     }).catch((e) => {
       console.error(e);

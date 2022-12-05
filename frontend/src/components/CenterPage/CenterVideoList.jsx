@@ -86,6 +86,7 @@ function CenterVideoList(props) {
                   />
                   <div
                     className='CenterPage_text'
+                    onClick={() => navigate(`/centerdetail?exec=${list.CT_VIDEO_TITLE}`)}
                   >
                     영상 제목 : {list.CT_VIDEO_TITLE}
                     <br />
