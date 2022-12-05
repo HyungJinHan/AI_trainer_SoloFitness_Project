@@ -7,14 +7,15 @@ import '../../styles/Chat/TextContainer.css';
 const TextContainer = ({ users }) => (
   <div className="textContainer">
     <div>
-      <h1>Realtime Chat Application <span role="img" aria-label="emoji">💬</span></h1>
-      <h2>Created with React, Express, Node and Socket.IO <span role="img" aria-label="emoji">by @spaceman-dev</span></h2>
+      <h1>실시간 문의 채팅 방입니다. <span role="img" aria-label="emoji">💬</span></h1>
+      <br />
+      <br />
     </div>
     {
       users
         ? (
           <div>
-            <h1>People currently chatting:</h1>
+            <h1>&lt; 현재 참여 중 &gt;</h1>
             <div className="activeContainer">
               <h2>
                 {users.map(({ name }) => (

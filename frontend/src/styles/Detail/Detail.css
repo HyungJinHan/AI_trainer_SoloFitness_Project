@@ -4,11 +4,13 @@
 
 .detail_image {
   position: relative;
+  height: 27.5rem;
 }
 
 .detail_textDiv {
   position: absolute;
-  top: 50%;
+  /* top: 55%; */
+  bottom: 5%;
 }
 
 .detail_exerName {
@@ -21,6 +23,7 @@
   margin-bottom: 0.625rem;
   padding-left: 1.875rem;
   color: white;
+  word-break: keep-all;
 }
 
 .detail_category {

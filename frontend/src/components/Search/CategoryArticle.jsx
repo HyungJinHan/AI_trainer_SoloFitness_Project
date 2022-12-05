@@ -7,7 +7,7 @@ const CategoryArticle = ({ article, setmode }) => {
 
   return (
     <div
-      claasName='sa_total_div'
+      className='sa_total_div'
       onClick={() => navigate(`/detail?exec=${article.VIDEO_TITLE}`)}
     >
       <div className="sa_first_td">
