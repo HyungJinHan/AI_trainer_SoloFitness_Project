@@ -19,14 +19,14 @@ const AdminPageUserNivo_C = () => {
       <ResponsivePie
         data={[
           {
-            id: "센터 등록회원",
-            label: "센터 등록회원",
+            id: "등록회원",
+            label: "등록회원",
             value: centerRegist,
             color: "#cfddfb",
           },
           {
-            id: "센터 미등록회원",
-            label: "센터 미등록회원",
+            id: "미등록회원",
+            label: "미등록회원",
             value: centerNotRegist,
             color: "#fccece",
           },
