@@ -61,7 +61,7 @@ const CenterUpload = (props) => {
       part: partRef.current.value,
       prepare: prepareRef.current.value,
       writer: window.sessionStorage.getItem('centerID')
-    }).then(() => {
+    }).then((res) => {
       // console.log("handleUpload(res)->", res);
       // titleRef.current.value = "";
       // infoRef.current.value = "";

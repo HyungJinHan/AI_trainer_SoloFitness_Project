@@ -112,7 +112,7 @@ function CenterMain() {
   if (mode === 1) {
     return (
       <div>
-        <CenterControl setMode={setMode} memberInfo={memberInfo} />
+        <CenterControl setMode={setMode} />
       </div>
     )
   } else if (mode === 2) {
