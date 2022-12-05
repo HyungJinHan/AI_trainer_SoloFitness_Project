@@ -1,12 +1,14 @@
 import React from "react";
 import CategoryArticle from "./CategoryArticle";
-import "../../styles/CategoryNSearch/CategoryList.css";
+import "../../styles/CategoryNSearch/SearchResult.css";
 
 const CategoryList = ({ categorylist, item }) => {
   return (
-    <div className="cl_div">
-      <div className="cl_text">
+    <div className="sr_div">
+      <div className="sr_text">
         <p>{item} 카테고리</p>
+      </div>
+      <div style={{ height: "600px", overflowY: "scroll" }}>
         <table className="search_tbl" width="90%">
           <tbody>
             {categorylist.categorylist.map((article) => {
@@ -20,7 +22,6 @@ const CategoryList = ({ categorylist, item }) => {
         </table>
       </div>
     </div>
-
   )
 };
 

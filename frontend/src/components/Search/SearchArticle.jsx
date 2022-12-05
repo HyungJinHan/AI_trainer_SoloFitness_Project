@@ -8,7 +8,10 @@ const SearchArticle = ({ article }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="sa_total_div" onClick={() => navigate(`/detail?exec=${article.VIDEO_TITLE}`)}>
+    <div
+      className="sa_total_div"
+      onClick={() => navigate(`/detail?exec=${article.VIDEO_TITLE}`)}
+    >
       <div className="sa_first_td">
         <img
           className="sa_first_td_img"
