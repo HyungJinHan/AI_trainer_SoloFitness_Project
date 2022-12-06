@@ -137,7 +137,8 @@
 }
 
 .ChallengeRank_my_profile {
-  width: 7.5rem;
+  width: 100%;
+  height: 100%;
   background-size: 100%;
 }
 

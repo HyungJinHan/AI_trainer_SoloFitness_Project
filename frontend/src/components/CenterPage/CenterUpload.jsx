@@ -45,7 +45,7 @@ const CenterUpload = (props) => {
       prepareRef.current.focus();
       return false;
     }
-    
+
     const regExp = /(https?:\/\/)([A-Za-z0-9\w]+\.*)+(\.com|\.co\.kr|\.net)/gi.test(addressRef.current.value);
     if (!regExp) {
       alert("url을 입력하세요.");
@@ -79,7 +79,7 @@ const CenterUpload = (props) => {
 
   return (
     <div className="CenterPage_main">
-      <div className='UserMyPage_InfoUpdate'>
+      <div className='CenterPage_InfoUpdateNoDesc'>
         센터 컨텐츠 등록
       </div>
       <div className="CenterPage_UpdateBorder">

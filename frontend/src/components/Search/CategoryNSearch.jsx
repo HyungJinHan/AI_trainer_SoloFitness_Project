@@ -276,15 +276,13 @@ const Category = () => {
           </button>
         </div>
         <div className="CNS_rec_div">
-          <p >추천 검색어</p>
-          <ul>
-            <li onClick={(e) => RecSearch(e)}>up</li>
-            <li onClick={(e) => RecSearch(e)}>기본</li>
-            {/* 추가하고 싶은 검색어 아래처럼 추가하면 됩니다. */}
-            {/* <li onClick={(e) => RecSearch(e)}>요가</li> */}
-            {/* 검색어 3개 고정바람 */}
-            <li onClick={(e) => RecSearch(e)}>스트레칭</li>
-          </ul>
+          <p>추천 검색어</p>
+          <div onClick={(e) => RecSearch(e)}>up</div>
+          <div onClick={(e) => RecSearch(e)}>기본</div>
+          {/* 추가하고 싶은 검색어 아래처럼 추가하면 됩니다. */}
+          {/* <li onClick={(e) => RecSearch(e)}>요가</li> */}
+          {/* 검색어 3개 고정바람 */}
+          <div onClick={(e) => RecSearch(e)}>스트레칭</div>
         </div>
         <div className='CNS_grid_category'>
           <div
