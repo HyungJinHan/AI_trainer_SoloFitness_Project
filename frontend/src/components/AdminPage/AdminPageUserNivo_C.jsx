@@ -46,6 +46,7 @@ const AdminPageUserNivo_C = () => {
         arcLinkLabelsTextColor="#333333"
         arcLinkLabelsThickness={2}
         arcLinkLabelsColor={{ from: "color" }}
+        arcLinkLabelsStraightLength={7}
         arcLabelsSkipAngle={10}
         arcLabelsTextColor={{
           from: "color",
@@ -90,6 +91,10 @@ const AdminPageUserNivo_C = () => {
             ],
           },
         ]}
+        theme={{
+          fontSize: "15px",
+          fontFamily: "GmarketSansMedium",
+        }}
       />
     </div>
   );

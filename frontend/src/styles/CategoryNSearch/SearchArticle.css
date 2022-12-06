@@ -44,10 +44,13 @@
   margin-top: 0.4375rem;
   /* margin-right: 0.625rem; */
   word-break: keep-all;
+  font-family: "GmarketSansMedium";
+  line-height: 1.8;
 }
 
 .sa_videocategory {
   color: #808080;
+  font-family: "LINESeedKR";
 }
 
 .sa_videowriter {

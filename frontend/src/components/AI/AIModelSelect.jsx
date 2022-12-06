@@ -135,9 +135,9 @@ const ModelSelect = () => {
           }`}
         >
           <div>{feedbackClass()}</div>
+          <div className="AIModelSelect_knee">{squatFeedbackFunc()}</div>
+          <div className="AIModelSelect_shoulder">{squatFeedbackFunc2()}</div>
         </p>
-        <div className="AIModelSelect_knee">{squatFeedbackFunc()}</div>
-        <div className="AIModelSelect_shoulder">{squatFeedbackFunc2()}</div>
       </div>
       <div className="AIModelSelect_real_time_web_cam">
         <VideoModel />

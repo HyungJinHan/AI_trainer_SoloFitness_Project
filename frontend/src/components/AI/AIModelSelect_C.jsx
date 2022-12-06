@@ -64,8 +64,8 @@ const AIModelSelect_C = () => {
           USER_SCORE: counter,
         })
         .then((res) => {
-          navigator('/challengerank');
-        })
+          navigator("/challengerank");
+        });
     }
     if (execiseCategories_C === "pullup") {
       alert("챌린지 등록 성공!");
@@ -75,8 +75,8 @@ const AIModelSelect_C = () => {
           USER_SCORE: counter,
         })
         .then((res) => {
-          navigator('/challengerank');
-        })
+          navigator("/challengerank");
+        });
     }
     if (execiseCategories_C === "pushup") {
       alert("챌린지 등록 성공!");
@@ -86,8 +86,8 @@ const AIModelSelect_C = () => {
           USER_SCORE: counter,
         })
         .then((res) => {
-          navigator('/challengerank');
-        })
+          navigator("/challengerank");
+        });
     }
     if (execiseCategories_C === "situp") {
       alert("챌린지 등록 성공!");
@@ -97,8 +97,8 @@ const AIModelSelect_C = () => {
           USER_SCORE: counter,
         })
         .then((res) => {
-          navigator('/challengerank');
-        })
+          navigator("/challengerank");
+        });
     }
     if (execiseCategories_C === "curl") {
       alert("챌린지 등록 성공!");
@@ -108,8 +108,8 @@ const AIModelSelect_C = () => {
           USER_SCORE: counter,
         })
         .then((res) => {
-          navigator('/challengerank');
-        })
+          navigator("/challengerank");
+        });
     }
   };
 
@@ -174,7 +174,10 @@ const AIModelSelect_C = () => {
               챌린지에 등록하시겠습니까?
             </div>
             <div className="AIModelSelect_C_challenge_bottom_div">
-              <div className="AIModelSelect_C_challenge_no" onClick={goToDetail}>
+              <div
+                className="AIModelSelect_C_challenge_no"
+                onClick={goToDetail}
+              >
                 아니요
               </div>
               <div

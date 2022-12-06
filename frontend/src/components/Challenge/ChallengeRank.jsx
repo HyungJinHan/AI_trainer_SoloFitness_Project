@@ -67,9 +67,7 @@ const ChallengeRank = () => {
   return (
     <div>
       <div className="ChallengeRank_top">
-        <div className="ChallengeRank_rank_text">
-          랭킹
-        </div>
+        <div className="ChallengeRank_rank_text">랭킹</div>
         {rank.map((ranklist, index) => {
           return (
             <div className="ChallengeRank_main_div" key={index}>

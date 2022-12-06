@@ -58,6 +58,8 @@ const FitnessResultNivo = () => {
           { bottle: exerciseDate[2], 횟수: exerciseCount[2] },
           { bottle: exerciseDate[3], 횟수: exerciseCount[3] },
           { bottle: exerciseDate[4], 횟수: exerciseCount[4] },
+          { bottle: exerciseDate[5], 횟수: exerciseCount[5] },
+          { bottle: exerciseDate[6], 횟수: exerciseCount[6] },
         ]}
         /**
          * chart에 보여질 데이터 key (측정되는 값)
@@ -70,7 +72,7 @@ const FitnessResultNivo = () => {
         /**
          * chart margin
          */
-        margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+        margin={{ top: 50, right: 40, bottom: 50, left: 60 }}
         /**
          * chart padding (bar간 간격)
          */
@@ -95,6 +97,7 @@ const FitnessResultNivo = () => {
             text: {
               fontSize: 14,
               fill: "#000000",
+              fontFamily: "GmarketSansMedium",
             },
           },
           /**
@@ -104,6 +107,7 @@ const FitnessResultNivo = () => {
             text: {
               fontSize: 12,
               fill: "#000000",
+              fontFamily: "GmarketSansMedium",
             },
           },
           axis: {
@@ -114,6 +118,7 @@ const FitnessResultNivo = () => {
               text: {
                 fontSize: 20,
                 fill: "#000000",
+                fontFamily: "GmarketSansMedium",
               },
             },
             /**
@@ -123,6 +128,7 @@ const FitnessResultNivo = () => {
               text: {
                 fontSize: 16,
                 fill: "#000000",
+                fontFamily: "GmarketSansMedium",
               },
             },
           },
@@ -150,11 +156,11 @@ const FitnessResultNivo = () => {
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
             19, 20,
           ],
-          legend: "COUNT", // left 글씨
+          legend: "", // left 글씨
           legendPosition: "middle", // 글씨 위치
           legendOffset: -50, // 글씨와 chart간 간격
         }}
-        enableGridY={false}
+        enableGridY={true}
         /**
          * label 안보이게 할 기준 width
          */
@@ -175,7 +181,7 @@ const FitnessResultNivo = () => {
             anchor: "bottom-right", // 위치
             direction: "column", // item 그려지는 방향
             justify: false, // 글씨, 색상간 간격 justify 적용 여부
-            translateX: 250, // chart와 X 간격
+            translateX: 150, // chart와 X 간격
             translateY: -400, // chart와 Y 간격
             itemsSpacing: 2, // item간 간격
             itemWidth: 180, // item width

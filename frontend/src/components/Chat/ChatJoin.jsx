@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-import '../../styles/Chat/Join.css';
+import "../../styles/Chat/Join.css";
 
 export default function ChatJoin() {
-  const [name, setName] = useState('');
-  const [room, setRoom] = useState('');
+  const [name, setName] = useState("");
+  const [room, setRoom] = useState("");
   // const roomRef = useRef();
 
   return (
@@ -33,8 +33,13 @@ export default function ChatJoin() {
             ref={roomRef}
           /> */}
       </div>
-      <Link onClick={e => (!name || !'실시간 문의') ? e.preventDefault() : null} to={`/chat?name=${name}&room=${'실시간 문의'}`}>
-        <button className={'button mt-20'} type="submit">참여하기</button>
+      <Link
+        onClick={(e) => (!name || !"실시간 문의" ? e.preventDefault() : null)}
+        to={`/chat?name=${name}&room=${"실시간 문의"}`}
+      >
+        <button className={"button mt-20"} type="submit">
+          참여하기
+        </button>
       </Link>
     </div>
   );

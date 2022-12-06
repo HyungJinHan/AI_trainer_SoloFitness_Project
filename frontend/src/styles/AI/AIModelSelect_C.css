@@ -5,7 +5,7 @@
   margin-top: 1.875rem;
 }
 
-.AIModelSelect_C_video_model{
+.AIModelSelect_C_video_model {
   margin-top: 5rem;
 }
 
@@ -14,60 +14,71 @@
   height: 0;
 }
 
-.AIModelSelect_C_counter_div{
+.AIModelSelect_C_counter_div {
   padding-top: 3.125rem;
   height: 1.875rem;
   width: 21.875rem;
   font-size: 1.5625rem;
-  margin:0 auto;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.AIModelSelect_C_counter_text_div{
+.AIModelSelect_C_counter_text_div {
   background: #424242;
-  color:white;
+  color: white;
   width: 10.9375rem;
+  height: 32px;
   border-radius: 7px 0 0 7px;
+  font-family: "GmarketSansMedium";
+  line-height: 1.5;
 }
 
-.AIModelSelect_C_counting_div{
-  background: #3DA2FF;
-  color:white;
+.AIModelSelect_C_counting_div {
+  background: #3da2ff;
+  color: white;
   width: 10.9375rem;
+  height: 32px;
   border-radius: 0 7px 7px 0;
+  font-family: "GmarketSansMedium";
+  line-height: 1.5;
 }
 
-.AIModelSelect_C_text{
+.AIModelSelect_C_text {
   margin-top: 2.5rem;
   font-size: 1.5625rem;
+  font-family: "GmarketSansMedium";
 }
 
-.AIModelSelect_C_challenge_bottom_div{
+.AIModelSelect_C_challenge_bottom_div {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 2.5rem;
 }
 
-.AIModelSelect_C_challenge_no{
+.AIModelSelect_C_challenge_no {
   background: #424242;
-  color:white;
+  color: white;
   width: 9.375rem;
   margin-right: 3.125rem;
   border-radius: 7px;
   height: 1.875rem;
   font-size: 1.25rem;
   font-weight: 700;
+  font-family: "GmarketSansMedium";
+  line-height: 1.7;
 }
 
-.AIModelSelect_C_challenge_yes{
-  background: #3DA2FF;
-  color:white;
+.AIModelSelect_C_challenge_yes {
+  background: #3da2ff;
+  color: white;
   width: 9.375rem;
   border-radius: 7px;
   height: 1.875rem;
   font-size: 1.25rem;
   font-weight: 700;
+  font-family: "GmarketSansMedium";
+  line-height: 1.7;
 }

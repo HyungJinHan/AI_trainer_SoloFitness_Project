@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "BMDOHYEON";
+  src: url("../../static/fonts/BMDOHYEON_ttf.ttf");
+}
+
 .AdminPageUser_top_div {
   display: flex;
+  background-color: whitesmoke;
 }
 
 .AdminPageUser_sidebar {
@@ -20,7 +26,8 @@
 .AdminPageUser_user_gender_nivo_text {
   font-size: 1.875rem;
   text-align: center;
-  font-weight: 800;
+  font-family: "BMDOHYEON";
+  padding-top: 20px;
 }
 
 .AdminPageUser_user_age_main {
@@ -33,7 +40,8 @@
 .AdminPageUser_user_age_nivo_text {
   font-size: 1.875rem;
   text-align: center;
-  font-weight: 800;
+  font-family: "BMDOHYEON";
+  padding-top: 20px;
 }
 
 .AdminPageUserNivo_age {
@@ -50,7 +58,8 @@
 .AdminPageUser_user_center_nivo_text {
   font-size: 1.875rem;
   text-align: center;
-  font-weight: 800;
+  font-family: "BMDOHYEON";
+  padding-top: 20px;
 }
 
 .AdminPageUserNivo_center {
@@ -68,7 +77,8 @@
 .AdminPageUser_user_excercise_nivo_text {
   font-size: 1.875rem;
   text-align: center;
-  font-weight: 800;
+  font-family: "BMDOHYEON";
+  padding-top: 20px;
 }
 
 .AdminPageUserNivo_excercise {
