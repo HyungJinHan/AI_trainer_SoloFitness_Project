@@ -66,6 +66,8 @@ function CenterVideoList(props) {
     <div className='CenterPage_main'>
       <div className='CenterPage_InfoUpdate'>
         등록된 영상 목록
+        <br />
+        (총 {videoList.list.length}개의 영상을 등록했습니다.)
       </div>
       <div className="CenterPage_UpdateBorder">
         {
