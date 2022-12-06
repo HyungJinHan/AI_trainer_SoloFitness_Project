@@ -18,6 +18,7 @@ import mainLogo2 from "../../static/images/JYY/exImage.png";
 import homeBlack from "../../static/images/JYY/ICON/homeBlack.png";
 import beginner from "../../static/images/JYY/main/beginner.png";
 
+
 const MainCenter = styled.div`
   text-align: center;
   /* padding-bottom: 6.25rem; */
@@ -58,7 +59,6 @@ function UserPageMain(props) {
     navigate("/");
     return false;
   }
-
   return (
     <div className="userMain_total_div">
       <div className="main_logo_div">
@@ -96,15 +96,7 @@ function UserPageMain(props) {
             alt="?"
           />
         </div>
-        <div className="main_image_div">
 
-          <img
-            className="main_chanjin_content"
-            src={chanjinImage}
-            alt="?"
-            width="385px"
-          />
-        </div>
         {
           codeInfo.USER_ACCESS_CODE === null ?
             null
@@ -134,11 +126,12 @@ function UserPageMain(props) {
             </div>
         }
         <div className="main_image_div">
+
           <img
-            className="main_yoga_content"
-            src={yogaImage}
-            width="385px"
+            className="main_chanjin_content"
+            src={chanjinImage}
             alt="?"
+            width="385px"
           />
         </div>
         <div className='UserMain_white'>
@@ -146,8 +139,8 @@ function UserPageMain(props) {
         </div>
         <div className="main_image_div">
           <img
-            className="main_lift_content"
-            src={liftImage}
+            className="main_yoga_content"
+            src={yogaImage}
             width="385px"
             alt="?"
           />
@@ -163,15 +156,22 @@ function UserPageMain(props) {
             alt="?"
           />
         </div>
-
-        <div className="main_image_div">
+        {/* <div className="main_image_div">
+          <img
+            className="main_lift_content"
+            src={liftImage}
+            width="385px"
+            alt="?"
+          />
+        </div> */}
+        {/* <div className="main_image_div">
           <img
             className="main_back_content"
             src={backImage}
             width="385px"
             alt="?"
           />
-        </div>
+        </div> */}
         <NavigatorMain />
         <Outlet />
       </MainCenter>

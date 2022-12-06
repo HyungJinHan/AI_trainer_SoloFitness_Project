@@ -3,8 +3,7 @@
   height: 100%;
 }
 
-.swiper-slide {
-}
+.swiper-slide {}
 
 .swiper-slide img {
   /* display: block; */
@@ -38,6 +37,7 @@
   font-size: 1.5rem;
   font-family: "GmarketSansMedium";
   font-weight: 500;
+  color: #424242;
 }
 
 .MainSlider_themeEvent {
@@ -54,6 +54,7 @@
   text-align: left;
   padding-left: 1.8rem;
   font-family: "GmarketSansMedium";
+  color: #424242;
 }
 
 .MainSlider_ctgr_text {
@@ -61,4 +62,5 @@
   text-align: left;
   padding-left: 2rem;
   font-family: "LINESeedKR";
+  color: #424242;
 }

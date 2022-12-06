@@ -39,15 +39,17 @@ const Detail = () => {
   return (
     <div className="detail_main">
       <div className="detail_image">
+        <div className="detail_textDiv">
+          <div className="detail_exerName">{detailCategories}</div>
+          <div className="detail_category"># {detailInfo[0].VIDEO_CATEGORY}</div>
+        </div>
         <img
           src={imageSrc}
           alt="undefined"
           width='425px'
+          height='100%'
         />
-        <div className="detail_textDiv">
-          <div className="detail_exerName">{detailCategories}</div>
-          <div className="detail_category">#{detailInfo[0].VIDEO_CATEGORY}</div>
-        </div>
+        <div className="detail_layer"></div>
       </div>
       {execCount === true ? (
         <input

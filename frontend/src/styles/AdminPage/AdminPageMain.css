@@ -84,6 +84,7 @@
   width: 25px;
   transform: translate(-3px, 8px) rotate(30deg);
 }
+
 .AdminPageMain_button_in:hover span:nth-child(2) {
   display: none;
 }
@@ -97,6 +98,7 @@
   width: 25px;
   transform: translate(0px, 8px) rotate(-30deg);
 }
+
 .AdminPageMain_button_out:hover span:nth-child(2) {
   display: none;
 }
@@ -122,18 +124,21 @@
   position: relative;
   font-family: "GmarketSansMedium";
 }
+
 .AdminPageMain_menu_item_NX {
   margin: 15px;
   width: 4.5rem;
 }
 
 .AdminPageMain_menu_item:hover {
-  background-color: #3da2ff;
+  background-color: #7abefd;
 }
+
 .AdminPageMain_menu_item img {
   padding: 6px 10px;
 }
-.AdminPageMain_menu_item:hover > .AdminPageMain_menu_tooltip {
+
+.AdminPageMain_menu_item:hover>.AdminPageMain_menu_tooltip {
   display: block;
 }
 
@@ -187,6 +192,7 @@
   padding: 20px;
   margin-left: 5px;
 }
+
 .AdminPageMain_menu_log_out:hover {
   background-color: #3da2ff;
 }
