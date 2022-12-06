@@ -199,9 +199,10 @@ app.post("/userjoin", (req, res) => {
   var USER_TEL = req.body.USER_TEL;
   var USER_SEX = req.body.USER_SEX;
   var USER_ACCESS_CODE = req.body.USER_ACCESS_CODE;
+  var USER_AGE = req.body.USER_AGE;
 
   const sqlQuery =
-    "INSERT INTO USER_TABLE VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, null, null, null, null, null);";
+    "INSERT INTO USER_TABLE VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, null, null, null, null);";
   db.query(
     sqlQuery,
     [
@@ -214,6 +215,7 @@ app.post("/userjoin", (req, res) => {
       USER_TEL,
       USER_ACCESS_CODE,
       USER_SEX,
+      USER_AGE,
     ],
     (err, result) => {
       res.send(result);

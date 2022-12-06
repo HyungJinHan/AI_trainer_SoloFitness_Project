@@ -21,70 +21,72 @@ const NavCenter = styled.div`
 function NavigatorMain({ searchMode, setSearchMode }) {
   const navigate = useNavigate();
 
-  return (
-    <NavCenter>
-      <div className="Navigator_bar">
-        <div className="Navigator_div">
-          <img
-            className="Navigator_image"
-            src={yesHome}
-            alt="undefind"
-            onClick={() => {
-              navigate("/usermain");
-            }}
-          />
-          <p className="Navigator_p_select">
-            메인
-          </p>
-        </div>
-        <div className="Navigator_div">
-          <img
-            className="Navigator_image"
-            src={nonSearch}
-            alt="undefind"
-            onClick={
-              () => {
-                navigate('/category');
-                if (searchMode === 1 || searchMode === 2) {
-                  setSearchMode(0)
+  // 센터 로그인 후 센터 디테일 들어갈 때는 네비게이션바 안 띄우기 위해서 if문 추가
+  if (window.sessionStorage.key(0) === "userID") {
+    return (
+      <NavCenter>
+        <div className="Navigator_bar">
+          <div className="Navigator_div">
+            <img
+              className="Navigator_image"
+              src={yesHome}
+              alt="undefind"
+              onClick={() => {
+                navigate("/usermain");
+              }}
+            />
+            <p className="Navigator_p_select">
+              메인
+            </p>
+          </div>
+          <div className="Navigator_div">
+            <img
+              className="Navigator_image"
+              src={nonSearch}
+              alt="undefind"
+              onClick={
+                () => {
+                  navigate('/category');
+                  if (searchMode === 1 || searchMode === 2) {
+                    setSearchMode(0)
+                  }
                 }
               }
-            }
-          />
-          <p className="Navigator_p">
-            검색
-          </p>
+            />
+            <p className="Navigator_p">
+              검색
+            </p>
+          </div>
+          <div className="Navigator_div">
+            <img
+              className="Navigator_image"
+              src={nonRank}
+              alt="undefind"
+              onClick={() => {
+                navigate("/challengerank");
+                window.location.reload();
+              }}
+            />
+            <p className="Navigator_p">
+              랭킹
+            </p>
+          </div>
+          <div className="Navigator_div">
+            <img
+              className="Navigator_image"
+              src={nonMy}
+              alt="undefind"
+              onClick={() => {
+                navigate("/usermypage");
+              }}
+            />
+            <p className="Navigator_p">
+              MY
+            </p>
+          </div>
         </div>
-        <div className="Navigator_div">
-          <img
-            className="Navigator_image"
-            src={nonRank}
-            alt="undefind"
-            onClick={() => {
-              navigate("/challengerank");
-              window.location.reload();
-            }}
-          />
-          <p className="Navigator_p">
-            랭킹
-          </p>
-        </div>
-        <div className="Navigator_div">
-          <img
-            className="Navigator_image"
-            src={nonMy}
-            alt="undefind"
-            onClick={() => {
-              navigate("/usermypage");
-            }}
-          />
-          <p className="Navigator_p">
-            MY
-          </p>
-        </div>
-      </div>
-    </NavCenter>
-  );
+      </NavCenter>
+    )};
 }
 
 export default NavigatorMain;

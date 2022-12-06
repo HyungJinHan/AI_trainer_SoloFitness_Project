@@ -152,7 +152,10 @@ const Detail = () => {
       <br />
       <hr />
       <div className="detail_title">운동 소개</div>
-      <div className="detail_article">{detailInfo[0].VIDEO_INFO}</div>
+      {/* <div className="detail_article">{detailInfo[0].VIDEO_INFO}</div> */}
+      {detailInfo[0].VIDEO_INFO.split("\\n").map((data) => {
+        return <div className="detail_article">{data}</div>;
+      })}
       <br />
       <hr />
       <div className="detail_title">운동 효과</div>

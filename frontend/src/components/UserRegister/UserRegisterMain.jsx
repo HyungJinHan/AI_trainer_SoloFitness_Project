@@ -18,6 +18,7 @@ const RegisterMain = () => {
   const [userEmail, setUserEmail] = useState('');
   const [userAddr, setUserAddr] = useState('');
   const [centerCode, setCenterCode] = useState(null);
+  const [userAge, setUserAge] = useState(null);
 
   const consoleAll = () => {
     console.log('mode =>', mode);
@@ -30,6 +31,7 @@ const RegisterMain = () => {
     console.log('userEmail =>', userEmail);
     console.log('userAddr =>', userAddr);
     console.log('centerCode =>', centerCode);
+    console.log('userAge => ', userAge);
   };
 
   const insertUser = () => {
@@ -44,6 +46,7 @@ const RegisterMain = () => {
         USER_TEL: userTel,
         USER_SEX: userSex,
         USER_ACCESS_CODE: centerCode,
+        USER_AGE: userAge,
       })
       .then((res) => {
         if (res.data.affectedRows === 1) {
@@ -89,6 +92,7 @@ const RegisterMain = () => {
           setUserTel={setUserTel}
           setUserEmail={setUserEmail}
           setUserAddr={setUserAddr}
+          setUserAge={setUserAge}
           setMode={setMode}
           consoleAll={consoleAll}
         />
