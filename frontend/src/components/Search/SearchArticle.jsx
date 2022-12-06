@@ -6,7 +6,7 @@ import "../../styles/CategoryNSearch/SearchArticle.css";
 // article은 그 배열 안의 결과 하나하나를 의미 -> props로 받아옴
 const SearchArticle = ({ article }) => {
   const navigate = useNavigate();
-
+  const imageSrc = "http://localhost:8008/uploads/slider/" + article.VIDEO_THUMBNAIL
   return (
     <div
       className="sa_total_div"
@@ -15,7 +15,7 @@ const SearchArticle = ({ article }) => {
       <div className="sa_first_td">
         <img
           className="sa_first_td_img"
-          src={article.VIDEO_THUMBNAIL}
+          src={imageSrc}
           alt="운동이미지"
         />
       </div>

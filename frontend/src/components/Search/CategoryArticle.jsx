@@ -4,6 +4,7 @@ import "../../styles/CategoryNSearch/SearchArticle.css";
 
 const CategoryArticle = ({ article, setmode }) => {
   const navigate = useNavigate();
+  const imageSrc = "http://localhost:8008/uploads/slider/" + article.VIDEO_THUMBNAIL
 
   return (
     <div
@@ -13,7 +14,7 @@ const CategoryArticle = ({ article, setmode }) => {
       <div className="sa_first_td">
         <img
           className="sa_first_td_img"
-          src={article.VIDEO_THUMBNAIL}
+          src={imageSrc}
           alt="운동이미지"
         />
       </div>
