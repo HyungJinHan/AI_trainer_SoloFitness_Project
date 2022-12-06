@@ -23,7 +23,7 @@ import keyboard
 # args = vars(ap.parse_args())
 # args = vars(ap.parse_args())
 
-ex_test = 1
+ex_test = 0
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 # 실시간 덤벨 측정 (사용 안할 시 주석 처리 바람)
@@ -62,7 +62,7 @@ def get_stream_video_C():
             except:
                 pass
 
-            frame = score_table(execList[-1], frame, counter, status)
+            # frame = score_table(execList[-1], frame, counter, status)
 
             mp_drawing.draw_landmarks(frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
                                     mp_drawing.DrawingSpec(color=(255, 255, 255), thickness=2, circle_radius=2))

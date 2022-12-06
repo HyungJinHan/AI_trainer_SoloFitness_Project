@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "swiper/css";
 
-function MainSliderList({ VIDEO_THUMBNAIL, VIDEO_TITLE, VIDEO_CATEGORY }) {
+function MainSliderList({
+  VIDEO_THUMBNAIL,
+  VIDEO_TITLE,
+  VIDEO_CATEGORY,
+  VIDEO_BODY_PART,
+}) {
   const navigate = useNavigate();
   const imageSRC = "http://localhost:8008/uploads/slider/" + VIDEO_THUMBNAIL;
   return (
@@ -17,7 +22,7 @@ function MainSliderList({ VIDEO_THUMBNAIL, VIDEO_TITLE, VIDEO_CATEGORY }) {
         if (VIDEO_TITLE === "윗몸일으키기") {
           VIDEO_TITLE = "situp";
         }
-        navigate(`/detail?exec=${VIDEO_TITLE}`);
+        navigate(`/detail?exec=${VIDEO_BODY_PART}`);
       }}
     >
       <img src={imageSRC} alt="undefined" />
