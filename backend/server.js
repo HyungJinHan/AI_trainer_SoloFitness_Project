@@ -393,7 +393,7 @@ app.post("/legtheme", (req, res) => {
   const VIDEO_CATEGORY = req.body.VIDEO_CATEGORY;
 
   const sqlQuery =
-    "SELECT VIDEO_THUMBNAIL, VIDEO_TITLE, VIDEO_CATEGORY FROM VIDEO_TABLE WHERE VIDEO_CATEGORY = ?;";
+    "SELECT VIDEO_THUMBNAIL, VIDEO_TITLE, VIDEO_CATEGORY, VIDEO_BODY_PART FROM VIDEO_TABLE WHERE VIDEO_CATEGORY = ?;";
 
   db.query(sqlQuery, [VIDEO_CATEGORY], (err, result) => {
     res.send(result);

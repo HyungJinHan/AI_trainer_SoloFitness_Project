@@ -52,7 +52,13 @@
   height: 30px;
   line-height: 1.8;
 }
+.AIModelSelect_goal_count .AIModelSelect_counter_text_div {
+  border-top: 2px solid #424242;
+}
 
+.AIModelSelect_goal_count .AIModelSelect_counting_div {
+  border-top: 2px solid #fff;
+}
 .AIModelSelect_goal_count {
   margin: 0;
   padding: 0;

@@ -64,6 +64,7 @@ const ChallengeRank = () => {
           });
       });
   }, [resultScore]);
+  console.log("result", resultScore);
   return (
     <div>
       <div className="ChallengeRank_top">

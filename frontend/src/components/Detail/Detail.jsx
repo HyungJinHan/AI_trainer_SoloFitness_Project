@@ -14,7 +14,7 @@ const Detail = () => {
   const [challengeInfo, setChallengeInfo] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const detailCategories = queryString.parse(location.search).exec;
+  var detailCategories = queryString.parse(location.search).exec;
   const [detailInfo, setDetailInfo] = useState([
     {
       VIDEO_CATEGORY: "",
@@ -23,7 +23,7 @@ const Detail = () => {
       VIDEO_EFFECT: "",
     },
   ]);
-
+  console.log("운동 카테고리", detailCategories);
   useEffect(() => {
     axios
       .post("http://localhost:8008/detail", { detailExec: detailCategories })
@@ -35,7 +35,8 @@ const Detail = () => {
         console.error(e);
       });
   }, []);
-  const imageSrc = "http://localhost:8008/uploads/slider/" + detailInfo[0].VIDEO_THUMBNAIL;
+  const imageSrc =
+    "http://localhost:8008/uploads/slider/" + detailInfo[0].VIDEO_THUMBNAIL;
   return (
     <div className="detail_main">
       <div className="detail_image">
