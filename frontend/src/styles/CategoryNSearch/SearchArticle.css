@@ -35,7 +35,8 @@
 }
 
 .sa_second_td p {
-  margin: 0 0 0.1875rem 0.625rem;
+  margin: 0.2rem 0 0.1875rem 0.625rem;
+  line-height: 30px;
 }
 
 .sa_videotitle {

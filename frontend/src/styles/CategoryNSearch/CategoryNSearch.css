@@ -68,7 +68,7 @@
 
 .CNS_rec_div p {
   text-align: left;
-  padding-left: 2.25rem;
+  padding-left: 2.5rem;
   font-family: "GmarketSansMedium";
 }
 
@@ -80,7 +80,7 @@
   height: 2.5rem;
   overflow: scroll;
   white-space: nowrap;
-  margin-left: 2rem;
+  margin-left: 1rem;
   padding-left: 1rem;
   font-family: "GmarketSansMedium";
 }
@@ -90,8 +90,8 @@
   /* float: left; */
   display: inline-block;
   padding: 0.5rem 2rem;
-  margin-right: .5rem;
-  margin-left: .5rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
   background: #3da2ff;
   color: white;
   border-radius: 20px;
@@ -127,7 +127,7 @@
   border-radius: 50%;
 }
 
-.CNS_image>img {
+.CNS_image > img {
   width: 50px;
   height: 50px;
   position: absolute;
@@ -135,7 +135,7 @@
   left: 21%;
 }
 
-.CNS_category_item>p {
+.CNS_category_item > p {
   margin: 5px 0;
   text-align: center;
   font-family: "GmarketSansMedium";
