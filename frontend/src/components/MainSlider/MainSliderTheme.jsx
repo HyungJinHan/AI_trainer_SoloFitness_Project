@@ -13,7 +13,7 @@ function MainSliderTheme(props) {
   useEffect(() => {
     axios
       .post("http://localhost:8008/legtheme", {
-        VIDEO_CATEGORY: "하체",
+        VIDEO_CATEGORY: "맨몸운동",
       })
       .then((res) => {
         const { data } = res;
@@ -28,7 +28,7 @@ function MainSliderTheme(props) {
 
   return (
     <div>
-      <div className="MainSlider_themeWhite">일어나... 하체해야지...</div>
+      <div className="MainSlider_themeWhite">초보자들을 위한 기초 맨몸운동🔥</div>
       <Swiper
         slidesPerView={2}
         spaceBetween={100}
