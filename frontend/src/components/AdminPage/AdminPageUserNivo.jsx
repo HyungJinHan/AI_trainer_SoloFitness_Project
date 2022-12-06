@@ -93,6 +93,10 @@ const AdminPageUserNivo = () => {
             ],
           },
         ]}
+        theme={{
+          fontSize: "15px",
+          fontFamily: "GmarketSansMedium",
+        }}
       />
     </div>
   );

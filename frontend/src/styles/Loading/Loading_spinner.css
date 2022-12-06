@@ -1,20 +1,21 @@
-.LoadingSpinner_top_div{
-	background: #3DA2FF;
-	width: 100vw;
-	height: 100vh;
+.LoadingSpinner_top_div {
+  background: #3da2ff;
+  width: 100vw;
+  height: 100vh;
 }
 
-.LoadingSpinner_bubbles{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding-top: 18.75rem;
+.LoadingSpinner_bubbles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 18.75rem;
 }
 
-.LoadingSpinner_text{
-	display: block;
-	text-align: center;
-	padding-top: 12.5rem;
-	color: white;
-	font-size: 1.875rem;
+.LoadingSpinner_text {
+  display: block;
+  text-align: center;
+  padding-top: 12.5rem;
+  color: white;
+  font-size: 1.875rem;
+  font-family: "GmarketSansMedium";
 }

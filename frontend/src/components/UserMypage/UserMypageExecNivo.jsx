@@ -104,6 +104,7 @@ const UserMypageExecNivo = (props) => {
         }}
         theme={{
           fontSize: "15px",
+          fontFamily: "GmarketSansMedium",
         }}
       />
     </div>

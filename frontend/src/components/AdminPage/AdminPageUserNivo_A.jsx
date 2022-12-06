@@ -75,6 +75,7 @@ const AdminPageUserNivo_A = () => {
             text: {
               fontSize: 14,
               fill: "#000000",
+              fontFamily: "GmarketSansMedium",
             },
           },
           /**
@@ -84,6 +85,7 @@ const AdminPageUserNivo_A = () => {
             text: {
               fontSize: 12,
               fill: "#000000",
+              fontFamily: "GmarketSansMedium",
             },
           },
           axis: {
@@ -94,6 +96,7 @@ const AdminPageUserNivo_A = () => {
               text: {
                 fontSize: 20,
                 fill: "#000000",
+                fontFamily: "GmarketSansMedium",
               },
             },
             /**
@@ -103,6 +106,7 @@ const AdminPageUserNivo_A = () => {
               text: {
                 fontSize: 16,
                 fill: "#000000",
+                fontFamily: "GmarketSansMedium",
               },
             },
           },

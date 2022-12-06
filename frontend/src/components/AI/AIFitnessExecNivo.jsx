@@ -97,6 +97,7 @@ const AIFitnessExecNivo = () => {
         }}
         theme={{
           fontSize: "15px",
+          fontFamily: "GmarketSansMedium",
         }}
       />
     </div>

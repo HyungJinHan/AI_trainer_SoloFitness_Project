@@ -1,27 +1,26 @@
 .AdminLogin_input {
   width: 18.875rem;
   height: 3.125rem;
-  margin: .625rem;
-  background: #F2F2F2;
-  border: .0625rem solid #3DA2FF;
-  border-radius: .4375rem;
+  margin: 0.625rem;
+  background: #f2f2f2;
+  border: 0.0625rem solid #3da2ff;
+  border-radius: 0.4375rem;
   border: none;
-  padding-left: .625rem;
+  padding-left: 0.625rem;
 }
 
 .AdminLogin_button {
   width: 18.875rem;
   height: 2.5rem;
-  margin: .625rem;
+  margin: 0.625rem;
   margin-top: 1.875rem;
   margin-bottom: 3.125rem;
-  background: #3DA2FF;
+  background: #3da2ff;
   border-radius: 24px;
   border: none;
   color: white;
-  font-family: 'Inter';
+  font-family: "GmarketSansMedium";
   font-style: normal;
-  font-weight: 1000;
   font-size: 1.0625rem;
   letter-spacing: 0.2rem;
 }
@@ -29,11 +28,11 @@
 .AdminLogin_link {
   width: 5.9375rem;
   height: 14px;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 1000;
-  font-size: .9375rem;
-  line-height: .9375rem;
+  font-size: 0.9375rem;
+  line-height: 0.9375rem;
   text-align: center;
   letter-spacing: 0.2rem;
   color: #000000;
