@@ -5,9 +5,10 @@
 
 .AdminPageMain_nav_brand_text {
   margin: 0;
-  margin-top: 40px;
+  margin-top: 50px;
   margin-left: 30px;
   font-size: 30px;
+  font-family: "GmarketSansMedium";
 }
 
 .AdminPageMain_side_nav_container {
@@ -119,6 +120,7 @@
   margin: 15px 20px;
   border-radius: 10px;
   position: relative;
+  font-family: "GmarketSansMedium";
 }
 .AdminPageMain_menu_item_NX {
   margin: 15px;
@@ -169,12 +171,13 @@
 
 .AdminPageMain_menu_nav_footer_user_name {
   font-size: 18px;
-  font-weight: 900;
+  font-family: "GmarketSansMedium";
 }
 
 .AdminPageMain_menu_nav_footer_user_position {
   margin-top: -15px;
   color: #d1d1d1;
+  font-family: "GmarketSansMedium";
 }
 
 .AdminPageMain_menu_log_out {

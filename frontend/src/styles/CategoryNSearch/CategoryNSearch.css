@@ -4,9 +4,10 @@
 }
 
 .CNS_search_info {
-  padding-top: 4.375rem;
+  padding-top: 3.125rem;
   padding-bottom: 0.9375rem;
-  font-size: 1.4375rem;
+  font-size: 1.875rem;
+  font-family: "BMDOHYEON";
 }
 
 .CNS_search_div {
@@ -38,6 +39,7 @@
   border: none;
   width: 18.75rem;
   padding-left: 0.625rem;
+  font-family: "GmarketSansMedium";
 }
 
 .CNS_search_button {
@@ -64,7 +66,9 @@
 }
 
 .CNS_rec_div p {
-  text-align: center;
+  text-align: left;
+  padding-left: 2.25rem;
+  font-family: "GmarketSansMedium";
 }
 
 /* 가로 스크롤을 주기 위해서는 float:left; 주면 안 되고,
@@ -77,6 +81,7 @@
   white-space: nowrap;
   margin-left: 2rem;
   padding-left: 1rem;
+  font-family: "GmarketSansMedium";
 }
 
 .CNS_rec_div li {
@@ -119,7 +124,7 @@
   border-radius: 50%;
 }
 
-.CNS_image>img {
+.CNS_image > img {
   width: 50px;
   height: 50px;
   position: absolute;
@@ -127,7 +132,8 @@
   left: 21%;
 }
 
-.CNS_category_item>p {
+.CNS_category_item > p {
   margin: 5px 0;
   text-align: center;
+  font-family: "GmarketSansMedium";
 }

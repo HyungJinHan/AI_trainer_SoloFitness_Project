@@ -128,6 +128,20 @@
   margin-bottom: 1.25rem;
 }
 
+.CenterPage_InfoUpdate {
+  margin: 0 auto;
+  margin-top: 3.125rem;
+  width: 90%;
+  height: 3.4375rem;
+  color: white;
+  background: #3da2ff;
+  border-radius: 20px 20px 0px 0px;
+  padding-top: 0.75rem;
+  border: 0.0625rem solid #3da2ff;
+  font-weight: 1000;
+  font-size: 1.0625rem;
+}
+
 .CenterPage_imageUpload {
   width: 21.875rem;
   height: 2.5rem;
@@ -203,4 +217,29 @@
 .center_page {
   text-align: center;
   display: inline-block;
+}
+
+.CenterControl_flex {
+  display: flex;
+  text-align: center;
+}
+
+.CenterControl_div {
+  width: 17.75rem;
+  height: 7.25rem;
+  text-align: center;
+  border-top-right-radius: 0.5625rem;
+  border-bottom-right-radius: 0.5625rem;
+  margin-bottom: 1.25rem;
+  color: #605e5e;
+  box-shadow: 0px 0.1875rem 0.1875rem rgba(0, 0, 0, 0.15);
+}
+
+.CenterControl_title {
+  width: 7.25rem;
+  height: 7.25rem;
+  margin-left: 0.25rem;
+  border-top-left-radius: 0.5625rem;
+  border-bottom-left-radius: 0.5625rem;
+  box-shadow: 0px 0.1875rem 0.1875rem rgba(0, 0, 0, 0.15);
 }

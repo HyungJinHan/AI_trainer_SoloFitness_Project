@@ -39,12 +39,18 @@
   background: whitesmoke;
   color: black;
   width: 10.9375rem;
+  font-family: "GmarketSansMedium";
+  height: 30px;
+  line-height: 1.8;
 }
 
 .AIModelSelect_counting_div {
   background: #3da2ff;
   color: white;
   width: 10.9375rem;
+  font-family: "GmarketSansMedium";
+  height: 30px;
+  line-height: 1.8;
 }
 
 .AIModelSelect_goal_count {
@@ -68,20 +74,24 @@
 
 .great_feedback {
   color: green;
+  font-family: "GmarketSansMedium";
 }
 
 .not_great_feedback {
   color: red;
+  font-family: "GmarketSansMedium";
 }
 
 .AIModelSelect_knee {
   text-align: center;
   font-size: 18px;
   color: red;
+  font-family: "GmarketSansMedium";
 }
 
 .AIModelSelect_shoulder {
   text-align: center;
   font-size: 18px;
   color: red;
+  font-family: "GmarketSansMedium";
 }

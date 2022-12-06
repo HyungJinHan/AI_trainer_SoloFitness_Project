@@ -39,11 +39,11 @@ function MainSliderEvent(props) {
         </SwiperSlide>
         <SwiperSlide>
           <img src={UnderArmor} alt="undefined" />
-          <div className="MainSlider_themeEvent">언더아머 단속반 모집 중</div>
+          <div className="MainSlider_themeEvent">언더아머 단속반 모집</div>
         </SwiperSlide>
         <SwiperSlide>
           <img src={Brand} alt="undefined" />
-          <div className="MainSlider_themeEvent">피트니스 브랜드 확인하기</div>
+          <div className="MainSlider_themeEvent">스포츠 브랜드 확인하기</div>
         </SwiperSlide>
       </Swiper>
     </div>

@@ -3,7 +3,8 @@
   height: 100%;
 }
 
-.swiper-slide {}
+.swiper-slide {
+}
 
 .swiper-slide img {
   /* display: block; */
@@ -13,7 +14,7 @@
   transition: 0.3s;
   object-fit: cover;
   border-radius: 1.25rem;
-  border: solid .2rem rgba(250, 246, 246, 0.5);
+  border: solid 0.2rem rgba(250, 246, 246, 0.5);
 }
 
 .swiper-slider img:hover {
@@ -24,7 +25,7 @@
 .MainSlider_themeGray {
   text-align: left;
   padding-left: 1.5rem;
-  padding-bottom: .875rem;
+  padding-bottom: 0.875rem;
   font-size: 1.5rem;
   font-family: "GmarketSansMedium";
   font-weight: 500;
@@ -33,9 +34,9 @@
 .MainSlider_themeWhite {
   text-align: left;
   padding-left: 1.5rem;
-  padding-bottom: .875rem;
-  font-size: 1.25rem;
-  font-family: "dohyeon";
+  padding-bottom: 0.875rem;
+  font-size: 1.5rem;
+  font-family: "GmarketSansMedium";
   font-weight: 500;
 }
 
@@ -43,7 +44,8 @@
   width: 12.5rem;
   text-align: left;
   margin-left: 1.5rem;
-  font-size: .9375rem;
+  font-size: 0.9375rem;
+  font-family: "GmarketSansMedium";
 }
 
 .MainSlider_title_text {
@@ -58,5 +60,5 @@
   font-size: 0.9rem;
   text-align: left;
   padding-left: 2rem;
-  font-family: "GmarketSansMedium";
+  font-family: "LINESeedKR";
 }

@@ -76,14 +76,14 @@ class TypeOfExercise(BodyPartAngle):
         
 
         if status:
-            if avg_leg_angle < 70:
+            if avg_leg_angle < 90:
                 counter += 1
                 status = False
                 countlist.append(counter)
                 countlist_c.append(counter)
                 sqautFeedbackList.append('Great!')
             if squatFeedback_flag:
-                if 71 < avg_leg_angle < 140:
+                if 91 < avg_leg_angle < 140:
                     sqautFeedbackList.append('무릎을 더 굽히세요.')
                     squatFeedback_flag = False   
         else:
@@ -105,12 +105,12 @@ class TypeOfExercise(BodyPartAngle):
         
         # 어깨가 틀어졌을때 피드백
         if squatShoulderFeedbackFlag[-1]:
-            if(np.abs((right_shoulder[1] - left_shoulder[1])) > 0.075):
+            if(np.abs((right_shoulder[1] - left_shoulder[1])) > 0.07):
                 status = False
                 squatShoulderFeedbackList.append('어깨 수평을 유지하세요.')
                 squatShoulderFeedbackFlag.append(False)
         else:
-            if(np.abs((right_shoulder[1] - left_shoulder[1])) < 0.065):
+            if(np.abs((right_shoulder[1] - left_shoulder[1])) < 0.06):
                 status = True
                 squatShoulderFeedbackFlag.append(True)
                 squatShoulderFeedbackList.append('')

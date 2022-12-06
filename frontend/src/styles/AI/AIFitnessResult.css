@@ -13,16 +13,15 @@
   background: #3da2ff;
   color: white;
   border-radius: 7px;
-  line-height: 1.8;
+  line-height: 2;
   font-size: 20px;
+  font-family: "BMDOHYEON";
+  letter-spacing: 1px;
+  margin-bottom: 1.5625rem;
 }
 
 /* .AIFitnessResult_nickname {
-  font-size: 2rem;
-}
-
-.AIFitnessResult_exec {
-  font-size: 2rem;
+  font-weight: 800;
 } */
 
 .AIFitnessResult_go_to_main {
@@ -36,14 +35,16 @@
   font-style: normal;
   font-size: 1.25rem;
   letter-spacing: 0.2rem;
-  line-height: 2;
+  line-height: 2.3;
   margin: 0 auto;
   margin-top: 30px;
+  font-family: "GmarketSansMedium";
 }
 
 .AIFitnessExec_nivo {
   font-size: 20px;
   background-color: whitesmoke;
+  /* margin-bottom: 20px; */
 }
 
 .AIFitnessExec_nivo p {
