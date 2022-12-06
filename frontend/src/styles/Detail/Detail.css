@@ -1,5 +1,6 @@
 .detail_main {
   text-align: center;
+  font-family: 'baseFont';
 }
 
 .detail_image {
@@ -55,8 +56,7 @@
 
 .detail_article {
   text-align: left;
-  padding-left: 0.625rem;
-  padding-top: 0.625rem;
+  padding: 0.625rem;
 }
 
 .detail_inputSolo {
@@ -125,6 +125,19 @@
   background: #f2f2f2;
   border: none;
   border-radius: 0rem 0.3125rem 0.3125rem 0rem;
+}
+
+.detail_center_title {
+  text-align: left;
+  font-size: 1.875rem;
+  padding-left: 1.25rem;
+  padding-top: .625rem;
+}
+
+.detail_center_category {
+  text-align: left;
+  font-size: 1rem;
+  padding-left: 1.25rem;
 }
 
 /* .detail_exerstart {

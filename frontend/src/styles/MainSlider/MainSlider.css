@@ -9,7 +9,7 @@
   /* display: block; */
   margin-left: 1.25rem;
   width: 15rem;
-  height: 8.4375rem;
+  height: 10rem;
   transition: 0.3s;
   object-fit: cover;
   border-radius: 1.25rem;
@@ -34,8 +34,8 @@
   text-align: left;
   padding-left: 1.5rem;
   padding-bottom: .875rem;
-  font-size: 1.5rem;
-  font-family: "GmarketSansMedium";
+  font-size: 1.25rem;
+  font-family: "dohyeon";
   font-weight: 500;
 }
 
@@ -47,15 +47,16 @@
 }
 
 .MainSlider_title_text {
-  font-size: 1.25rem;
+  width: 15rem;
+  font-size: 1rem;
   text-align: left;
   padding-left: 1.8rem;
-  font-family: "LINESeedKR";
+  font-family: "GmarketSansMedium";
 }
 
 .MainSlider_ctgr_text {
   font-size: 0.9rem;
   text-align: left;
   padding-left: 2rem;
-  font-family: "LINESeedKR";
+  font-family: "GmarketSansMedium";
 }

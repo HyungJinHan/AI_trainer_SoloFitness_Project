@@ -35,15 +35,14 @@ const Detail = () => {
         console.error(e);
       });
   }, []);
-
+  const imageSrc = "http://localhost:8008/uploads/slider/" + detailInfo[0].VIDEO_THUMBNAIL;
   return (
     <div className="detail_main">
       <div className="detail_image">
         <img
-          src={detailInfo[0].VIDEO_THUMBNAIL}
+          src={imageSrc}
           alt="undefined"
-          width='100%'
-          height='100%'
+          width='425px'
         />
         <div className="detail_textDiv">
           <div className="detail_exerName">{detailCategories}</div>

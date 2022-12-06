@@ -64,8 +64,7 @@
 }
 
 .CNS_rec_div p {
-  text-align: left;
-  padding-left: 2.25rem;
+  text-align: center;
 }
 
 /* 가로 스크롤을 주기 위해서는 float:left; 주면 안 되고,

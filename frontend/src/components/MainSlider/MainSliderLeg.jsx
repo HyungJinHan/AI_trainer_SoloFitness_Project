@@ -4,7 +4,7 @@ import "swiper/css";
 
 function MainSliderList({ VIDEO_THUMBNAIL, VIDEO_TITLE, VIDEO_CATEGORY }) {
   const navigate = useNavigate();
-
+  const imageSRC = "http://localhost:8008/uploads/slider/" + VIDEO_THUMBNAIL;
   return (
     <div
       onClick={() => {
@@ -20,7 +20,7 @@ function MainSliderList({ VIDEO_THUMBNAIL, VIDEO_TITLE, VIDEO_CATEGORY }) {
         navigate(`/detail?exec=${VIDEO_TITLE}`);
       }}
     >
-      <img src={VIDEO_THUMBNAIL} alt="undefined" />
+      <img src={imageSRC} alt="undefined" />
       <div className="MainSlider_title_text">{VIDEO_TITLE}</div>
       <div className="MainSlider_ctgr_text"># {VIDEO_CATEGORY}</div>
     </div>
