@@ -435,7 +435,7 @@ app.post("/updatemyInfo", upload.single("USER_IMAGE"), (req, res) => {
   var USER_ACCESS_CODE = req.body.USER_ACCESS_CODE;
 
   const sqlQuery =
-    "UPDATE USER_TABLE SET USER_PW = ?,USER_NAME = ?,USER_NICKNAME = ?,USER_EMAIL = ?,USER_ADDRESS = ?,USER_TEL = ?,USER_ACCESS_CODE =?, USER_SEX = ?, USER_IMAGE=? WHERE USER_ID = ?;";
+    "UPDATE USER_TABLE SET USER_PW = ?,USER_NAME = ?,USER_NICKNAME = ?,USER_EMAIL = ?,USER_ADDRESS = ?,USER_TEL = ?,USER_ACCESS_CODE =?, USER_SEX = ?, USER_IMAGE = ? WHERE USER_ID = ?;";
   db.query(
     sqlQuery,
     [
