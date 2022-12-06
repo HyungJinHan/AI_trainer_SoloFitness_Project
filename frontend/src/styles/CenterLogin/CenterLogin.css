@@ -7,6 +7,7 @@
   border-radius: .4375rem;
   border: none;
   padding-left: .625rem;
+  font-family: 'GmarketSansMedium';
 }
 
 .CenterLogin_button {
@@ -24,6 +25,7 @@
   font-weight: 1000;
   font-size: 1.0625rem;
   letter-spacing: 0.2rem;
+  font-family: 'GmarketSansMedium';
 }
 
 .CenterLogin_link {
@@ -37,6 +39,7 @@
   text-align: center;
   letter-spacing: 0.2rem;
   color: #000000;
+  font-family: 'GmarketSansMedium';
 }
 
 .CenterLogin_error {
@@ -44,4 +47,5 @@
   padding-left: 4.375rem;
   color: red;
   font-size: .8125rem;
+  font-family: 'GmarketSansMedium';
 }

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
+import '../../styles/CenterPage/CenterPage.css';
 
 // 해당 센터 회원들을 표출해주는 페이지
 
@@ -63,16 +64,16 @@ const CenterControl = (props) => {
         (총 {memberList.list.length}명 등록했습니다.)
       </div>
       <div className="CenterPage_UpdateBorder">
-        <div className='CenterPage_infoList'>
+        <div className='CenterPage_infoName'>
           이름
         </div>
-        <div className='CenterPage_infoList'>
+        <div className='CenterPage_infoAge'>
           나이
         </div>
-        <div className='CenterPage_infoList'>
+        <div className='CenterPage_infoGender'>
           성별
         </div>
-        <div className='CenterPage_infoList'>
+        <div className='CenterPage_infoTel'>
           전화번호
         </div>
         {
@@ -81,10 +82,18 @@ const CenterControl = (props) => {
               className='CenterPage_mainDiv'
               key={ml.USER_ID}
             >
-              <div>{ml.USER_NAME}</div>
-              <div>{ml.USER_AGE}</div>
-              <div>{ml.USER_SEX}</div>
-              <div>{ml.USER_TEL}</div>
+              <div className='CenterPage_infoArticleName'>
+                {ml.USER_NAME}
+              </div>
+              <div className='CenterPage_infoArticleAge'>
+                {ml.USER_AGE}
+              </div>
+              <div className='CenterPage_infoArticleGender'>
+                {ml.USER_SEX}
+              </div>
+              <div className='CenterPage_infoArticleTel'>
+                {ml.USER_TEL}
+              </div>
             </div>
           ))
         }

@@ -62,7 +62,8 @@
 
 /* 추천 검색어 */
 .CNS_rec_div {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
+  margin: 0 auto;
 }
 
 .CNS_rec_div p {
@@ -84,15 +85,17 @@
   font-family: "GmarketSansMedium";
 }
 
-.CNS_rec_div li {
+.CNS_rec_div div {
   list-style: none;
   /* float: left; */
   display: inline-block;
   padding: 0.5rem 2rem;
-  margin-right: 1rem;
+  margin-right: .5rem;
+  margin-left: .5rem;
   background: #3da2ff;
   color: white;
   border-radius: 20px;
+  font-family: "GmarketSansMedium";
 }
 
 /* 그리드 */
@@ -124,7 +127,7 @@
   border-radius: 50%;
 }
 
-.CNS_image > img {
+.CNS_image>img {
   width: 50px;
   height: 50px;
   position: absolute;
@@ -132,7 +135,7 @@
   left: 21%;
 }
 
-.CNS_category_item > p {
+.CNS_category_item>p {
   margin: 5px 0;
   text-align: center;
   font-family: "GmarketSansMedium";

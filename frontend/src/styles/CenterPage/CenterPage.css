@@ -8,6 +8,7 @@
   padding-top: 8.125rem;
   padding-bottom: 1.875rem;
   font-size: 1.4375rem;
+  font-family: "BMDOHYEON";
 }
 
 .CenterPage_inputDiv {
@@ -37,6 +38,7 @@
   height: 2.5rem;
   padding-right: 1.25rem;
   text-align: right;
+  font-family: 'GmarketSansMedium';
 }
 
 .CenterPage_overlap {
@@ -46,6 +48,7 @@
   /* background: #3DA2FF; */
   /* color: white; */
   border-radius: .4375rem 0rem 0rem .4375rem;
+  font-family: 'GmarketSansMedium';
 }
 
 .CenterPage_inputAddress {
@@ -65,20 +68,7 @@
   border: .0625rem solid #3DA2FF;
   width: 90%;
   margin: 0 auto;
-}
-
-.CenterPage_InfoUpdate {
-  margin: 0 auto;
-  margin-top: 3.125rem;
-  width: 90%;
-  height: 1.875rem;
-  color: white;
-  background: #3DA2FF;
-  border-radius: 20px 20px 0px 0px;
-  padding-top: .75rem;
-  border: .0625rem solid #3DA2FF;
-  font-weight: 1000;
-  font-size: 1.0625rem;
+  margin-bottom: .625rem;
 }
 
 .CenterPage_button {
@@ -95,6 +85,7 @@
   font-size: 1.0625rem;
   letter-spacing: 0.2rem;
   text-align: center;
+  font-family: 'GmarketSansMedium';
 }
 
 .CenterPage_error {
@@ -115,6 +106,7 @@
   margin-top: 1.25rem;
   padding-top: .625rem;
   font-size: .9375rem;
+  font-family: 'GmarketSansMedium';
 }
 
 .CenterPage_textarea {
@@ -126,6 +118,7 @@
   margin: 0 auto;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+  font-family: 'GmarketSansMedium';
 }
 
 .CenterPage_InfoUpdate {
@@ -140,6 +133,22 @@
   border: 0.0625rem solid #3da2ff;
   font-weight: 1000;
   font-size: 1.0625rem;
+  font-family: 'GmarketSansMedium';
+}
+
+.CenterPage_InfoUpdateNoDesc {
+  margin: 0 auto;
+  margin-top: 3.125rem;
+  width: 90%;
+  height: 2.5rem;
+  color: white;
+  background: #3da2ff;
+  border-radius: 20px 20px 0px 0px;
+  padding-top: 0.75rem;
+  border: 0.0625rem solid #3da2ff;
+  font-weight: 1000;
+  font-size: 1.0625rem;
+  font-family: 'GmarketSansMedium';
 }
 
 .CenterPage_imageUpload {
@@ -242,4 +251,68 @@
   border-top-left-radius: 0.5625rem;
   border-bottom-left-radius: 0.5625rem;
   box-shadow: 0px 0.1875rem 0.1875rem rgba(0, 0, 0, 0.15);
+}
+
+.CenterPage_infoName {
+  display: inline-block;
+  width: 30%;
+  padding-top: 1.25rem;
+  font-family: 'GmarketSansMedium';
+}
+
+.CenterPage_infoAge {
+  display: inline-block;
+  width: 15%;
+  padding-top: 1.25rem;
+  font-family: 'GmarketSansMedium';
+}
+
+.CenterPage_infoGender {
+  display: inline-block;
+  width: 15%;
+  padding-top: 1.25rem;
+  font-family: 'GmarketSansMedium';
+}
+
+.CenterPage_infoTel {
+  display: inline-block;
+  width: 40%;
+  padding-top: 1.25rem;
+  font-family: 'GmarketSansMedium';
+}
+
+.CenterPage_infoArticleName {
+  display: inline-block;
+  width: 30%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  font-size: .8125rem;
+  font-family: 'GmarketSansMedium';
+}
+
+.CenterPage_infoArticleAge {
+  display: inline-block;
+  width: 15%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  font-size: .8125rem;
+  font-family: 'GmarketSansMedium';
+}
+
+.CenterPage_infoArticleGender {
+  display: inline-block;
+  width: 15%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  font-size: .8125rem;
+  font-family: 'GmarketSansMedium';
+}
+
+.CenterPage_infoArticleTel {
+  display: inline-block;
+  width: 40%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  font-size: .8125rem;
+  font-family: 'GmarketSansMedium';
 }
