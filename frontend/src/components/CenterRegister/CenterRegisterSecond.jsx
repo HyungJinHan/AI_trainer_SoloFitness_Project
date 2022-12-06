@@ -21,7 +21,7 @@ const CenterRegisterSecond = ({
 
   const jobDone = () => {
     if (errorKey === true) {
-      setErrorMessage('센터 이름 중복 체크를 해주세요.');
+      setErrorMessage('사업자 등록 번호 중복 체크를 해주세요.');
       return false;
     }
 

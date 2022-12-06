@@ -32,7 +32,7 @@ const CenterUpload = (props) => {
     }
     if (partRef.current.value === "" || partRef.current.value === undefined) {
       alert("운동부위를 입력하세요.");
-      infoRef.current.focus();
+      partRef.current.focus();
       return false;
     }
     if (effectRef.current.value === "" || effectRef.current.value === undefined) {
@@ -42,11 +42,12 @@ const CenterUpload = (props) => {
     }
     if (prepareRef.current.value === "" || prepareRef.current.value === undefined) {
       alert("운동 준비물을 입력하세요.");
-      infoRef.current.focus();
+      prepareRef.current.focus();
       return false;
     }
-    //url형식이 들어가니까 정규표현식으로?
-    if (addressRef.current.value === "" || addressRef.current.value === undefined) {
+    
+    const regExp = /(https?:\/\/)([A-Za-z0-9\w]+\.*)+(\.com|\.co\.kr|\.net)/gi.test(addressRef.current.value);
+    if (!regExp) {
       alert("url을 입력하세요.");
       addressRef.current.focus();
       return false;
