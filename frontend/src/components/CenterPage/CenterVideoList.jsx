@@ -64,7 +64,7 @@ function CenterVideoList(props) {
 
   return (
     <div className='CenterPage_main'>
-      <div className='UserMyPage_InfoUpdate'>
+      <div className='CenterPage_InfoUpdate'>
         등록된 영상 목록
       </div>
       <div className="CenterPage_UpdateBorder">

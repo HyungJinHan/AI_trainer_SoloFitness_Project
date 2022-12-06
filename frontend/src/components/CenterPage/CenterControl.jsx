@@ -56,42 +56,51 @@ const CenterControl = (props) => {
   }, [])
 
   return (
-    <div>
-      <div>회원정보</div>
-      <div>
-        <div>회원 아이디</div>
-        <div>회원 이름</div>
-        <div>나이</div>
-        <div>성별</div>
-        <div>전화번호</div>
+    <div className='CenterPage_main'>
+      <div className='CenterPage_InfoUpdate'>
+        회원정보
+        <br />
+        (총 {memberList.list.length}명 등록했습니다.)
       </div>
-      {memberList.list.map((ml) => (
-        <div key={ml.USER_ID}>
-          <div>
-            {ml.USER_NAME}
-          </div>
-          <div>
-            {ml.USER_AGE}
-          </div>
-          <div>
-            {ml.USER_SEX}
-          </div>
-          <div>
-            {ml.USER_TEL}
-          </div>
+      <div className="CenterPage_UpdateBorder">
+        <div className='CenterPage_infoList'>
+          이름
         </div>
-      ))}
-      <div>
-        {pageLink.map((page) => {
-          return (
-            <a id={page} onClick={handlePage}>
-              [{page}]
-            </a>
-          );
-        })}
-      </div>
-      <div>
+        <div className='CenterPage_infoList'>
+          나이
+        </div>
+        <div className='CenterPage_infoList'>
+          성별
+        </div>
+        <div className='CenterPage_infoList'>
+          전화번호
+        </div>
+        {
+          memberList.list.map((ml) => (
+            <div
+              className='CenterPage_mainDiv'
+              key={ml.USER_ID}
+            >
+              <div>{ml.USER_NAME}</div>
+              <div>{ml.USER_AGE}</div>
+              <div>{ml.USER_SEX}</div>
+              <div>{ml.USER_TEL}</div>
+            </div>
+          ))
+        }
+        <div class="CenterPage_page">
+          {
+            pageLink.map((page) => {
+              return (
+                <a id={page} onClick={handlePage}>
+                  [{page}]
+                </a>
+              );
+            })
+          }
+        </div>
         <input
+          className="CenterPage_button"
           type='button'
           value='돌아가기'
           onClick={() => {

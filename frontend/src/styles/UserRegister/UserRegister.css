@@ -76,7 +76,7 @@
 
 .UserRegister_genderDiv {
   text-align: center;
-  width: 21.875rem;
+  width: 22.5rem;
   height: 2.5rem;
   border-radius: .4375rem;
   display: flex;
@@ -116,4 +116,10 @@
   background: #F2F2F2;
   border: none;
   border-radius: 0rem .3125rem .3125rem 0rem;
+}
+
+.CenterPage_infoList {
+  display: inline-block;
+  width: 20%;
+  padding-top: 1.25rem;
 }
