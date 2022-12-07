@@ -45,6 +45,13 @@ const FitnessResultNivo = () => {
       });
   }, []);
 
+  // 원래 tickValue는 20까지였는데 스쿼트에 운동횟수 50이라는 더 큰 값이 있어서 y축 숫자가 뭉개짐
+  // 그래서 0부터 운동횟수의 최대값까지 5단위로 분할해서 tickValue에 넣어줌
+  const tickValues = []
+  for (var i=0; i<=Math.max.apply(null,exerciseCount); i += 5) {
+    tickValues.push(i)
+  }
+
   return (
     // chart height이 100%이기 때문이 chart를 덮는 마크업 요소에 height 설정
     <div style={{ width: "25rem", height: "30rem", margin: "0 auto" }}>
@@ -152,10 +159,7 @@ const FitnessResultNivo = () => {
           tickSize: 5, // 값 설명하기 위해 튀어나오는 점 크기
           tickPadding: 5, // tick padding
           tickRotation: 0, // tick 기울기
-          tickValues: [
-            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
-            19, 20,
-          ],
+          tickValues: tickValues,
           legend: "", // left 글씨
           legendPosition: "middle", // 글씨 위치
           legendOffset: -50, // 글씨와 chart간 간격

@@ -128,8 +128,10 @@ app.post("/", (req, res) => {
 app.post("/fitnessresult", (req, res) => {
   const execurl = req.body.execiseCategories;
   const userNickname = req.body.userNickname;
-  const sqlQuery =
-    "SELECT EXCERCISE_NAME, EXCERCISE_COUNT, DATE_FORMAT(EXCERCISE_DATE, '%Y-%m-%d %H:%i %S초') AS EXCERCISE_DATE FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = ? AND EXCERCISE_USER = ? ORDER BY EXCERCISE_DATE DESC LIMIT 7;";
+  //니보에서 가장 최근 기록이 가장 오른쪽에 가도록 정렬해온 데이터를 다시 정렬
+  const sqlQuery = `SELECT EXCERCISE_NAME, EXCERCISE_COUNT, EXCERCISE_DATE AS EXCERCISE_DATE 
+    FROM (SELECT EXCERCISE_NAME, EXCERCISE_COUNT, DATE_FORMAT(EXCERCISE_DATE, '%Y-%m-%d %H:%i %S초') AS EXCERCISE_DATE FROM EXCERCISE_TABLE
+    WHERE EXCERCISE_NAME = ? AND EXCERCISE_USER = ? ORDER BY EXCERCISE_DATE DESC LIMIT 7) AS A ORDER BY EXCERCISE_DATE ASC;`;
 
   db.query(sqlQuery, [execurl, userNickname], (err, result) => {
     res.send(result);
@@ -355,7 +357,7 @@ app.post("/fitnessresultinfoinsert", (req, res) => {
   db.query(
     sqlQuery,
     [userNickname, excerciseName, excerciseCount],
-    (err, result) => { }
+    (err, result) => {}
   );
 });
 
@@ -659,7 +661,7 @@ app.post("/challengescoreresult", (req, res) => {
   var profile = req.body.profile;
   const sqlQuery =
     "INSERT INTO CHALLENGE_TABLE (CHALLENGE_USER,CHALLENGE_SCORE) VALUES(?,?) ON DUPLICATE KEY UPDATE CHALLENGE_SCORE = ?;";
-  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => { });
+  db.query(sqlQuery, [NICKNAME, resultScore, resultScore], (err, result) => {});
 });
 
 /** 챌린지 랭킹 닉네임 점수 표시하기 */
