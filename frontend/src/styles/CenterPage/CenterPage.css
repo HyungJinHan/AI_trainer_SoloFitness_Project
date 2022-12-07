@@ -5,8 +5,8 @@
 .CenterPage_info {
   text-align: left;
   padding-left: 2.5rem;
-  padding-top: 8.125rem;
-  padding-bottom: 1.875rem;
+  padding-top: 5.5rem;
+  padding-bottom: 2rem;
   font-size: 1.4375rem;
   font-family: "BMDOHYEON";
 }
@@ -26,8 +26,6 @@
 .CenterPage_info {
   text-align: left;
   padding-left: 2.5rem;
-  padding-top: 8.125rem;
-  padding-bottom: 1.875rem;
   font-size: 1.4375rem;
 }
 
@@ -81,11 +79,11 @@
   border: none;
   color: white;
   font-style: normal;
-  font-weight: 1000;
+  font-weight: 300;
   font-size: 1.0625rem;
   letter-spacing: 0.2rem;
   text-align: center;
-  font-family: 'GmarketSansMedium';
+  font-family: 'BMJUA';
 }
 
 .CenterPage_error {
@@ -131,9 +129,9 @@
   border-radius: 20px 20px 0px 0px;
   padding-top: 0.75rem;
   border: 0.0625rem solid #3da2ff;
-  font-weight: 1000;
-  font-size: 1.0625rem;
-  font-family: 'GmarketSansMedium';
+  font-size: 1.1875rem;
+  font-family: 'BMJUA';
+  letter-spacing: .1rem;
 }
 
 .CenterPage_InfoUpdateNoDesc {

@@ -73,7 +73,7 @@
 .ChallengeRank_rank_text {
   width: 300px;
   /* background: #3da2ff; */
-  font-size: 1.875rem;
+  font-size: 3rem;
   text-align: center;
   /* color: whitesmoke; */
   margin: 0 auto;
@@ -81,6 +81,7 @@
   margin-bottom: 1.875rem;
   border-radius: 15px;
   font-family: "BMDOHYEON";
+  color: #313131;
 }
 
 .ChallengeRank_main_div {
@@ -105,24 +106,29 @@
   border-top-right-radius: 0.5625rem;
   border-bottom-right-radius: 0.5625rem;
   margin-bottom: 1.25rem;
-  color: #605e5e;
+  color: #575757;
   box-shadow: 0px 0.1875rem 0.1875rem rgba(0, 0, 0, 0.15);
   display: flex;
+  font-family: 'nexon';
+  font-weight: 900;
 }
 
 .ChallengeRank_main_rank {
-  font-size: 1.5rem;
+  font-size: 2rem;
   width: 6.25rem;
   text-align: center;
   /* letter-spacing: .3125rem; */
   line-height: 6.25rem;
+  font-family: 'dohyeon';
+  padding-left: .8rem;
 }
 
 .ChallengeRank_main_name {
   font-size: 1.125rem;
   width: 12.5rem;
   letter-spacing: 0.125rem;
-  line-height: 3rem;
+  padding-top: .625rem;
+  line-height: 2.7rem;
   text-align: center;
 }
 
@@ -131,7 +137,7 @@
   width: 100%;
   height: 7.5rem;
   display: flex;
-  background-color: #494949;
+  background-color: #424242;
   position: fixed;
   bottom: 4.375rem;
 }
@@ -148,19 +154,23 @@
 
 .ChallengeRank_my_ranking {
   font-size: 2.5rem;
-  width: 100px;
-  text-align: center;
-  letter-spacing: 0.5rem;
+  width: 7.8125rem;
+  text-align: right;
+  letter-spacing: 1rem;
   line-height: 7.5rem;
+  font-family: "dohyeon";
 }
 
 .ChallengeRank_my_name {
   font-size: 1.5rem;
-  width: 200px;
-  letter-spacing: 3px;
-  line-height: 55px;
+  width: 11.25rem;
+  padding-top: .94rem;
+  letter-spacing: 0.5rem;
+  line-height: 2.7rem;
+  font-family: 'nexon';
   text-align: center;
 }
+
 .ChallengeRank_rank_select_div {
   text-align: center;
   width: 21.875rem;

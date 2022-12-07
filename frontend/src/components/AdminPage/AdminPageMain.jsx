@@ -106,7 +106,7 @@ const AdminPageMain = () => {
       <div className="AdminPageMain_menu_nav_footer">
         {expended && (
           <div className="AdminPageMain_menu_nav_details">
-            <img src={admin}></img>
+            <img src={admin} className="AdminPageMain_menu_nav_footer_img"></img>
             <div className="AdminPageMain_menu_nav_footer_info">
               <p className="AdminPageMain_menu_nav_footer_user_name">
                 {adminName}

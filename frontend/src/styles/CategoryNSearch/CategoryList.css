@@ -1,11 +1,14 @@
 .cl_div {
   margin: 0 2%;
-  margin-bottom: 30%;
+  margin-bottom: 10%;
 }
 
+
 .cl_text {
-  font-size: 27px;
-  padding: 10% 0 10% 5%;
+  font-size: 2.25rem;
+  padding: 5.5rem 0 2rem 5%;
+  color: #313131;
+  font-family: "dohyeon";
 }
 
 .category_tbl {

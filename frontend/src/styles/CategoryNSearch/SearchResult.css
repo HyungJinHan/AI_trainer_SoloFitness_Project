@@ -1,12 +1,18 @@
 .sr_div {
   margin: 0 2%;
-  margin-bottom: 30%;
+  margin-bottom: 10%;
+}
+
+.sr_div p {
+  margin-left: .625rem;
+  margin-bottom: 0;
 }
 
 .sr_text {
-  font-size: 27px;
-  padding: 10% 0 10% 5%;
+  font-size: 2.25rem;
+  padding: 5.5rem 0 .625rem 5%;
   font-family: "BMDOHYEON";
+  color: #313131;
 }
 
 .search_tbl {
