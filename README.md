@@ -66,5 +66,9 @@
   |운동 결과 & 랭킹|
   |---|
   |![6  운동결과](https://user-images.githubusercontent.com/104360734/206090592-1ff87df6-386d-4ed2-995c-0824b5068285.png)&nbsp;&nbsp;&nbsp;![4  랭킹](https://user-images.githubusercontent.com/104360734/206090607-968f97da-bc5c-449c-ab39-c5058ecf76eb.png)|
+  
+  |업주 페이지|
+  |---|
+  |![2  센터컨텐츠등록](https://user-images.githubusercontent.com/104360734/206091422-ce1d215b-dc16-4ab2-8eb7-952168fe5e87.png)&nbsp;&nbsp;&nbsp;![3  센터컨텐츠목록](https://user-images.githubusercontent.com/104360734/206091435-d486526d-0c78-4089-9aa6-28a6b7b92a3a.png)|
 
 </div>
