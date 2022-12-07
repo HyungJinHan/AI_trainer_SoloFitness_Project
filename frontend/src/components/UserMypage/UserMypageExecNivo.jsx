@@ -58,7 +58,7 @@ const UserMypageExecNivo = (props) => {
         margin: "0 auto",
       }}
     >
-      <div style={{ fontWeight: "800" }}>{props.props}님의 운동 현황</div>
+      <div style={{ fontWeight: "800", fontSize: "18px" }}>운동 현황</div>
       <ResponsivePie
         data={[
           {

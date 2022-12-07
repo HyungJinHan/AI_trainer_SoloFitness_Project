@@ -62,7 +62,7 @@ const AIModelSelect_C = () => {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => { });
+        .then((res) => {});
     }
     if (execiseCategories_C === "pullup") {
       axios
@@ -70,7 +70,7 @@ const AIModelSelect_C = () => {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => { });
+        .then((res) => {});
     }
     if (execiseCategories_C === "pushup") {
       axios
@@ -78,7 +78,7 @@ const AIModelSelect_C = () => {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => { });
+        .then((res) => {});
     }
     if (execiseCategories_C === "situp") {
       axios
@@ -86,7 +86,7 @@ const AIModelSelect_C = () => {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => { });
+        .then((res) => {});
     }
     if (execiseCategories_C === "curl") {
       axios
@@ -94,7 +94,7 @@ const AIModelSelect_C = () => {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => { });
+        .then((res) => {});
     }
   };
 
@@ -115,7 +115,7 @@ const AIModelSelect_C = () => {
         <div className="timerWrapper">
           <CountdownCircleTimer
             isPlaying
-            duration={20}
+            duration={15}
             colors={["#0070d6", "#0f8cff", "#4da9ff", "#a3d3ff"]}
             colorsTime={[7, 5, 2, 0]}
             onComplete={() => {
@@ -176,12 +176,10 @@ const AIModelSelect_C = () => {
               </div>
               <div
                 className="AIModelSelect_C_challenge_yes"
-                onClick={
-                  async () => {
-                    await challengeResisterFunc();
-                    await goToRank();
-                  }
-                }
+                onClick={async () => {
+                  await challengeResisterFunc();
+                  await goToRank();
+                }}
               >
                 예
               </div>

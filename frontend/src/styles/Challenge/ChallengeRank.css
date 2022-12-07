@@ -71,7 +71,7 @@
 }
 
 .ChallengeRank_rank_text {
-  width: 200px;
+  width: 300px;
   /* background: #3da2ff; */
   font-size: 1.875rem;
   text-align: center;
@@ -148,7 +148,7 @@
 
 .ChallengeRank_my_ranking {
   font-size: 2.5rem;
-  width: 7.8125rem;
+  width: 100px;
   text-align: center;
   letter-spacing: 0.5rem;
   line-height: 7.5rem;
@@ -156,8 +156,43 @@
 
 .ChallengeRank_my_name {
   font-size: 1.5rem;
-  width: 11.25rem;
-  letter-spacing: 0.5rem;
-  line-height: 3rem;
+  width: 200px;
+  letter-spacing: 3px;
+  line-height: 55px;
   text-align: center;
+}
+.ChallengeRank_rank_select_div {
+  text-align: center;
+  width: 21.875rem;
+  height: 2.5rem;
+  background: #f2f2f2;
+  border: none;
+  border-radius: 0.4375rem;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 1.5625rem;
+  margin-bottom: 1.5625rem;
+}
+
+.ChallengeRank_rank_select {
+  background-color: transparent;
+  border: none;
+  width: 18.875rem;
+  height: 2.5rem;
+  padding-right: 1.25rem;
+  text-align: right;
+  font-family: "GmarketSansMedium";
+}
+
+.ChallengeRank_rank_select option {
+  letter-spacing: 0.8px;
+}
+.ChallengeRank_rank_select_overlap {
+  background-color: transparent;
+  border: none;
+  padding-left: 1.25rem;
+  border-radius: 0.4375rem 0rem 0rem 0.4375rem;
+  font-family: "GmarketSansMedium";
+  font-size: 14px;
+  line-height: 1.2;
 }
