@@ -86,7 +86,8 @@ function NavigatorMain({ searchMode, setSearchMode }) {
           </div>
         </div>
       </NavCenter>
-    )};
+    )
+  };
 }
 
 export default NavigatorMain;

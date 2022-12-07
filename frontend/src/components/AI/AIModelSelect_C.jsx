@@ -159,13 +159,16 @@ const AIModelSelect_C = () => {
             </CountdownCircleTimer>
           </div>
           <div className="AIModelSelect_C_counter_div">
-            <div className="AIModelSelect_C_counter_text_div">COUNT</div>
+            <div className="AIModelSelect_C_counter_text_div">개수</div>
             <div className="AIModelSelect_C_counting_div">{counter}</div>
           </div>
         </div>
       )}
       <div className="AIModelSelect_C_video_model">
         <VideoModelC />
+      </div>
+      <div className="AIModelSelect_C_info_div">
+        지금까지의 점수를 랭킹에 등록해보세요!
       </div>
       <div className="AIModelSelect_C_challenge">
         {challengeResist === true ? (

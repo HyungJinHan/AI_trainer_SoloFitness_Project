@@ -7,7 +7,7 @@ const VideoModel = () => {
       <img
         src="http://localhost:8000/video"
         alt="Video"
-        className="videoModel"
+        className="AIModelSelect_real_time_web_cam"
       />
     </div>
   );

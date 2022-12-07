@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "../../styles/MainSlider/MainSlider.css";
 import EventWanted from "../../static/images/HHJ/Event/EventWanted.svg";
+import WF from "../../static/images/HHJ/Event/WF.svg";
 import Event from "../../static/images/HHJ/Event/Event1.jpg";
 import EventBody from "../../static/images/KCJ/anastase.jpg";
 import UnderArmor from "../../static/images/KCJ/underarmor.jpg";
@@ -26,7 +27,7 @@ function MainSliderEvent(props) {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src={EventWanted} alt="undefined" />
+          <img src={WF} alt="undefined" />
           <div className="MainSlider_themeEvent">Wanted 보조 제품 할인</div>
         </SwiperSlide>
         <SwiperSlide>
