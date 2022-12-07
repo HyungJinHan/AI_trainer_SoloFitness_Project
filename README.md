@@ -40,7 +40,7 @@
 - 도움이 될 만한 코드의 예제 실습 후, 참고 사항으로 커밋 예정
 
 ## 5. 프로젝트 구현
-<div align='center' width='10%'>
+<div align='center'>
   
   |메인 화면|
   |---|
@@ -65,7 +65,6 @@
   
   |운동 결과 & 랭킹|
   |---|
-  |![6  운동결과](https://user-images.githubusercontent.com/104360734/206090592-1ff87df6-386d-4ed2-995c-0824b5068285.png)&nbsp;&nbsp;&nbsp;![4  랭킹](https://user-images.githubusercontent.com/104360734/206090607-968f97da-bc5c-449c-ab39-c5058ecf76eb.png)
-|
+  |![6  운동결과](https://user-images.githubusercontent.com/104360734/206090592-1ff87df6-386d-4ed2-995c-0824b5068285.png)&nbsp;&nbsp;&nbsp;![4  랭킹](https://user-images.githubusercontent.com/104360734/206090607-968f97da-bc5c-449c-ab39-c5058ecf76eb.png)|
 
 </div>
