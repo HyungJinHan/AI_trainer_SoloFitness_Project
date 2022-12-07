@@ -125,7 +125,7 @@
   border-radius: 50%;
 }
 
-.CNS_image>img {
+.CNS_image > img {
   width: 50px;
   height: 50px;
   position: absolute;
@@ -133,7 +133,7 @@
   left: 21%;
 }
 
-.CNS_category_item>p {
+.CNS_category_item > p {
   margin: 5px 0;
   text-align: center;
   font-family: "GmarketSansMedium";

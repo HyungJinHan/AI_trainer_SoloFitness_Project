@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
-import axios from 'axios';
-import ReactPlayer from 'react-player';
-import '../../styles/UserPage/UserPage.css'
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import ReactPlayer from "react-player";
+import "../../styles/UserPage/UserPage.css";
+import { useNavigate } from "react-router-dom";
 
 function MainSliderCenter({ CENTER_ID }) {
   const navigate = useNavigate();
   const [centerVideo, setCenterVideo] = useState({
-    list: []
+    list: [],
   });
 
   useEffect(() => {
@@ -20,15 +20,13 @@ function MainSliderCenter({ CENTER_ID }) {
       .then((res) => {
         const { data } = res;
         setCenterVideo({
-          list: data
+          list: data,
         });
       })
       .catch((e) => {
         console.log(e);
       });
   }, [CENTER_ID]);
-
-  console.log(centerVideo[0])
 
   return (
     <div>
@@ -45,25 +43,24 @@ function MainSliderCenter({ CENTER_ID }) {
         speed={4000}
         className="mySwiper"
       >
-        {
-          centerVideo.list
-            .map((items) => (
-              <SwiperSlide key={items.CT_VIDEO_TITLE}>
-                <div className='UserMain_centerVideoSlider'>
-                  <ReactPlayer
-                    className="UserMain_centerVideoItem"
-                    url={items.CT_VIDEO_ADDRESS}
-                    controls
-                    width={'100%'}
-                    height={'auto'}
-                    onStart={() => { navigate(`/centerdetail?exec=${items.CT_VIDEO_TITLE}`) }}
-                  />
-                </div>
-              </SwiperSlide>
-            ))
-        }
+        {centerVideo.list.map((items) => (
+          <SwiperSlide key={items.CT_VIDEO_TITLE}>
+            <div className="UserMain_centerVideoSlider">
+              <ReactPlayer
+                className="UserMain_centerVideoItem"
+                url={items.CT_VIDEO_ADDRESS}
+                controls
+                width={"100%"}
+                height={"auto"}
+                onStart={() => {
+                  navigate(`/centerdetail?exec=${items.CT_VIDEO_TITLE}`);
+                }}
+              />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
-    </div >
+    </div>
   );
 }
 

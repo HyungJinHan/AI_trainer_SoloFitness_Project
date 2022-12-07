@@ -58,7 +58,7 @@ const AdminPageUserNivo_A = () => {
         /**
          * chart 색상
          */
-        colors={["rgb(61, 162, 255)"]} // 커스터하여 사용할 때
+        colors={"rgb(166, 206, 227)"} // 커스터하여 사용할 때
         // colors={{ scheme: "nivo" }} // nivo에서 제공해주는 색상 조합 사용할 때
         /**
          * color 적용 방식

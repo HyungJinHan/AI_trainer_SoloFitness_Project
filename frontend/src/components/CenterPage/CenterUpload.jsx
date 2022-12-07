@@ -64,12 +64,6 @@ const CenterUpload = (props) => {
       writer: window.sessionStorage.getItem('centerID')
     }).then((res) => {
       // console.log("handleUpload(res)->", res);
-      // titleRef.current.value = "";
-      // infoRef.current.value = "";
-      // effectRef.current.value = "";
-      // addressRef.current.value = "";
-      // partRef.current.value = "";
-      // prepareRef.current.value = "";
       alert("등록이 완료되었습니다.")
       navigate('/videolist');
     }).catch((e) => {

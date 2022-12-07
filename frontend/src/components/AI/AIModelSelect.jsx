@@ -19,7 +19,7 @@ const ModelSelect = () => {
   const [squatShoulderFeedback, setSquatShoulderFeedback] = useState(null);
 
   const location = useLocation();
-  const execiseCategories = queryString.parse(location.search).exec;
+  var execiseCategories = queryString.parse(location.search).exec;
 
   const navigate = useNavigate();
 
@@ -59,7 +59,7 @@ const ModelSelect = () => {
         setSquat(squatFeedback[squatFeedback.length - 1]);
         var pushupFeedback = res.data.pushUpFeedback;
         setPushup(pushupFeedback[pushupFeedback.length - 1]);
-        var squatKnee = res.data.squatKneeFeedback;
+        var squatKnee = res.data.squatKneeDetectFeedback;
         setSquatKneeFeedback(squatKnee[squatKnee.length - 1]);
         var squatShoulder = res.data.squatShoulderFeedback;
         setSquatShoulderFeedback(squatShoulder[squatShoulder.length - 1]);
@@ -74,6 +74,7 @@ const ModelSelect = () => {
 
   // setInterval(counterfunc, 500);
 
+  /** 무릎 각도 감지 */
   const feedbackClass = () => {
     if (execiseCategories === "squat") {
       return squat;
@@ -81,12 +82,13 @@ const ModelSelect = () => {
       return pushup;
     }
   };
-
+  /** 무릎 감지 */
   const squatFeedbackFunc = () => {
     if (execiseCategories === "squat") {
       return squatKneeFeedback;
     }
   };
+  /** 어깨 기울임 감지 */
   const squatFeedbackFunc2 = () => {
     if (execiseCategories === "squat") {
       return squatShoulderFeedback;
@@ -119,31 +121,32 @@ const ModelSelect = () => {
         />
       </div>
       <div className="AIModelSelect_counter_div">
-        <div className="AIModelSelect_counter_text_div">COUNT</div>
+        <div className="AIModelSelect_counter_text_div">개수</div>
         <div className="AIModelSelect_counting_div">{counter}</div>
-      </div>
-      <div className="AIModelSelect_goal_count">
         <div className="AIModelSelect_counter_text_div">목표</div>
         <div className="AIModelSelect_counting_div">
           {location.state.inputCount}
         </div>
       </div>
-      <div className="AIModelSelect_feedback_div">
-        <p
-          className={`AIModelSelect_feedback ${
-            squat === "Great!" ? "great_feedback" : "not_great_feedback"
-          }`}
-        >
-          <div>{feedbackClass()}</div>
-          <div className="AIModelSelect_knee">{squatFeedbackFunc()}</div>
-          <div className="AIModelSelect_shoulder">{squatFeedbackFunc2()}</div>
-        </p>
-      </div>
+      {/* <div className="AIModelSelect_goal_count">
+
+      </div> */}
       <div className="AIModelSelect_real_time_web_cam">
         <VideoModel />
       </div>
-      <br />
-      <br />
+      <div className="AIModelSelect_feedback_div">
+        {/* <div className="AIModelSelect_feedback_box"> */}
+        <p
+          className={`AIModelSelect_feedback ${squat === "Great!" ? "great_feedback" : "not_great_feedback"
+            }`}
+        >
+          <div>{feedbackClass()}</div>
+          <div className="AIModelSelect_knee">{squatFeedbackFunc()}</div>
+          <div className="AIModelSelect_shoulder">{squatFeedbackFunc2()}
+          </div>
+        </p>
+        {/* </div> */}
+      </div>
     </div>
   );
 };

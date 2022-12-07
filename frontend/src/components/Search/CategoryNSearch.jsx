@@ -279,10 +279,7 @@ const Category = () => {
           <p>추천 검색어</p>
           <div onClick={(e) => RecSearch(e)}>up</div>
           <div onClick={(e) => RecSearch(e)}>기본</div>
-          {/* 추가하고 싶은 검색어 아래처럼 추가하면 됩니다. */}
-          {/* <li onClick={(e) => RecSearch(e)}>요가</li> */}
-          {/* 검색어 3개 고정바람 */}
-          <div onClick={(e) => RecSearch(e)}>스트레칭</div>
+          <div onClick={(e) => RecSearch(e)}>테스트</div>
         </div>
         <div className='CNS_grid_category'>
           <div

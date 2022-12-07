@@ -3,31 +3,42 @@
   padding: 0;
   text-align: center;
 }
+
 .AIModelSelect_guide_img_div {
   /* background-color: black; */
 }
+
 .AIModelSelect_guide_img {
-  width: 21.875rem;
-  height: 18.75rem;
+  width: 90%;
+  /* height: 100%; */
 }
 
 .AIModelSelect_feedback_div {
-  margin-top: 1.875rem;
-  height: 3.4375rem;
-  width: 21.875rem;
-  margin: 0 auto;
+  width: 100%;
+  /* margin: 0 auto; */
+  /* position: absolute;
+  top: 43.75rem;
+  z-index: 99; */
+  text-align: center;
 }
 
 .AIModelSelect_feedback {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   font-size: 20px;
-  font-weight: 800;
 }
+
+/* .AIModelSelect_feedback_box {
+  background-color: #ffffffd0;
+  width: 50%;
+  margin: 0 auto;
+  margin-left: .625rem;
+  border-radius: .4375rem;
+} */
 
 .AIModelSelect_counter_div {
   /* padding-top: 3.125rem; */
   height: 1.875rem;
-  width: 21.875rem;
+  width: 100%;
   font-size: 20px;
   margin: 0 auto;
   display: flex;
@@ -40,8 +51,9 @@
   color: black;
   width: 10.9375rem;
   font-family: "GmarketSansMedium";
-  height: 30px;
-  line-height: 1.8;
+  height: 2.5rem;
+  line-height: 2;
+  font-size: 1.25rem;
 }
 
 .AIModelSelect_counting_div {
@@ -49,8 +61,16 @@
   color: white;
   width: 10.9375rem;
   font-family: "GmarketSansMedium";
-  height: 30px;
-  line-height: 1.8;
+  height: 2;
+  line-height: 2.5rem;
+}
+
+.AIModelSelect_goal_count .AIModelSelect_counter_text_div {
+  border-top: 2px solid #424242;
+}
+
+.AIModelSelect_goal_count .AIModelSelect_counting_div {
+  border-top: 2px solid #fff;
 }
 
 .AIModelSelect_goal_count {
@@ -67,13 +87,13 @@
 }
 
 .AIModelSelect_real_time_web_cam {
-  width: 350px;
-  height: 300px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  /* margin: 0 auto; */
 }
 
 .great_feedback {
-  color: green;
+  color: #3da2ff;
   font-family: "GmarketSansMedium";
 }
 

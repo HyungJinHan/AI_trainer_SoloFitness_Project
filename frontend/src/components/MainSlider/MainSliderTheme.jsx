@@ -28,7 +28,9 @@ function MainSliderTheme(props) {
 
   return (
     <div>
-      <div className="MainSlider_themeWhite">초보자들을 위한 기초 맨몸운동🔥</div>
+      <div className="MainSlider_themeWhite">
+        초보자들을 위한 기초 맨몸운동🔥
+      </div>
       <Swiper
         slidesPerView={2}
         spaceBetween={100}
@@ -52,12 +54,14 @@ function MainSliderTheme(props) {
           if (list.VIDEO_TITLE === "situp") {
             list.VIDEO_TITLE = "윗몸일으키기";
           }
+          console.log("fasdasdasd", list);
           return (
             <SwiperSlide key={list.VIDEO_THUMBNAIL}>
               <MainSliderList
                 VIDEO_THUMBNAIL={list.VIDEO_THUMBNAIL}
                 VIDEO_TITLE={list.VIDEO_TITLE}
                 VIDEO_CATEGORY={list.VIDEO_CATEGORY}
+                VIDEO_BODY_PART={list.VIDEO_BODY_PART}
               />
             </SwiperSlide>
           );

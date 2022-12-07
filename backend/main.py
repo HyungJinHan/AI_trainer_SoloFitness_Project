@@ -72,7 +72,8 @@ def countchecker():
   return {'count':countlist, 'squatFeedback':sqautFeedbackList, 
           'pushUpFeedback':pushUpFeedbackList, 'count_c':countlist_c, 
           'squatKneeFeedback':squatKneeFeedbackList,
-          'squatShoulderFeedback': squatShoulderFeedbackList
+          'squatShoulderFeedback': squatShoulderFeedbackList,
+          'squatKneeDetectFeedback': squatKneeDetectFeedbackList,
           }
 
 @app.post('/videoshutdown')

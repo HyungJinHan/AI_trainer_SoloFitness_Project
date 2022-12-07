@@ -10,7 +10,8 @@ const RegisterThird = ({
   setUserEmail,
   setUserAddr,
   setMode,
-  consoleAll
+  consoleAll,
+  setUserAge
 }) => {
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -26,6 +27,7 @@ const RegisterThird = ({
   const telRef = useRef();
   const emailRef = useRef();
   const codeRef = useRef();
+  const ageRef = useRef();
 
   /** 팝업창 열기 */
   const openPostCode = () => {
@@ -75,6 +77,30 @@ const RegisterThird = ({
       return false;
     } else {
       setErrorMessage('');
+    }
+
+    if (ageRef.current.value === "" || ageRef.current.value === undefined) {
+      setErrorMessage(
+        '나이를 입력하세요.'
+      )
+      ageRef.current.focus();
+      return false;
+    } else {
+      const str = ageRef.current.value;
+      for (var i = 0; i < str.length; i++) {
+        const ch = str.substring(i, i + 1);
+        if (
+          !(ch >= "0" && ch <= "9") ||
+          (ch >= "a" && ch <= "z") ||
+          (ch >= "A" && ch <= "Z")
+        ) {
+          setErrorMessage(
+            '나이는 숫자로만 입력해주세요.'
+          )
+          ageRef.current.focus();
+          return false;
+        }
+      }
     }
 
     if (telRef.current.value === "" || telRef.current.value === undefined) {
@@ -146,6 +172,20 @@ const RegisterThird = ({
           placeholder='이름을 입력하세요.'
           onChange={(e) => {
             setUserName(e.target.value);
+          }}
+        />
+      </div>
+      <div>
+        <input
+          className='UserRegister_inputSolo'
+          type="text"
+          name="age"
+          ref={ageRef}
+          defaultValue=''
+          autoComplete="off"
+          placeholder='나이를 숫자로만 입력하세요.'
+          onChange={(e) => {
+            setUserAge(e.target.value);
           }}
         />
       </div>

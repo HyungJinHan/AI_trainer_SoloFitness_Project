@@ -85,7 +85,7 @@ const UserMypageUpdate = (props) => {
           USER_TEL: telRef.current.value,
           USER_IMAGE: imageName,
           USER_SEX: genderRef.current.value,
-          USER_ACCESS_CODE: codeRef.current.value
+          USER_ACCESS_CODE: codeRef.current.value,
         },
         config
       )
@@ -121,10 +121,10 @@ const UserMypageUpdate = (props) => {
       <div className="UserMyPage_InfoUpdate">내 정보 수정</div>
       <div className="UserMyPage_UpdateBorder">
         <br />
-        <img className='UserMyPage_image' src={image} alt="undefind" />
-        <label className='UserMyPage_label' for="ex_file">
-          <div className='UserMyPage_profileDiv'>
-            <img className='UserMyPage_profile' src={edit1} alt="sample" />
+        <img className="UserMyPage_image" src={image} alt="undefind" />
+        <label className="UserMyPage_label" for="ex_file">
+          <div className="UserMyPage_profileDiv">
+            <img className="UserMyPage_profile" src={edit1} alt="sample" />
           </div>
         </label>
         <br />

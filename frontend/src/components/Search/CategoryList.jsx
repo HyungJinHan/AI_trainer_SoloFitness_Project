@@ -12,17 +12,13 @@ const CategoryList = ({ categorylist, item }) => {
         <table className="category_tbl">
           <tbody>
             {categorylist.categorylist.map((article) => {
-              return (
-                <CategoryArticle
-                  article={article}
-                />
-              )
+              return <CategoryArticle article={article} />;
             })}
           </tbody>
         </table>
       </div>
     </div>
-  )
+  );
 };
 
 export default CategoryList;

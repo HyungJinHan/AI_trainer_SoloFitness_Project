@@ -14,7 +14,7 @@ const Detail = () => {
   const [challengeInfo, setChallengeInfo] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const detailCategories = queryString.parse(location.search).exec;
+  var detailCategories = queryString.parse(location.search).exec;
   const [detailInfo, setDetailInfo] = useState([
     {
       VIDEO_CATEGORY: "",
@@ -23,7 +23,7 @@ const Detail = () => {
       VIDEO_EFFECT: "",
     },
   ]);
-
+  console.log("운동 카테고리", detailCategories);
   useEffect(() => {
     axios
       .post("http://localhost:8008/detail", { detailExec: detailCategories })
@@ -35,20 +35,18 @@ const Detail = () => {
         console.error(e);
       });
   }, []);
-  const imageSrc = "http://localhost:8008/uploads/slider/" + detailInfo[0].VIDEO_THUMBNAIL;
+  const imageSrc =
+    "http://localhost:8008/uploads/slider/" + detailInfo[0].VIDEO_THUMBNAIL;
   return (
     <div className="detail_main">
       <div className="detail_image">
         <div className="detail_textDiv">
           <div className="detail_exerName">{detailCategories}</div>
-          <div className="detail_category"># {detailInfo[0].VIDEO_CATEGORY}</div>
+          <div className="detail_category">
+            # {detailInfo[0].VIDEO_CATEGORY}
+          </div>
         </div>
-        <img
-          src={imageSrc}
-          alt="undefined"
-          width='425px'
-          height='100%'
-        />
+        <img src={imageSrc} alt="undefined" width="425px" height="100%" />
         <div className="detail_layer"></div>
       </div>
       {execCount === true ? (
@@ -152,7 +150,10 @@ const Detail = () => {
       <br />
       <hr />
       <div className="detail_title">운동 소개</div>
-      <div className="detail_article">{detailInfo[0].VIDEO_INFO}</div>
+      {/* <div className="detail_article">{detailInfo[0].VIDEO_INFO}</div> */}
+      {detailInfo[0].VIDEO_INFO.split("\\n").map((data) => {
+        return <div className="detail_article">{data}</div>;
+      })}
       <br />
       <hr />
       <div className="detail_title">운동 효과</div>

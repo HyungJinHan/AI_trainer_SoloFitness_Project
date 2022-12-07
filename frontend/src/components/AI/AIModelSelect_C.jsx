@@ -57,64 +57,55 @@ const AIModelSelect_C = () => {
 
   const challengeResisterFunc = () => {
     if (execiseCategories_C === "squat") {
-      alert("챌린지 등록 성공!");
       axios
         .post("http://localhost:8008/squatchallenge", {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => {
-          navigator("/challengerank");
-        });
+        .then((res) => {});
     }
     if (execiseCategories_C === "pullup") {
-      alert("챌린지 등록 성공!");
       axios
         .post("http://localhost:8008/pullupchallenge", {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => {
-          navigator("/challengerank");
-        });
+        .then((res) => {});
     }
     if (execiseCategories_C === "pushup") {
-      alert("챌린지 등록 성공!");
       axios
         .post("http://localhost:8008/pushupchallenge", {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => {
-          navigator("/challengerank");
-        });
+        .then((res) => {});
     }
     if (execiseCategories_C === "situp") {
-      alert("챌린지 등록 성공!");
       axios
         .post("http://localhost:8008/situpchallenge", {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => {
-          navigator("/challengerank");
-        });
+        .then((res) => {});
     }
     if (execiseCategories_C === "curl") {
-      alert("챌린지 등록 성공!");
       axios
         .post("http://localhost:8008/curlchallenge", {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => {
-          navigator("/challengerank");
-        });
+        .then((res) => {});
     }
   };
 
   const goToDetail = () => {
     navigator(`/detail${location.search}`);
+    window.location.reload();
+  };
+
+  const goToRank = () => {
+    alert("챌린지 등록 성공!");
+    navigator("/challengerank");
     window.location.reload();
   };
 
@@ -124,7 +115,7 @@ const AIModelSelect_C = () => {
         <div className="timerWrapper">
           <CountdownCircleTimer
             isPlaying
-            duration={5}
+            duration={15}
             colors={["#0070d6", "#0f8cff", "#4da9ff", "#a3d3ff"]}
             colorsTime={[7, 5, 2, 0]}
             onComplete={() => {
@@ -148,7 +139,7 @@ const AIModelSelect_C = () => {
             </svg>
             <CountdownCircleTimer
               isPlaying
-              duration={10}
+              duration={60}
               colors="url(#testid)"
               onComplete={() => {
                 axios.get("http://localhost:8000/camerachallengeshutdown");
@@ -159,13 +150,16 @@ const AIModelSelect_C = () => {
             </CountdownCircleTimer>
           </div>
           <div className="AIModelSelect_C_counter_div">
-            <div className="AIModelSelect_C_counter_text_div">COUNT</div>
+            <div className="AIModelSelect_C_counter_text_div">개수</div>
             <div className="AIModelSelect_C_counting_div">{counter}</div>
           </div>
         </div>
       )}
       <div className="AIModelSelect_C_video_model">
         <VideoModelC />
+      </div>
+      <div className="AIModelSelect_C_info_div">
+        지금까지의 점수를 랭킹에 등록해보세요!
       </div>
       <div className="AIModelSelect_C_challenge">
         {challengeResist === true ? (
@@ -182,7 +176,10 @@ const AIModelSelect_C = () => {
               </div>
               <div
                 className="AIModelSelect_C_challenge_yes"
-                onClick={challengeResisterFunc}
+                onClick={async () => {
+                  await challengeResisterFunc();
+                  await goToRank();
+                }}
               >
                 예
               </div>

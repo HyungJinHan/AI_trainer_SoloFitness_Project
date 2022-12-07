@@ -62,19 +62,28 @@ class TypeOfExercise(BodyPartAngle):
         avg_leg_angle = (left_leg_angle + right_leg_angle) // 2
         squatFeedback_flag = True
         
-        # 무릎이 발보다 앞에있을때 피드백 변수
+        # 무릎이 힙보다 좁아졌을떄 피드백
         right_knee = detection_body_part(self.landmarks, 'RIGHT_KNEE')
         left_knee = detection_body_part(self.landmarks, 'LEFT_KNEE')
-        right_foot_index = detection_body_part(self.landmarks, 'RIGHT_FOOT_INDEX')
-        left_foot_index = detection_body_part(self.landmarks, 'LEFT_FOOT_INDEX')
-        avg_knee_x = (right_knee[0] + left_knee[0]) / 2
-        avg_foot_index_x = (right_foot_index[0] + left_foot_index[0]) / 2
-        
+        right_hip = detection_body_part(self.landmarks, 'RIGHT_HIP')
+        left_hip = detection_body_part(self.landmarks, 'LEFT_HIP')
+        avg_HIP = (right_hip[0] + left_hip[0]) / 2
+        avg_KNEE = (right_knee[0] + left_knee[0]) / 2
+
         # 어깨가 틀어졌을때 피드백 변수
         right_shoulder = detection_body_part(self.landmarks, 'RIGHT_SHOULDER')
         left_shoulder = detection_body_part(self.landmarks, 'LEFT_SHOULDER')
         
-
+        # 무릎 감지 피드백
+        if squatKneeDetectFeedbackFlag[-1]:
+            if (right_knee[2] < 0.2) or (left_knee[2] < 0.2):
+                squatKneeDetectFeedbackList.append('무릎이 보이지 않습니다.')
+                squatKneeDetectFeedbackFlag.append(False)
+        else:
+            if (right_knee[2] > 0.4) or (left_knee[2] > 0.4):
+                squatKneeDetectFeedbackList.append('')
+                squatKneeDetectFeedbackFlag.append(True)
+                
         if status:
             if avg_leg_angle < 90:
                 counter += 1
