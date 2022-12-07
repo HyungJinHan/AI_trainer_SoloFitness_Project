@@ -38,3 +38,34 @@
 - `issue` 사용을 통한 예정 사항, 아이디어 회의 및 각자 할 일 정리
 - 공동 `Repository` 생성 후, 개별적인 `branch` 생성과 팀장을 통한 `merge` 작업으로 프로젝트 관리
 - 도움이 될 만한 코드의 예제 실습 후, 참고 사항으로 커밋 예정
+
+## 5. 프로젝트 구현
+<div align='center' width='10%'>
+  
+  |메인 화면|
+  |---|
+  |![1  유저메인화면0](https://user-images.githubusercontent.com/104360734/206089749-65d91828-41f2-4020-83a2-414885711a03.png)&nbsp;&nbsp;&nbsp;![2  유저메인화면1](https://user-images.githubusercontent.com/104360734/206089815-e2df79ec-5152-47eb-82a5-1e4f71bf747e.png)|
+  <br>
+  
+  |검색 & 마이 페이지|
+  |---|
+  |![3  검색](https://user-images.githubusercontent.com/104360734/206090054-767c90d6-100d-4e43-a7a0-d6cb7f3ec8d7.png)&nbsp;&nbsp;&nbsp;![4  마이페이지](https://user-images.githubusercontent.com/104360734/206090076-0bae5944-170a-4bfa-bef2-e467bc0dab9c.png)|
+  <br>
+  
+  |운동 정보 화면|
+  |---|
+  |![1  운동시작](https://user-images.githubusercontent.com/104360734/206090183-131f9ef5-a50c-4143-bc7e-4058d467e8fa.png)&nbsp;&nbsp;&nbsp;![1  챌린지시작](https://user-images.githubusercontent.com/104360734/206090220-b2983655-185e-4b23-b07a-5b18894776e1.png)|
+  <br>
+  
+  |실시간 운동 화면|
+  |---|
+  |![3  운동피드백1](https://user-images.githubusercontent.com/104360734/206090382-f782aab8-912a-4f73-b946-c140b3b55654.png)&nbsp;&nbsp;&nbsp;![5  운동피드백3](https://user-images.githubusercontent.com/104360734/206090407-b421459b-9673-482b-a044-d6a8c58a2501.png)|
+  |![2  운동챌린지](https://user-images.githubusercontent.com/104360734/206090485-0d48a816-938a-4ac1-8ebb-c35a6d95feae.png)&nbsp;&nbsp;&nbsp;![3  챌린지점수등록](https://user-images.githubusercontent.com/104360734/206090465-e5d90201-8eb9-4b43-a7d2-f21b5da6b563.png)|
+  <br>
+  
+  |운동 결과 & 랭킹|
+  |---|
+  |![6  운동결과](https://user-images.githubusercontent.com/104360734/206090592-1ff87df6-386d-4ed2-995c-0824b5068285.png)&nbsp;&nbsp;&nbsp;![4  랭킹](https://user-images.githubusercontent.com/104360734/206090607-968f97da-bc5c-449c-ab39-c5058ecf76eb.png)
+|
+
+</div>
