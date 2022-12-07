@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import MainSliderEvent from "../MainSlider/MainSliderEvent";
 import MainSliderTheme from "../MainSlider/MainSliderTheme";
@@ -89,12 +89,14 @@ function UserPageMain(props) {
       </div>
       <MainCenter>
         <div className="main_image_div">
-          <img
-            className="main_yoga_content"
-            src={beginner}
-            width="385px"
-            alt="?"
-          />
+          <NavLink to={"/detail?exec=푸쉬업으로%20기초체력%20늘리기"}>
+            <img
+              className="main_beginner_content"
+              src={beginner}
+              width="385px"
+              alt="?"
+            />
+          </NavLink>
         </div>
 
         {
@@ -126,35 +128,40 @@ function UserPageMain(props) {
             </div>
         }
         <div className="main_image_div">
-
-          <img
-            className="main_chanjin_content"
-            src={chanjinImage}
-            alt="?"
-            width="385px"
-          />
+          <NavLink to={"/detail?exec=curl"}>
+            <img
+              className="main_chanjin_content"
+              src={chanjinImage}
+              alt="?"
+              width="385px"
+            />
+          </NavLink>
         </div>
         <div className='UserMain_white'>
           <MainSliderTheme />
         </div>
         <div className="main_image_div">
-          <img
-            className="main_yoga_content"
-            src={yogaImage}
-            width="385px"
-            alt="?"
-          />
+          <NavLink to={"/detail?exec=찌부둥한%20몸을%20펴주는%20스트레칭%20123"}>
+            <img
+              className="main_streching_content"
+              src={strechingImage}
+              width="385px"
+              alt="?"
+            />
+          </NavLink>
         </div>
         <div className='UserMain_gray'>
           <MainSliderEvent />
         </div>
         <div className="main_image_div">
-          <img
-            className="main_streching_content"
-            src={strechingImage}
-            width="385px"
-            alt="?"
-          />
+          <NavLink to={"/detail?exec=10분요가"}>
+            <img
+              className="main_yoga_content"
+              src={yogaImage}
+              width="385px"
+              alt="?"
+            />
+          </NavLink>
         </div>
         {/* <div className="main_image_div">
           <img

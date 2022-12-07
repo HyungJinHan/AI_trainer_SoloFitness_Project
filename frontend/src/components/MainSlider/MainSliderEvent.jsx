@@ -11,7 +11,7 @@ import Brand from "../../static/images/KCJ/brand.jpg";
 function MainSliderEvent(props) {
   return (
     <div>
-      <div className="MainSlider_themeGray">피트니스 센터 이벤트</div>
+      <div className="MainSlider_themeGray">피트니스 센터 이벤트🥳</div>
       <Swiper
         slidesPerView={2}
         spaceBetween={100}

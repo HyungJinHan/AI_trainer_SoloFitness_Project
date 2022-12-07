@@ -58,7 +58,7 @@ const UserMypageExecNivo = (props) => {
         margin: "0 auto",
       }}
     >
-      <div style={{ fontWeight: "800" }}>{props.props}님의 운동 현황</div>
+      <div className="AIFitnessExec_nivo_title_text">{props.props}님의 운동 현황</div>
       <ResponsivePie
         data={[
           {

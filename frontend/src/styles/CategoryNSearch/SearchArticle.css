@@ -35,17 +35,17 @@
 }
 
 .sa_second_td p {
-  margin: 0 0 0.1875rem 0.625rem;
+  margin: 0 0 0 0.625rem;
 }
 
 .sa_videotitle {
   /* font-size: 1.5rem; */
   font-size: 1.3rem;
-  margin-top: 0.4375rem;
   /* margin-right: 0.625rem; */
   word-break: keep-all;
   font-family: "GmarketSansMedium";
   line-height: 1.8;
+  padding: .4rem 0 0 .2rem;
 }
 
 .sa_videocategory {

@@ -140,6 +140,30 @@ const UserMypageUpdate = (props) => {
           accept="image/*"
           onChange={onImage}
         />
+        <div className="UserMyPage_inputDiv_hiddenInput">
+          <input type="button" className="UserMyPage_overlap_hiddenInput" value="이름" />
+          <input
+            className="UserMyPage_input_hiddenInput"
+            type="text"
+            name="myname"
+            ref={nameRef}
+            autoComplete="off"
+            readOnly
+            defaultValue={infoList.USER_NAME}
+          />
+        </div>
+        <div className="UserMyPage_inputDiv_hiddenInput">
+          <input type="button" className="UserMyPage_overlap_hiddenInput" value="아이디" />
+          <input
+            className="UserMyPage_input_hiddenInput"
+            type="text"
+            name="myname"
+            ref={idRef}
+            autoComplete="off"
+            readOnly
+            defaultValue={infoList.USER_ID}
+          />
+        </div>
         <div className="UserMyPage_inputDiv">
           <input type="button" className="UserMyPage_overlap" value="닉네임" />
           <input
@@ -149,30 +173,6 @@ const UserMypageUpdate = (props) => {
             ref={nicknameRef}
             autoComplete="off"
             defaultValue={infoList.USER_NICKNAME}
-          />
-        </div>
-        <div className="UserMyPage_inputDiv">
-          <input type="button" className="UserMyPage_overlap" value="이름" />
-          <input
-            className="UserMyPage_input"
-            type="text"
-            name="myname"
-            ref={nameRef}
-            autoComplete="off"
-            readOnly
-            defaultValue={infoList.USER_NAME}
-          />
-        </div>
-        <div className="UserMyPage_inputDiv">
-          <input type="button" className="UserMyPage_overlap" value="아이디" />
-          <input
-            className="UserMyPage_input"
-            type="text"
-            name="myname"
-            ref={idRef}
-            autoComplete="off"
-            readOnly
-            defaultValue={infoList.USER_ID}
           />
         </div>
         <div className="UserMyPage_inputDiv">

@@ -6,8 +6,9 @@
 .CNS_search_info {
   padding-top: 3.125rem;
   padding-bottom: 0.9375rem;
-  font-size: 1.875rem;
+  font-size: 2.5rem;
   font-family: "BMDOHYEON";
+  color: #313131;
 }
 
 .CNS_search_div {
@@ -68,7 +69,7 @@
 
 .CNS_rec_div p {
   text-align: left;
-  padding-left: 2.25rem;
+  padding-left: 2.6rem;
   font-family: "GmarketSansMedium";
 }
 
@@ -80,8 +81,6 @@
   height: 2.5rem;
   overflow: scroll;
   white-space: nowrap;
-  margin-left: 2rem;
-  padding-left: 1rem;
   font-family: "GmarketSansMedium";
 }
 
@@ -90,8 +89,7 @@
   /* float: left; */
   display: inline-block;
   padding: 0.5rem 2rem;
-  margin-right: .5rem;
-  margin-left: .5rem;
+  margin: 0 .6rem;
   background: #3da2ff;
   color: white;
   border-radius: 20px;

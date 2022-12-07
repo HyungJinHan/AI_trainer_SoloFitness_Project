@@ -39,9 +39,15 @@ function UserMypageMain() {
       {mode === 0 ? (
         <div className="UserMyPage_main">
           <div className="UserMyPage_info">
-            환영합니다.
-            <br />
-            {userInfo.USER_NICKNAME} 님
+            <div className="UserMyPage_info_1">
+              환영합니다.
+            </div >
+            <span className="UserMyPage_info_2">
+              {userInfo.USER_NICKNAME}
+            </span>
+            <span className="UserMyPage_info_3">
+              &nbsp;님
+            </span>
           </div>
           <div>
             <UserMypageExecNivo props={userInfo.USER_NICKNAME} />
