@@ -32,6 +32,11 @@ import AdminPageChat from "./components/AdminPage/AdminPageChat";
 import CenterVideoList from "./components/CenterPage/CenterVideoList";
 import AdminPageLogin from "./components/AdminPage/AdminPageLogin";
 import CenterDetail from "./components/CenterPage/CenterDetail";
+import ChallengeRankSquat from "./components/Challenge/ChallengeRankSquat";
+import ChallengeRankPullup from "./components/Challenge/ChallengeRankPullup";
+import ChallengeRankPushup from "./components/Challenge/ChallengeRankPushup";
+import ChallengeRankSitup from "./components/Challenge/ChallengeRankSitup";
+import ChallengeRankCurl from "./components/Challenge/ChallengeRankCurl";
 
 const App = () => {
   return (
@@ -93,6 +98,16 @@ const App = () => {
         <Route path="/admincenter" element={<AdminPageCenter />} />
         {/** 관리자 페이지 채팅 */}
         <Route path="/adminchat" element={<AdminPageChat />} />
+        {/** 챌린지 랭킹(스쿼트) */}
+        <Route path="/challengeranksquat" element={<ChallengeRankSquat />} />
+        {/** 챌린지 랭킹(풀업) */}
+        <Route path="/challengerankpullup" element={<ChallengeRankPullup />} />
+        {/** 챌린지 랭킹(푸쉬업) */}
+        <Route path="/challengerankpushup" element={<ChallengeRankPushup />} />
+        {/** 챌린지 랭킹(싯업) */}
+        <Route path="/challengeranksitup" element={<ChallengeRankSitup />} />
+        {/** 챌린지 랭킹(덤벨컬) */}
+        <Route path="/challengerankcurl" element={<ChallengeRankCurl />} />
       </Routes>
     </div>
   );

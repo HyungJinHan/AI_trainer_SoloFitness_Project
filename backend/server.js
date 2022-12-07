@@ -692,7 +692,146 @@ app.post("/mychallengeranking", (req, res) => {
     res.send(result);
   });
 });
+/** 챌린지 랭킹 닉네임 점수 표시하기(스쿼트) */
+app.post("/challengeranksquat", (req, res) => {
+  const sqlQuery =
+    "SELECT RANK() OVER (ORDER BY CHALLENGE_SQUAT_SCORE DESC) AS RANKING , CHALLENGE_USER, USER_IMAGE, CHALLENGE_SQUAT_SCORE,CHALLENGE_PULLUP_SCORE,CHALLENGE_PUSHUP_SCORE,CHALLENGE_SITUP_SCORE,CHALLENGE_CURL_SCORE FROM CHALLENGE_TABLE INNER JOIN USER_TABLE ON CHALLENGE_TABLE.CHALLENGE_USER = USER_TABLE.USER_NICKNAME LIMIT 10;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
 
+/** 내 챌린지 닉네임 점수 표시(스쿼트) */
+app.post("/mychallengeranksquat", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT CHALLENGE_USER, CHALLENGE_SQUAT_SCORE, USER_IMAGE FROM CHALLENGE_TABLE INNER JOIN USER_TABLE ON CHALLENGE_TABLE.CHALLENGE_USER = USER_TABLE.USER_NICKNAME WHERE CHALLENGE_USER = ?;";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 내 챌린지 랭킹 표시(스쿼트) */
+app.post("/mychallengerankingsquat", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT COUNT(*) +1 AS MYRANKING FROM CHALLENGE_TABLE WHERE CHALLENGE_SQUAT_SCORE > ( SELECT CHALLENGE_SQUAT_SCORE	FROM CHALLENGE_TABLE WHERE CHALLENGE_USER =  ? );";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
+/** 챌린지 랭킹 닉네임 점수 표시하기(풀업) */
+app.post("/challengerankpullup", (req, res) => {
+  const sqlQuery =
+    "SELECT RANK() OVER (ORDER BY CHALLENGE_PULLUP_SCORE DESC) AS RANKING , CHALLENGE_USER, USER_IMAGE, CHALLENGE_SQUAT_SCORE,CHALLENGE_PULLUP_SCORE,CHALLENGE_PUSHUP_SCORE,CHALLENGE_SITUP_SCORE,CHALLENGE_CURL_SCORE FROM CHALLENGE_TABLE INNER JOIN USER_TABLE ON CHALLENGE_TABLE.CHALLENGE_USER = USER_TABLE.USER_NICKNAME LIMIT 10;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 내 챌린지 닉네임 점수 표시(풀업) */
+app.post("/mychallengerankpullup", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT CHALLENGE_USER, CHALLENGE_PULLUP_SCORE, USER_IMAGE FROM CHALLENGE_TABLE INNER JOIN USER_TABLE ON CHALLENGE_TABLE.CHALLENGE_USER = USER_TABLE.USER_NICKNAME WHERE CHALLENGE_USER = ?;";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 내 챌린지 랭킹 표시(풀업) */
+app.post("/mychallengerankingpullup", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT COUNT(*) +1 AS MYRANKING FROM CHALLENGE_TABLE WHERE CHALLENGE_PULLUP_SCORE > ( SELECT CHALLENGE_PULLUP_SCORE	FROM CHALLENGE_TABLE WHERE CHALLENGE_USER =  ? );";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
+/** 챌린지 랭킹 닉네임 점수 표시하기(푸쉬업) */
+app.post("/challengerankpushup", (req, res) => {
+  const sqlQuery =
+    "SELECT RANK() OVER (ORDER BY CHALLENGE_PUSHUP_SCORE DESC) AS RANKING , CHALLENGE_USER, USER_IMAGE, CHALLENGE_SQUAT_SCORE,CHALLENGE_PULLUP_SCORE,CHALLENGE_PUSHUP_SCORE,CHALLENGE_SITUP_SCORE,CHALLENGE_CURL_SCORE FROM CHALLENGE_TABLE INNER JOIN USER_TABLE ON CHALLENGE_TABLE.CHALLENGE_USER = USER_TABLE.USER_NICKNAME LIMIT 10;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 내 챌린지 닉네임 점수 표시(푸쉬업) */
+app.post("/mychallengerankpushup", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT CHALLENGE_USER, CHALLENGE_PUSHUP_SCORE, USER_IMAGE FROM CHALLENGE_TABLE INNER JOIN USER_TABLE ON CHALLENGE_TABLE.CHALLENGE_USER = USER_TABLE.USER_NICKNAME WHERE CHALLENGE_USER = ?;";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 내 챌린지 랭킹 표시(푸쉬업) */
+app.post("/mychallengerankingpushup", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT COUNT(*) +1 AS MYRANKING FROM CHALLENGE_TABLE WHERE CHALLENGE_PUSHUP_SCORE > ( SELECT CHALLENGE_PUSHUP_SCORE	FROM CHALLENGE_TABLE WHERE CHALLENGE_USER =  ? );";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
+/** 챌린지 랭킹 닉네임 점수 표시하기(싯업) */
+app.post("/challengeranksitup", (req, res) => {
+  const sqlQuery =
+    "SELECT RANK() OVER (ORDER BY CHALLENGE_SITUP_SCORE DESC) AS RANKING , CHALLENGE_USER, USER_IMAGE, CHALLENGE_SQUAT_SCORE,CHALLENGE_PULLUP_SCORE,CHALLENGE_PUSHUP_SCORE,CHALLENGE_SITUP_SCORE,CHALLENGE_CURL_SCORE FROM CHALLENGE_TABLE INNER JOIN USER_TABLE ON CHALLENGE_TABLE.CHALLENGE_USER = USER_TABLE.USER_NICKNAME LIMIT 10;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 내 챌린지 닉네임 점수 표시(싯업) */
+app.post("/mychallengeranksitup", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT CHALLENGE_USER, CHALLENGE_SITUP_SCORE, USER_IMAGE FROM CHALLENGE_TABLE INNER JOIN USER_TABLE ON CHALLENGE_TABLE.CHALLENGE_USER = USER_TABLE.USER_NICKNAME WHERE CHALLENGE_USER = ?;";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 내 챌린지 랭킹 표시(싯업) */
+app.post("/mychallengerankingsitup", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT COUNT(*) +1 AS MYRANKING FROM CHALLENGE_TABLE WHERE CHALLENGE_SITUP_SCORE > ( SELECT CHALLENGE_SITUP_SCORE	FROM CHALLENGE_TABLE WHERE CHALLENGE_USER =  ? );";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
+/** 챌린지 랭킹 닉네임 점수 표시하기(덤벨컬) */
+app.post("/challengerankcurl", (req, res) => {
+  const sqlQuery =
+    "SELECT RANK() OVER (ORDER BY CHALLENGE_CURL_SCORE DESC) AS RANKING , CHALLENGE_USER, USER_IMAGE, CHALLENGE_SQUAT_SCORE,CHALLENGE_PULLUP_SCORE,CHALLENGE_PUSHUP_SCORE,CHALLENGE_SITUP_SCORE,CHALLENGE_CURL_SCORE FROM CHALLENGE_TABLE INNER JOIN USER_TABLE ON CHALLENGE_TABLE.CHALLENGE_USER = USER_TABLE.USER_NICKNAME LIMIT 10;";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 내 챌린지 닉네임 점수 표시(덤벨컬) */
+app.post("/mychallengerankcurl", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT CHALLENGE_USER, CHALLENGE_CURL_SCORE, USER_IMAGE FROM CHALLENGE_TABLE INNER JOIN USER_TABLE ON CHALLENGE_TABLE.CHALLENGE_USER = USER_TABLE.USER_NICKNAME WHERE CHALLENGE_USER = ?;";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 내 챌린지 랭킹 표시(덤벨컬) */
+app.post("/mychallengerankingcurl", (req, res) => {
+  var NICKNAME = req.body.Nickname;
+  const sqlQuery =
+    "SELECT COUNT(*) +1 AS MYRANKING FROM CHALLENGE_TABLE WHERE CHALLENGE_CURL_SCORE > ( SELECT CHALLENGE_CURL_SCORE	FROM CHALLENGE_TABLE WHERE CHALLENGE_USER =  ? );";
+  db.query(sqlQuery, [NICKNAME], (err, result) => {
+    res.send(result);
+  });
+});
 /** 관리자 페이지 성별(남) */
 app.post("/adminusergender", (req, res) => {
   const sqlQuery =

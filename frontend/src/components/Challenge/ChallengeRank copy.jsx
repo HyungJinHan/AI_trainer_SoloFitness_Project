@@ -38,11 +38,12 @@ const ChallengeRank = () => {
               res.data[0]?.CHALLENGE_PUSHUP_SCORE * 60 +
               res.data[0]?.CHALLENGE_SITUP_SCORE * 45 +
               res.data[0]?.CHALLENGE_CURL_SCORE * 30;
-            // setResultScore(allScore);
+            setResultScore(allScore);
+            console.log(resultScore);
             axios
               .post("http://localhost:8008/challengescoreresult", {
                 Nickname: nickname,
-                resultScore1: allScore,
+                resultScore1: resultScore,
               })
               .then(
                 axios
@@ -55,13 +56,13 @@ const ChallengeRank = () => {
                         Nickname: nickname,
                       })
                       .then((res) => {
-                        setMyrank(res?.data[0]);
+                        setMyrank(res.data[0]);
                         axios
                           .post("http://localhost:8008/mychallengeranking", {
                             Nickname: nickname,
                           })
                           .then((res) => {
-                            setMyRanking(res?.data[0]);
+                            setMyRanking(res.data[0]);
                           });
                       });
                   })
