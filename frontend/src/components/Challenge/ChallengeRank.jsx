@@ -26,7 +26,6 @@ const ChallengeRank = () => {
       })
       .then((res) => {
         setNickname(res.data[0].USER_NICKNAME);
-        console.log(nickname);
         axios
           .post("http://localhost:8008/challengescore", {
             Nickname: nickname,
@@ -49,7 +48,6 @@ const ChallengeRank = () => {
                   .post("http://localhost:8008/challengerank")
                   .then((res) => {
                     setRank(res.data);
-                    console.log("CRANK", rank);
                     axios
                       .post("http://localhost:8008/mychallengerank", {
                         Nickname: nickname,
@@ -61,7 +59,7 @@ const ChallengeRank = () => {
                             Nickname: nickname,
                           })
                           .then((res) => {
-                            setMyRanking(res?.data[0]);
+                            setMyRanking(res.data[0]);
                           });
                       });
                   })
@@ -74,18 +72,25 @@ const ChallengeRank = () => {
     <div>
       <div className="ChallengeRank_top">
         <div className="ChallengeRank_rank_text">전체 랭킹</div>
-        <select
-          className="ChallengeRank_rank_select"
-          onChange={(e) => handleChange(e.target.value)}
-        >
-          <option>운동종류를 선택하세요</option>
-          <option value="/challengerank">전체</option>
-          <option value="/challengeranksquat">스쿼트</option>
-          <option value="/challengerankpullup">풀업</option>
-          <option value="/challengerankpushup">푸쉬업</option>
-          <option value="/challengeranksitup">윗몸일으키기</option>
-          <option value="/challengerankcurl">덤벨컬</option>
-        </select>
+        <div className="ChallengeRank_rank_select_div">
+          <input
+            type="button"
+            className="ChallengeRank_rank_select_overlap"
+            value="운동 카테고리를 선택해주세요."
+          />
+          <select
+            className="ChallengeRank_rank_select"
+            onChange={(e) => handleChange(e.target.value)}
+          >
+            <option>카테고리 선택</option>
+            <option value="/challengerank">전체</option>
+            <option value="/challengeranksquat">스쿼트</option>
+            <option value="/challengerankpullup">풀업</option>
+            <option value="/challengerankpushup">푸쉬업</option>
+            <option value="/challengeranksitup">윗몸일으키기</option>
+            <option value="/challengerankcurl">덤벨컬</option>
+          </select>
+        </div>
         {rank.map((ranklist, index) => {
           return (
             <div className="ChallengeRank_main_div" key={index}>
