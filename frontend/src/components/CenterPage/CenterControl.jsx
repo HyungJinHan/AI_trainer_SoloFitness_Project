@@ -17,6 +17,7 @@ const CenterControl = (props) => {
   const page_size = 7;
   var page_count = 1;
   var article_count = 0;
+  const [articleCount,setArticleCount] = useState(0);
 
   const handlePage = (e) => {
     page_num = e.target.id;
@@ -29,6 +30,7 @@ const CenterControl = (props) => {
     }).then((res) => {
       const { data } = res;
       article_count = data[0].COUNT;
+      setArticleCount(data[0].COUNT);
       page_count = Math.ceil(article_count / page_size);
       var page_link = [];
       for (let i = 1; i <= page_count; i++) page_link.push(i);
@@ -44,9 +46,8 @@ const CenterControl = (props) => {
       CENTER_ID: window.sessionStorage.getItem('centerID'),
     }).then((res) => {
       const { data } = res;
-      console.log("memberlist(res)->", res);
+      // console.log("memberlist(res)->", res);
       setMemberList({ list: data });
-      console.log("setMemberList->", memberList);
     }).catch((e) => {
       console.error(e);
     })
@@ -61,7 +62,7 @@ const CenterControl = (props) => {
       <div className='CenterPage_InfoUpdate'>
         회원정보
         <br />
-        (총 {memberList.list.length}명 등록했습니다.)
+        (총 {articleCount}명 등록했습니다.)
       </div>
       <div className="CenterPage_UpdateBorder">
         <div className='CenterPage_infoName'>
