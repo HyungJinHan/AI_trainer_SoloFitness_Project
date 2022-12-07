@@ -9,6 +9,14 @@ const AdminPageUserNivo_E = () => {
   const [exec3, setExec3] = useState();
   const [exec4, setExec4] = useState();
   const [exec5, setExec5] = useState();
+  const [totalExec, setTotalExec] = useState(0);
+
+  const [exec1_r,setExec1R] = useState(null);
+  const [exec2_r,setExec2R] = useState(0);
+  const [exec3_r,setExec3R] = useState(0);
+  const [exec4_r,setExec4R] = useState(0);
+  const [exec5_r,setExec5R] = useState(0);
+
   useEffect(() => {
     axios.post("http://localhost:8008/adminuserexec1").then((res) => {
       setExec1(res.data[0].EXEC1);
@@ -25,7 +33,17 @@ const AdminPageUserNivo_E = () => {
     axios.post("http://localhost:8008/adminuserexec5").then((res) => {
       setExec5(res.data[0].EXEC5);
     });
+    axios.post("http://localhost:8008/adminusertotal").then((res) => {
+      setTotalExec(res.data[0].TOTALEXEC);
+    });
+
+    setExec1R(((exec1 / totalExec) * 100).toFixed(1));
+    setExec2R(((exec2 / totalExec) * 100).toFixed(1));
+    setExec3R(((exec3 / totalExec) * 100).toFixed(1));
+    setExec4R(((exec4 / totalExec) * 100).toFixed(1));
+    setExec5R(((exec5 / totalExec) * 100).toFixed(1));
   });
+
   return (
     <div className="AdminPageUserNivo_excercise">
       <ResponsiveBar
@@ -33,11 +51,11 @@ const AdminPageUserNivo_E = () => {
          * chart에 사용될 데이터
          */
         data={[
-          { bottle: "스쿼트", 유저: exec1 },
-          { bottle: "푸쉬업", 유저: exec2 },
-          { bottle: "풀업", 유저: exec3 },
-          { bottle: "윗몸일으키기", 유저: exec4 },
-          { bottle: "덤벨컬", 유저: exec5 },
+          { bottle: "푸쉬업", 유저: exec2_r },
+          { bottle: "윗몸일으키기", 유저: exec4_r },
+          { bottle: "덤벨컬", 유저: exec5_r },
+          { bottle: "풀업", 유저: exec3_r },          
+          { bottle: "스쿼트", 유저: exec1_r },
         ]}
         /**
          * chart에 보여질 데이터 key (측정되는 값)
@@ -50,7 +68,7 @@ const AdminPageUserNivo_E = () => {
         /**
          * chart margin
          */
-        margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+        margin={{ top:30, right: 100, bottom: 50, left: 110 }}
         /**
          * chart padding (bar간 간격)
          */
@@ -67,6 +85,7 @@ const AdminPageUserNivo_E = () => {
         // colorBy="indexValue" // indexBy로 묵인 인덱스별로 각각 적용
         // maxValue={100}
         groupMode="grouped"
+        layout="horizontal"
         theme={{
           /**
            * label style (bar에 표현되는 글씨)
@@ -125,15 +144,15 @@ const AdminPageUserNivo_E = () => {
         /**
          * axis left 설정
          */
-        // axisLeft={{
-        //   tickSize: 5, // 값 설명하기 위해 튀어나오는 점 크기
-        //   tickPadding: 5, // tick padding
-        //   tickRotation: 0, // tick 기울기
-        //   legend: "회원 수", // left 글씨
-        //   legendPosition: "middle", // 글씨 위치
-        //   legendOffset: -50, // 글씨와 chart간 간격
-        // }}
-        axisLeft={null}
+        axisLeft={{
+          tickSize: 5, // 값 설명하기 위해 튀어나오는 점 크기
+          tickPadding: 5, // tick padding
+          tickRotation: 0, // tick 기울기
+          // legend: "회원 수", // left 글씨
+          legendPosition: "middle", // 글씨 위치
+          legendOffset: -50, // 글씨와 chart간 간격
+        }}
+        // axisLeft={null}
         enableGridY={false}
         /**
          * label 안보이게 할 기준 width

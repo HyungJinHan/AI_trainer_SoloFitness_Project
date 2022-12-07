@@ -17,6 +17,7 @@ function CenterVideoList(props) {
   const page_size = 4;
   var page_count = 1;
   var article_count = 0;
+  const [articleCount, setArticleCount] = useState(0);
 
   const handlePage = (e) => {
     page_num = e.target.id;
@@ -30,7 +31,8 @@ function CenterVideoList(props) {
       })
       .then((res) => {
         const { data } = res;
-        article_count = data[0].COUNT;
+        setArticleCount(data[0].COUNT);
+        article_count = data[0].COUNT
         page_count = Math.ceil(article_count / page_size);
         var page_link = [];
         for (let i = 1; i <= page_count; i++) page_link.push(i);
@@ -44,7 +46,6 @@ function CenterVideoList(props) {
       .post('http://localhost:8008/videolist', {
         page_num: page_num,
         page_size: page_size,
-        article_count: article_count,
         CT_VIDEO_WRITER: window.sessionStorage.getItem('centerID')
       })
       .then((res) => {
@@ -67,7 +68,7 @@ function CenterVideoList(props) {
       <div className='CenterPage_InfoUpdate'>
         등록된 영상 목록
         <br />
-        (총 {videoList.list.length}개의 영상을 등록했습니다.)
+        (총 {articleCount}개의 영상을 등록했습니다.)
       </div>
       <div className="CenterPage_UpdateBorder">
         {

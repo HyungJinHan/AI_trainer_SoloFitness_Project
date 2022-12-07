@@ -516,7 +516,6 @@ app.post("/memberlist", (req, res) => {
 
   db.query(sqlQuery, [CENTER_ID, start_limit, page_size], (err, result) => {
     res.send(result);
-    console.log("center_memberlist(res)->", result);
   });
 });
 
@@ -562,7 +561,7 @@ app.post("/videolist", (req, res) => {
   const CT_VIDEO_WRITER = req.body.CT_VIDEO_WRITER;
 
   const sqlQuery =
-    "SELECT * FROM CT_VIDEO_TABLE WHERE CT_VIDEO_WRITER = ? LIMIT ?, ?;";
+    "SELECT * FROM CT_VIDEO_TABLE WHERE CT_VIDEO_WRITER = ? ORDER BY CT_VIDEO_NUM DESC LIMIT ?, ?;";
 
   db.query(
     sqlQuery,
@@ -953,6 +952,15 @@ app.post("/adminuserexec4", (req, res) => {
 app.post("/adminuserexec5", (req, res) => {
   const sqlQuery =
     "SELECT COUNT(EXCERCISE_NAME) AS EXEC5 FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = 'curl';";
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+/** 모든 운동 수 */
+app.post("/adminusertotal", (req, res) => {
+  const sqlQuery = "SELECT COUNT(*) AS TOTALEXEC FROM EXCERCISE_TABLE;";
+
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
