@@ -57,64 +57,55 @@ const AIModelSelect_C = () => {
 
   const challengeResisterFunc = () => {
     if (execiseCategories_C === "squat") {
-      alert("챌린지 등록 성공!");
       axios
         .post("http://localhost:8008/squatchallenge", {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => {
-          navigator("/challengerank");
-        });
+        .then((res) => { });
     }
     if (execiseCategories_C === "pullup") {
-      alert("챌린지 등록 성공!");
       axios
         .post("http://localhost:8008/pullupchallenge", {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => {
-          navigator("/challengerank");
-        });
+        .then((res) => { });
     }
     if (execiseCategories_C === "pushup") {
-      alert("챌린지 등록 성공!");
       axios
         .post("http://localhost:8008/pushupchallenge", {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => {
-          navigator("/challengerank");
-        });
+        .then((res) => { });
     }
     if (execiseCategories_C === "situp") {
-      alert("챌린지 등록 성공!");
       axios
         .post("http://localhost:8008/situpchallenge", {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => {
-          navigator("/challengerank");
-        });
+        .then((res) => { });
     }
     if (execiseCategories_C === "curl") {
-      alert("챌린지 등록 성공!");
       axios
         .post("http://localhost:8008/curlchallenge", {
           USER_NICKNAME: nickname,
           USER_SCORE: counter,
         })
-        .then((res) => {
-          navigator("/challengerank");
-        });
+        .then((res) => { });
     }
   };
 
   const goToDetail = () => {
     navigator(`/detail${location.search}`);
+    window.location.reload();
+  };
+
+  const goToRank = () => {
+    alert("챌린지 등록 성공!");
+    navigator("/challengerank");
     window.location.reload();
   };
 
@@ -185,7 +176,12 @@ const AIModelSelect_C = () => {
               </div>
               <div
                 className="AIModelSelect_C_challenge_yes"
-                onClick={challengeResisterFunc}
+                onClick={
+                  async () => {
+                    await challengeResisterFunc();
+                    await goToRank();
+                  }
+                }
               >
                 예
               </div>

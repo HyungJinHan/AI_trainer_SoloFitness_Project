@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 import axios from 'axios';
 import '../../styles/CenterLogin/CenterLogin.css'
-import MainLogo from '../../static/images/HHJ/icons/MainLogo.svg'
+import CenterLogo from '../../static/images/HHJ/icons/CenterLogo.svg'
 
 const MainCenter = styled.div`
     text-align: center;
@@ -102,7 +102,7 @@ function CenterLogin() {
       <br />
       <br />
       <img
-        src={MainLogo}
+        src={CenterLogo}
         alt="undefind"
         width='60%'
       />
