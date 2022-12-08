@@ -4,6 +4,7 @@ import queryString from "query-string";
 import axios from "axios";
 import NavigatorMain from "../Navigator/NavigatorMain";
 import "../../styles/Detail/Detail.css";
+import Swal from "sweetalert2";
 
 const Detail = () => {
   const inputCountRef = useRef();
@@ -94,7 +95,7 @@ const Detail = () => {
                 inputCountRef.current.value === "" ||
                 inputCountRef.current.value === undefined
               ) {
-                alert("운동 개수를 지정해주세요.");
+                Swal.fire("운동 개수를 지정해주세요.");
                 return false;
               } else {
                 setChallengeToggle(false);

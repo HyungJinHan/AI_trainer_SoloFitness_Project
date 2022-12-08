@@ -1,6 +1,7 @@
-import axios from 'axios';
-import React, { useRef, useState } from 'react';
-import '../../styles/CenterRegister/CenterRegister.css'
+import axios from "axios";
+import React, { useRef, useState } from "react";
+import "../../styles/CenterRegister/CenterRegister.css";
+import Swal from "sweetalert2";
 
 // 사업자 등록번호와 비밀번호를 인풋받는 컴포넌트
 
@@ -8,11 +9,10 @@ const CenterRegisterSecond = ({
   setCenterID,
   setCenterPW,
   setMode,
-  consoleAll
+  consoleAll,
 }) => {
-
   /** 중복체크 실행 여부 검사 */
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   const [errorKey, setErrorKey] = useState(true);
 
   const idRef = useRef();
@@ -21,67 +21,56 @@ const CenterRegisterSecond = ({
 
   const jobDone = () => {
     if (errorKey === true) {
-      setErrorMessage('사업자 등록 번호 중복 체크를 해주세요.');
+      setErrorMessage("사업자 등록 번호 중복 체크를 해주세요.");
       return false;
     }
 
-    setErrorMessage('');
+    setErrorMessage("");
     pwRef.current.focus();
 
     if (pwRef.current.value === "" || pwRef.current.value === undefined) {
-      setErrorMessage(
-        '비밀번호를 입력하세요.'
-      )
+      setErrorMessage("비밀번호를 입력하세요.");
       pwRef.current.focus();
       return false;
-    }
-    else if (pwRef.current.value.length < 8 || pwRef.current.value.length > 15) {
-      setErrorMessage(
-        '비밀번호를 길이를 확인하세요.'
-      );
+    } else if (
+      pwRef.current.value.length < 8 ||
+      pwRef.current.value.length > 15
+    ) {
+      setErrorMessage("비밀번호를 길이를 확인하세요.");
       pwRef.current.focus();
       return false;
-    }
-    else {
-      setErrorMessage('');
+    } else {
+      setErrorMessage("");
       pwckRef.current.focus();
     }
 
     if (pwRef.current.value !== pwckRef.current.value) {
-      setErrorMessage(
-        '비밀번호가 맞지 않습니다.'
-      );
+      setErrorMessage("비밀번호가 맞지 않습니다.");
       return false;
-    }
-    else if (pwRef.current.value === pwckRef.current.value) {
-      setErrorMessage('');
+    } else if (pwRef.current.value === pwckRef.current.value) {
+      setErrorMessage("");
     }
 
     setMode(2);
     consoleAll();
-  }
+  };
 
   async function checkOverlap() {
     await axios
-      .post('http://localhost:8008/centeridcheck', {
-        CENTER_ID: idRef.current.value
+      .post("http://localhost:8008/centeridcheck", {
+        CENTER_ID: idRef.current.value,
       })
-      .then((res => {
-        if (idRef.current.value === '') {
-          setErrorMessage(
-            `사업자 등록번호를 입력하세요.`
-          )
+      .then((res) => {
+        if (idRef.current.value === "") {
+          setErrorMessage(`사업자 등록번호를 입력하세요.`);
           idRef.current.focus();
           return false;
         }
         if (idRef.current.value.length < 10) {
-          setErrorMessage(
-            `사업자 등록번호 길이를 확인하세요.`
-          );
+          setErrorMessage(`사업자 등록번호 길이를 확인하세요.`);
           idRef.current.focus();
           return false;
-        }
-        else {
+        } else {
           const str = idRef.current.value;
           for (var i = 0; i < str.length; i++) {
             const ch = str.substring(i, i + 1);
@@ -90,53 +79,55 @@ const CenterRegisterSecond = ({
               (ch >= "a" && ch <= "z") ||
               (ch >= "A" && ch <= "Z")
             ) {
-              setErrorMessage(
-                `사업자 등록번호는 숫자로만 입력해주세요.`
-              )
+              setErrorMessage(`사업자 등록번호는 숫자로만 입력해주세요.`);
               idRef.current.focus();
               return false;
             }
           }
         }
-        if ((res.data[0].COUNT >= 1)) {
-          setErrorMessage(
-            '사업자 등록번호가 중복됩니다.'
-          )
-          idRef.current.value = '';
+        if (res.data[0].COUNT >= 1) {
+          setErrorMessage("사업자 등록번호가 중복됩니다.");
+          idRef.current.value = "";
           idRef.current.focus();
           return false;
         }
-        if (window.confirm(`사업자 등록번호가 중복되지 않습니다.
-사용하시겠습니까?`)) {
-          setCenterID(idRef.current.value);
-          setErrorKey(false);
-          setErrorMessage('')
-        } else {
-          alert('취소하셨습니다.');
-          idRef.current.value = '';
-          return false;
-        }
-      }
-      ))
+        Swal.fire({
+          title: `사업자 등록번호가 <br>중복되지 않습니다. <br>사용하시겠습니까?`,
+          showDenyButton: true,
+          confirmButtonText: "예",
+          denyButtonText: `아니오`,
+          denyButtonColor: "red",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            setCenterID(idRef.current.value);
+            setErrorKey(false);
+            setErrorMessage("");
+          } else if (result.isDenied) {
+            Swal.fire("취소하셨습니다.", "", "error");
+            idRef.current.value = "";
+            return false;
+          }
+        });
+      })
       .catch((e) => {
         console.error(e);
       });
   }
 
   return (
-    <div className='CenterRegister_main'>
-      <div className='CenterRegister_info'>
+    <div className="CenterRegister_main">
+      <div className="CenterRegister_info">
         사업자 등록번호와
         <br />
         비밀번호를 입력해주세요.
       </div>
-      <div className='CenterRegister_inputDiv'>
+      <div className="CenterRegister_inputDiv">
         <input
-          className='CenterRegister_input'
+          className="CenterRegister_input"
           type="text"
           name="id"
           autoComplete="off"
-          defaultValue=''
+          defaultValue=""
           maxLength="10"
           ref={idRef}
           onChange={(e) => {
@@ -151,12 +142,10 @@ const CenterRegisterSecond = ({
           }}
         />
         <input
-          className='CenterRegister_overlap'
-          type='button'
-          value='중복 체크'
-          onClick={
-            checkOverlap
-          }
+          className="CenterRegister_overlap"
+          type="button"
+          value="중복 체크"
+          onClick={checkOverlap}
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               checkOverlap();
@@ -166,14 +155,14 @@ const CenterRegisterSecond = ({
       </div>
       <div>
         <input
-          className='CenterRegister_inputSolo'
+          className="CenterRegister_inputSolo"
           type="password"
           name="pw"
           ref={pwRef}
           autoComplete="off"
-          defaultValue=''
+          defaultValue=""
           onChange={(e) => {
-            setCenterPW(e.target.value)
+            setCenterPW(e.target.value);
           }}
           placeholder="비밀번호는 8 ~ 15자까지 입력하세요."
           onKeyPress={(e) => {
@@ -185,12 +174,12 @@ const CenterRegisterSecond = ({
       </div>
       <div>
         <input
-          className='CenterRegister_inputSolo'
+          className="CenterRegister_inputSolo"
           type="password"
           name="pwck"
           ref={pwckRef}
           autoComplete="off"
-          defaultValue=''
+          defaultValue=""
           placeholder="비밀번호를 한번 더 입력하세요."
           onKeyPress={(e) => {
             if (e.key === "Enter") {
@@ -199,16 +188,12 @@ const CenterRegisterSecond = ({
           }}
         />
       </div>
-      <div className='CenterRegister_error'>
-        {errorMessage}
-      </div>
+      <div className="CenterRegister_error">{errorMessage}</div>
       <input
-        className='CenterRegister_button'
-        value='다음'
-        type='button'
-        onClick={
-          jobDone
-        }
+        className="CenterRegister_button"
+        value="다음"
+        type="button"
+        onClick={jobDone}
       />
     </div>
   );

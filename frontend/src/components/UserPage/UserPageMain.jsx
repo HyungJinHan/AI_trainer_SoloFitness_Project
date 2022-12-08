@@ -3,10 +3,10 @@ import styled from "styled-components";
 import MainSliderEvent from "../MainSlider/MainSliderEvent";
 import MainSliderTheme from "../MainSlider/MainSliderTheme";
 import NavigatorMain from "../Navigator/NavigatorMain";
-import '../../styles/UserPage/UserPage.css'
+import "../../styles/UserPage/UserPage.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import KakaoMapContainer from '../KakaoMap/KakaoMapContainer'
+import KakaoMapContainer from "../KakaoMap/KakaoMapContainer";
 import MainSliderCenter from "../MainSlider/MainSliderCenter";
 import yogaImage from "../../static/images/JYY/main/yoga.png";
 import backImage from "../../static/images/JYY/main/back.png";
@@ -17,7 +17,7 @@ import mainLogo from "../../static/images/JYY/main/mainLogo.png";
 import mainLogo2 from "../../static/images/JYY/exImage.png";
 import homeBlack from "../../static/images/JYY/ICON/homeBlack.png";
 import beginner from "../../static/images/JYY/main/beginner.png";
-
+import Swal from "sweetalert2";
 
 const MainCenter = styled.div`
   text-align: center;
@@ -32,7 +32,7 @@ function UserPageMain(props) {
   useEffect(() => {
     axios
       .post("http://localhost:8008/maincenterinfo", {
-        USER_ID: window.sessionStorage.getItem('userID'),
+        USER_ID: window.sessionStorage.getItem("userID"),
       })
       .then((res) => {
         setCenterInfos(res.data[0]);
@@ -43,7 +43,7 @@ function UserPageMain(props) {
 
     axios
       .post("http://localhost:8008/codeinfo", {
-        USER_ID: window.sessionStorage.getItem('userID'),
+        USER_ID: window.sessionStorage.getItem("userID"),
       })
       .then((res) => {
         setCodeInfo(res.data[0]);
@@ -51,10 +51,13 @@ function UserPageMain(props) {
       .catch((e) => {
         console.log(e);
       });
-  }, [])
+  }, []);
 
-  if (window.sessionStorage.userID === '' || window.sessionStorage.userID === undefined) {
-    alert(`로그인 후 이용 가능합니다.
+  if (
+    window.sessionStorage.userID === "" ||
+    window.sessionStorage.userID === undefined
+  ) {
+    Swal.fire(`로그인 후 이용 가능합니다.
 로그인 페이지로 이동합니다.`);
     navigate("/");
     return false;
@@ -62,24 +65,12 @@ function UserPageMain(props) {
   return (
     <div className="userMain_total_div">
       <div className="main_logo_div">
-        <span className="main_span_big">
-          나
-        </span>
-        <span className="main_span_small">
-          혼자
-        </span>
-        <span className="main_span_big">
-          피
-        </span>
-        <span className="main_span_small">
-          트니
-        </span>
+        <span className="main_span_big">나</span>
+        <span className="main_span_small">혼자</span>
+        <span className="main_span_big">피</span>
+        <span className="main_span_small">트니</span>
         {/* <span className="main_span_image"> */}
-        <img
-          src={homeBlack}
-          alt="?"
-          className="main_logo_image"
-        />
+        <img src={homeBlack} alt="?" className="main_logo_image" />
         {/* </span> */}
         {/* <img
           src={mainLogo2}
@@ -99,34 +90,29 @@ function UserPageMain(props) {
           </NavLink>
         </div>
 
-        {
-          codeInfo.USER_ACCESS_CODE === null ?
-            null
-            :
-            <div className="UserMain_center">
-              <div>
-                <div className="UserMain_centerContents">
-                  <span className="UserMain_centerContents_title">
-                    {centerInfos.CENTER_NAME}
-                  </span>
-                  <span className="UserMain_centerContents_content">
-                    &nbsp;센터 컨텐츠
-                  </span>
-                  <br />
-                </div >
-                <div className="UserMain_centerMap">
-                  <KakaoMapContainer
-                    center_address={centerInfos.CENTER_ADRESS}
-                    id={centerInfos.CENTER_ID}
-                  />
-                </div>
+        {codeInfo.USER_ACCESS_CODE === null ? null : (
+          <div className="UserMain_center">
+            <div>
+              <div className="UserMain_centerContents">
+                <span className="UserMain_centerContents_title">
+                  {centerInfos.CENTER_NAME}
+                </span>
+                <span className="UserMain_centerContents_content">
+                  &nbsp;센터 컨텐츠
+                </span>
                 <br />
-                <MainSliderCenter
-                  CENTER_ID={centerInfos.CENTER_ID}
+              </div>
+              <div className="UserMain_centerMap">
+                <KakaoMapContainer
+                  center_address={centerInfos.CENTER_ADRESS}
+                  id={centerInfos.CENTER_ID}
                 />
               </div>
+              <br />
+              <MainSliderCenter CENTER_ID={centerInfos.CENTER_ID} />
             </div>
-        }
+          </div>
+        )}
         <div className="main_image_div">
           <NavLink to={"/detail?exec=curl"}>
             <img
@@ -137,11 +123,13 @@ function UserPageMain(props) {
             />
           </NavLink>
         </div>
-        <div className='UserMain_white'>
+        <div className="UserMain_white">
           <MainSliderTheme />
         </div>
         <div className="main_image_div">
-          <NavLink to={"/detail?exec=찌부둥한%20몸을%20펴주는%20스트레칭%20123"}>
+          <NavLink
+            to={"/detail?exec=찌부둥한%20몸을%20펴주는%20스트레칭%20123"}
+          >
             <img
               className="main_streching_content"
               src={strechingImage}
@@ -150,7 +138,7 @@ function UserPageMain(props) {
             />
           </NavLink>
         </div>
-        <div className='UserMain_gray'>
+        <div className="UserMain_gray">
           <MainSliderEvent />
         </div>
         <div className="main_image_div">

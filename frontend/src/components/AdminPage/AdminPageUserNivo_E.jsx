@@ -11,11 +11,11 @@ const AdminPageUserNivo_E = () => {
   const [exec5, setExec5] = useState();
   const [totalExec, setTotalExec] = useState(0);
 
-  const [exec1_r,setExec1R] = useState(null);
-  const [exec2_r,setExec2R] = useState(0);
-  const [exec3_r,setExec3R] = useState(0);
-  const [exec4_r,setExec4R] = useState(0);
-  const [exec5_r,setExec5R] = useState(0);
+  const [exec1_r, setExec1R] = useState(null);
+  const [exec2_r, setExec2R] = useState(0);
+  const [exec3_r, setExec3R] = useState(0);
+  const [exec4_r, setExec4R] = useState(0);
+  const [exec5_r, setExec5R] = useState(0);
 
   useEffect(() => {
     axios.post("http://localhost:8008/adminuserexec1").then((res) => {
@@ -51,10 +51,10 @@ const AdminPageUserNivo_E = () => {
          * chart에 사용될 데이터
          */
         data={[
-          { bottle: "푸쉬업", 유저: exec2_r },
+          { bottle: "푸쉬업", 유저: `${exec2_r}` },
           { bottle: "윗몸일으키기", 유저: exec4_r },
           { bottle: "덤벨컬", 유저: exec5_r },
-          { bottle: "풀업", 유저: exec3_r },          
+          { bottle: "풀업", 유저: exec3_r },
           { bottle: "스쿼트", 유저: exec1_r },
         ]}
         /**
@@ -68,7 +68,7 @@ const AdminPageUserNivo_E = () => {
         /**
          * chart margin
          */
-        margin={{ top:30, right: 100, bottom: 50, left: 110 }}
+        margin={{ top: 30, right: 100, bottom: 50, left: 110 }}
         /**
          * chart padding (bar간 간격)
          */

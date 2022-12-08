@@ -137,13 +137,13 @@ const ModelSelect = () => {
       <div className="AIModelSelect_feedback_div">
         {/* <div className="AIModelSelect_feedback_box"> */}
         <p
-          className={`AIModelSelect_feedback ${squat === "Great!" ? "great_feedback" : "not_great_feedback"
-            }`}
+          className={`AIModelSelect_feedback ${
+            squat === "Great!" ? "great_feedback" : "not_great_feedback"
+          }`}
         >
           <div>{feedbackClass()}</div>
           <div className="AIModelSelect_knee">{squatFeedbackFunc()}</div>
-          <div className="AIModelSelect_shoulder">{squatFeedbackFunc2()}
-          </div>
+          <div className="AIModelSelect_shoulder">{squatFeedbackFunc2()}</div>
         </p>
         {/* </div> */}
       </div>

@@ -15,9 +15,9 @@
   text-align: center;
   width: 21.875rem;
   height: 2.5rem;
-  background: #F2F2F2;
+  background: #f2f2f2;
   border: none;
-  border-radius: .4375rem;
+  border-radius: 0.4375rem;
   display: flex;
   margin: 0 auto;
   margin-top: 1.5625rem;
@@ -36,7 +36,7 @@
   height: 2.5rem;
   padding-right: 1.25rem;
   text-align: right;
-  font-family: 'GmarketSansMedium';
+  font-family: "GmarketSansMedium";
 }
 
 .CenterPage_overlap {
@@ -45,8 +45,8 @@
   padding-left: 1.25rem;
   /* background: #3DA2FF; */
   /* color: white; */
-  border-radius: .4375rem 0rem 0rem .4375rem;
-  font-family: 'GmarketSansMedium';
+  border-radius: 0.4375rem 0rem 0rem 0.4375rem;
+  font-family: "GmarketSansMedium";
 }
 
 .CenterPage_inputAddress {
@@ -54,27 +54,27 @@
   /* padding-left: 1.25rem; */
   width: 21.875rem;
   height: 2.5rem;
-  background: #F2F2F2;
+  background: #f2f2f2;
   border: none;
-  border-radius: .4375rem;
+  border-radius: 0.4375rem;
   display: flex;
   margin: 0 auto;
   margin-top: 1.5625rem;
 }
 
 .CenterPage_UpdateBorder {
-  border: .0625rem solid #3DA2FF;
+  border: 0.0625rem solid #3da2ff;
   width: 90%;
   margin: 0 auto;
-  margin-bottom: .625rem;
+  margin-bottom: 0.625rem;
 }
 
 .CenterPage_button {
   width: 21.875rem;
   height: 2.5rem;
-  margin: .625rem;
+  margin: 0.625rem;
   margin-top: 1.25rem;
-  background: #3DA2FF;
+  background: #3da2ff;
   border-radius: 24px;
   border: none;
   color: white;
@@ -83,28 +83,28 @@
   font-size: 1.0625rem;
   letter-spacing: 0.2rem;
   text-align: center;
-  font-family: 'BMJUA';
+  font-family: "BMJUA";
 }
 
 .CenterPage_error {
   text-align: left;
-  padding-top: .625rem;
+  padding-top: 0.625rem;
   padding-left: 2.8125rem;
   color: red;
-  font-size: .8125rem;
+  font-size: 0.8125rem;
 }
 
 .CenterPage_inputSolo {
   width: 21.875rem;
   /* height: 2.5rem; */
-  background: #F2F2F2;
+  background: #f2f2f2;
   border: none;
-  border-radius: .4375rem;
+  border-radius: 0.4375rem;
   margin: 0 auto;
   margin-top: 1.25rem;
-  padding-top: .625rem;
-  font-size: .9375rem;
-  font-family: 'GmarketSansMedium';
+  padding-top: 0.625rem;
+  font-size: 0.9375rem;
+  font-family: "GmarketSansMedium";
 }
 
 .CenterPage_textarea {
@@ -112,11 +112,11 @@
   height: 6.25rem;
   background: white;
   /* border: none; */
-  border-radius: .4375rem;
+  border-radius: 0.4375rem;
   margin: 0 auto;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-  font-family: 'GmarketSansMedium';
+  font-family: "GmarketSansMedium";
 }
 
 .CenterPage_InfoUpdate {
@@ -130,8 +130,8 @@
   padding-top: 0.75rem;
   border: 0.0625rem solid #3da2ff;
   font-size: 1.1875rem;
-  font-family: 'BMJUA';
-  letter-spacing: .1rem;
+  font-family: "BMJUA";
+  letter-spacing: 0.1rem;
 }
 
 .CenterPage_InfoUpdateNoDesc {
@@ -146,15 +146,15 @@
   border: 0.0625rem solid #3da2ff;
   font-weight: 1000;
   font-size: 1.0625rem;
-  font-family: 'GmarketSansMedium';
+  font-family: "GmarketSansMedium";
 }
 
 .CenterPage_imageUpload {
   width: 21.875rem;
   height: 2.5rem;
-  margin: .625rem;
+  margin: 0.625rem;
   margin-top: 1.25rem;
-  background: #3DA2FF;
+  background: #3da2ff;
   border-radius: 24px;
   border: none;
   color: white;
@@ -165,14 +165,14 @@
   text-align: center;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
-  padding-top: .625rem;
-  padding-bottom: .625rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
 }
 
 .CenterPage_image {
   width: 150px;
   height: 150px;
-  background: #F4F4F4;
+  background: #f4f4f4;
   border-radius: 50%;
   margin-left: 2.5rem;
   display: inline;
@@ -199,14 +199,14 @@
   /* width: 50%; */
   text-align: center;
   display: flex;
-  padding-left: .9375rem;
+  padding-left: 0.9375rem;
   /* padding-top: .3125rem; */
 }
 
 .CenterPage_text {
   display: flex;
   text-align: left;
-  padding-left: .625rem;
+  padding-left: 0.625rem;
   align-items: center;
 }
 
@@ -217,8 +217,8 @@
   color: #607eaa;
 }
 
-.CenterPage_page>a {
-  padding: .3125rem;
+.CenterPage_page > a {
+  padding: 0.3125rem;
 }
 
 .center_page {
@@ -255,28 +255,28 @@
   display: inline-block;
   width: 30%;
   padding-top: 1.25rem;
-  font-family: 'GmarketSansMedium';
+  font-family: "GmarketSansMedium";
 }
 
 .CenterPage_infoAge {
   display: inline-block;
   width: 15%;
   padding-top: 1.25rem;
-  font-family: 'GmarketSansMedium';
+  font-family: "GmarketSansMedium";
 }
 
 .CenterPage_infoGender {
   display: inline-block;
   width: 15%;
   padding-top: 1.25rem;
-  font-family: 'GmarketSansMedium';
+  font-family: "GmarketSansMedium";
 }
 
 .CenterPage_infoTel {
   display: inline-block;
   width: 40%;
   padding-top: 1.25rem;
-  font-family: 'GmarketSansMedium';
+  font-family: "GmarketSansMedium";
 }
 
 .CenterPage_infoArticleName {
@@ -284,8 +284,8 @@
   width: 30%;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  font-size: .8125rem;
-  font-family: 'GmarketSansMedium';
+  font-size: 0.8125rem;
+  font-family: "GmarketSansMedium";
 }
 
 .CenterPage_infoArticleAge {
@@ -293,8 +293,8 @@
   width: 15%;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  font-size: .8125rem;
-  font-family: 'GmarketSansMedium';
+  font-size: 0.8125rem;
+  font-family: "GmarketSansMedium";
 }
 
 .CenterPage_infoArticleGender {
@@ -302,8 +302,8 @@
   width: 15%;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  font-size: .8125rem;
-  font-family: 'GmarketSansMedium';
+  font-size: 0.8125rem;
+  font-family: "GmarketSansMedium";
 }
 
 .CenterPage_infoArticleTel {
@@ -311,6 +311,15 @@
   width: 40%;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-  font-size: .8125rem;
-  font-family: 'GmarketSansMedium';
+  font-size: 0.8125rem;
+  font-family: "GmarketSansMedium";
+}
+
+.swal2-popup {
+  font-size: 0.75rem !important;
+  font-family: "BMDOHYEON";
+}
+
+.swal2-popup .swal2-styled {
+  background-color: #3da2ff;
 }

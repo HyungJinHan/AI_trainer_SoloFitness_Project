@@ -89,7 +89,7 @@
   /* float: left; */
   display: inline-block;
   padding: 0.5rem 2rem;
-  margin: 0 .6rem;
+  margin: 0 0.6rem;
   background: #3da2ff;
   color: white;
   border-radius: 20px;
@@ -137,4 +137,9 @@
   margin: 5px 0;
   text-align: center;
   font-family: "GmarketSansMedium";
+}
+
+.swal2-popup {
+  font-size: 0.75rem !important;
+  font-family: "BMDOHYEON";
 }
