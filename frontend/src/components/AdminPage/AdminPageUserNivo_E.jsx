@@ -2,6 +2,7 @@ import React from "react";
 import { ResponsiveBar } from "@nivo/bar";
 import axios from "axios";
 import { useEffect, useState } from "react";
+// import '../../styles/AdminPage/AdminPageUser.css';
 
 const AdminPageUserNivo_E = () => {
   const [exec1, setExec1] = useState();
@@ -143,7 +144,13 @@ const AdminPageUserNivo_E = () => {
         // axisLeft={null}
         enableGridY={false}
         /** label에 %붙이기(d.value는 exec1~5의 값들이고, d.id는 '유저') */
-        label = {(d) => ((`${d.value}`/`${totalExec}`)*100).toFixed(1)+"%"}
+        // label={d => ((`${d.value}`/`${totalExec}`)*100).toFixed(1)+"%"}
+        label = {(d) => {
+          const point = [exec1,exec2,exec3,exec4,exec5]
+          const x = 680*(`${d.value}`/Math.max(...point))
+          console.log("x: ",x)
+          return <tspan x={x}>{((`${d.value}`/`${totalExec}`)*100).toFixed(1)+"%"}</tspan>
+        }}
         /**
          * label 안보이게 할 기준 width
          */
