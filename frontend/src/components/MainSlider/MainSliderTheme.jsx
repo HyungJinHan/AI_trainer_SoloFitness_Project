@@ -45,15 +45,6 @@ function MainSliderTheme(props) {
         className="mySwiper"
       >
         {legThemeList.list.map((list) => {
-          if (list.VIDEO_TITLE === "squat") {
-            list.VIDEO_TITLE = "스쿼트";
-          }
-          if (list.VIDEO_TITLE === "pushup") {
-            list.VIDEO_TITLE = "푸쉬업";
-          }
-          if (list.VIDEO_TITLE === "situp") {
-            list.VIDEO_TITLE = "윗몸일으키기";
-          }
           console.log("fasdasdasd", list);
           return (
             <SwiperSlide key={list.VIDEO_THUMBNAIL}>
