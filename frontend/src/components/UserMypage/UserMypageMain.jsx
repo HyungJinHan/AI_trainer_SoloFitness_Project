@@ -86,7 +86,7 @@ function UserMypageMain() {
           <UserMypageUpdate userInfo={userInfo} setMode={setMode} />
         </div>
       ) : null}
-      <NavigatorMy />
+      <NavigatorMy setMode={setMode} />
       <Outlet />
     </div>
   );

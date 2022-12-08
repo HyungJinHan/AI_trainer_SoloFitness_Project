@@ -67,7 +67,7 @@
 } */
 
 .ChallengeRank_top {
-  margin-bottom: 5rem;
+  margin-bottom: 6.25rem;
 }
 
 .ChallengeRank_rank_text {
@@ -197,6 +197,7 @@
 .ChallengeRank_rank_select option {
   letter-spacing: 0.8px;
 }
+
 .ChallengeRank_rank_select_overlap {
   background-color: transparent;
   border: none;

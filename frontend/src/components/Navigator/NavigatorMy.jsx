@@ -18,7 +18,7 @@ const NavCenter = styled.div`
 `;
 
 // 새로고침하지 않아도 검색 아이콘 누르면 바로 다시 검색&카테고리 고를 수 있도록 CategoryNSearch에서 mode를 searchMode이름으로 받아옴
-function NavigatorMain({ searchMode, setSearchMode }) {
+function NavigatorMain({ searchMode, setSearchMode, setMode }) {
   const navigate = useNavigate();
 
   return (
@@ -76,6 +76,7 @@ function NavigatorMain({ searchMode, setSearchMode }) {
             alt="undefind"
             onClick={() => {
               navigate("/usermypage");
+              setMode(0);
             }}
           />
           <p className="Navigator_p_select">
