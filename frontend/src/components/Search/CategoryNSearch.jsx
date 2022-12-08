@@ -311,17 +311,17 @@ const Category = () => {
         </div>
         <div className="CNS_rec_div">
           <p>추천 검색어</p>
-          <div onClick={(e) => RecSearch(e)}>up</div>
-          <div onClick={(e) => RecSearch(e)}>기본</div>
-          <div onClick={(e) => RecSearch(e)}>테스트</div>
+          <div onClick={(e) => RecSearch(e)}>스쿼트</div>
+          <div onClick={(e) => RecSearch(e)}>초심자</div>
+          <div onClick={(e) => RecSearch(e)}>복부</div>
         </div>
         <div className="CNS_grid_category">
           <div
             className="CNS_grid_div"
-            // onClick={() => {
-            //   handleCategory();
-            //   setMode(2);
-            // }}
+          // onClick={() => {
+          //   handleCategory();
+          //   setMode(2);
+          // }}
           >
             {items.map((item, index) => {
               return (

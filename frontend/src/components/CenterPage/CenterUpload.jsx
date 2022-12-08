@@ -53,11 +53,12 @@ const CenterUpload = (props) => {
       return false;
     }
 
-    const regExp =
-      /(https?:\/\/)([A-Za-z0-9\w]+\.*)+(\.com|\.co\.kr|\.net)/gi.test(
-        addressRef.current.value
-      );
-    if (!regExp) {
+    // const regExp =
+    //   /(https?:\/\/)([A-Za-z0-9\w]+\.*)+(\.com|\.co\.kr|\.net)/gi.test(
+    //     addressRef.current.value
+    //   );
+    if (addressRef.current.value === "" ||
+      addressRef.current.value === undefined) {
       Swal.fire("url을 입력하세요.");
       addressRef.current.focus();
       return false;

@@ -10,6 +10,8 @@ import "../../styles/Detail/Detail.css";
 const CenterDetail = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const userSession = window.sessionStorage.getItem("userID");
   // const centerExec = queryString.parse(location.search).exec;
   const [detailInfo, setDetailInfo] = useState([{
     "CT_VIDEO_TITLE": "",
@@ -66,6 +68,22 @@ const CenterDetail = () => {
       <div className="detail_article">{detailInfo[0].CT_VIDEO_EFFECT}</div>
 
       <br />
+      {console.log("userSession=>", userSession)}
+      {
+        userSession === undefined || 'null' ? <div>
+          <hr />
+          <input
+            type="button"
+            value="돌아가기"
+            className="CenterPage_button"
+            onClick={
+              () => navigate("/videolist")
+            }
+          />
+        </div>
+          : null
+      }
+
       <NavigatorMain />
       <Outlet />
     </div>
