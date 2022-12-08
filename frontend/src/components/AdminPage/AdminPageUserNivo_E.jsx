@@ -11,12 +11,6 @@ const AdminPageUserNivo_E = () => {
   const [exec5, setExec5] = useState();
   const [totalExec, setTotalExec] = useState(0);
 
-  const [exec1_r,setExec1R] = useState(null);
-  const [exec2_r,setExec2R] = useState(0);
-  const [exec3_r,setExec3R] = useState(0);
-  const [exec4_r,setExec4R] = useState(0);
-  const [exec5_r,setExec5R] = useState(0);
-
   useEffect(() => {
     axios.post("http://localhost:8008/adminuserexec1").then((res) => {
       setExec1(res.data[0].EXEC1);
@@ -36,12 +30,6 @@ const AdminPageUserNivo_E = () => {
     axios.post("http://localhost:8008/adminusertotal").then((res) => {
       setTotalExec(res.data[0].TOTALEXEC);
     });
-
-    setExec1R(((exec1 / totalExec) * 100).toFixed(1));
-    setExec2R(((exec2 / totalExec) * 100).toFixed(1));
-    setExec3R(((exec3 / totalExec) * 100).toFixed(1));
-    setExec4R(((exec4 / totalExec) * 100).toFixed(1));
-    setExec5R(((exec5 / totalExec) * 100).toFixed(1));
   });
 
   return (
@@ -51,11 +39,11 @@ const AdminPageUserNivo_E = () => {
          * chart에 사용될 데이터
          */
         data={[
-          { bottle: "푸쉬업", 유저: exec2_r },
-          { bottle: "윗몸일으키기", 유저: exec4_r },
-          { bottle: "덤벨컬", 유저: exec5_r },
-          { bottle: "풀업", 유저: exec3_r },          
-          { bottle: "스쿼트", 유저: exec1_r },
+          { bottle: "푸쉬업", 유저: exec2 },
+          { bottle: "윗몸일으키기", 유저: exec4 },
+          { bottle: "덤벨컬", 유저: exec5 },
+          { bottle: "풀업", 유저: exec3 },          
+          { bottle: "스쿼트", 유저: exec1 },
         ]}
         /**
          * chart에 보여질 데이터 key (측정되는 값)
@@ -83,7 +71,7 @@ const AdminPageUserNivo_E = () => {
          */
         colorBy="id" // 색상을 keys 요소들에 각각 적용
         // colorBy="indexValue" // indexBy로 묵인 인덱스별로 각각 적용
-        // maxValue={100}
+        // maxValue={1}
         groupMode="grouped"
         layout="horizontal"
         theme={{
@@ -154,6 +142,8 @@ const AdminPageUserNivo_E = () => {
         }}
         // axisLeft={null}
         enableGridY={false}
+        /** label에 %붙이기(d.value는 exec1~5의 값들이고, d.id는 '유저') */
+        label = {(d) => ((`${d.value}`/`${totalExec}`)*100).toFixed(1)+"%"}
         /**
          * label 안보이게 할 기준 width
          */
