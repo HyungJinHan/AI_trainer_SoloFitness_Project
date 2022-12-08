@@ -97,15 +97,33 @@ const ModelSelect = () => {
 
   // const url = `/fitnessresult?exec=${execiseCategories}&nickname=${nickname}`;
   const url = `/loading?exec=${execiseCategories}`;
+  console.log("asdasdasdassdasd", execiseCategories);
 
   /** 유저가 지정한 카운트만큼 운동을 하면 결과창 이동 및 db에 정보 저장 */
   if (counter === parseInt(location.state.inputCount)) {
-    axios.post("http://localhost:8008/fitnessresultinfoinsert", {
-      userNickname: nickname,
-      excerciseName: execiseCategories,
-      excerciseCount: counter,
-    });
-    navigate(url, { state: { nickname: nickname } });
+    if (execiseCategories === "squat") {
+      axios.post("http://localhost:8008/fitnessresultinfoinsert", {
+        userNickname: nickname,
+        excerciseName: "중량 스쿼트 마스터하기",
+        excerciseCount: counter,
+      });
+      navigate(url, { state: { nickname: nickname } });
+    }
+    if (execiseCategories === "situp") {
+      axios.post("http://localhost:8008/fitnessresultinfoinsert", {
+        userNickname: nickname,
+        excerciseName: "초심자를 위한 Sit-up",
+        excerciseCount: counter,
+      });
+      navigate(url, { state: { nickname: nickname } });
+    } else {
+      axios.post("http://localhost:8008/fitnessresultinfoinsert", {
+        userNickname: nickname,
+        excerciseName: execiseCategories,
+        excerciseCount: counter,
+      });
+      navigate(url, { state: { nickname: nickname } });
+    }
   }
 
   console.log(location.state.inputCount, execiseCategories);
