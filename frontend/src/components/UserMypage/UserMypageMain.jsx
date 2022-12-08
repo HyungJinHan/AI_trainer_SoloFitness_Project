@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Outlet, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Outlet, useNavigate } from "react-router-dom";
 import NavigatorMy from "../Navigator/NavigatorMy";
-import UserMypageUpdate from './UserMypageUpdate';
-import '../../styles/UserMyPage/UserMyPage.css';
+import UserMypageUpdate from "./UserMypageUpdate";
+import "../../styles/UserMyPage/UserMyPage.css";
 import UserMypageExecNivo from "./UserMypageExecNivo";
 
 // 마이페이지 중 메인부분, 회원 정보 수정 컴포넌트와 로그아웃 기능,
@@ -39,15 +39,9 @@ function UserMypageMain() {
       {mode === 0 ? (
         <div className="UserMyPage_main">
           <div className="UserMyPage_info">
-            <div className="UserMyPage_info_1">
-              환영합니다.
-            </div >
-            <span className="UserMyPage_info_2">
-              {userInfo.USER_NICKNAME}
-            </span>
-            <span className="UserMyPage_info_3">
-              &nbsp;님
-            </span>
+            <div className="UserMyPage_info_1">환영합니다.</div>
+            <span className="UserMyPage_info_2">{userInfo.USER_NICKNAME}</span>
+            <span className="UserMyPage_info_3">&nbsp;님</span>
           </div>
           <div>
             <UserMypageExecNivo props={userInfo.USER_NICKNAME} />
@@ -86,7 +80,7 @@ function UserMypageMain() {
           <UserMypageUpdate userInfo={userInfo} setMode={setMode} />
         </div>
       ) : null}
-      <NavigatorMy />
+      <NavigatorMy setMode={setMode} />
       <Outlet />
     </div>
   );

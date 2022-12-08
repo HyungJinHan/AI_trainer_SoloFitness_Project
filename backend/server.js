@@ -915,7 +915,7 @@ app.post("/adminusercenter2", (req, res) => {
 /** 스쿼트 이용자 수 */
 app.post("/adminuserexec1", (req, res) => {
   const sqlQuery =
-    "SELECT COUNT(EXCERCISE_NAME) AS EXEC1 FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = 'squat';";
+    "SELECT COUNT(EXCERCISE_NAME) AS EXEC1 FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = '중량 스쿼트 마스터하기' OR EXCERCISE_NAME = '스쿼트 자세 바로잡기';";
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
@@ -942,7 +942,7 @@ app.post("/adminuserexec3", (req, res) => {
 /** 싯업 이용자 수 */
 app.post("/adminuserexec4", (req, res) => {
   const sqlQuery =
-    "SELECT COUNT(EXCERCISE_NAME) AS EXEC4 FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = 'situp';";
+    "SELECT COUNT(EXCERCISE_NAME) AS EXEC4 FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = '초심자를 위한 Sit-up';";
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
@@ -1018,7 +1018,7 @@ app.post("/adminlogin", (req, res) => {
 app.post("/nivoexec1", (req, res) => {
   const nickname = req.body.nickname;
   const sqlQuery =
-    " SELECT COUNT(EXCERCISE_COUNT) AS EXECCOUNT FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = 'squat' AND EXCERCISE_USER = ?;";
+    " SELECT COUNT(EXCERCISE_COUNT) AS EXECCOUNT FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = '중량 스쿼트 마스터하기' OR EXCERCISE_NAME = '스쿼트 자세 바로잡기' AND EXCERCISE_USER = ?;";
   db.query(sqlQuery, [nickname], (err, result) => {
     res.send(result);
   });
@@ -1045,7 +1045,7 @@ app.post("/nivoexec3", (req, res) => {
 app.post("/nivoexec4", (req, res) => {
   const nickname = req.body.nickname;
   const sqlQuery =
-    " SELECT COUNT(EXCERCISE_COUNT) AS EXECCOUNT FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = 'situp' AND EXCERCISE_USER = ?;";
+    " SELECT COUNT(EXCERCISE_COUNT) AS EXECCOUNT FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = '초심자를 위한 Sit-up' AND EXCERCISE_USER = ?;";
   db.query(sqlQuery, [nickname], (err, result) => {
     res.send(result);
   });

@@ -99,9 +99,32 @@ const Detail = () => {
                 return false;
               } else {
                 setChallengeToggle(false);
-                navigate(`/video?exec=${detailCategories}`, {
-                  state: { inputCount: inputCount },
-                });
+                /** 여기서 각자 운동카테고리의 제목을 squat,pushup,pullup,situp,curl 등으로 바꿔줘야됨 */
+                if (detailCategories === "스쿼트 자세 바로잡기") {
+                  detailCategories = "squat";
+                  navigate(`/video?exec=${detailCategories}`, {
+                    state: { inputCount: inputCount },
+                  });
+                } else if (detailCategories === "푸쉬업으로 기초체력 늘리기") {
+                  detailCategories = "pushup";
+                  navigate(`/video?exec=${detailCategories}`, {
+                    state: { inputCount: inputCount },
+                  });
+                } else if (detailCategories === "중량 스쿼트 마스터하기") {
+                  detailCategories = "squat";
+                  navigate(`/video?exec=${detailCategories}`, {
+                    state: { inputCount: inputCount },
+                  });
+                } else if (detailCategories === "초심자를 위한 Sit-up") {
+                  detailCategories = "situp";
+                  navigate(`/video?exec=${detailCategories}`, {
+                    state: { inputCount: inputCount },
+                  });
+                } else {
+                  navigate(`/video?exec=${detailCategories}`, {
+                    state: { inputCount: inputCount },
+                  });
+                }
               }
             }}
             className={

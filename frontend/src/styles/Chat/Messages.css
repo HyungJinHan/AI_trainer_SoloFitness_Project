@@ -1,5 +1,13 @@
 .messages {
-    padding: 5% 0;
-    overflow: auto;
-    flex: auto;
+  padding: 5% 0;
+  overflow: auto;
+  flex: auto;
+}
+
+.sentText {
+  width: 80px;
+}
+
+.messageContainer {
+  margin-bottom: 15px;
 }
