@@ -47,7 +47,7 @@ const ChallengeRank = () => {
   return (
     <div>
       <div className="ChallengeRank_top">
-        <div className="ChallengeRank_rank_text">윗몸일으키기 랭킹</div>
+        <div className="ChallengeRank_rank_text">윗몸일으키기<br /> 랭킹</div>
         <div className="ChallengeRank_rank_select_div">
           <input
             type="button"
