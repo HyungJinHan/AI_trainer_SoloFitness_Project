@@ -62,6 +62,11 @@ function UserPageMain(props) {
     navigate("/");
     return false;
   }
+
+  const randomArr = ["복부운동%20플랭크로%20시작하기","하복부는%20레그레이즈!","푸쉬업으로%20기초체력%20늘리기",
+                    "스쿼트%20자세%20바로잡기","10분요가","찌부둥한%20몸을%20펴주는%20스트레칭%20123"];
+  const randomExec = randomArr[Math.floor(Math.random()*randomArr.length)];
+
   return (
     <div className="userMain_total_div">
       <div className="main_logo_div">
@@ -80,7 +85,7 @@ function UserPageMain(props) {
       </div>
       <MainCenter>
         <div className="main_image_div">
-          <NavLink to={"/detail?exec=푸쉬업으로%20기초체력%20늘리기"}>
+          <NavLink to={`/detail?exec=${randomExec}`}>
             <img
               className="main_beginner_content"
               src={beginner}

@@ -45,7 +45,7 @@ function MainSliderTheme(props) {
         className="mySwiper"
       >
         {legThemeList.list.map((list) => {
-          console.log("fasdasdasd", list);
+          // console.log("fasdasdasd", list);
           return (
             <SwiperSlide key={list.VIDEO_THUMBNAIL}>
               <MainSliderList
