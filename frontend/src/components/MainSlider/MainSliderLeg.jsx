@@ -13,16 +13,7 @@ function MainSliderList({
   return (
     <div
       onClick={() => {
-        if (VIDEO_TITLE === "스쿼트") {
-          VIDEO_TITLE = "squat";
-        }
-        if (VIDEO_TITLE === "푸쉬업") {
-          VIDEO_TITLE = "pushup";
-        }
-        if (VIDEO_TITLE === "윗몸일으키기") {
-          VIDEO_TITLE = "situp";
-        }
-        navigate(`/detail?exec=${VIDEO_BODY_PART}`);
+        navigate(`/detail?exec=${VIDEO_TITLE}`);
       }}
     >
       <img src={imageSRC} alt="undefined" />
