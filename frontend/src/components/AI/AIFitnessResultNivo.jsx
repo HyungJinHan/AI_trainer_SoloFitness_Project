@@ -16,40 +16,94 @@ const FitnessResultNivo = () => {
   const location = useLocation();
   const execiseCategories = queryString.parse(location.search).exec;
   const userNickname = location.state.nickname;
-
   useEffect(() => {
-    axios
-      .post("http://localhost:8008/fitnessresult", {
-        execiseCategories: execiseCategories,
-        userNickname: userNickname,
-      })
-      .then((res) => {
-        res.data.map((exerciseData) => {
-          /** 불변성 유지를 위해 immer 라이브러리 사용 */
-          setExerciseName(
-            produce((draft) => {
-              draft.push(exerciseData.EXCERCISE_NAME);
-            })
-          );
-          setExerciseCount(
-            produce((draft) => {
-              draft.push(exerciseData.EXCERCISE_COUNT);
-            })
-          );
-          setExerciseDate(
-            produce((draft) => {
-              draft.push(exerciseData.EXCERCISE_DATE);
-            })
-          );
+    if (execiseCategories === "squat") {
+      axios
+        .post("http://localhost:8008/fitnessresult", {
+          execiseCategories: "중량 스쿼트 마스터하기",
+          userNickname: userNickname,
+        })
+        .then((res) => {
+          res.data.map((exerciseData) => {
+            /** 불변성 유지를 위해 immer 라이브러리 사용 */
+            setExerciseName(
+              produce((draft) => {
+                draft.push(exerciseData.EXCERCISE_NAME);
+              })
+            );
+            setExerciseCount(
+              produce((draft) => {
+                draft.push(exerciseData.EXCERCISE_COUNT);
+              })
+            );
+            setExerciseDate(
+              produce((draft) => {
+                draft.push(exerciseData.EXCERCISE_DATE);
+              })
+            );
+          });
         });
-      });
+    }
+    if (execiseCategories === "situp") {
+      axios
+        .post("http://localhost:8008/fitnessresult", {
+          execiseCategories: "초심자를 위한 Sit-up",
+          userNickname: userNickname,
+        })
+        .then((res) => {
+          res.data.map((exerciseData) => {
+            /** 불변성 유지를 위해 immer 라이브러리 사용 */
+            setExerciseName(
+              produce((draft) => {
+                draft.push(exerciseData.EXCERCISE_NAME);
+              })
+            );
+            setExerciseCount(
+              produce((draft) => {
+                draft.push(exerciseData.EXCERCISE_COUNT);
+              })
+            );
+            setExerciseDate(
+              produce((draft) => {
+                draft.push(exerciseData.EXCERCISE_DATE);
+              })
+            );
+          });
+        });
+    } else {
+      axios
+        .post("http://localhost:8008/fitnessresult", {
+          execiseCategories: execiseCategories,
+          userNickname: userNickname,
+        })
+        .then((res) => {
+          res.data.map((exerciseData) => {
+            /** 불변성 유지를 위해 immer 라이브러리 사용 */
+            setExerciseName(
+              produce((draft) => {
+                draft.push(exerciseData.EXCERCISE_NAME);
+              })
+            );
+            setExerciseCount(
+              produce((draft) => {
+                draft.push(exerciseData.EXCERCISE_COUNT);
+              })
+            );
+            setExerciseDate(
+              produce((draft) => {
+                draft.push(exerciseData.EXCERCISE_DATE);
+              })
+            );
+          });
+        });
+    }
   }, []);
 
   // 원래 tickValue는 20까지였는데 스쿼트에 운동횟수 50이라는 더 큰 값이 있어서 y축 숫자가 뭉개짐
   // 그래서 0부터 운동횟수의 최대값까지 5단위로 분할해서 tickValue에 넣어줌
-  const tickValues = []
-  for (var i=0; i<=Math.max.apply(null,exerciseCount); i += 5) {
-    tickValues.push(i)
+  const tickValues = [];
+  for (var i = 0; i <= Math.max.apply(null, exerciseCount); i += 5) {
+    tickValues.push(i);
   }
 
   return (

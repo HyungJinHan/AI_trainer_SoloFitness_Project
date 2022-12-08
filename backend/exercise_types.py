@@ -28,14 +28,14 @@ class TypeOfExercise(BodyPartAngle):
                 countlist.append(counter)
                 countlist_c.append(counter)
                 pushUpFeedbackList.append('Great!')
-            if pushupFeedback_flag:
-                if 91 < avg_arm_angle < 140:
-                    pushUpFeedbackList.append('상체를 더 숙이세요.')
-                    pushupFeedback_flag = False
+            # if pushupFeedback_flag:
+            #     if 91 < avg_arm_angle < 140:
+            #         pushUpFeedbackList.append('상체를 더 숙이세요.')
+            #         pushupFeedback_flag = False
         else:
-            if avg_arm_angle > 160:
+            if avg_arm_angle > 120:
                 status = True
-                pushupFeedback_flag = True
+                # pushupFeedback_flag = True
 
         return [counter, status]
 
@@ -131,7 +131,7 @@ class TypeOfExercise(BodyPartAngle):
     def sit_up(self, counter, status):
         abs_angle = self.angle_of_the_abs()
         if status:
-            if abs_angle < 55:
+            if abs_angle < 75:
                 counter += 1
                 status = False
                 countlist.append(counter)

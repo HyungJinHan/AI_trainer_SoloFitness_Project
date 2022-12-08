@@ -115,7 +115,7 @@ const AIModelSelect_C = () => {
         <div className="timerWrapper">
           <CountdownCircleTimer
             isPlaying
-            duration={15}
+            duration={5}
             colors={["#0070d6", "#0f8cff", "#4da9ff", "#a3d3ff"]}
             colorsTime={[7, 5, 2, 0]}
             onComplete={() => {
@@ -139,7 +139,7 @@ const AIModelSelect_C = () => {
             </svg>
             <CountdownCircleTimer
               isPlaying
-              duration={60}
+              duration={10}
               colors="url(#testid)"
               onComplete={() => {
                 axios.get("http://localhost:8000/camerachallengeshutdown");

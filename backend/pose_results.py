@@ -46,11 +46,11 @@ def detection_body_parts(landmarks):
 # 영상 프레임 단위마다 텍스트,텍스트좌표,폰트,폰트크기,폰트색상,폰트라인타입 등을 지정
 
 
-# def score_table(exercise, frame, counter, status):
-#     cv2.putText(frame, 'Activity : ' +
-#                 exercise.replace('-', ' '), (10, 65), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
-#     cv2.putText(frame, 'count : ' + str(counter), (10, 100),
-#                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
-#     cv2.putText(frame, 'status :' + str(status), (10, 135),
-#                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
-#     return frame
+def score_table(exercise, frame, counter, status):
+    cv2.putText(frame, 'Activity : ' +
+                exercise.replace('-', ' '), (10, 65), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
+    cv2.putText(frame, 'count : ' + str(counter), (10, 100),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
+    cv2.putText(frame, 'status :' + str(status), (10, 135),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
+    return frame
