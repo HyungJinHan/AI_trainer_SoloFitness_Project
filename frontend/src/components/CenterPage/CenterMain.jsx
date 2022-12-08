@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import CenterControl from './CenterControl';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import CenterControl from "./CenterControl";
 import ReactPlayer from "react-player";
-import CenterUpload from './CenterUpload';
-import '../../styles/CenterPage/CenterPage.css'
+import CenterUpload from "./CenterUpload";
+import "../../styles/CenterPage/CenterPage.css";
+import Swal from "sweetalert2";
 
 // 센터로 로그인 하면 나타나는 페이지, 센터 회원 현황과 동영상 업로드 가능
 // mode로 컴포넌트를 구분한다.
@@ -15,7 +16,7 @@ function CenterMain() {
   const [centerInfo, setCenterInfo] = useState([]);
   const [memberInfo, setMemberInfo] = useState([]);
 
-  const centerID = window.sessionStorage.getItem('centerID');
+  const centerID = window.sessionStorage.getItem("centerID");
 
   const loadCenterInfo = () => {
     axios
@@ -28,12 +29,12 @@ function CenterMain() {
       .catch((e) => {
         console.log(e);
       });
-  }
+  };
 
   const loadUserList = () => {
     axios
       .post("http://localhost:8008/memberInfo", {
-        CENTER_ACCESS_CODE: centerID
+        CENTER_ACCESS_CODE: centerID,
       })
       .then((res) => {
         setMemberInfo(res.data);
@@ -41,35 +42,38 @@ function CenterMain() {
       .catch((e) => {
         console.log(e);
       });
-  }
+  };
 
   useEffect(() => {
     loadUserList();
     loadCenterInfo();
-  }, [mode,]);
+  }, [mode]);
 
-  console.log('centerInfo=> ', centerInfo);
-  console.log('memberInfo=> ', memberInfo);
+  console.log("centerInfo=> ", centerInfo);
+  console.log("memberInfo=> ", memberInfo);
 
-  if (window.sessionStorage.centerID === '' || window.sessionStorage.centerID === undefined) {
-    alert(`로그인 후 이용 가능합니다.
+  if (
+    window.sessionStorage.centerID === "" ||
+    window.sessionStorage.centerID === undefined
+  ) {
+    Swal.fire(`로그인 후 이용 가능합니다.
 로그인 페이지로 이동합니다.`);
-    navigate('/');
+    navigate("/");
     return false;
   }
 
   if (mode === 0) {
     return (
-      <div className='CenterPage_main'>
-        <div className='CenterPage_info'>
+      <div className="CenterPage_main">
+        <div className="CenterPage_info">
           <div>환영합니다!</div>
           <div>{centerInfo.CENTER_NAME} 업주님</div>
         </div>
         <div>
           <input
-            className='CenterPage_button'
-            type='button'
-            value='회원 정보 현황'
+            className="CenterPage_button"
+            type="button"
+            value="회원 정보 현황"
             onClick={() => {
               setMode(1);
             }}
@@ -77,9 +81,9 @@ function CenterMain() {
         </div>
         <div>
           <input
-            className='CenterPage_button'
-            type='button'
-            value='동영상 업로드'
+            className="CenterPage_button"
+            type="button"
+            value="동영상 업로드"
             onClick={() => {
               setMode(2);
             }}
@@ -87,17 +91,17 @@ function CenterMain() {
         </div>
         <div>
           <input
-            className='CenterPage_button'
-            type='button'
-            value='업로드한 동영상 목록'
+            className="CenterPage_button"
+            type="button"
+            value="업로드한 동영상 목록"
             onClick={() => {
-              navigate('/videolist');
+              navigate("/videolist");
             }}
           />
         </div>
         <div>
           <input
-            className='CenterPage_button'
+            className="CenterPage_button"
             type="button"
             value="로그아웃"
             onClick={() => {
@@ -114,13 +118,13 @@ function CenterMain() {
       <div>
         <CenterControl setMode={setMode} />
       </div>
-    )
+    );
   } else if (mode === 2) {
     return (
       <div>
         <CenterUpload setMode={setMode} />
       </div>
-    )
+    );
   }
 }
 

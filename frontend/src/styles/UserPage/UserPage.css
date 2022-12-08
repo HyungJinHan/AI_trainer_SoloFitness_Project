@@ -29,10 +29,10 @@
 .UserMain_centerContents {
   text-align: left;
   padding-left: 1.25rem;
-  padding-bottom: .9375rem;
+  padding-bottom: 0.9375rem;
   padding-top: 3.125rem;
   font-size: 1rem;
-  font-family: 'dohyeon';
+  font-family: "dohyeon";
   color: black;
 }
 
@@ -69,17 +69,22 @@
 .main_span_big {
   font-size: 1.5rem;
   padding-right: 1px;
-  font-family: 'dohyeon';
+  font-family: "dohyeon";
 }
 
 .main_span_small {
   font-size: 1.25rem;
   padding-right: 1px;
-  font-family: 'dohyeon';
+  font-family: "dohyeon";
 }
 
 .main_logo_image {
   top: 17px;
   position: absolute;
   width: 1.6875rem;
+}
+
+.swal2-popup {
+  font-size: 0.75rem !important;
+  font-family: "BMDOHYEON";
 }

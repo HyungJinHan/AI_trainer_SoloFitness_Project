@@ -56,7 +56,7 @@ const AdminPageUserNivo_E = () => {
         /**
          * chart margin
          */
-        margin={{ top:30, right: 100, bottom: 50, left: 110 }}
+        margin={{ top: 30, right: 100, bottom: 50, left: 110 }}
         /**
          * chart padding (bar간 간격)
          */

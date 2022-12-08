@@ -1,6 +1,6 @@
 .detail_main {
   text-align: center;
-  font-family: 'baseFont';
+  font-family: "baseFont";
 }
 
 .detail_image {
@@ -162,13 +162,18 @@ input[value="챌린지 시작"] {
   text-align: left;
   font-size: 1.875rem;
   padding-left: 1.25rem;
-  padding-top: .625rem;
+  padding-top: 0.625rem;
 }
 
 .detail_center_category {
   text-align: left;
   font-size: 1rem;
   padding-left: 1.25rem;
+}
+
+.swal2-popup {
+  font-size: 0.75rem !important;
+  font-family: "BMDOHYEON";
 }
 
 /* .detail_exerstart {
