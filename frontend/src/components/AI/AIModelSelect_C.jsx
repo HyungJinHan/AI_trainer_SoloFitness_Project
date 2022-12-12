@@ -9,6 +9,7 @@ import "../../styles/AI/AIModelSelect_C.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import AIRenderTime from "./AIRenderTime";
 import AIFirstRenderTime from "./AIFirstRenderTime";
+import Swal from "sweetalert2";
 
 const AIModelSelect_C = () => {
   const [counter, setCounter] = useState(0);
@@ -104,7 +105,7 @@ const AIModelSelect_C = () => {
   };
 
   const goToRank = () => {
-    alert("챌린지 등록 성공!");
+    Swal.fire("챌린지 등록 성공!");
     navigator("/challengerank");
     window.location.reload();
   };
@@ -115,7 +116,7 @@ const AIModelSelect_C = () => {
         <div className="timerWrapper">
           <CountdownCircleTimer
             isPlaying
-            duration={5}
+            duration={15}
             colors={["#0070d6", "#0f8cff", "#4da9ff", "#a3d3ff"]}
             colorsTime={[7, 5, 2, 0]}
             onComplete={() => {
@@ -139,7 +140,7 @@ const AIModelSelect_C = () => {
             </svg>
             <CountdownCircleTimer
               isPlaying
-              duration={10}
+              duration={60}
               colors="url(#testid)"
               onComplete={() => {
                 axios.get("http://localhost:8000/camerachallengeshutdown");
