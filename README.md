@@ -1,10 +1,11 @@
 # AI School Second Team Project
-<div>
-  <img align='left' width='40%' src='https://user-images.githubusercontent.com/104360734/206969988-362e875c-af4c-4743-aad0-b331f52bd2a0.png'></img>
-  <img align='right' width='40%' src='https://user-images.githubusercontent.com/104360734/206977579-d43119f0-f45e-4a6f-8591-b3e84e98af1d.png'></img>
+<div align='center'>
+  <img width='40%' src='https://user-images.githubusercontent.com/104360734/206969988-362e875c-af4c-4743-aad0-b331f52bd2a0.png'></img>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img width='40%' src='https://user-images.githubusercontent.com/104360734/206977579-d43119f0-f45e-4a6f-8591-b3e84e98af1d.png'></img>
  </div>
 
-<br><br><br><br><br><br><br><br><br><br>
+<br>
 
 AI를 기반으로 진행하는 두 번째 팀 프로젝트
 
