@@ -7,10 +7,12 @@
 <br><br><br><br><br><br><br><br><br><br>
 
 AI를 기반으로 진행하는 두 번째 팀 프로젝트
-<br><br>
+
+<br>
+
 `React`를 기반으로 프론트 작업, `Python`을 통한 백엔드 작업 및 머신 러닝 작업으로 프로젝트 진행
+
 <br><br>
-<!-- `Heroku`를 통한 `Deploy`와 `ClearDB`를 통한 `Heroku`와의 데이터베이스 연동 작업 진행 -->
 
 ## 1. Collaborator
 - 한형진 (팀장)
@@ -18,6 +20,8 @@ AI를 기반으로 진행하는 두 번째 팀 프로젝트
 - 정영윤 (팀원)
 - 홍현호 (팀원)
 - 이진주 (팀원)
+
+<br><br>
 
 ## 2. Tech
 - Front-End
@@ -48,6 +52,7 @@ AI를 기반으로 진행하는 두 번째 팀 프로젝트
       <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white">&nbsp;
       <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white">
 
+<br><br>
 
 ## 3. Project Management (22.11.03 ~ 22.12.14)
 - `VS Code`를 통한 `GitHub`와의 `Clone` 연동 후 작업
@@ -67,6 +72,8 @@ AI를 기반으로 진행하는 두 번째 팀 프로젝트
 <br>
 
 - 도움이 될 만한 코드의 예제 실습 후, 참고 사항으로 커밋 예정
+
+<br><br>
 
 ## 4. 프로젝트 상세 내용
 <div align='center'>
