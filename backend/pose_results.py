@@ -6,8 +6,6 @@ import cv2
 mp_pose = mp.solutions.pose
 
 # 각도계산
-
-
 def calculate_angle(a, b, c):
     a = np.array(a)
     b = np.array(b)
@@ -23,8 +21,6 @@ def calculate_angle(a, b, c):
     return angle
 
 # 관절 이름 입력하면 x값 좌표, y값 좌표, visibility 표시
-
-
 def detection_body_part(landmarks, body_part_name):
     return [
         landmarks[mp_pose.PoseLandmark[body_part_name].value].x,

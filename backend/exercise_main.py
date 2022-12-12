@@ -23,7 +23,7 @@ import keyboard
 # args = vars(ap.parse_args())
 # args = vars(ap.parse_args())
 
-ex_test = 1
+ex_test = 0
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 # 실시간 덤벨 측정 (사용 안할 시 주석 처리 바람)
@@ -47,7 +47,7 @@ def get_stream_video():
             ret, frame = cap.read()
             frame = cv2.resize(frame, (350, 300), interpolation=cv2.INTER_LINEAR)
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            # frame = cv2.flip(frame, 1)
+            frame = cv2.flip(frame, 1)
             frame.flags.writeable = False
 
             results = pose.process(frame)
@@ -77,6 +77,7 @@ def get_stream_video():
             # modelLabel = np.squeeze(modelFrame.render())
             
             ret, buffer = cv2.imencode('.jpg', frame)
+            
             frame = buffer.tobytes()
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(frame) + b'\r\n')
             if downCamera[-1] == countlist[-1]:

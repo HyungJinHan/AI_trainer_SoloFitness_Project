@@ -1018,7 +1018,7 @@ app.post("/adminlogin", (req, res) => {
 app.post("/nivoexec1", (req, res) => {
   const nickname = req.body.nickname;
   const sqlQuery =
-    " SELECT COUNT(EXCERCISE_COUNT) AS EXECCOUNT FROM EXCERCISE_TABLE WHERE EXCERCISE_NAME = '중량 스쿼트 마스터하기' OR EXCERCISE_NAME = '스쿼트 자세 바로잡기' AND EXCERCISE_USER = ?;";
+    " SELECT COUNT(EXCERCISE_COUNT) AS EXECCOUNT FROM EXCERCISE_TABLE WHERE ( EXCERCISE_NAME = '중량 스쿼트 마스터하기' OR EXCERCISE_NAME = '스쿼트 자세 바로잡기' ) AND EXCERCISE_USER = ?;";
   db.query(sqlQuery, [nickname], (err, result) => {
     res.send(result);
   });
