@@ -1,26 +1,21 @@
-# AI School Second Team Project
+<hr>
+
 <div align='center'>
   <img width='40%' src='https://user-images.githubusercontent.com/104360734/206969988-362e875c-af4c-4743-aad0-b331f52bd2a0.png'></img>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img width='40%' src='https://user-images.githubusercontent.com/104360734/206977579-d43119f0-f45e-4a6f-8591-b3e84e98af1d.png'></img>
  </div>
 
+<hr>
 <br>
 
-AI를 기반으로 진행하는 두 번째 팀 프로젝트
-
-<br>
-
-`React`를 기반으로 프론트 작업, `Python`을 통한 백엔드 작업 및 머신 러닝 작업으로 프로젝트 진행
+### <b>AI를 기반으로 진행하는 Wanted 팀의 스마트 헬스케어 서비스 '나 혼자 피트니스' 프로젝트</b>
 
 <br><br>
 
 ## 1. Collaborator
-- 한형진 (팀장)
-- 김찬진 (팀원)
-- 정영윤 (팀원)
-- 홍현호 (팀원)
-- 이진주 (팀원)
+- 팀장 : 한형진(총괄)
+- 팀원 : 김찬진(`AI Modeling`) | 정영윤(`Front-End`) | 홍현호(`Back-End`) | 이진주(`AI Modeling`)
 
 <br><br>
 
@@ -56,23 +51,39 @@ AI를 기반으로 진행하는 두 번째 팀 프로젝트
 <br><br>
 
 ## 3. Project Management (22.11.03 ~ 22.12.14)
-- `VS Code`를 통한 `GitHub`와의 `Clone` 연동 후 작업
+### 프로젝트 개발 방식
+  - #### `Front-End`
 
-<br>
+    `Figma`를 활용하여 UI/UX 설계, `React`를 기반으로 작업 진행.
+    <br>
+  - #### `Back-End`
 
-- `GitHub`의 `Project`를 통한 일정, 작업 조율 및 관리
+    `Node.js`와 `FastAPI`를 통한 서버 통신, `MySQL`로 데이터베이스 설계.
+    <br>
+  - #### `AI Model`
 
-<br>
+    `Python`의 `MediaPipe`를 메인으로 사용자의 운동 자세에 대한 실시간 피드백 구현.
+    
+    <br>
+  
+### 프로젝트 소스코드 형상관리
+  - `VS Code`를 통한 `GitHub`와의 `Clone` 연동 후 작업
+  
+  <br>
 
-- `issue` 사용을 통한 예정 사항, 아이디어 회의 및 각자 할 일 정리
+  - `GitHub`의 `Project`를 통한 일정, 작업 조율 및 관리
 
-<br>
+  <br>
 
-- 공동 `Repository` 생성 후, 개별적인 `branch` 생성과 팀장을 통한 `merge` 작업으로 프로젝트 관리
+  - `issue` 사용을 통한 예정 사항, 아이디어 회의 및 각자 할 일 정리
 
-<br>
+  <br>
 
-- 도움이 될 만한 코드의 예제 실습 후, 참고 사항으로 커밋 예정
+  - 공동 `Repository` 생성 후, 개별적인 `branch` 생성과 팀장을 통한 `merge` 작업으로 프로젝트 관리
+
+  <br>
+
+  - 도움이 될 만한 코드의 예제 실습 후, 참고 사항으로 커밋 예정
 
 <br><br>
 
