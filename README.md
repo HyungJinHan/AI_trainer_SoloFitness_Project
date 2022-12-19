@@ -84,6 +84,49 @@
   <br>
 
   - 도움이 될 만한 코드의 예제 실습 후, 참고 사항으로 커밋 예정
+  
+    <br>
+  
+### 프로젝트 패키지 설치 & 웹 실행
+  - 프로젝트 경로에 3개의 `Terminal` 생성, `Terminal`에 각각의 명령어 입력
+  
+  <br>
+  
+  `frontend`
+  
+  1. `cd frontend` (frontend 폴더로 이동)
+  
+  2. `npm i` (frontend 패키지 설치)
+  
+  3. `npm start` (localhost:3000)
+  
+  <br>
+  
+  `backend`
+  
+  1. `cd backend` (backend 폴더로 이동)
+  
+  2. `npm i` (backend 패키지 설치)
+  
+  3. `npm run dev` (localhost:8008)
+
+  <br>
+  
+  `python`
+  
+  1. `cd backend` (backend 폴더로 이동)
+  
+  2. `python -m venv venv` (python 가상환경 설정)
+  
+  3. `cd venv/Scripts`
+  
+  4. `./activate` or `activate`
+  
+  5. `cd ../../` (backend 폴더로 이동)
+  
+  6. `pip install -r requirements.txt` (해당 프로젝트에서 사용한 패키지를 가상환경에 설치)
+  
+  7. `uvicorn main:app --reload` (localhost:8000)
 
 <br><br>
 
