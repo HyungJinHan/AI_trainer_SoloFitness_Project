@@ -14,7 +14,10 @@
 ## 1. Collaborator
 
 - 팀장 : 한형진(총괄)
-- 팀원 : 김찬진(`AI Modeling`) | 정영윤(`Front-End`) | 홍현호(`Back-End`) | 이진주(`AI Modeling`)
+- 팀원
+  - `AI Modeling` : 김찬진 | 이진주
+  - `Front-End` : 정영윤
+  - `Back-End` : 홍현호
 
 <br><br>
 
